@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "OTO",
+    "O#O",
+    "O#O"
+  ],
+  "key": {
+    "O": {
+      "item": "minecraft:stone"
+    },
+    "T": {
+      "item": "minecraft:piston"
+    },
+    "#": {
+      "item": "minecraft:iron_block"
+    }
+  },
+  "result": {
+    "item": "token_coins:coin_press"
+  }
+}

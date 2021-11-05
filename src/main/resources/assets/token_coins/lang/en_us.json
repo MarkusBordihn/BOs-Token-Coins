@@ -1,0 +1,9 @@
+{
+  "block.token_coins.coin_press": "Coin Press",
+  "block.placeholder.text": "Template placeholder do not remove!",
+  "container.coin_press": "Coin Press",
+  "item.token_coins.token_coin": "Token Coin",
+  "item.token_coins.coin_press_stamp": "Coin Press Stamp",
+  "item.placeholder.text": "Template placeholder do not remove!",
+  "itemGroup.Coins": "Token Coins: Coins"
+}

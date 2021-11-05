@@ -1,0 +1,23 @@
+{
+  "variants": {
+    "facing=east,lit=false,occupied=false": { "model": "token_coins:block/coin_press", "y": 90 },
+    "facing=south,lit=false,occupied=false": { "model": "token_coins:block/coin_press", "y": 180 },
+    "facing=west,lit=false,occupied=false": { "model": "token_coins:block/coin_press", "y": 270 },
+    "facing=north,lit=false,occupied=false": { "model": "token_coins:block/coin_press", "y": 0 },
+
+    "facing=east,lit=false,occupied=true": { "model": "token_coins:block/coin_press", "y": 90 },
+    "facing=south,lit=false,occupied=true": { "model": "token_coins:block/coin_press", "y": 180 },
+    "facing=west,lit=false,occupied=true": { "model": "token_coins:block/coin_press", "y": 270 },
+    "facing=north,lit=false,occupied=true": { "model": "token_coins:block/coin_press", "y": 0 },
+
+    "facing=east,lit=true,occupied=false": { "model": "token_coins:block/coin_press_powered", "y": 90 },
+    "facing=south,lit=true,occupied=false": { "model": "token_coins:block/coin_press_powered", "y": 180 },
+    "facing=west,lit=true,occupied=false": { "model": "token_coins:block/coin_press_powered", "y": 270 },
+    "facing=north,lit=true,occupied=false": { "model": "token_coins:block/coin_press_powered", "y": 0 },
+
+    "facing=east,lit=true,occupied=true": { "model": "token_coins:block/coin_press_working", "y": 90 },
+    "facing=south,lit=true,occupied=true": { "model": "token_coins:block/coin_press_working", "y": 180 },
+    "facing=west,lit=true,occupied=true": { "model": "token_coins:block/coin_press_working", "y": 270 },
+    "facing=north,lit=true,occupied=true": { "model": "token_coins:block/coin_press_working", "y": 0 }
+  }
+}
