@@ -318,6 +318,22 @@ public class CoinPressBlockEntity extends BaseContainerBlockEntity
           }
           itemStackMaterial.shrink(1);
           blockEntity.setRecipeUsed(recipe);
+
+          // Increase Item damage for Top stamp and remove, if needed.
+          int itemStackStampTopDamage = itemStackStampTop.getDamageValue();
+          if (itemStackStampTopDamage+1 >= itemStackStampTop.getMaxDamage()) {
+            itemStackStampTop.shrink(1);
+          } else {
+            itemStackStampTop.setDamageValue(itemStackStampTopDamage+1);
+          }
+
+          // Increase Item damage for Bottom stamp and remove, if needed.
+          int itemStackStampBottomDamage = itemStackStampBottom.getDamageValue();
+          if (itemStackStampBottomDamage+1 >= itemStackStampBottom.getMaxDamage()) {
+            itemStackStampBottom.shrink(1);
+          } else {
+            itemStackStampBottom.setDamageValue(itemStackStampBottomDamage+1);
+          }
         } else {
           // Otherwise update cooking Progress
           ++blockEntity.cookingProgress;

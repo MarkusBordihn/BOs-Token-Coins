@@ -41,8 +41,22 @@ public class ModItems {
       DeferredRegister.create(ForgeRegistries.ITEMS, Constants.MOD_ID);
 
   @TemplateEntryPoint("Register Items")
-  public static final RegistryObject<Item> COIN_PRESS_STAMP = ITEMS.register("coin_press_stamp",
+
+  // Coin Stamps
+  public static final RegistryObject<Item> COPPER_COIN_STAMP = ITEMS.register("copper_coin_stamp",
+      () -> new Item(new Item.Properties().durability(8).tab(CreativeModeTab.TAB_MISC)));
+  public static final RegistryObject<Item> GOLD_COIN_STAMP = ITEMS.register("gold_coin_stamp",
+      () -> new Item(new Item.Properties().durability(16).tab(CreativeModeTab.TAB_MISC)));
+  public static final RegistryObject<Item> IRON_COIN_STAMP = ITEMS.register("iron_coin_stamp",
+      () -> new Item(new Item.Properties().durability(32).tab(CreativeModeTab.TAB_MISC)));
+  public static final RegistryObject<Item> STEEL_COIN_STAMP = ITEMS.register("steel_coin_stamp",
+      () -> new Item(new Item.Properties().durability(64).tab(CreativeModeTab.TAB_MISC)));
+  public static final RegistryObject<Item> NETHERITE_COIN_STAMP = ITEMS.register(
+      "netherite_coin_stamp", () -> new Item(new Item.Properties().durability(128).tab(CreativeModeTab.TAB_MISC)));
+  public static final RegistryObject<Item> COIN_STAMP = ITEMS.register("coin_stamp",
       () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
+
+  // Coins
   public static final RegistryObject<Item> TOKEN_COIN = ITEMS.register("token_coin",
       () -> new CoinItem(new Item.Properties().tab(TokenCoinsTab.COINS)));
 

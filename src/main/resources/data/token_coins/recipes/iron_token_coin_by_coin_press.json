@@ -4,10 +4,10 @@
     "item": "minecraft:iron_nugget"
   },
   "stampTop": {
-    "item": "token_coins:coin_press_stamp"
+    "item": "token_coins:iron_coin_stamp"
   },
   "stampBottom": {
-    "item": "token_coins:coin_press_stamp"
+    "item": "token_coins:iron_coin_stamp"
   },
   "result": "token_coins:token_coin",
   "count": 1,

@@ -168,7 +168,12 @@ public class CoinPressMenu extends AbstractContainerMenu {
   }
 
   public static boolean isCoinPressStamp(ItemStack itemStack) {
-    return itemStack.is(ModItems.COIN_PRESS_STAMP.get());
+    return (itemStack.is(ModItems.COIN_STAMP.get())
+        || itemStack.is(ModItems.COPPER_COIN_STAMP.get())
+        || itemStack.is(ModItems.GOLD_COIN_STAMP.get())
+        || itemStack.is(ModItems.IRON_COIN_STAMP.get())
+        || itemStack.is(ModItems.STEEL_COIN_STAMP.get())
+        || itemStack.is(ModItems.NETHERITE_COIN_STAMP.get()));
   }
 
   public int getBurnProgress() {

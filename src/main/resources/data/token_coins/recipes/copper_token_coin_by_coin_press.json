@@ -4,10 +4,10 @@
     "item": "material_elements:copper_nugget"
   },
   "stampTop": {
-    "item": "token_coins:coin_press_stamp"
+    "item": "token_coins:copper_coin_stamp"
   },
   "stampBottom": {
-    "item": "token_coins:coin_press_stamp"
+    "item": "token_coins:copper_coin_stamp"
   },
   "result": "token_coins:token_coin",
   "count": 1,

@@ -1,6 +1,0 @@
-{
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "token_coins:item/coin_press_stamp"
-  }
-}

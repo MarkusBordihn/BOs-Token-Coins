@@ -2,8 +2,15 @@
   "block.token_coins.coin_press": "Coin Press",
   "block.placeholder.text": "Template placeholder do not remove!",
   "container.coin_press": "Coin Press",
+
+  "item.token_coins.coin_stamp": "Coin Stamp",
+  "item.token_coins.cooper_coin_stamp": "Copper Coin Stamp",
+  "item.token_coins.gold_coin_stamp": "Gold Coin Stamp",
+  "item.token_coins.iron_coin_stamp": "Iron Coin Stamp",
+  "item.token_coins.steel_coin_stamp": "Steel Coin Stamp",
+  "item.token_coins.netherite_coin_stamp": "Netherite Coin Stamp",
+
   "item.token_coins.token_coin": "Token Coin",
-  "item.token_coins.coin_press_stamp": "Coin Press Stamp",
   "item.placeholder.text": "Template placeholder do not remove!",
   "itemGroup.Coins": "Token Coins: Coins"
 }

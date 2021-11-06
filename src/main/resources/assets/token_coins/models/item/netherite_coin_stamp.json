@@ -1,0 +1,7 @@
+{
+  "parent": "token_coins:item/template/coin_stamp",
+  "textures": {
+    "texture": "minecraft:block/netherite_block",
+    "motive": "token_coins:item/blank"
+  }
+}
