@@ -34,4 +34,10 @@ public class TokenCoinsTab {
     }
   };
 
+  public static final CreativeModeTab COIN_STAMPS = new CreativeModeTab("Coins") {
+    public ItemStack makeIcon() {
+      return new ItemStack(ModItems.IRON_COIN_STAMP.get());
+    }
+  };
+
 }

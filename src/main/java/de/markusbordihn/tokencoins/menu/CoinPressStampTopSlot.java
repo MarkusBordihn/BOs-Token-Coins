@@ -23,6 +23,8 @@ import net.minecraft.world.Container;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 
+import de.markusbordihn.tokencoins.item.CoinStampItem;
+
 public class CoinPressStampTopSlot extends Slot {
 
   public CoinPressStampTopSlot(Container p_40223_, int p_40224_, int p_40225_, int p_40226_) {
@@ -30,8 +32,11 @@ public class CoinPressStampTopSlot extends Slot {
   }
 
   @Override
-  public boolean mayPlace(ItemStack p_39526_) {
-    return CoinPressMenu.isCoinPressStamp(p_39526_);
+  public boolean mayPlace(ItemStack itemStack) {
+    ItemStack partnerItem = this.container.getItem(CoinPressMenu.STAMP_BOTTOM_SLOT);
+    return CoinPressMenu.isCoinStamp(itemStack)
+        && (partnerItem.isEmpty() || (((CoinStampItem) partnerItem.getItem())
+            .getStampMotive() == ((CoinStampItem) itemStack.getItem()).getStampMotive()));
   }
 
 }

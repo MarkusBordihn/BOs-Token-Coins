@@ -1,0 +1,36 @@
+{
+  "type": "token_coins:coin_press",
+  "ingredient": {
+    "copper": "minecraft:cooper_nugget",
+    "gold": "minecraft:gold_nugget",
+    "iron": "minecraft:iron_nugget",
+    "steel": "minecraft:steel_nugget",
+    "netherite": "minecraft:nether_nugget"
+  },
+  "stamp": {
+    "top": [
+      "token_coins:copper_coin_stamp_with_creeper",
+      "token_coins:gold_coin_stamp_with_creeper",
+      "token_coins:iron_coin_stamp_with_creeper",
+      "token_coins:steel_coin_stamp_with_creeper",
+      "token_coins:netherite_coin_stamp_with_creeper"
+    ],
+    "bottom": [
+      "token_coins:copper_coin_stamp_with_creeper",
+      "token_coins:gold_coin_stamp_with_creeper",
+      "token_coins:iron_coin_stamp_with_creeper",
+      "token_coins:steel_coin_stamp_with_creeper",
+      "token_coins:netherite_coin_stamp_with_creeper"
+    ]
+  },
+  "result": {
+    "copper": "token_coins:copper_token_coin_with_creeper",
+    "gold": "token_coins:gold_token_coin_with_creeper",
+    "iron": "token_coins:iron_token_coin_with_creeper",
+    "steel": "token_coins:steel_token_coin_with_creeper",
+    "netherite": "token_coins:nether_token_coin_with_creeper"
+  },
+  "count": 1,
+  "experience": 0.1,
+  "cookingtime": 400
+}

@@ -3,8 +3,7 @@
 	"textures": {
 		"particle": "token_coins:item/coin",
 		"texture": "token_coins:item/coin",
-		"motive": "token_coins:item/coin_overlay",
-		"motive_bottom": "token_coins:item/coin_overlay_bottom"
+		"motive": "token_coins:item/coin_overlay"
 	},
 	"elements": [
 		{
@@ -126,21 +125,13 @@
 			}
 		},
 		{
-			"name": "motive_top",
-			"from": [2, 8.498, 2],
-			"to": [14, 8.502, 14],
+			"name": "motive",
+			"from": [3, 7.498, 3],
+			"to": [13, 8.502, 13],
 			"rotation": {"angle": 0, "axis": "z", "origin": [8, 0.5, 8]},
 			"faces": {
-				"up": {"uv": [0, 0, 16, 16], "texture": "#motive"}
-			}
-		},
-		{
-			"name": "motive_bottom",
-			"from": [2, 7.498, 2],
-			"to": [14, 7.502, 14],
-			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0.5, 8]},
-			"faces": {
-				"down": {"uv": [0, 0, 16, 16], "rotation": 180, "texture": "#motive_bottom", "cullface": "down"}
+				"up": {"uv": [0, 0, 16, 16], "texture": "#motive"},
+				"down": {"uv": [0, 0, 16, 16], "rotation": 180, "texture": "#motive"}
 			}
 		}
 	],
@@ -196,7 +187,7 @@
 					"name": "overlay",
 					"origin": [8, 8, 8],
 					"color": 0,
-					"children": [9, 10]
+					"children": [9]
 				}
 			]
 		}

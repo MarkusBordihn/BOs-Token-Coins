@@ -17,26 +17,28 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package de.markusbordihn.tokencoins.menu;
+package de.markusbordihn.tokencoins.item;
 
-import net.minecraft.world.Container;
-import net.minecraft.world.inventory.Slot;
-import net.minecraft.world.item.ItemStack;
+public class CoinStampItemType {
 
-import de.markusbordihn.tokencoins.item.CoinStampItem;
+  protected CoinStampItemType() {}
 
-public class CoinPressStampBottomSlot extends Slot {
-
-  public CoinPressStampBottomSlot(Container p_40223_, int p_40224_, int p_40225_, int p_40226_) {
-    super(p_40223_, p_40224_, p_40225_, p_40226_);
+  public enum Type {
+    DEFAULT,
+    CUSTOM
   }
 
-  @Override
-  public boolean mayPlace(ItemStack itemStack) {
-    ItemStack partnerItem = this.container.getItem(CoinPressMenu.STAMP_TOP_SLOT);
-    return CoinPressMenu.isCoinStamp(itemStack)
-        && (partnerItem.isEmpty() || (((CoinStampItem) partnerItem.getItem())
-            .getStampMotive() == ((CoinStampItem) itemStack.getItem()).getStampMotive()));
+  public enum Material {
+    COPPER,
+    GOLD,
+    IRON,
+    STEEL,
+    NETHERITE
+  }
+
+  public enum Motive {
+    NONE,
+    CREEPER,
   }
 
 }

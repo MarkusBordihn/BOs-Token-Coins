@@ -8,8 +8,8 @@
 	"elements": [
 		{
 			"name": "overlay",
-			"from": [2, 15.999, 2],
-			"to": [14, 16, 14],
+			"from": [2.5, 15.999, 2.5],
+			"to": [13.5, 16, 13.5],
 			"rotation": {"angle": 0, "axis": "z", "origin": [8, 0.5, 8]},
 			"faces": {
 				"up": {"uv": [0, 0.016, 15.984, 15.984], "texture": "#motive", "cullface": "up"}

@@ -23,7 +23,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.Collection;
-import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.Container;
@@ -33,14 +33,22 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.Level;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
+import net.minecraftforge.fmlserverevents.FMLServerAboutToStartEvent;
 
 import de.markusbordihn.tokencoins.Constants;
 import de.markusbordihn.tokencoins.block.ModBlocks;
 import de.markusbordihn.tokencoins.menu.CoinPressMenu;
 
+@EventBusSubscriber
 public class CoinPressRecipe extends AbstractCookingRecipe {
 
 	public static final Logger log = LogManager.getLogger(Constants.LOG_NAME);
+
+	private static ConcurrentHashMap<String, CoinPressRecipe> recipeMap = new ConcurrentHashMap<>();
+	private static boolean cachedRecipes = false;
+
 	private Ingredient stampTop;
 	private Ingredient stampBottom;
 
@@ -58,6 +66,13 @@ public class CoinPressRecipe extends AbstractCookingRecipe {
 				cookingTime);
 	}
 
+  @SubscribeEvent
+  public static void handleServerAboutToStartEvent(FMLServerAboutToStartEvent event) {
+		// Make sure to clear recipe cache on server start to avoid side effects.
+		recipeMap = new ConcurrentHashMap<>();
+		cachedRecipes = false;
+  }
+
 	@Override
 	public ItemStack getToastSymbol() {
 		return new ItemStack(ModBlocks.COIN_PRESS.get());
@@ -69,20 +84,50 @@ public class CoinPressRecipe extends AbstractCookingRecipe {
 	}
 
 	public static Recipe<?> getRecipeFor(Container container, Level level) {
-		List<CoinPressRecipe> relevantRecipe =
-				level.getRecipeManager().getRecipesFor(Constants.COIN_PRESS_RECIPE_TYPE, container, level);
 		ItemStack containerMaterial = container.getItem(CoinPressMenu.MATERIAL_SLOT);
 		ItemStack containerStampTop = container.getItem(CoinPressMenu.STAMP_TOP_SLOT);
 		ItemStack containerStampBottom = container.getItem(CoinPressMenu.STAMP_BOTTOM_SLOT);
-		for (CoinPressRecipe recipe : relevantRecipe) {
-			if (containerMaterial.sameItem(recipe.getIngredient().getItems()[0])
-					&& containerStampTop.sameItem(recipe.getStampTop().getItems()[0])
-					&& containerStampBottom.sameItem(recipe.getStampBottom().getItems()[0])) {
-				return recipe;
-			}
+
+		// Makes sure that all slots are filled before looking for any recipe
+		if (containerMaterial.isEmpty() || containerStampTop.isEmpty()
+				|| containerStampBottom.isEmpty()) {
+			return null;
 		}
-		return null;
+
+		// Cache recipes for easier and faster lookup
+		cacheRecipes(level);
+
+		// Use unique ID for lookups
+		String recipeId = getRecipeId(containerMaterial, containerStampTop, containerStampBottom);
+		return recipeMap.getOrDefault(recipeId, null);
 	}
+
+	public static void cacheRecipes(Level level) {
+		if (cachedRecipes) {
+			return;
+		} else {
+			cachedRecipes = true;
+		}
+		log.info("🚀 Pre-Caching Bo's Token Coins custom recipes for faster and easier access ...");
+		Collection<CoinPressRecipe> recipes = getAllRecipes(level);
+		for (CoinPressRecipe recipe : recipes) {
+			ItemStack ingredientItem = recipe.getIngredient().getItems()[0];
+			ItemStack stampTopItem = recipe.getStampTop().getItems()[0];
+			ItemStack stampBottomItem = recipe.getStampBottom().getItems()[0];
+			String recipeId = getRecipeId(ingredientItem, stampBottomItem, stampBottomItem);
+			log.info("{}", recipeId);
+			log.info("{} {} {}", ingredientItem, stampTopItem, stampBottomItem);
+			recipeMap.putIfAbsent(recipeId, recipe);
+		}
+		log.info("Cached {} Bo's Token Coins custom recipes.", recipeMap.size());
+	}
+
+	public static String getRecipeId(ItemStack ingredientItem, ItemStack stampTopItem,
+			ItemStack stampBottomItem) {
+		return ingredientItem.getItem().getRegistryName().toString() + "::"
+				+ stampTopItem.getItem().getRegistryName().toString() + "::"
+				+ stampBottomItem.getItem().getRegistryName().toString();
+	};
 
 	public static Collection<CoinPressRecipe> getAllRecipes(Level level) {
 		return level.getRecipeManager().getAllRecipesFor(Constants.COIN_PRESS_RECIPE_TYPE);

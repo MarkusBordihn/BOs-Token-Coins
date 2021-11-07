@@ -37,7 +37,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.registries.ObjectHolder;
 
-import de.markusbordihn.tokencoins.item.ModItems;
+import de.markusbordihn.tokencoins.item.CoinStampItem;
 import de.markusbordihn.tokencoins.Constants;
 
 public class CoinPressMenu extends AbstractContainerMenu {
@@ -123,7 +123,7 @@ public class CoinPressMenu extends AbstractContainerMenu {
       } else {
         this.moveItemStackTo(slotItemStack, MATERIAL_SLOT, 4, false);
       }
-    } else if (isCoinPressStamp(slotItemStack)) {
+    } else if (isCoinStamp(slotItemStack)) {
       if (slotIndex == STAMP_BOTTOM_SLOT || slotIndex == STAMP_TOP_SLOT) {
         this.moveItemStackTo(slotItemStack, 5, 40, false);
       } else if (!this.slots.get(STAMP_BOTTOM_SLOT).hasItem()) {
@@ -167,13 +167,8 @@ public class CoinPressMenu extends AbstractContainerMenu {
         || itemStack.is(de.markusbordihn.materialelements.item.ModItems.NETHERITE_NUGGET.get()));
   }
 
-  public static boolean isCoinPressStamp(ItemStack itemStack) {
-    return (itemStack.is(ModItems.COIN_STAMP.get())
-        || itemStack.is(ModItems.COPPER_COIN_STAMP.get())
-        || itemStack.is(ModItems.GOLD_COIN_STAMP.get())
-        || itemStack.is(ModItems.IRON_COIN_STAMP.get())
-        || itemStack.is(ModItems.STEEL_COIN_STAMP.get())
-        || itemStack.is(ModItems.NETHERITE_COIN_STAMP.get()));
+  public static boolean isCoinStamp(ItemStack itemStack) {
+    return (itemStack.getItem() instanceof CoinStampItem);
   }
 
   public int getBurnProgress() {

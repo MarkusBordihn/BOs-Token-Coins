@@ -53,6 +53,7 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.inventory.RecipeHolder;
 import net.minecraft.world.inventory.StackedContentsCompatible;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.AbstractCookingRecipe;
 import net.minecraft.world.item.crafting.Recipe;
@@ -63,9 +64,11 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.wrapper.SidedInvWrapper;
+
 import de.markusbordihn.tokencoins.Constants;
 import de.markusbordihn.tokencoins.block.CoinPressBlock;
 import de.markusbordihn.tokencoins.block.ModBlocks;
+import de.markusbordihn.tokencoins.item.CoinStampItem;
 import de.markusbordihn.tokencoins.menu.CoinPressMenu;
 import de.markusbordihn.tokencoins.recipe.CoinPressRecipe;
 
@@ -321,18 +324,18 @@ public class CoinPressBlockEntity extends BaseContainerBlockEntity
 
           // Increase Item damage for Top stamp and remove, if needed.
           int itemStackStampTopDamage = itemStackStampTop.getDamageValue();
-          if (itemStackStampTopDamage+1 >= itemStackStampTop.getMaxDamage()) {
+          if (itemStackStampTopDamage + 1 >= itemStackStampTop.getMaxDamage()) {
             itemStackStampTop.shrink(1);
           } else {
-            itemStackStampTop.setDamageValue(itemStackStampTopDamage+1);
+            itemStackStampTop.setDamageValue(itemStackStampTopDamage + 1);
           }
 
           // Increase Item damage for Bottom stamp and remove, if needed.
           int itemStackStampBottomDamage = itemStackStampBottom.getDamageValue();
-          if (itemStackStampBottomDamage+1 >= itemStackStampBottom.getMaxDamage()) {
+          if (itemStackStampBottomDamage + 1 >= itemStackStampBottom.getMaxDamage()) {
             itemStackStampBottom.shrink(1);
           } else {
-            itemStackStampBottom.setDamageValue(itemStackStampBottomDamage+1);
+            itemStackStampBottom.setDamageValue(itemStackStampBottomDamage + 1);
           }
         } else {
           // Otherwise update cooking Progress
@@ -393,13 +396,33 @@ public class CoinPressBlockEntity extends BaseContainerBlockEntity
 
   @Override
   public boolean canPlaceItem(int slotIndex, ItemStack itemStack) {
-    // Restrict Item Types to specific slots
-    return ((slotIndex == CoinPressMenu.MATERIAL_SLOT && CoinPressMenu.isNugget(itemStack))
+    // Basic item checks for material, fuel slot and stamp slots
+    if ((slotIndex == CoinPressMenu.MATERIAL_SLOT && CoinPressMenu.isNugget(itemStack))
         || (slotIndex == CoinPressMenu.FUEL_SLOT && CoinPressMenu.isFuel(itemStack))
-        || (slotIndex == CoinPressMenu.STAMP_BOTTOM_SLOT
-            && CoinPressMenu.isCoinPressStamp(itemStack))
         || (slotIndex == CoinPressMenu.STAMP_TOP_SLOT
-            && CoinPressMenu.isCoinPressStamp(itemStack)));
+            && getItem(CoinPressMenu.STAMP_BOTTOM_SLOT).isEmpty())
+        || (slotIndex == CoinPressMenu.STAMP_BOTTOM_SLOT
+            && getItem(CoinPressMenu.STAMP_TOP_SLOT).isEmpty())) {
+      return true;
+    }
+
+    CoinStampItem item = (CoinStampItem) itemStack.getItem();
+
+    // More specific check for the top stamp slot
+    if (slotIndex == CoinPressMenu.STAMP_TOP_SLOT && getItem(slotIndex).isEmpty()) {
+      return item
+          .getStampMotive() == ((CoinStampItem) getItem(CoinPressMenu.STAMP_BOTTOM_SLOT).getItem())
+              .getStampMotive();
+    }
+
+    // More specific check for the bottom stamp slot
+    if (slotIndex == CoinPressMenu.STAMP_BOTTOM_SLOT && getItem(slotIndex).isEmpty()
+        && !getItem(CoinPressMenu.STAMP_TOP_SLOT).isEmpty()) {
+      return item
+          .getStampMotive() == ((CoinStampItem) getItem(CoinPressMenu.STAMP_TOP_SLOT).getItem())
+              .getStampMotive();
+    }
+    return false;
   }
 
   @Override

@@ -1,18 +1,20 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "O",
-    "#"
+    "   ",
+    " o ",
+    " # "
   ],
   "key": {
     "#": {
       "item": "material_elements:copper_rod_half_size"
     },
-    "O": {
+    "o": {
       "item": "material_elements:copper_nugget"
     }
   },
   "result": {
-    "item": "token_coins:copper_coin_stamp"
+    "item": "token_coins:copper_coin_stamp",
+    "count": 1
   }
 }
