@@ -21,9 +21,15 @@ package de.markusbordihn.tokencoins.item;
 
 import net.minecraft.world.item.Item;
 
+import de.markusbordihn.tokencoins.tabs.TokenCoinsTab;
+
 public class CoinItem extends Item {
 
+  public CoinItem () {
+    super(new Item.Properties().tab(TokenCoinsTab.COINS));
+  }
+
   public CoinItem(Item.Properties properties) {
-    super(properties);
+    super(properties.tab(TokenCoinsTab.COINS));
   }
 }

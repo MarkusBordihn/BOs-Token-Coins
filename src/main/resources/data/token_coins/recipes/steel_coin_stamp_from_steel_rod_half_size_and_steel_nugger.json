@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   ",
+    " o ",
+    " # "
+  ],
+  "key": {
+    "#": {
+      "item": "material_elements:steel_rod_half_size"
+    },
+    "o": {
+      "item": "material_elements:steel_nugget"
+    }
+  },
+  "result": {
+    "item": "token_coins:steel_coin_stamp",
+    "count": 1
+  }
+}

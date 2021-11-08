@@ -3,14 +3,34 @@
   "block.placeholder.text": "Template placeholder do not remove!",
   "container.coin_press": "Coin Press",
 
+  "item.token_coins.copper_coin_stamp_with_creeper": "Copper Coin Stamp (Creeper)",
+  "item.token_coins.gold_coin_stamp_with_creeper": "Gold Coin Stamp (Creeper)",
+  "item.token_coins.iron_coin_stamp_with_creeper": "Iron Coin Stamp (Creeper)",
+  "item.token_coins.steel_coin_stamp_with_creeper": "Steel Coin Stamp (Creeper)",
+  "item.token_coins.netherite_coin_stamp_with_creeper": "Netherite Coin Stamp (Creeper)",
+
+  "item.token_coins.copper_token_coin_with_creeper": "Copper Coin (Creeper)",
+  "item.token_coins.gold_token_coin_with_creeper": "Gold Coin (Creeper)",
+  "item.token_coins.iron_token_coin_with_creeper": "Iron Coin (Creeper)",
+  "item.token_coins.steel_token_coin_with_creeper": "Steel Coin (Creeper)",
+  "item.token_coins.netherite_token_coin_with_creeper": "Netherite Coin(Creeper)",
+
   "item.token_coins.coin_stamp": "Coin Stamp",
-  "item.token_coins.cooper_coin_stamp": "Copper Coin Stamp",
+  "item.token_coins.copper_coin_stamp": "Copper Coin Stamp",
   "item.token_coins.gold_coin_stamp": "Gold Coin Stamp",
   "item.token_coins.iron_coin_stamp": "Iron Coin Stamp",
   "item.token_coins.steel_coin_stamp": "Steel Coin Stamp",
   "item.token_coins.netherite_coin_stamp": "Netherite Coin Stamp",
 
   "item.token_coins.token_coin": "Token Coin",
+  "item.token_coins.copper_token_coin": "Copper Coin",
+  "item.token_coins.gold_token_coin": "Gold Coin",
+  "item.token_coins.iron_token_coin": "Iron Coin",
+  "item.token_coins.steel_token_coin": "Steel Coin",
+  "item.token_coins.netherite_token_coin": "Netherite Coin",
+
   "item.placeholder.text": "Template placeholder do not remove!",
-  "itemGroup.Coins": "Token Coins: Coins"
+
+  "itemGroup.coins": "Token Coins: Coins",
+  "itemGroup.coin_stamps": "Token Coins: Coin Stamps"
 }

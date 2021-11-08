@@ -19,8 +19,10 @@
 
 package de.markusbordihn.tokencoins.recipe;
 
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
+import net.minecraft.core.NonNullList;
 import net.minecraft.core.Registry;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
@@ -32,91 +34,139 @@ import net.minecraft.world.item.crafting.ShapedRecipe;
 import net.minecraftforge.registries.ForgeRegistryEntry;
 
 public class CoinPressRecipeSerializer extends ForgeRegistryEntry<RecipeSerializer<?>>
-		implements RecipeSerializer<CoinPressRecipe> {
+    implements RecipeSerializer<CoinPressRecipe> {
 
-	@SuppressWarnings("deprecation")
-	@Override
-	public CoinPressRecipe fromJson(ResourceLocation location, JsonObject object) {
-		if (!object.has("result"))
-			throw new com.google.gson.JsonSyntaxException(
-					"Missing result, expected to find a string or object");
-		if (!object.has("ingredient"))
-			throw new com.google.gson.JsonSyntaxException(
-					"Missing ingredient, expected to find a string or object");
-		if (!object.has("stampTop"))
-			throw new com.google.gson.JsonSyntaxException(
-					"Missing stampTop, expected to find a string or object");
-		if (!object.has("stampBottom"))
-			throw new com.google.gson.JsonSyntaxException(
-					"Missing stampBottom, expected to find a string or object");
-		if (!object.has("cookingtime"))
-			throw new com.google.gson.JsonSyntaxException(
-					"Missing cookingtime, expected to find a string or object");
+  public static final String COOKING_TIME = "cookingtime";
+  public static final String COUNT = "count";
+  public static final String EXPERIENCE = "experience";
+  public static final String GROUP = "result";
+  public static final String INGREDIENT = "ingredient";
+  public static final String RESULT = "result";
+  public static final String STAMP_BOTTOM = "stamp_bottom";
+  public static final String STAMP_TOP = "stamp_top";
 
-		// Ingredient
-		Ingredient ingredient = Ingredient.fromJson(GsonHelper.isArrayNode(object, "ingredient")
-				? GsonHelper.getAsJsonArray(object, "ingredient")
-				: GsonHelper.getAsJsonObject(object, "ingredient"));
+  private static NonNullList<Ingredient> itemsFromJson(JsonArray jsonArray) {
+    NonNullList<Ingredient> nonnulllist = NonNullList.create();
+    for (int i = 0; i < jsonArray.size(); ++i) {
+      Ingredient ingredient = Ingredient.fromJson(jsonArray.get(i));
+      if (!ingredient.isEmpty()) {
+        nonnulllist.add(ingredient);
+      }
+    }
+    return nonnulllist;
+  }
 
-		// Stamp Top
-		Ingredient stampTop = Ingredient.fromJson(
-				GsonHelper.isArrayNode(object, "stampTop") ? GsonHelper.getAsJsonArray(object, "stampTop")
-						: GsonHelper.getAsJsonObject(object, "stampTop"));
+  protected CoinPressRecipe createRecipe(ResourceLocation recipeId, String group,
+      Ingredient ingredient, NonNullList<Ingredient> stampTop, NonNullList<Ingredient> stampBottom,
+      ItemStack result, float experience, int cookingTime) {
+    return new CoinPressRecipe(recipeId, group, ingredient, stampTop, stampBottom, result,
+        experience, cookingTime);
+  }
 
-		// Stamp Bottom
-		Ingredient stampBottom = Ingredient.fromJson(GsonHelper.isArrayNode(object, "stampBottom")
-				? GsonHelper.getAsJsonArray(object, "stampBottom")
-				: GsonHelper.getAsJsonObject(object, "stampBottom"));
+  @SuppressWarnings("deprecation")
+  @Override
+  public CoinPressRecipe fromJson(ResourceLocation location, JsonObject jsonObject) {
+    if (!jsonObject.has(RESULT))
+      throw new com.google.gson.JsonSyntaxException(
+          "Missing result, expected to find a string or jsonObject");
+    if (!jsonObject.has(INGREDIENT))
+      throw new com.google.gson.JsonSyntaxException(
+          "Missing ingredient, expected to find a string or jsonObject");
+    if (!jsonObject.has(STAMP_TOP))
+      throw new com.google.gson.JsonSyntaxException(
+          "Missing stampTop, expected to find a string or object");
+    if (!jsonObject.has(STAMP_BOTTOM))
+      throw new com.google.gson.JsonSyntaxException(
+          "Missing stampBottom, expected to find a string or object");
+    if (!jsonObject.has(COOKING_TIME))
+      throw new com.google.gson.JsonSyntaxException(
+          "Missing cookingtime, expected to find a string or jsonObject");
 
-		// Result
-		ItemStack itemStack;
-		if (object.get("result").isJsonObject())
-			itemStack = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(object, "result"));
-		else {
-			int count = GsonHelper.getAsInt(object, "count");
-			String resultItem = GsonHelper.getAsString(object, "result");
-			ResourceLocation resourceLocation = new ResourceLocation(resultItem);
-			itemStack = new ItemStack(Registry.ITEM.getOptional(resourceLocation).orElseThrow(() -> {
-				return new IllegalStateException("Item: " + resultItem + " does not exist");
-			}), count);
-		}
+    // Ingredient
+    Ingredient ingredient = Ingredient.fromJson(GsonHelper.isArrayNode(jsonObject, INGREDIENT)
+        ? GsonHelper.getAsJsonArray(jsonObject, INGREDIENT)
+        : GsonHelper.getAsJsonObject(jsonObject, INGREDIENT));
 
-		String group = GsonHelper.getAsString(object, "group", "");
-		float experience = GsonHelper.getAsFloat(object, "experience", 0.0F);
-		int cookingTime = GsonHelper.getAsInt(object, "cookingtime", 100);
-		return new CoinPressRecipe(location, group, ingredient, stampTop, stampBottom, itemStack,
-				experience, cookingTime);
-	}
+    // Stamp
+    NonNullList<Ingredient> stampTop =
+        itemsFromJson(GsonHelper.getAsJsonArray(jsonObject, STAMP_TOP));
+    NonNullList<Ingredient> stampBottom =
+        itemsFromJson(GsonHelper.getAsJsonArray(jsonObject, STAMP_BOTTOM));
 
-	@Override
-	public CoinPressRecipe fromNetwork(ResourceLocation recipeId, FriendlyByteBuf buffer) {
-		ResourceLocation id = buffer.readResourceLocation();
-		String group = buffer.readUtf();
-		ItemStack result = buffer.readItem();
-		Ingredient ingredient = Ingredient.of(buffer.readItem());
-		Ingredient stampTop = Ingredient.of(buffer.readItem());
-		Ingredient stampBottom = Ingredient.of(buffer.readItem());
-		float xp = buffer.readFloat();
-		int time = buffer.readInt();
-		return createRecipe(id, group, ingredient, stampTop, stampBottom, result, xp, time);
-	}
+    // Result
+    ItemStack itemStack;
+    if (jsonObject.get(RESULT).isJsonObject())
+      itemStack = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(jsonObject, RESULT));
+    else {
+      int count = GsonHelper.getAsInt(jsonObject, COUNT);
+      String resultItem = GsonHelper.getAsString(jsonObject, RESULT);
+      ResourceLocation resourceLocation = new ResourceLocation(resultItem);
+      itemStack = new ItemStack(Registry.ITEM.getOptional(resourceLocation).orElseThrow(() -> {
+        return new IllegalStateException("Item: " + resultItem + " does not exist");
+      }), count);
+    }
 
-	protected CoinPressRecipe createRecipe(ResourceLocation recipeId, String group,
-			Ingredient ingredient, Ingredient stampTop, Ingredient stampBottom, ItemStack result,
-			float experience, int cookingTime) {
-		return new CoinPressRecipe(recipeId, group, ingredient, stampTop, stampBottom, result,
-				experience, cookingTime);
-	}
+    // Group
+    String group = GsonHelper.getAsString(jsonObject, GROUP, "");
 
-	@Override
-	public void toNetwork(FriendlyByteBuf buffer, CoinPressRecipe recipe) {
-		buffer.writeResourceLocation(recipe.getId());
-		buffer.writeUtf(recipe.getGroup());
-		buffer.writeItem(recipe.getIngredient().getItems()[0]);
-		buffer.writeItem(recipe.getStampTop().getItems()[0]);
-		buffer.writeItem(recipe.getStampBottom().getItems()[0]);
-		buffer.writeItem(recipe.getResultItem());
-		buffer.writeFloat(recipe.getExperience());
-		buffer.writeInt(recipe.getCookingTime());
-	}
+    // Experience
+    float experience = GsonHelper.getAsFloat(jsonObject, EXPERIENCE, 0.0F);
+
+    // Cooking Time
+    int cookingTime = GsonHelper.getAsInt(jsonObject, COOKING_TIME, 100);
+
+    // Recipe
+    return new CoinPressRecipe(location, group, ingredient, stampTop, stampBottom, itemStack,
+        experience, cookingTime);
+  }
+
+  @Override
+  public CoinPressRecipe fromNetwork(ResourceLocation recipeId, FriendlyByteBuf buffer) {
+    ResourceLocation id = buffer.readResourceLocation();
+    String group = buffer.readUtf();
+    ItemStack result = buffer.readItem();
+    Ingredient ingredient = Ingredient.of(buffer.readItem());
+
+    // Handle Stamp Top ingredient
+    int stampTopSize = buffer.readVarInt();
+    NonNullList<Ingredient> stampTop = NonNullList.withSize(stampTopSize, Ingredient.EMPTY);
+    for (int i = 0; i < stampTop.size(); ++i) {
+      stampTop.set(i, Ingredient.of(buffer.readItem()));
+    }
+
+    // Handle Stamp Bottom ingredient
+    int stampBottomSize = buffer.readVarInt();
+    NonNullList<Ingredient> stampBottom = NonNullList.withSize(stampBottomSize, Ingredient.EMPTY);
+    for (int i = 0; i < stampBottom.size(); ++i) {
+      stampBottom.set(i, Ingredient.of(buffer.readItem()));
+    }
+
+    float experience = buffer.readFloat();
+    int cookingtime = buffer.readInt();
+    return createRecipe(id, group, ingredient, stampTop, stampBottom, result, experience,
+        cookingtime);
+  }
+
+  @Override
+  public void toNetwork(FriendlyByteBuf buffer, CoinPressRecipe recipe) {
+    buffer.writeResourceLocation(recipe.getId());
+    buffer.writeUtf(recipe.getGroup());
+    buffer.writeItem(recipe.getIngredient().getItems()[0]);
+
+    // Handle Stamp Top ingredient
+    buffer.writeVarInt(recipe.getStampTop().size());
+    for (Ingredient ingredient : recipe.getStampTop()) {
+      buffer.writeItem(ingredient.getItems()[0]);
+    }
+
+    // Handle Stamp Bottom ingredient
+    buffer.writeVarInt(recipe.getStampBottom().size());
+    for (Ingredient ingredient : recipe.getStampBottom()) {
+      buffer.writeItem(ingredient.getItems()[0]);
+    }
+
+    buffer.writeItem(recipe.getResultItem());
+    buffer.writeFloat(recipe.getExperience());
+    buffer.writeInt(recipe.getCookingTime());
+  }
 }

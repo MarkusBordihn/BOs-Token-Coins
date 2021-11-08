@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   ",
+    " o ",
+    " # "
+  ],
+  "key": {
+    "#": {
+      "item": "material_elements:netherite_rod_half_size"
+    },
+    "o": {
+      "item": "material_elements:netherite_nugget"
+    }
+  },
+  "result": {
+    "item": "token_coins:netherite_coin_stamp",
+    "count": 1
+  }
+}

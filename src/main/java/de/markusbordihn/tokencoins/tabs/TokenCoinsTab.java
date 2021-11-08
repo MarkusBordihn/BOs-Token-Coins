@@ -28,15 +28,15 @@ public class TokenCoinsTab {
 
   protected TokenCoinsTab() {}
 
-  public static final CreativeModeTab COINS = new CreativeModeTab("Coins") {
+  public static final CreativeModeTab COINS = new CreativeModeTab("coins") {
     public ItemStack makeIcon() {
-      return new ItemStack(ModItems.TOKEN_COIN.get());
+      return new ItemStack(ModItems.GOLD_TOKEN_COIN.get());
     }
   };
 
-  public static final CreativeModeTab COIN_STAMPS = new CreativeModeTab("Coins") {
+  public static final CreativeModeTab COIN_STAMPS = new CreativeModeTab("coin_stamps") {
     public ItemStack makeIcon() {
-      return new ItemStack(ModItems.IRON_COIN_STAMP.get());
+      return new ItemStack(ModItems.GOLD_COIN_STAMP.get());
     }
   };
 

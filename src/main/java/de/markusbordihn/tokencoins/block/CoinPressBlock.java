@@ -56,6 +56,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -69,10 +70,13 @@ public class CoinPressBlock extends BaseEntityBlock {
 
   public static final String NAME = "coin_press";
 
+  // Define custom block states for better animation and model control.
   public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
   public static final BooleanProperty POWERED = BlockStateProperties.LIT;
-  public static final BooleanProperty WORKING = BlockStateProperties.OCCUPIED;
+  public static final BooleanProperty WORKING = BooleanProperty.create("working");
+  public static final IntegerProperty VARIANT = IntegerProperty.create("variant", 0, 5);
 
+  // General map to be able animate each model individual regardless of the current block state.
   private Map<String, Boolean> lastWorkingStateMap = new HashMap<>();
   private Map<String, Boolean> lastPoweredStateMap = new HashMap<>();
 
@@ -81,7 +85,8 @@ public class CoinPressBlock extends BaseEntityBlock {
   public CoinPressBlock(Properties properties) {
     super(properties);
     this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH)
-        .setValue(POWERED, Boolean.valueOf(false)).setValue(WORKING, Boolean.valueOf(false)));
+        .setValue(POWERED, Boolean.valueOf(false)).setValue(WORKING, Boolean.valueOf(false))
+        .setValue(VARIANT, 0));
   }
 
   protected void openContainer(Level level, BlockPos blockPos, Player player) {
@@ -92,8 +97,8 @@ public class CoinPressBlock extends BaseEntityBlock {
   }
 
   @Override
-  public InteractionResult use(BlockState p_49069_, Level level, BlockPos blockPos, Player player,
-      InteractionHand p_49073_, BlockHitResult p_49074_) {
+  public InteractionResult use(BlockState blockState, Level level, BlockPos blockPos, Player player,
+      InteractionHand interactionHand, BlockHitResult blockHitResult) {
     if (level.isClientSide) {
       return InteractionResult.SUCCESS;
     } else {
@@ -104,7 +109,7 @@ public class CoinPressBlock extends BaseEntityBlock {
 
   @Override
   protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> blockState) {
-    blockState.add(POWERED, WORKING, FACING);
+    blockState.add(POWERED, WORKING, FACING, VARIANT);
   }
 
   @Override
@@ -161,8 +166,10 @@ public class CoinPressBlock extends BaseEntityBlock {
     // Get the current stats based on the block position.
     boolean powerState = Boolean.TRUE.equals(blockState.getValue(POWERED));
     boolean workingState = Boolean.TRUE.equals(blockState.getValue(WORKING));
-    boolean lastPoweredState = this.lastPoweredStateMap.getOrDefault(blockPos.toShortString(), false);
-    boolean lastWorkingState = this.lastWorkingStateMap.getOrDefault(blockPos.toShortString(), false);
+    boolean lastPoweredState =
+        this.lastPoweredStateMap.getOrDefault(blockPos.toShortString(), false);
+    boolean lastWorkingState =
+        this.lastWorkingStateMap.getOrDefault(blockPos.toShortString(), false);
     SoundEvent soundEvent = null;
     SimpleParticleType particleTypes = null;
 
@@ -193,8 +200,7 @@ public class CoinPressBlock extends BaseEntityBlock {
       double d0 = blockPos.getX() + 0.5D;
       double d1 = blockPos.getY();
       double d2 = blockPos.getZ() + 0.5D;
-      level.playLocalSound(d0, d1, d2, soundEvent, SoundSource.BLOCKS, 1.0F,
-          1.0F, false);
+      level.playLocalSound(d0, d1, d2, soundEvent, SoundSource.BLOCKS, 1.0F, 1.0F, false);
     }
 
     // Handle Particle

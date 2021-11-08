@@ -1,0 +1,6 @@
+{
+  "parent": "token_coins:block/template/coin_press",
+  "textures": {
+    "material": "material_elements:item/netherite_nugget"
+  }
+}

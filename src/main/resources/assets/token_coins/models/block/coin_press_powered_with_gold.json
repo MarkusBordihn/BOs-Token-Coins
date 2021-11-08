@@ -1,0 +1,7 @@
+{
+  "parent": "token_coins:block/template/coin_press",
+  "textures": {
+    "texture": "token_coins:block/coin_press_powered",
+    "material": "minecraft:item/gold_nugget"
+  }
+}

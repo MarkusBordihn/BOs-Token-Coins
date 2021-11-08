@@ -1,6 +1,6 @@
 {
 	"credit": "Made with Blockbench by Markus Bordihn",
-	"parent": "token_coins:block/coin_press",
+	"parent": "token_coins:block/template/coin_press",
 	"texture_size": [64, 64],
 	"textures": {
 		"texture": "token_coins:block/coin_press_powered",

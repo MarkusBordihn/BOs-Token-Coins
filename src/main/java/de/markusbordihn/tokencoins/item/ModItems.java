@@ -28,7 +28,6 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 import de.markusbordihn.tokencoins.Constants;
 import de.markusbordihn.tokencoins.block.ModBlocks;
-import de.markusbordihn.tokencoins.tabs.TokenCoinsTab;
 import de.markusbordihn.tokencoins.Annotations.TemplateEntryPoint;
 
 public class ModItems {
@@ -62,8 +61,15 @@ public class ModItems {
 
   // Crepper Coins
   public static final RegistryObject<Item> COPPER_TOKEN_COIN_WITH_CREPPER =
-      ITEMS.register("copper_token_coin_with_creeper",
-          () -> new CoinItem(new Item.Properties().tab(TokenCoinsTab.COINS)));
+      ITEMS.register("copper_token_coin_with_creeper", CoinItem::new);
+  public static final RegistryObject<Item> GOLD_TOKEN_COIN_WITH_CREPPER =
+      ITEMS.register("gold_token_coin_with_creeper", CoinItem::new);
+  public static final RegistryObject<Item> IRON_TOKEN_COIN_WITH_CREPPER =
+      ITEMS.register("iron_token_coin_with_creeper", CoinItem::new);
+  public static final RegistryObject<Item> STEEL_TOKEN_COIN_WITH_CREPPER =
+      ITEMS.register("steel_token_coin_with_creeper", CoinItem::new);
+  public static final RegistryObject<Item> NETHERITE_TOKEN_COIN_WITH_CREPPER =
+      ITEMS.register("netherite_token_coin_with_creeper", CoinItem::new);
 
   // Basic Coin Stamps
   public static final RegistryObject<Item> COPPER_COIN_STAMP = ITEMS.register("copper_coin_stamp",
@@ -79,9 +85,18 @@ public class ModItems {
   public static final RegistryObject<Item> COIN_STAMP =
       ITEMS.register("coin_stamp", () -> new CoinStampItem(CoinStampItemType.Material.COPPER));
 
-  // Coins
-  public static final RegistryObject<Item> TOKEN_COIN = ITEMS.register("token_coin",
-      () -> new CoinItem(new Item.Properties().tab(TokenCoinsTab.COINS)));
+  // Basic Coins
+  public static final RegistryObject<Item> COPPER_TOKEN_COIN =
+      ITEMS.register("copper_token_coin", CoinItem::new);
+  public static final RegistryObject<Item> GOLD_TOKEN_COIN =
+      ITEMS.register("gold_token_coin", CoinItem::new);
+  public static final RegistryObject<Item> IRON_TOKEN_COIN =
+      ITEMS.register("iron_token_coin", CoinItem::new);
+  public static final RegistryObject<Item> STEEL_TOKEN_COIN =
+      ITEMS.register("steel_token_coin", CoinItem::new);
+  public static final RegistryObject<Item> NETHERITE_TOKEN_COIN =
+      ITEMS.register("netherite_token_coin", CoinItem::new);
+  public static final RegistryObject<Item> TOKEN_COIN = ITEMS.register("token_coin", CoinItem::new);
 
   @TemplateEntryPoint("Register Block Items")
   public static final RegistryObject<Item> COIN_PRESS =

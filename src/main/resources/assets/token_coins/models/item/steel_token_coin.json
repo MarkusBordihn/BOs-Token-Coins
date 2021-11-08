@@ -1,7 +1,7 @@
 {
   "parent": "token_coins:item/template/coin",
   "textures": {
-    "texture": "token_coins:item/coins/copper_token_coin",
+    "texture": "token_coins:item/coins/steel_token_coin",
     "motive": "token_coins:item/blank"
   }
 }

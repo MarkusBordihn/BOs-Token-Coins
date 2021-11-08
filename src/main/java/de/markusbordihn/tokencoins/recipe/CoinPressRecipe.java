@@ -25,6 +25,7 @@ import org.apache.logging.log4j.Logger;
 import java.util.Collection;
 import java.util.concurrent.ConcurrentHashMap;
 
+import net.minecraft.core.NonNullList;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.Container;
 import net.minecraft.world.item.ItemStack;
@@ -49,12 +50,12 @@ public class CoinPressRecipe extends AbstractCookingRecipe {
 	private static ConcurrentHashMap<String, CoinPressRecipe> recipeMap = new ConcurrentHashMap<>();
 	private static boolean cachedRecipes = false;
 
-	private Ingredient stampTop;
-	private Ingredient stampBottom;
+	private NonNullList<Ingredient> stampTop;
+	private NonNullList<Ingredient> stampBottom;
 
 	public CoinPressRecipe(ResourceLocation resourceLocation, String group, Ingredient ingredient,
-			Ingredient stampTop, Ingredient stampBottom, ItemStack result, float experience,
-			int cookingTime) {
+			NonNullList<Ingredient> stampTop, NonNullList<Ingredient> stampBottom, ItemStack result,
+			float experience, int cookingTime) {
 		this(resourceLocation, group, ingredient, result, experience, cookingTime);
 		this.stampTop = stampTop;
 		this.stampBottom = stampBottom;
@@ -66,12 +67,12 @@ public class CoinPressRecipe extends AbstractCookingRecipe {
 				cookingTime);
 	}
 
-  @SubscribeEvent
-  public static void handleServerAboutToStartEvent(FMLServerAboutToStartEvent event) {
+	@SubscribeEvent
+	public static void handleServerAboutToStartEvent(FMLServerAboutToStartEvent event) {
 		// Make sure to clear recipe cache on server start to avoid side effects.
 		recipeMap = new ConcurrentHashMap<>();
 		cachedRecipes = false;
-  }
+	}
 
 	@Override
 	public ItemStack getToastSymbol() {
@@ -112,14 +113,28 @@ public class CoinPressRecipe extends AbstractCookingRecipe {
 		Collection<CoinPressRecipe> recipes = getAllRecipes(level);
 		for (CoinPressRecipe recipe : recipes) {
 			ItemStack ingredientItem = recipe.getIngredient().getItems()[0];
-			ItemStack stampTopItem = recipe.getStampTop().getItems()[0];
-			ItemStack stampBottomItem = recipe.getStampBottom().getItems()[0];
-			String recipeId = getRecipeId(ingredientItem, stampBottomItem, stampBottomItem);
-			log.info("{}", recipeId);
-			log.info("{} {} {}", ingredientItem, stampTopItem, stampBottomItem);
-			recipeMap.putIfAbsent(recipeId, recipe);
+			NonNullList<Ingredient> stampTopItems = recipe.getStampTop();
+			NonNullList<Ingredient> stampBottomItems = recipe.getStampBottom();
+
+			// Cache possible combinations for coin stamps for top and bottom.
+			for (Ingredient stampTopEntry : stampTopItems) {
+				ItemStack stampTopItem = stampTopEntry.getItems()[0];
+				for (Ingredient stampBottomEntry : stampBottomItems) {
+					ItemStack stampBottomItem = stampBottomEntry.getItems()[0];
+					String recipeId = getRecipeId(ingredientItem, stampTopItem, stampBottomItem);
+					if (recipeMap.containsKey(recipeId)) {
+						log.warn(
+								"Skipping duplicated Bo's Token Coins custom recipes {}, found possible duplicated recipe!",
+								recipeId);
+					} else {
+						recipeMap.put(recipeId, recipe);
+					}
+				}
+			}
 		}
-		log.info("Cached {} Bo's Token Coins custom recipes.", recipeMap.size());
+		if (recipeMap.size() > 0) {
+			log.info("Cached {} Bo's Token Coins custom recipes.", recipeMap.size());
+		}
 	}
 
 	public static String getRecipeId(ItemStack ingredientItem, ItemStack stampTopItem,
@@ -137,11 +152,11 @@ public class CoinPressRecipe extends AbstractCookingRecipe {
 		return this.ingredient;
 	}
 
-	public Ingredient getStampTop() {
+	public NonNullList<Ingredient> getStampTop() {
 		return this.stampTop;
 	}
 
-	public Ingredient getStampBottom() {
+	public NonNullList<Ingredient> getStampBottom() {
 		return this.stampBottom;
 	}
 }

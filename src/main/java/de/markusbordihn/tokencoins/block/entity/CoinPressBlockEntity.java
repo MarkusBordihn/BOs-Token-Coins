@@ -55,10 +55,12 @@ import net.minecraft.world.inventory.RecipeHolder;
 import net.minecraft.world.inventory.StackedContentsCompatible;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.AbstractCookingRecipe;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BaseContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
@@ -69,6 +71,7 @@ import de.markusbordihn.tokencoins.Constants;
 import de.markusbordihn.tokencoins.block.CoinPressBlock;
 import de.markusbordihn.tokencoins.block.ModBlocks;
 import de.markusbordihn.tokencoins.item.CoinStampItem;
+import de.markusbordihn.tokencoins.item.ModItems;
 import de.markusbordihn.tokencoins.menu.CoinPressMenu;
 import de.markusbordihn.tokencoins.recipe.CoinPressRecipe;
 
@@ -158,6 +161,25 @@ public class CoinPressBlockEntity extends BaseContainerBlockEntity
 
   public ItemStack getItem(int index) {
     return this.items.get(index);
+  }
+
+  public static int getMaterialVariant(ItemStack itemStack) {
+    if (itemStack.isEmpty()) {
+      return 0;
+    }
+    if (itemStack.is(de.markusbordihn.materialelements.item.ModItems.COPPER_NUGGET.get())) {
+      return 1;
+    } else if (itemStack.is(Items.GOLD_NUGGET)) {
+      return 2;
+    } else if (itemStack.is(Items.IRON_NUGGET)) {
+      return 3;
+    } else if (itemStack.is(de.markusbordihn.materialelements.item.ModItems.STEEL_NUGGET.get())) {
+      return 4;
+    } else if (itemStack
+        .is(de.markusbordihn.materialelements.item.ModItems.NETHERITE_NUGGET.get())) {
+      return 5;
+    }
+    return 0;
   }
 
   public ItemStack removeItem(int p_58330_, int p_58331_) {
@@ -262,14 +284,17 @@ public class CoinPressBlockEntity extends BaseContainerBlockEntity
       blockEntity.burnTime--;
     }
 
-    // Block State check every 20 ticks for powered and working status.
+    // Block State check every 20 ticks for powered, working and material status
     if (blockEntity.stateCheck++ == 20) {
-      if (!Objects.equals(blockEntity.isPowered(), blockState.getValue(CoinPressBlock.POWERED))
-          || !Objects.equals(blockEntity.isWorkingDelayed(),
-              blockState.getValue(CoinPressBlock.WORKING))) {
-        BlockState newBlockState =
-            blockState.setValue(CoinPressBlock.POWERED, blockEntity.isPowered())
-                .setValue(CoinPressBlock.WORKING, blockEntity.isWorkingDelayed());
+      int materialVariant = getMaterialVariant(itemStackMaterial);
+      boolean isPowered = blockEntity.isPowered();
+      boolean isWorking = blockEntity.isWorkingDelayed();
+      if (!Objects.equals(isPowered, blockState.getValue(CoinPressBlock.POWERED))
+          || !Objects.equals(isWorking, blockState.getValue(CoinPressBlock.WORKING))
+          || materialVariant != blockState.getValue(CoinPressBlock.VARIANT)) {
+        BlockState newBlockState = blockState.setValue(CoinPressBlock.POWERED, isPowered)
+            .setValue(CoinPressBlock.WORKING, isWorking)
+            .setValue(CoinPressBlock.VARIANT, materialVariant);
         level.setBlock(blockPos, newBlockState, 3);
         setChanged(level, blockPos, newBlockState);
       }
@@ -396,32 +421,35 @@ public class CoinPressBlockEntity extends BaseContainerBlockEntity
 
   @Override
   public boolean canPlaceItem(int slotIndex, ItemStack itemStack) {
+
     // Basic item checks for material, fuel slot and stamp slots
     if ((slotIndex == CoinPressMenu.MATERIAL_SLOT && CoinPressMenu.isNugget(itemStack))
         || (slotIndex == CoinPressMenu.FUEL_SLOT && CoinPressMenu.isFuel(itemStack))
-        || (slotIndex == CoinPressMenu.STAMP_TOP_SLOT
+        || (slotIndex == CoinPressMenu.STAMP_TOP_SLOT && CoinPressMenu.isCoinStamp(itemStack)
             && getItem(CoinPressMenu.STAMP_BOTTOM_SLOT).isEmpty())
-        || (slotIndex == CoinPressMenu.STAMP_BOTTOM_SLOT
+        || (slotIndex == CoinPressMenu.STAMP_BOTTOM_SLOT && CoinPressMenu.isCoinStamp(itemStack)
             && getItem(CoinPressMenu.STAMP_TOP_SLOT).isEmpty())) {
       return true;
     }
 
-    CoinStampItem item = (CoinStampItem) itemStack.getItem();
+    // More specific check for coin stamps based on their motive
+    if (itemStack.getItem() instanceof CoinStampItem) {
+      CoinStampItem item = (CoinStampItem) itemStack.getItem();
 
-    // More specific check for the top stamp slot
-    if (slotIndex == CoinPressMenu.STAMP_TOP_SLOT && getItem(slotIndex).isEmpty()) {
-      return item
-          .getStampMotive() == ((CoinStampItem) getItem(CoinPressMenu.STAMP_BOTTOM_SLOT).getItem())
-              .getStampMotive();
+      log.info("canPlaceItem {} {} {}", slotIndex, item, item.getStampMotive());
+      // More specific check for the top stamp slot
+      if (slotIndex == CoinPressMenu.STAMP_TOP_SLOT && getItem(slotIndex).isEmpty()) {
+        return item.getStampMotive() == ((CoinStampItem) getItem(CoinPressMenu.STAMP_BOTTOM_SLOT)
+            .getItem()).getStampMotive();
+      }
+      // More specific check for the bottom stamp slot
+      if (slotIndex == CoinPressMenu.STAMP_BOTTOM_SLOT && getItem(slotIndex).isEmpty()) {
+        return item
+            .getStampMotive() == ((CoinStampItem) getItem(CoinPressMenu.STAMP_TOP_SLOT).getItem())
+                .getStampMotive();
+      }
     }
 
-    // More specific check for the bottom stamp slot
-    if (slotIndex == CoinPressMenu.STAMP_BOTTOM_SLOT && getItem(slotIndex).isEmpty()
-        && !getItem(CoinPressMenu.STAMP_TOP_SLOT).isEmpty()) {
-      return item
-          .getStampMotive() == ((CoinStampItem) getItem(CoinPressMenu.STAMP_TOP_SLOT).getItem())
-              .getStampMotive();
-    }
     return false;
   }
 
