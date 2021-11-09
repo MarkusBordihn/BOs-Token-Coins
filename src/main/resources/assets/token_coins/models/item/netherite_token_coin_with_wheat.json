@@ -1,0 +1,6 @@
+{
+  "parent": "token_coins:item/template/coin/netherite_token_coin",
+  "textures": {
+    "motive": "token_coins:item/motives/wheat"
+  }
+}

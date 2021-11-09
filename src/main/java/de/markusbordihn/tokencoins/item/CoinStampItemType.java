@@ -37,6 +37,7 @@ public class CoinStampItemType {
   }
 
   public enum Motive {
+    WHEAT,
     POPPY,
     SKELETON,
     DRAGON,
