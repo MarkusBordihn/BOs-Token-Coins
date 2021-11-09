@@ -1,5 +1,5 @@
 {
-  "parent": "token_coins:item/copper_coin_stamp",
+  "parent": "token_coins:item/template/coin_stamp/copper_coin_stamp",
   "textures": {
     "motive": "token_coins:item/motives/creeper"
   }

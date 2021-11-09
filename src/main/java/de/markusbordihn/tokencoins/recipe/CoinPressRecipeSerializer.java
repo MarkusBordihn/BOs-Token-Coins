@@ -82,12 +82,15 @@ public class CoinPressRecipeSerializer extends ForgeRegistryEntry<RecipeSerializ
       throw new com.google.gson.JsonSyntaxException(
           "Missing cookingtime, expected to find a string or jsonObject");
 
+    // Group
+    String group = GsonHelper.getAsString(jsonObject, GROUP, "");
+
     // Ingredient
     Ingredient ingredient = Ingredient.fromJson(GsonHelper.isArrayNode(jsonObject, INGREDIENT)
         ? GsonHelper.getAsJsonArray(jsonObject, INGREDIENT)
         : GsonHelper.getAsJsonObject(jsonObject, INGREDIENT));
 
-    // Stamp
+    // Stamps
     NonNullList<Ingredient> stampTop =
         itemsFromJson(GsonHelper.getAsJsonArray(jsonObject, STAMP_TOP));
     NonNullList<Ingredient> stampBottom =
@@ -106,9 +109,6 @@ public class CoinPressRecipeSerializer extends ForgeRegistryEntry<RecipeSerializ
       }), count);
     }
 
-    // Group
-    String group = GsonHelper.getAsString(jsonObject, GROUP, "");
-
     // Experience
     float experience = GsonHelper.getAsFloat(jsonObject, EXPERIENCE, 0.0F);
 
@@ -122,9 +122,11 @@ public class CoinPressRecipeSerializer extends ForgeRegistryEntry<RecipeSerializ
 
   @Override
   public CoinPressRecipe fromNetwork(ResourceLocation recipeId, FriendlyByteBuf buffer) {
+    // Handle General Data
     ResourceLocation id = buffer.readResourceLocation();
     String group = buffer.readUtf();
-    ItemStack result = buffer.readItem();
+
+    // Handle Material ingredient
     Ingredient ingredient = Ingredient.of(buffer.readItem());
 
     // Handle Stamp Top ingredient
@@ -141,6 +143,8 @@ public class CoinPressRecipeSerializer extends ForgeRegistryEntry<RecipeSerializ
       stampBottom.set(i, Ingredient.of(buffer.readItem()));
     }
 
+    // Handle Results
+    ItemStack result = buffer.readItem();
     float experience = buffer.readFloat();
     int cookingtime = buffer.readInt();
     return createRecipe(id, group, ingredient, stampTop, stampBottom, result, experience,
@@ -149,8 +153,11 @@ public class CoinPressRecipeSerializer extends ForgeRegistryEntry<RecipeSerializ
 
   @Override
   public void toNetwork(FriendlyByteBuf buffer, CoinPressRecipe recipe) {
+    // Handle General Data
     buffer.writeResourceLocation(recipe.getId());
     buffer.writeUtf(recipe.getGroup());
+
+    // Handle Material ingredient
     buffer.writeItem(recipe.getIngredient().getItems()[0]);
 
     // Handle Stamp Top ingredient
@@ -165,6 +172,7 @@ public class CoinPressRecipeSerializer extends ForgeRegistryEntry<RecipeSerializ
       buffer.writeItem(ingredient.getItems()[0]);
     }
 
+    // Handle Results
     buffer.writeItem(recipe.getResultItem());
     buffer.writeFloat(recipe.getExperience());
     buffer.writeInt(recipe.getCookingTime());

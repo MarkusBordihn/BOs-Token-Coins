@@ -53,14 +53,12 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.inventory.RecipeHolder;
 import net.minecraft.world.inventory.StackedContentsCompatible;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.AbstractCookingRecipe;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BaseContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
@@ -71,7 +69,6 @@ import de.markusbordihn.tokencoins.Constants;
 import de.markusbordihn.tokencoins.block.CoinPressBlock;
 import de.markusbordihn.tokencoins.block.ModBlocks;
 import de.markusbordihn.tokencoins.item.CoinStampItem;
-import de.markusbordihn.tokencoins.item.ModItems;
 import de.markusbordihn.tokencoins.menu.CoinPressMenu;
 import de.markusbordihn.tokencoins.recipe.CoinPressRecipe;
 
@@ -147,11 +144,6 @@ public class CoinPressBlockEntity extends BaseContainerBlockEntity
 
   private Boolean isPowered() {
     return Boolean.valueOf(this.burnTime > 0);
-  }
-
-  private Boolean isWorking() {
-    return Boolean
-        .valueOf(this.cookingProgress > 0 && this.cookingProgress < this.cookingTotalTime);
   }
 
   private Boolean isWorkingDelayed() {
@@ -304,7 +296,7 @@ public class CoinPressBlockEntity extends BaseContainerBlockEntity
     // Progress Items if slots are not empty
     if (!itemStackMaterial.isEmpty() && !itemStackStampBottom.isEmpty()
         && !itemStackStampTop.isEmpty() && itemResult.getCount() < itemResult.getMaxStackSize()) {
-      Recipe<?> recipe = CoinPressRecipe.getRecipeFor(blockEntity, level);
+      CoinPressRecipe recipe = CoinPressRecipe.getRecipeFor(blockEntity, level);
 
       // Lit block, if result slot is not overloaded or empty.
       if (Boolean.TRUE
@@ -334,34 +326,8 @@ public class CoinPressBlockEntity extends BaseContainerBlockEntity
 
         if (blockEntity.cookingProgress == blockEntity.cookingTotalTime) {
           // Create result as soon item is done
-          ItemStack resultItem = recipe.getResultItem();
-          blockEntity.cookingProgress = 0;
-          if (itemResult.isEmpty()) {
-            blockEntity.items.set(CoinPressMenu.RESULT_SLOT, resultItem.copy());
-            if (resultItem.getCount() > 1) {
-              itemResult.grow(resultItem.getCount() - 1);
-            }
-          } else if (resultItem.is(itemResult.getItem())) {
-            itemResult.grow(resultItem.getCount());
-          }
-          itemStackMaterial.shrink(1);
-          blockEntity.setRecipeUsed(recipe);
-
-          // Increase Item damage for Top stamp and remove, if needed.
-          int itemStackStampTopDamage = itemStackStampTop.getDamageValue();
-          if (itemStackStampTopDamage + 1 >= itemStackStampTop.getMaxDamage()) {
-            itemStackStampTop.shrink(1);
-          } else {
-            itemStackStampTop.setDamageValue(itemStackStampTopDamage + 1);
-          }
-
-          // Increase Item damage for Bottom stamp and remove, if needed.
-          int itemStackStampBottomDamage = itemStackStampBottom.getDamageValue();
-          if (itemStackStampBottomDamage + 1 >= itemStackStampBottom.getMaxDamage()) {
-            itemStackStampBottom.shrink(1);
-          } else {
-            itemStackStampBottom.setDamageValue(itemStackStampBottomDamage + 1);
-          }
+          processResult(recipe, blockEntity, itemStackMaterial, itemResult, itemStackStampBottom,
+              itemStackStampTop);
         } else {
           // Otherwise update cooking Progress
           ++blockEntity.cookingProgress;
@@ -370,6 +336,45 @@ public class CoinPressBlockEntity extends BaseContainerBlockEntity
         blockEntity.cookingProgress = 0;
       }
     }
+  }
+
+  private static void processResult(CoinPressRecipe recipe, CoinPressBlockEntity blockEntity,
+      ItemStack itemStackMaterial, ItemStack itemResult, ItemStack itemStackStampBottom,
+      ItemStack itemStackStampTop) {
+    // Process result item
+    ItemStack resultItem = recipe.getResultItem();
+    blockEntity.cookingProgress = 0;
+    if (itemResult.isEmpty()) {
+      blockEntity.items.set(CoinPressMenu.RESULT_SLOT, resultItem.copy());
+      if (resultItem.getCount() > 1) {
+        itemResult.grow(resultItem.getCount() - 1);
+      }
+    } else if (resultItem.is(itemResult.getItem())) {
+      itemResult.grow(resultItem.getCount());
+    } else {
+      log.error("Unable to process result item {} for {}", resultItem.getItem(), itemResult);
+    }
+    itemStackMaterial.shrink(1);
+    blockEntity.setRecipeUsed(recipe);
+
+    // Increase Item damage for Top stamp and remove, if needed.
+    int itemStackStampTopDamage = itemStackStampTop.getDamageValue();
+    if (itemStackStampTopDamage + 1 >= itemStackStampTop.getMaxDamage()) {
+      itemStackStampTop.shrink(1);
+    } else {
+      itemStackStampTop.setDamageValue(itemStackStampTopDamage + 1);
+    }
+
+    // Increase Item damage for Bottom stamp and remove, if needed.
+    int itemStackStampBottomDamage = itemStackStampBottom.getDamageValue();
+    if (itemStackStampBottomDamage + 1 >= itemStackStampBottom.getMaxDamage()) {
+      itemStackStampBottom.shrink(1);
+    } else {
+      itemStackStampBottom.setDamageValue(itemStackStampBottomDamage + 1);
+    }
+
+    // Set recipe use and grant XP
+    blockEntity.setRecipeUsed(recipe);
   }
 
   @Override
@@ -433,10 +438,8 @@ public class CoinPressBlockEntity extends BaseContainerBlockEntity
     }
 
     // More specific check for coin stamps based on their motive
-    if (itemStack.getItem() instanceof CoinStampItem) {
-      CoinStampItem item = (CoinStampItem) itemStack.getItem();
+    if (itemStack.getItem() instanceof CoinStampItem item) {
 
-      log.info("canPlaceItem {} {} {}", slotIndex, item, item.getStampMotive());
       // More specific check for the top stamp slot
       if (slotIndex == CoinPressMenu.STAMP_TOP_SLOT && getItem(slotIndex).isEmpty()) {
         return item.getStampMotive() == ((CoinStampItem) getItem(CoinPressMenu.STAMP_BOTTOM_SLOT)

@@ -53,6 +53,19 @@ public class CoinPressMenu extends AbstractContainerMenu {
   public static final int FUEL_SLOT = 3;
   public static final int RESULT_SLOT = 4;
 
+  // Storing slot position statically to able to access them from other UI parts.
+  public static final int FUEL_SLOT_LEFT = 8;
+  public static final int FUEL_SLOT_TOP = 66;
+  public static final int MATERIAL_SLOT_LEFT = 62;
+  public static final int MATERIAL_SLOT_TOP = 41;
+  public static final int RESULT_SLOT_LEFT = 134;
+  public static final int RESULT_SLOT_TOP = 43;
+  public static final int STAMP_BOTTOM_SLOT_LEFT = 62;
+  public static final int STAMP_BOTTOM_SLOT_TOP = 66;
+  public static final int STAMP_TOP_SLOT_LEFT = 62;
+  public static final int STAMP_TOP_SLOT_TOP = 16;
+
+  // Defining basic layout options
   private static int containerSize = 5;
   private static int containerDataSize = 5;
   private static int slotSize = 18;
@@ -78,11 +91,15 @@ public class CoinPressMenu extends AbstractContainerMenu {
     this.level = playerInventory.player.level;
 
     // Define slots and position on UI (note: order sensitive)
-    this.addSlot(new CoinPressMaterialSlot(container, MATERIAL_SLOT, 62, 41));
-    this.addSlot(new CoinPressStampBottomSlot(container, STAMP_BOTTOM_SLOT, 62, 66));
-    this.addSlot(new CoinPressStampTopSlot(container, STAMP_TOP_SLOT, 62, 16));
-    this.addSlot(new CoinPressFuelSlot(container, FUEL_SLOT, 8, 66));
-    this.addSlot(new FurnaceResultSlot(playerInventory.player, container, RESULT_SLOT, 134, 43));
+    this.addSlot(
+        new CoinPressMaterialSlot(container, MATERIAL_SLOT, MATERIAL_SLOT_LEFT, MATERIAL_SLOT_TOP));
+    this.addSlot(new CoinPressStampBottomSlot(container, STAMP_BOTTOM_SLOT, STAMP_BOTTOM_SLOT_LEFT,
+        STAMP_BOTTOM_SLOT_TOP));
+    this.addSlot(new CoinPressStampTopSlot(container, STAMP_TOP_SLOT, STAMP_TOP_SLOT_LEFT,
+        STAMP_TOP_SLOT_TOP));
+    this.addSlot(new CoinPressFuelSlot(container, FUEL_SLOT, FUEL_SLOT_LEFT, FUEL_SLOT_TOP));
+    this.addSlot(new FurnaceResultSlot(playerInventory.player, container, RESULT_SLOT,
+        RESULT_SLOT_LEFT, RESULT_SLOT_TOP));
 
     // Player Inventory Slots
     int playerInventoryStartPositionY = 99;
@@ -107,7 +124,7 @@ public class CoinPressMenu extends AbstractContainerMenu {
   @Override
   public ItemStack quickMoveStack(Player player, int slotIndex) {
     Slot slot = this.slots.get(slotIndex);
-    if (slot == null || !slot.hasItem()) {
+    if (!slot.hasItem()) {
       return ItemStack.EMPTY;
     }
     ItemStack slotItemStack = slot.getItem();

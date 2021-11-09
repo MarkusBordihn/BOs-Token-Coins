@@ -41,6 +41,35 @@ public class ModItems {
 
   @TemplateEntryPoint("Register Items")
 
+  // Skeleton Coins
+  public static final RegistryObject<Item> COPPER_TOKEN_COIN_WITH_SKELETON = ITEMS.register(
+      "copper_token_coin_with_skeleton", CoinItem::new);
+  public static final RegistryObject<Item> GOLD_TOKEN_COIN_WITH_SKELETON = ITEMS.register(
+      "gold_token_coin_with_skeleton", CoinItem::new);
+  public static final RegistryObject<Item> IRON_TOKEN_COIN_WITH_SKELETON = ITEMS.register(
+      "iron_token_coin_with_skeleton", CoinItem::new);
+  public static final RegistryObject<Item> STEEL_TOKEN_COIN_WITH_SKELETON = ITEMS.register(
+      "steel_token_coin_with_skeleton", CoinItem::new);
+  public static final RegistryObject<Item> NETHERITE_TOKEN_COIN_WITH_SKELETON = ITEMS.register(
+      "netherite_token_coin_with_skeleton", CoinItem::new);
+
+  // Skeleton Coin Stamps
+  public static final RegistryObject<Item> COPPER_COIN_STAMP_WITH_SKELETON = ITEMS.register(
+      "copper_coin_stamp_with_skeleton",
+      () -> new CoinStampItem(CoinStampItemType.Material.COPPER, CoinStampItemType.Motive.SKELETON));
+  public static final RegistryObject<Item> GOLD_COIN_STAMP_WITH_SKELETON = ITEMS.register(
+      "gold_coin_stamp_with_skeleton",
+      () -> new CoinStampItem(CoinStampItemType.Material.GOLD, CoinStampItemType.Motive.SKELETON));
+  public static final RegistryObject<Item> IRON_COIN_STAMP_WITH_SKELETON = ITEMS.register(
+      "iron_coin_stamp_with_skeleton",
+      () -> new CoinStampItem(CoinStampItemType.Material.IRON, CoinStampItemType.Motive.SKELETON));
+  public static final RegistryObject<Item> STEEL_COIN_STAMP_WITH_SKELETON = ITEMS.register(
+      "steel_coin_stamp_with_skeleton",
+      () -> new CoinStampItem(CoinStampItemType.Material.STEEL, CoinStampItemType.Motive.SKELETON));
+  public static final RegistryObject<Item> NETHERITE_COIN_STAMP_WITH_SKELETON = ITEMS.register(
+      "netherite_coin_stamp_with_skeleton",
+      () -> new CoinStampItem(CoinStampItemType.Material.NETHERITE, CoinStampItemType.Motive.SKELETON));
+
   // Dragon Coins
   public static final RegistryObject<Item> COPPER_TOKEN_COIN_WITH_DRAGON =
       ITEMS.register("copper_token_coin_with_dragon", CoinItem::new);

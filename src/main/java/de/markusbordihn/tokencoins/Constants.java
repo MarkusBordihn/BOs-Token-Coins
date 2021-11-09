@@ -32,6 +32,7 @@ public final class Constants {
   public static final String MOD_COMMAND = "token_coins";
   public static final String MOD_ID = "token_coins";
   public static final String MOD_NAME = "Bo's Token Coins";
+  public static final String TEXT_PREFIX = "text.token_coins.";
 
   // Functional Blocks
   public static final String COIN_PRESS = "coin_press";

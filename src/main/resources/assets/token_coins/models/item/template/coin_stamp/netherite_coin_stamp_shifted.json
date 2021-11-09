@@ -3,17 +3,17 @@
 	"texture_size": [96, 18],
 	"textures": {
 		"motive": "token_coins:item/motives/dragon",
-		"particle": "token_coins:item/coin_stamp_texture",
-		"texture": "token_coins:item/coin_stamp_texture"
+		"particle": "minecraft:block/netherite_block",
+		"texture": "minecraft:block/netherite_block"
 	},
 	"elements": [
 		{
 			"name": "overlay",
-			"from": [2.5, 15.999, 2.5],
-			"to": [13.5, 16, 13.5],
+			"from": [3, 15.999, 2.5],
+			"to": [13, 16, 13.5],
 			"rotation": {"angle": 0, "axis": "z", "origin": [8, 0.5, 8]},
 			"faces": {
-				"up": {"uv": [13.34933, 0, 16, 14.19022], "texture": "#motive", "cullface": "up"}
+				"up": {"uv": [13.5, 0, 16, 14.22222], "texture": "#motive", "cullface": "up"}
 			}
 		},
 		{

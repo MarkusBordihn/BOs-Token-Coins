@@ -31,7 +31,6 @@ import net.minecraft.world.Container;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.AbstractCookingRecipe;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -84,7 +83,7 @@ public class CoinPressRecipe extends AbstractCookingRecipe {
 		return ModRecipes.COIN_PRESS_SERIALIZER.get();
 	}
 
-	public static Recipe<?> getRecipeFor(Container container, Level level) {
+	public static CoinPressRecipe getRecipeFor(Container container, Level level) {
 		ItemStack containerMaterial = container.getItem(CoinPressMenu.MATERIAL_SLOT);
 		ItemStack containerStampTop = container.getItem(CoinPressMenu.STAMP_TOP_SLOT);
 		ItemStack containerStampBottom = container.getItem(CoinPressMenu.STAMP_BOTTOM_SLOT);

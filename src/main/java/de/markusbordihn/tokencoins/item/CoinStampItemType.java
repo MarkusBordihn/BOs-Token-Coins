@@ -37,6 +37,7 @@ public class CoinStampItemType {
   }
 
   public enum Motive {
+    SKELETON,
     DRAGON,
     ZOMBIE,
     NONE,

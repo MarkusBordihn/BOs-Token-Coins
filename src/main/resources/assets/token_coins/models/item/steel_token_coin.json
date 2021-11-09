@@ -1,5 +1,5 @@
 {
-  "parent": "token_coins:item/template/steel_coin",
+  "parent": "token_coins:item/template/coin/steel_token_coin",
   "textures": {
     "texture": "token_coins:item/coins/steel_token_coin",
     "motive": "token_coins:item/blank"

@@ -47,12 +47,12 @@
   "item.[[ --ModId-- ]].gold_token_coin_with_[[ --item_name-- ]]": "Gold Coin ([[ --ItemName-- ]])",
   "item.[[ --ModId-- ]].iron_token_coin_with_[[ --item_name-- ]]": "Iron Coin ([[ --ItemName-- ]])",
   "item.[[ --ModId-- ]].steel_token_coin_with_[[ --item_name-- ]]": "Steel Coin ([[ --ItemName-- ]])",
-  "item.[[ --ModId-- ]].netherite_token_coin_with_[[ --item_name-- ]]": "Netherite Coin([[ --ItemName-- ]])",
+  "item.[[ --ModId-- ]].netherite_token_coin_with_[[ --item_name-- ]]": "Netherite Coin ([[ --ItemName-- ]])",
 
 +++ models/item/copper_coin_stamp_with_[[ --item_name-- ]].json
 @@@ create @@@
 {
-  "parent": "token_coins:item/copper_coin_stamp",
+  "parent": "token_coins:item/template/coin_stamp/copper_coin_stamp",
   "textures": {
     "motive": "token_coins:item/motives/[[ --item_name-- ]]"
   }
@@ -61,7 +61,7 @@
 +++ models/item/gold_coin_stamp_with_[[ --item_name-- ]].json
 @@@ create @@@
 {
-  "parent": "token_coins:item/gold_coin_stamp",
+  "parent": "token_coins:item/template/coin_stamp/gold_coin_stamp",
   "textures": {
     "motive": "token_coins:item/motives/[[ --item_name-- ]]"
   }
@@ -70,7 +70,7 @@
 +++ models/item/iron_coin_stamp_with_[[ --item_name-- ]].json
 @@@ create @@@
 {
-  "parent": "token_coins:item/iron_coin_stamp",
+  "parent": "token_coins:item/template/coin_stamp/iron_coin_stamp",
   "textures": {
     "motive": "token_coins:item/motives/[[ --item_name-- ]]"
   }
@@ -79,7 +79,7 @@
 +++ models/item/steel_coin_stamp_with_[[ --item_name-- ]].json
 @@@ create @@@
 {
-  "parent": "token_coins:item/steel_coin_stamp",
+  "parent": "token_coins:item/template/coin_stamp/steel_coin_stamp",
   "textures": {
     "motive": "token_coins:item/motives/[[ --item_name-- ]]"
   }
@@ -88,7 +88,7 @@
 +++ models/item/netherite_coin_stamp_with_[[ --item_name-- ]].json
 @@@ create @@@
 {
-  "parent": "token_coins:item/netherite_coin_stamp",
+  "parent": "token_coins:item/template/coin_stamp/netherite_coin_stamp",
   "textures": {
     "motive": "token_coins:item/motives/[[ --item_name-- ]]"
   }
@@ -97,7 +97,7 @@
 +++ models/item/copper_token_coin_with_[[ --item_name-- ]].json
 @@@ create @@@
 {
-  "parent": "token_coins:item/copper_token_coin",
+  "parent": "token_coins:item/template/coin/copper_token_coin",
   "textures": {
     "motive": "token_coins:item/motives/[[ --item_name-- ]]"
   }
@@ -106,7 +106,7 @@
 +++ models/item/gold_token_coin_with_[[ --item_name-- ]].json
 @@@ create @@@
 {
-  "parent": "token_coins:item/gold_token_coin",
+  "parent": "token_coins:item/template/coin/gold_token_coin",
   "textures": {
     "motive": "token_coins:item/motives/[[ --item_name-- ]]"
   }
@@ -115,7 +115,7 @@
 +++ models/item/iron_token_coin_with_[[ --item_name-- ]].json
 @@@ create @@@
 {
-  "parent": "token_coins:item/iron_token_coin",
+  "parent": "token_coins:item/template/coin/iron_token_coin",
   "textures": {
     "motive": "token_coins:item/motives/[[ --item_name-- ]]"
   }
@@ -124,7 +124,7 @@
 +++ models/item/steel_token_coin_with_[[ --item_name-- ]].json
 @@@ create @@@
 {
-  "parent": "token_coins:item/steel_token_coin",
+  "parent": "token_coins:item/template/coin/steel_token_coin",
   "textures": {
     "motive": "token_coins:item/motives/[[ --item_name-- ]]"
   }
@@ -133,7 +133,7 @@
 +++ models/item/netherite_token_coin_with_[[ --item_name-- ]].json
 @@@ create @@@
 {
-  "parent": "token_coins:item/netherite_token_coin",
+  "parent": "token_coins:item/template/coin/netherite_token_coin",
   "textures": {
     "motive": "token_coins:item/motives/[[ --item_name-- ]]"
   }

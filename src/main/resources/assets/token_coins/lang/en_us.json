@@ -1,4 +1,5 @@
 {
+  "text.token_coins.coin_press": "Coin Press",
   "block.token_coins.coin_press": "Coin Press",
   "block.placeholder.text": "Template placeholder do not remove!",
   "container.coin_press": "Coin Press",
@@ -25,7 +26,7 @@
   "item.token_coins.gold_token_coin_with_creeper": "Gold Coin (Creeper)",
   "item.token_coins.iron_token_coin_with_creeper": "Iron Coin (Creeper)",
   "item.token_coins.steel_token_coin_with_creeper": "Steel Coin (Creeper)",
-  "item.token_coins.netherite_token_coin_with_creeper": "Netherite Coin(Creeper)",
+  "item.token_coins.netherite_token_coin_with_creeper": "Netherite Coin (Creeper)",
 
   "item.token_coins.copper_coin_stamp_with_zombie": "Copper Coin Stamp (Zombie)",
   "item.token_coins.gold_coin_stamp_with_zombie": "Gold Coin Stamp (Zombie)",
@@ -37,7 +38,7 @@
   "item.token_coins.gold_token_coin_with_zombie": "Gold Coin (Zombie)",
   "item.token_coins.iron_token_coin_with_zombie": "Iron Coin (Zombie)",
   "item.token_coins.steel_token_coin_with_zombie": "Steel Coin (Zombie)",
-  "item.token_coins.netherite_token_coin_with_zombie": "Netherite Coin(Zombie)",
+  "item.token_coins.netherite_token_coin_with_zombie": "Netherite Coin (Zombie)",
 
   "item.token_coins.copper_coin_stamp_with_dragon": "Copper Coin Stamp (Dragon)",
   "item.token_coins.gold_coin_stamp_with_dragon": "Gold Coin Stamp (Dragon)",
@@ -49,7 +50,19 @@
   "item.token_coins.gold_token_coin_with_dragon": "Gold Coin (Dragon)",
   "item.token_coins.iron_token_coin_with_dragon": "Iron Coin (Dragon)",
   "item.token_coins.steel_token_coin_with_dragon": "Steel Coin (Dragon)",
-  "item.token_coins.netherite_token_coin_with_dragon": "Netherite Coin(Dragon)",
+  "item.token_coins.netherite_token_coin_with_dragon": "Netherite Coin (Dragon)",
+
+  "item.token_coins.copper_coin_stamp_with_skeleton": "Copper Coin Stamp (Skeleton)",
+  "item.token_coins.gold_coin_stamp_with_skeleton": "Gold Coin Stamp (Skeleton)",
+  "item.token_coins.iron_coin_stamp_with_skeleton": "Iron Coin Stamp Skeleton)",
+  "item.token_coins.steel_coin_stamp_with_skeleton": "Steel Coin Stamp (Skeleton)",
+  "item.token_coins.netherite_coin_stamp_with_skeleton": "Netherite Coin Stamp (Skeleton)",
+
+  "item.token_coins.copper_token_coin_with_skeleton": "Copper Coin (Skeleton)",
+  "item.token_coins.gold_token_coin_with_skeleton": "Gold Coin (Skeleton)",
+  "item.token_coins.iron_token_coin_with_skeleton": "Iron Coin (Skeleton)",
+  "item.token_coins.steel_token_coin_with_skeleton": "Steel Coin (Skeleton)",
+  "item.token_coins.netherite_token_coin_with_skeleton": "Netherite Coin (Skeleton)",
   "item.placeholder.text": "Template placeholder do not remove!",
 
   "itemGroup.coins": "Token Coins: Coins",

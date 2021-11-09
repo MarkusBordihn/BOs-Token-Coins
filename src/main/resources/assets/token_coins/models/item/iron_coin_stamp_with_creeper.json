@@ -1,5 +1,5 @@
 {
-  "parent": "token_coins:item/template/coin_stamp",
+  "parent": "token_coins:item/template/coin_stamp/iron_coin_stamp",
   "textures": {
     "texture": "minecraft:block/iron_block",
     "motive": "token_coins:item/motives/creeper"

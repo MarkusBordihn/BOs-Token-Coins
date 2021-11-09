@@ -1,5 +1,5 @@
 {
-  "parent": "token_coins:item/steel_coin_stamp",
+  "parent": "token_coins:item/template/coin_stamp/steel_coin_stamp_shifted",
   "textures": {
     "motive": "token_coins:item/motives/dragon"
   }

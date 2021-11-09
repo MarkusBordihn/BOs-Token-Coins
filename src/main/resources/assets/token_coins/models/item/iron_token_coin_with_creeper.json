@@ -1,5 +1,5 @@
 {
-  "parent": "token_coins:item/iron_token_coin",
+  "parent": "token_coins:item/template/coin/iron_token_coin",
   "textures": {
     "motive": "token_coins:item/motives/creeper"
   }

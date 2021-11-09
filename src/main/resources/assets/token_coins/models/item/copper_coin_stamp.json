@@ -1,5 +1,5 @@
 {
-  "parent": "token_coins:item/template/copper_coin_stamp",
+  "parent": "token_coins:item/template/coin_stamp/copper_coin_stamp",
   "textures": {
     "texture": "minecraft:block/copper_block",
     "motive": "token_coins:item/blank"

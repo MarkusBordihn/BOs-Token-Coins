@@ -78,7 +78,7 @@ public class CoinPressScreen extends AbstractContainerScreen<CoinPressMenu> {
 
 		// Burn Progress
 		int burnProgress = this.menu.getBurnProgress();
-		int burnProgressLeftPos = leftPos + 98;
+		int burnProgressLeftPos = leftPos + 97;
 		int burnProgressTopPos = topPos + 42;
 		this.blit(poseStack, burnProgressLeftPos, burnProgressTopPos, 176, 14, burnProgress + 1, 16);
 	}

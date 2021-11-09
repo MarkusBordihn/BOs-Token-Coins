@@ -1,0 +1,6 @@
+{
+  "parent": "token_coins:item/template/coin/gold_token_coin",
+  "textures": {
+    "motive": "token_coins:item/motives/skeleton"
+  }
+}

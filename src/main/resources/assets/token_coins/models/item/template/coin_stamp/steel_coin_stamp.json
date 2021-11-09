@@ -3,8 +3,8 @@
 	"texture_size": [96, 18],
 	"textures": {
 		"motive": "token_coins:item/motives/dragon",
-		"particle": "token_coins:item/coin_stamp_texture",
-		"texture": "token_coins:item/coin_stamp_texture"
+		"particle": "material_elements:block/steel_block",
+		"texture": "material_elements:block/steel_block"
 	},
 	"elements": [
 		{
@@ -13,7 +13,7 @@
 			"to": [13.5, 16, 13.5],
 			"rotation": {"angle": 0, "axis": "z", "origin": [8, 0.5, 8]},
 			"faces": {
-				"up": {"uv": [5.33333, 0, 7.984, 14.19022], "texture": "#motive", "cullface": "up"}
+				"up": {"uv": [10.66667, 0, 13.33334, 14.22222], "texture": "#motive", "cullface": "up"}
 			}
 		},
 		{
