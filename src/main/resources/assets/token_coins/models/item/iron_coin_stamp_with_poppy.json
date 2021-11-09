@@ -1,0 +1,6 @@
+{
+  "parent": "token_coins:item/template/coin_stamp/iron_coin_stamp",
+  "textures": {
+    "motive": "token_coins:item/motives/poppy"
+  }
+}

@@ -227,19 +227,12 @@ public class CoinPressRecipeCategory implements IRecipeCategory<CoinPressRecipe>
     recipeLayout.getItemStacks().set(CoinPressMenu.STAMP_TOP_SLOT,
         ingredients.getInputs(VanillaTypes.ITEM).get(CoinPressMenu.STAMP_TOP_SLOT));
 
-    /**
-     * // Fuel Top Slot recipeLayout.getItemStacks().init(CoinPressMenu.FUEL_SLOT, true,
-     * CoinPressMenu.FUEL_SLOT_LEFT - PADDING_LEFT, CoinPressMenu.FUEL_SLOT_TOP - PADDING_TOP);
-     * recipeLayout.getItemStacks().set(CoinPressMenu.FUEL_SLOT,
-     * ingredients.getInputs(VanillaTypes.ITEM).get(CoinPressMenu.FUEL_SLOT));
-     */
     // Result Slot
     recipeLayout.getItemStacks().init(CoinPressMenu.RESULT_SLOT, true,
         CoinPressMenu.RESULT_SLOT_LEFT - PADDING_LEFT - 1,
         CoinPressMenu.RESULT_SLOT_TOP - PADDING_TOP - 1);
     recipeLayout.getItemStacks().set(CoinPressMenu.RESULT_SLOT,
         ingredients.getOutputs(VanillaTypes.ITEM).get(0));
-
   }
 
 }

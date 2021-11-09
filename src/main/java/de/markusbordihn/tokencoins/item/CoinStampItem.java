@@ -19,8 +19,9 @@
 
 package de.markusbordihn.tokencoins.item;
 
-import de.markusbordihn.tokencoins.tabs.TokenCoinsTab;
 import net.minecraft.world.item.Item;
+
+import de.markusbordihn.tokencoins.tabs.TokenCoinsTab;
 
 public class CoinStampItem extends Item {
 

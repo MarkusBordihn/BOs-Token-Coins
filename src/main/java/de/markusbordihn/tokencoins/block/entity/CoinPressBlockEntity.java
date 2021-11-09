@@ -178,8 +178,8 @@ public class CoinPressBlockEntity extends BaseContainerBlockEntity
     return ContainerHelper.removeItem(this.items, p_58330_, p_58331_);
   }
 
-  public ItemStack removeItemNoUpdate(int p_58387_) {
-    return ContainerHelper.takeItem(this.items, p_58387_);
+  public ItemStack removeItemNoUpdate(int index) {
+    return ContainerHelper.takeItem(this.items, index);
   }
 
   public void setItem(int index, ItemStack itemStack) {
@@ -226,30 +226,30 @@ public class CoinPressBlockEntity extends BaseContainerBlockEntity
     this.recipesUsed.clear();
   }
 
-  public List<Recipe<?>> getRecipesToAwardAndPopExperience(ServerLevel level, Vec3 p_154997_) {
+  public List<Recipe<?>> getRecipesToAwardAndPopExperience(ServerLevel level, Vec3 vec3) {
     List<Recipe<?>> list = Lists.newArrayList();
     for (Entry<ResourceLocation> entry : this.recipesUsed.object2IntEntrySet()) {
-      level.getRecipeManager().byKey(entry.getKey()).ifPresent(p_155023_ -> {
-        list.add(p_155023_);
-        createExperience(level, p_154997_, entry.getIntValue(),
-            ((AbstractCookingRecipe) p_155023_).getExperience());
+      level.getRecipeManager().byKey(entry.getKey()).ifPresent(recipe -> {
+        list.add(recipe);
+        createExperience(level, vec3, entry.getIntValue(),
+            ((AbstractCookingRecipe) recipe).getExperience());
       });
     }
 
     return list;
   }
 
-  public void fillStackedContents(StackedContents p_58342_) {
+  public void fillStackedContents(StackedContents stackedContents) {
     for (ItemStack itemStack : this.items) {
-      p_58342_.accountStack(itemStack);
+      stackedContents.accountStack(itemStack);
     }
   }
 
   @SuppressWarnings("unchecked")
-  private static int getTotalCookTime(Level p_155010_,
-      RecipeType<? extends AbstractCookingRecipe> p_155011_, Container p_155012_) {
-    return p_155010_.getRecipeManager()
-        .getRecipeFor((RecipeType<AbstractCookingRecipe>) p_155011_, p_155012_, p_155010_)
+  private static int getTotalCookTime(Level level,
+      RecipeType<? extends AbstractCookingRecipe> recipe, Container container) {
+    return level.getRecipeManager()
+        .getRecipeFor((RecipeType<AbstractCookingRecipe>) recipe, container, level)
         .map(AbstractCookingRecipe::getCookingTime).orElse(200);
   }
 

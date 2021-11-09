@@ -63,6 +63,18 @@
   "item.token_coins.iron_token_coin_with_skeleton": "Iron Coin (Skeleton)",
   "item.token_coins.steel_token_coin_with_skeleton": "Steel Coin (Skeleton)",
   "item.token_coins.netherite_token_coin_with_skeleton": "Netherite Coin (Skeleton)",
+
+  "item.token_coins.copper_coin_stamp_with_poppy": "Copper Coin Stamp (Poppy)",
+  "item.token_coins.gold_coin_stamp_with_poppy": "Gold Coin Stamp (Poppy)",
+  "item.token_coins.iron_coin_stamp_with_poppy": "Iron Coin Stamp Poppy)",
+  "item.token_coins.steel_coin_stamp_with_poppy": "Steel Coin Stamp (Poppy)",
+  "item.token_coins.netherite_coin_stamp_with_poppy": "Netherite Coin Stamp (Poppy)",
+
+  "item.token_coins.copper_token_coin_with_poppy": "Copper Coin (Poppy)",
+  "item.token_coins.gold_token_coin_with_poppy": "Gold Coin (Poppy)",
+  "item.token_coins.iron_token_coin_with_poppy": "Iron Coin (Poppy)",
+  "item.token_coins.steel_token_coin_with_poppy": "Steel Coin (Poppy)",
+  "item.token_coins.netherite_token_coin_with_poppy": "Netherite Coin (Poppy)",
   "item.placeholder.text": "Template placeholder do not remove!",
 
   "itemGroup.coins": "Token Coins: Coins",

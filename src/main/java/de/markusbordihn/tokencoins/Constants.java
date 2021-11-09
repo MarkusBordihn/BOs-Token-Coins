@@ -19,9 +19,10 @@
 
 package de.markusbordihn.tokencoins;
 
-import de.markusbordihn.tokencoins.recipe.CoinPressRecipe;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.RecipeType;
+
+import de.markusbordihn.tokencoins.recipe.CoinPressRecipe;
 
 public final class Constants {
 

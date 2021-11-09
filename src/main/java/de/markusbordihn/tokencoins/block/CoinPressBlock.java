@@ -120,13 +120,13 @@ public class CoinPressBlock extends BaseEntityBlock {
   }
 
   @Override
-  public VoxelShape getShape(BlockState blockState, BlockGetter BlockGetter, BlockPos blockPos,
-      CollisionContext CollisionContext) {
+  public VoxelShape getShape(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos,
+      CollisionContext collisionContext) {
     return SHAPE;
   }
 
   @Override
-  public RenderShape getRenderShape(BlockState p_48727_) {
+  public RenderShape getRenderShape(BlockState blockState) {
     return RenderShape.MODEL;
   }
 
@@ -141,9 +141,9 @@ public class CoinPressBlock extends BaseEntityBlock {
       boolean p_48717_) {
     if (!p_48713_.is(p_48716_.getBlock())) {
       BlockEntity blockentity = level.getBlockEntity(blockPos);
-      if (blockentity instanceof CoinPressBlockEntity) {
+      if (blockentity instanceof CoinPressBlockEntity coinPressBlockEntity) {
         if (level instanceof ServerLevel) {
-          Containers.dropContents(level, blockPos, (CoinPressBlockEntity) blockentity);
+          Containers.dropContents(level, blockPos, coinPressBlockEntity);
         }
         level.updateNeighbourForOutputSignal(blockPos, this);
       }
