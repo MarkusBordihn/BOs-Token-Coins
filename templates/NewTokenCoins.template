@@ -1,0 +1,490 @@
++++ item/CoinStampItemType.java
+@@@ after:public enum Motive { @@@
+    [[ --ITEM_NAME-- ]],
+
++++ item/ModItems.java
+@@@ after:@TemplateEntryPoint("Register Items") @@@
+
+  // [[ --ItemName-- ]] Coins
+  public static final RegistryObject<Item> COPPER_TOKEN_COIN_WITH_[[ --ITEM_NAME-- ]] = ITEMS.register(
+      "copper_token_coin_with_[[ --item_name-- ]]", CoinItem::new);
+  public static final RegistryObject<Item> GOLD_TOKEN_COIN_WITH_[[ --ITEM_NAME-- ]] = ITEMS.register(
+      "gold_token_coin_with_[[ --item_name-- ]]", CoinItem::new);
+  public static final RegistryObject<Item> IRON_TOKEN_COIN_WITH_[[ --ITEM_NAME-- ]] = ITEMS.register(
+      "iron_token_coin_with_[[ --item_name-- ]]", CoinItem::new);
+  public static final RegistryObject<Item> STEEL_TOKEN_COIN_WITH_[[ --ITEM_NAME-- ]] = ITEMS.register(
+      "steel_token_coin_with_[[ --item_name-- ]]", CoinItem::new);
+  public static final RegistryObject<Item> NETHERITE_TOKEN_COIN_WITH_[[ --ITEM_NAME-- ]] = ITEMS.register(
+      "netherite_token_coin_with_[[ --item_name-- ]]", CoinItem::new);
+
+  // [[ --ItemName-- ]] Coin Stamps
+  public static final RegistryObject<Item> COPPER_COIN_STAMP_WITH_[[ --ITEM_NAME-- ]] = ITEMS.register(
+      "copper_coin_stamp_with_[[ --item_name-- ]]",
+      () -> new CoinStampItem(CoinStampItemType.Material.COPPER, CoinStampItemType.Motive.[[ --ITEM_NAME-- ]]));
+  public static final RegistryObject<Item> GOLD_COIN_STAMP_WITH_[[ --ITEM_NAME-- ]] = ITEMS.register(
+      "gold_coin_stamp_with_[[ --item_name-- ]]",
+      () -> new CoinStampItem(CoinStampItemType.Material.GOLD, CoinStampItemType.Motive.[[ --ITEM_NAME-- ]]));
+  public static final RegistryObject<Item> IRON_COIN_STAMP_WITH_[[ --ITEM_NAME-- ]] = ITEMS.register(
+      "iron_coin_stamp_with_[[ --item_name-- ]]",
+      () -> new CoinStampItem(CoinStampItemType.Material.IRON, CoinStampItemType.Motive.[[ --ITEM_NAME-- ]]));
+  public static final RegistryObject<Item> STEEL_COIN_STAMP_WITH_[[ --ITEM_NAME-- ]] = ITEMS.register(
+      "steel_coin_stamp_with_[[ --item_name-- ]]",
+      () -> new CoinStampItem(CoinStampItemType.Material.STEEL, CoinStampItemType.Motive.[[ --ITEM_NAME-- ]]));
+  public static final RegistryObject<Item> NETHERITE_COIN_STAMP_WITH_[[ --ITEM_NAME-- ]] = ITEMS.register(
+      "netherite_coin_stamp_with_[[ --item_name-- ]]",
+      () -> new CoinStampItem(CoinStampItemType.Material.NETHERITE, CoinStampItemType.Motive.[[ --ITEM_NAME-- ]]));
+
++++ lang/en_us.json
+@@@ before:"item.placeholder.text" @@@
+
+  "item.[[ --ModId-- ]].copper_coin_stamp_with_[[ --item_name-- ]]": "Copper Coin Stamp ([[ --ItemName-- ]])",
+  "item.[[ --ModId-- ]].gold_coin_stamp_with_[[ --item_name-- ]]": "Gold Coin Stamp ([[ --ItemName-- ]])",
+  "item.[[ --ModId-- ]].iron_coin_stamp_with_[[ --item_name-- ]]": "Iron Coin Stamp [[ --ItemName-- ]])",
+  "item.[[ --ModId-- ]].steel_coin_stamp_with_[[ --item_name-- ]]": "Steel Coin Stamp ([[ --ItemName-- ]])",
+  "item.[[ --ModId-- ]].netherite_coin_stamp_with_[[ --item_name-- ]]": "Netherite Coin Stamp ([[ --ItemName-- ]])",
+
+  "item.[[ --ModId-- ]].copper_token_coin_with_[[ --item_name-- ]]": "Copper Coin ([[ --ItemName-- ]])",
+  "item.[[ --ModId-- ]].gold_token_coin_with_[[ --item_name-- ]]": "Gold Coin ([[ --ItemName-- ]])",
+  "item.[[ --ModId-- ]].iron_token_coin_with_[[ --item_name-- ]]": "Iron Coin ([[ --ItemName-- ]])",
+  "item.[[ --ModId-- ]].steel_token_coin_with_[[ --item_name-- ]]": "Steel Coin ([[ --ItemName-- ]])",
+  "item.[[ --ModId-- ]].netherite_token_coin_with_[[ --item_name-- ]]": "Netherite Coin([[ --ItemName-- ]])",
+
++++ models/item/copper_coin_stamp_with_[[ --item_name-- ]].json
+@@@ create @@@
+{
+  "parent": "token_coins:item/copper_coin_stamp",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --item_name-- ]]"
+  }
+}
+
++++ models/item/gold_coin_stamp_with_[[ --item_name-- ]].json
+@@@ create @@@
+{
+  "parent": "token_coins:item/gold_coin_stamp",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --item_name-- ]]"
+  }
+}
+
++++ models/item/iron_coin_stamp_with_[[ --item_name-- ]].json
+@@@ create @@@
+{
+  "parent": "token_coins:item/iron_coin_stamp",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --item_name-- ]]"
+  }
+}
+
++++ models/item/steel_coin_stamp_with_[[ --item_name-- ]].json
+@@@ create @@@
+{
+  "parent": "token_coins:item/steel_coin_stamp",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --item_name-- ]]"
+  }
+}
+
++++ models/item/netherite_coin_stamp_with_[[ --item_name-- ]].json
+@@@ create @@@
+{
+  "parent": "token_coins:item/netherite_coin_stamp",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --item_name-- ]]"
+  }
+}
+
++++ models/item/copper_token_coin_with_[[ --item_name-- ]].json
+@@@ create @@@
+{
+  "parent": "token_coins:item/copper_token_coin",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --item_name-- ]]"
+  }
+}
+
++++ models/item/gold_token_coin_with_[[ --item_name-- ]].json
+@@@ create @@@
+{
+  "parent": "token_coins:item/gold_token_coin",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --item_name-- ]]"
+  }
+}
+
++++ models/item/iron_token_coin_with_[[ --item_name-- ]].json
+@@@ create @@@
+{
+  "parent": "token_coins:item/iron_token_coin",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --item_name-- ]]"
+  }
+}
+
++++ models/item/steel_token_coin_with_[[ --item_name-- ]].json
+@@@ create @@@
+{
+  "parent": "token_coins:item/steel_token_coin",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --item_name-- ]]"
+  }
+}
+
++++ models/item/netherite_token_coin_with_[[ --item_name-- ]].json
+@@@ create @@@
+{
+  "parent": "token_coins:item/netherite_token_coin",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --item_name-- ]]"
+  }
+}
+
++++ recipes/copper_coin_stamp_with_[[ --item_name-- ]]_from_copper_coin_stamp.json
+@@@ create @@@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   ",
+    " O ",
+    " # "
+  ],
+  "key": {
+    "#": {
+      "item": "token_coins:copper_coin_stamp"
+    },
+    "O": {
+      "item": "[ENTER ITEM HERE]"
+    }
+  },
+  "result": {
+    "item": "token_coins:copper_coin_stamp_with_[[ --item_name-- ]]",
+    "count": 1
+  }
+}
+
++++ recipes/gold_coin_stamp_with_[[ --item_name-- ]]_from_gold_coin_stamp.json
+@@@ create @@@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   ",
+    " O ",
+    " # "
+  ],
+  "key": {
+    "#": {
+      "item": "token_coins:gold_coin_stamp"
+    },
+    "O": {
+      "item": "[ENTER ITEM HERE]"
+    }
+  },
+  "result": {
+    "item": "token_coins:gold_coin_stamp_with_[[ --item_name-- ]]",
+    "count": 1
+  }
+}
+
++++ recipes/iron_coin_stamp_with_[[ --item_name-- ]]_from_iron_coin_stamp.json
+@@@ create @@@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   ",
+    " O ",
+    " # "
+  ],
+  "key": {
+    "#": {
+      "item": "token_coins:iron_coin_stamp"
+    },
+    "O": {
+      "item": "[ENTER ITEM HERE]"
+    }
+  },
+  "result": {
+    "item": "token_coins:iron_coin_stamp_with_[[ --item_name-- ]]",
+    "count": 1
+  }
+}
+
++++ recipes/steel_coin_stamp_with_[[ --item_name-- ]]_from_steel_coin_stamp.json
+@@@ create @@@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   ",
+    " O ",
+    " # "
+  ],
+  "key": {
+    "#": {
+      "item": "token_coins:steel_coin_stamp"
+    },
+    "O": {
+      "item": "[ENTER ITEM HERE]"
+    }
+  },
+  "result": {
+    "item": "token_coins:steel_coin_stamp_with_[[ --item_name-- ]]",
+    "count": 1
+  }
+}
+
++++ recipes/netherite_coin_stamp_with_[[ --item_name-- ]]_from_netherite_coin_stamp.json
+@@@ create @@@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   ",
+    " O ",
+    " # "
+  ],
+  "key": {
+    "#": {
+      "item": "token_coins:netherite_coin_stamp"
+    },
+    "O": {
+      "item": "[ENTER ITEM HERE]"
+    }
+  },
+  "result": {
+    "item": "token_coins:netherite_coin_stamp_with_[[ --item_name-- ]]",
+    "count": 1
+  }
+}
+
++++ recipes/copper_token_coin_with_[[ --item_name-- ]]_by_coin_press.json
+@@@ create @@@
+{
+  "type": "token_coins:coin_press",
+  "ingredient": {
+    "item": "material_elements:copper_nugget"
+  },
+  "stamp_top": [
+    {
+      "item": "token_coins:copper_coin_stamp_with_[[ --item_name-- ]]"
+    },
+    {
+      "item": "token_coins:gold_coin_stamp_with_[[ --item_name-- ]]"
+    },
+    {
+      "item": "token_coins:iron_coin_stamp_with_[[ --item_name-- ]]"
+    },
+    {
+      "item": "token_coins:steel_coin_stamp_with_[[ --item_name-- ]]"
+    },
+    {
+      "item": "token_coins:netherite_coin_stamp_with_[[ --item_name-- ]]"
+    }
+  ],
+  "stamp_bottom": [
+    {
+      "item": "token_coins:copper_coin_stamp_with_[[ --item_name-- ]]"
+    },
+    {
+      "item": "token_coins:gold_coin_stamp_with_[[ --item_name-- ]]"
+    },
+    {
+      "item": "token_coins:iron_coin_stamp_with_[[ --item_name-- ]]"
+    },
+    {
+      "item": "token_coins:steel_coin_stamp_with_[[ --item_name-- ]]"
+    },
+    {
+      "item": "token_coins:netherite_coin_stamp_with_[[ --item_name-- ]]"
+    }
+  ],
+  "result": "token_coins:copper_token_coin_with_[[ --item_name-- ]]",
+  "count": 1,
+  "experience": 0.1,
+  "cookingtime": 400
+}
+
++++ recipes/gold_token_coin_with_[[ --item_name-- ]]_by_coin_press.json
+@@@ create @@@
+{
+  "type": "token_coins:coin_press",
+  "ingredient": {
+    "item": "minecraft:gold_nugget"
+  },
+  "stamp_top": [
+    {
+      "item": "token_coins:copper_coin_stamp_with_[[ --item_name-- ]]"
+    },
+    {
+      "item": "token_coins:gold_coin_stamp_with_[[ --item_name-- ]]"
+    },
+    {
+      "item": "token_coins:iron_coin_stamp_with_[[ --item_name-- ]]"
+    },
+    {
+      "item": "token_coins:steel_coin_stamp_with_[[ --item_name-- ]]"
+    },
+    {
+      "item": "token_coins:netherite_coin_stamp_with_[[ --item_name-- ]]"
+    }
+  ],
+  "stamp_bottom": [
+    {
+      "item": "token_coins:copper_coin_stamp_with_[[ --item_name-- ]]"
+    },
+    {
+      "item": "token_coins:gold_coin_stamp_with_[[ --item_name-- ]]"
+    },
+    {
+      "item": "token_coins:iron_coin_stamp_with_[[ --item_name-- ]]"
+    },
+    {
+      "item": "token_coins:steel_coin_stamp_with_[[ --item_name-- ]]"
+    },
+    {
+      "item": "token_coins:netherite_coin_stamp_with_[[ --item_name-- ]]"
+    }
+  ],
+  "result": "token_coins:gold_token_coin_with_[[ --item_name-- ]]",
+  "count": 1,
+  "experience": 0.1,
+  "cookingtime": 400
+}
+
++++ recipes/iron_token_coin_with_[[ --item_name-- ]]_by_coin_press.json
+@@@ create @@@
+{
+  "type": "token_coins:coin_press",
+  "ingredient": {
+    "item": "minecraft:iron_nugget"
+  },
+  "stamp_top": [
+    {
+      "item": "token_coins:copper_coin_stamp_with_[[ --item_name-- ]]"
+    },
+    {
+      "item": "token_coins:gold_coin_stamp_with_[[ --item_name-- ]]"
+    },
+    {
+      "item": "token_coins:iron_coin_stamp_with_[[ --item_name-- ]]"
+    },
+    {
+      "item": "token_coins:steel_coin_stamp_with_[[ --item_name-- ]]"
+    },
+    {
+      "item": "token_coins:netherite_coin_stamp_with_[[ --item_name-- ]]"
+    }
+  ],
+  "stamp_bottom": [
+    {
+      "item": "token_coins:copper_coin_stamp_with_[[ --item_name-- ]]"
+    },
+    {
+      "item": "token_coins:gold_coin_stamp_with_[[ --item_name-- ]]"
+    },
+    {
+      "item": "token_coins:iron_coin_stamp_with_[[ --item_name-- ]]"
+    },
+    {
+      "item": "token_coins:steel_coin_stamp_with_[[ --item_name-- ]]"
+    },
+    {
+      "item": "token_coins:netherite_coin_stamp_with_[[ --item_name-- ]]"
+    }
+  ],
+  "result": "token_coins:iron_token_coin_with_[[ --item_name-- ]]",
+  "count": 1,
+  "experience": 0.1,
+  "cookingtime": 400
+}
+
++++ recipes/steel_token_coin_with_[[ --item_name-- ]]_by_coin_press.json
+@@@ create @@@
+{
+  "type": "token_coins:coin_press",
+  "ingredient": {
+    "item": "material_elements:steel_nugget"
+  },
+  "stamp_top": [
+    {
+      "item": "token_coins:copper_coin_stamp_with_[[ --item_name-- ]]"
+    },
+    {
+      "item": "token_coins:gold_coin_stamp_with_[[ --item_name-- ]]"
+    },
+    {
+      "item": "token_coins:iron_coin_stamp_with_[[ --item_name-- ]]"
+    },
+    {
+      "item": "token_coins:steel_coin_stamp_with_[[ --item_name-- ]]"
+    },
+    {
+      "item": "token_coins:netherite_coin_stamp_with_[[ --item_name-- ]]"
+    }
+  ],
+  "stamp_bottom": [
+    {
+      "item": "token_coins:copper_coin_stamp_with_[[ --item_name-- ]]"
+    },
+    {
+      "item": "token_coins:gold_coin_stamp_with_[[ --item_name-- ]]"
+    },
+    {
+      "item": "token_coins:iron_coin_stamp_with_[[ --item_name-- ]]"
+    },
+    {
+      "item": "token_coins:steel_coin_stamp_with_[[ --item_name-- ]]"
+    },
+    {
+      "item": "token_coins:netherite_coin_stamp_with_[[ --item_name-- ]]"
+    }
+  ],
+  "result": "token_coins:steel_token_coin_with_[[ --item_name-- ]]",
+  "count": 1,
+  "experience": 0.1,
+  "cookingtime": 400
+}
+
++++ recipes/netherite_token_coin_with_[[ --item_name-- ]]_by_coin_press.json
+@@@ create @@@
+{
+  "type": "token_coins:coin_press",
+  "ingredient": {
+    "item": "material_elements:netherite_nugget"
+  },
+  "stamp_top": [
+    {
+      "item": "token_coins:copper_coin_stamp_with_[[ --item_name-- ]]"
+    },
+    {
+      "item": "token_coins:gold_coin_stamp_with_[[ --item_name-- ]]"
+    },
+    {
+      "item": "token_coins:iron_coin_stamp_with_[[ --item_name-- ]]"
+    },
+    {
+      "item": "token_coins:steel_coin_stamp_with_[[ --item_name-- ]]"
+    },
+    {
+      "item": "token_coins:netherite_coin_stamp_with_[[ --item_name-- ]]"
+    }
+  ],
+  "stamp_bottom": [
+    {
+      "item": "token_coins:copper_coin_stamp_with_[[ --item_name-- ]]"
+    },
+    {
+      "item": "token_coins:gold_coin_stamp_with_[[ --item_name-- ]]"
+    },
+    {
+      "item": "token_coins:iron_coin_stamp_with_[[ --item_name-- ]]"
+    },
+    {
+      "item": "token_coins:steel_coin_stamp_with_[[ --item_name-- ]]"
+    },
+    {
+      "item": "token_coins:netherite_coin_stamp_with_[[ --item_name-- ]]"
+    }
+  ],
+  "result": "token_coins:netherite_token_coin_with_[[ --item_name-- ]]",
+  "count": 1,
+  "experience": 0.1,
+  "cookingtime": 400
+}

@@ -110,6 +110,7 @@ public class CoinPressRecipe extends AbstractCookingRecipe {
 			cachedRecipes = true;
 		}
 		log.info("🚀 Pre-Caching Bo's Token Coins custom recipes for faster and easier access ...");
+		long startTime = System.currentTimeMillis();
 		Collection<CoinPressRecipe> recipes = getAllRecipes(level);
 		for (CoinPressRecipe recipe : recipes) {
 			ItemStack ingredientItem = recipe.getIngredient().getItems()[0];
@@ -133,7 +134,8 @@ public class CoinPressRecipe extends AbstractCookingRecipe {
 			}
 		}
 		if (recipeMap.size() > 0) {
-			log.info("Cached {} Bo's Token Coins custom recipes.", recipeMap.size());
+			log.info("Cached {} Bo's Token Coins custom recipes in {} ms.", recipeMap.size(),
+					System.currentTimeMillis() - startTime);
 		}
 	}
 

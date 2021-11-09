@@ -1,6 +1,0 @@
-{
-  "parent": "token_coins:item/template/coin_stamp",
-  "textures": {
-    "motive": "token_coins:item/coin_stamp"
-  }
-}

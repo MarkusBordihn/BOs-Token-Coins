@@ -1,0 +1,6 @@
+{
+  "parent": "token_coins:item/copper_coin_stamp",
+  "textures": {
+    "motive": "token_coins:item/motives/zombie"
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "parent": "token_coins:item/template/coin",
+  "parent": "token_coins:item/template/netherite_coin",
   "textures": {
     "texture": "token_coins:item/coins/netherite_token_coin",
     "motive": "token_coins:item/blank"

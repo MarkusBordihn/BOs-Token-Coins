@@ -1,7 +1,8 @@
 {
 	"credit": "Made with Blockbench by Markus Bordihn",
+	"texture_size": [96, 18],
 	"textures": {
-		"motive": "token_coins:item/coin_overlay",
+		"motive": "token_coins:item/motives/dragon",
 		"particle": "token_coins:item/coin_stamp_texture",
 		"texture": "token_coins:item/coin_stamp_texture"
 	},
@@ -12,7 +13,7 @@
 			"to": [13.5, 16, 13.5],
 			"rotation": {"angle": 0, "axis": "z", "origin": [8, 0.5, 8]},
 			"faces": {
-				"up": {"uv": [0, 0.016, 15.984, 15.984], "texture": "#motive", "cullface": "up"}
+				"up": {"uv": [0, 0.016, 2.65067, 14.20622], "texture": "#motive", "cullface": "up"}
 			}
 		},
 		{

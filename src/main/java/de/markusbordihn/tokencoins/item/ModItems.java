@@ -41,6 +41,78 @@ public class ModItems {
 
   @TemplateEntryPoint("Register Items")
 
+  // Dragon Coins
+  public static final RegistryObject<Item> COPPER_TOKEN_COIN_WITH_DRAGON =
+      ITEMS.register("copper_token_coin_with_dragon", CoinItem::new);
+  public static final RegistryObject<Item> GOLD_TOKEN_COIN_WITH_DRAGON =
+      ITEMS.register("gold_token_coin_with_dragon", CoinItem::new);
+  public static final RegistryObject<Item> IRON_TOKEN_COIN_WITH_DRAGON =
+      ITEMS.register("iron_token_coin_with_dragon", CoinItem::new);
+  public static final RegistryObject<Item> STEEL_TOKEN_COIN_WITH_DRAGON =
+      ITEMS.register("steel_token_coin_with_dragon", CoinItem::new);
+  public static final RegistryObject<Item> NETHERITE_TOKEN_COIN_WITH_DRAGON =
+      ITEMS.register("netherite_token_coin_with_dragon", CoinItem::new);
+
+  // Dragon Coin Stamps
+  public static final RegistryObject<Item> COPPER_COIN_STAMP_WITH_DRAGON = ITEMS.register(
+      "copper_coin_stamp_with_dragon",
+      () -> new CoinStampItem(CoinStampItemType.Material.COPPER, CoinStampItemType.Motive.DRAGON));
+  public static final RegistryObject<Item> GOLD_COIN_STAMP_WITH_DRAGON = ITEMS.register(
+      "gold_coin_stamp_with_dragon",
+      () -> new CoinStampItem(CoinStampItemType.Material.GOLD, CoinStampItemType.Motive.DRAGON));
+  public static final RegistryObject<Item> IRON_COIN_STAMP_WITH_DRAGON = ITEMS.register(
+      "iron_coin_stamp_with_dragon",
+      () -> new CoinStampItem(CoinStampItemType.Material.IRON, CoinStampItemType.Motive.DRAGON));
+  public static final RegistryObject<Item> STEEL_COIN_STAMP_WITH_DRAGON = ITEMS.register(
+      "steel_coin_stamp_with_dragon",
+      () -> new CoinStampItem(CoinStampItemType.Material.STEEL, CoinStampItemType.Motive.DRAGON));
+  public static final RegistryObject<Item> NETHERITE_COIN_STAMP_WITH_DRAGON =
+      ITEMS.register("netherite_coin_stamp_with_dragon",
+          () -> new CoinStampItem(CoinStampItemType.Material.NETHERITE,
+              CoinStampItemType.Motive.DRAGON));
+
+  // Zombie Coins
+  public static final RegistryObject<Item> COPPER_TOKEN_COIN_WITH_ZOMBIE =
+      ITEMS.register("copper_token_coin_with_zombie", CoinItem::new);
+  public static final RegistryObject<Item> GOLD_TOKEN_COIN_WITH_ZOMBIE =
+      ITEMS.register("gold_token_coin_with_zombie", CoinItem::new);
+  public static final RegistryObject<Item> IRON_TOKEN_COIN_WITH_ZOMBIE =
+      ITEMS.register("iron_token_coin_with_zombie", CoinItem::new);
+  public static final RegistryObject<Item> STEEL_TOKEN_COIN_WITH_ZOMBIE =
+      ITEMS.register("steel_token_coin_with_zombie", CoinItem::new);
+  public static final RegistryObject<Item> NETHERITE_TOKEN_STAMP_WITH_ZOMBIE =
+      ITEMS.register("netherite_token_coin_with_zombie", CoinItem::new);
+
+  // Zombie Coin Stamps
+  public static final RegistryObject<Item> COPPER_COIN_STAMP_WITH_ZOMBIE = ITEMS.register(
+      "copper_coin_stamp_with_zombie",
+      () -> new CoinStampItem(CoinStampItemType.Material.COPPER, CoinStampItemType.Motive.ZOMBIE));
+  public static final RegistryObject<Item> GOLD_COIN_STAMP_WITH_ZOMBIE = ITEMS.register(
+      "gold_coin_stamp_with_zombie",
+      () -> new CoinStampItem(CoinStampItemType.Material.GOLD, CoinStampItemType.Motive.ZOMBIE));
+  public static final RegistryObject<Item> IRON_COIN_STAMP_WITH_ZOMBIE = ITEMS.register(
+      "iron_coin_stamp_with_zombie",
+      () -> new CoinStampItem(CoinStampItemType.Material.IRON, CoinStampItemType.Motive.ZOMBIE));
+  public static final RegistryObject<Item> STEEL_COIN_STAMP_WITH_ZOMBIE = ITEMS.register(
+      "steel_coin_stamp_with_zombie",
+      () -> new CoinStampItem(CoinStampItemType.Material.STEEL, CoinStampItemType.Motive.ZOMBIE));
+  public static final RegistryObject<Item> NETHERITE_COIN_STAMP_WITH_ZOMBIE =
+      ITEMS.register("netherite_coin_stamp_with_zombie",
+          () -> new CoinStampItem(CoinStampItemType.Material.NETHERITE,
+              CoinStampItemType.Motive.ZOMBIE));
+
+  // Crepper Coins
+  public static final RegistryObject<Item> COPPER_TOKEN_COIN_WITH_CREPPER =
+      ITEMS.register("copper_token_coin_with_creeper", CoinItem::new);
+  public static final RegistryObject<Item> GOLD_TOKEN_COIN_WITH_CREPPER =
+      ITEMS.register("gold_token_coin_with_creeper", CoinItem::new);
+  public static final RegistryObject<Item> IRON_TOKEN_COIN_WITH_CREPPER =
+      ITEMS.register("iron_token_coin_with_creeper", CoinItem::new);
+  public static final RegistryObject<Item> STEEL_TOKEN_COIN_WITH_CREPPER =
+      ITEMS.register("steel_token_coin_with_creeper", CoinItem::new);
+  public static final RegistryObject<Item> NETHERITE_TOKEN_COIN_WITH_CREPPER =
+      ITEMS.register("netherite_token_coin_with_creeper", CoinItem::new);
+
   // Creeper Coin Stamps
   public static final RegistryObject<Item> COPPER_COIN_STAMP_WITH_CREPPER = ITEMS.register(
       "copper_coin_stamp_with_creeper",
@@ -59,18 +131,6 @@ public class ModItems {
           () -> new CoinStampItem(CoinStampItemType.Material.NETHERITE,
               CoinStampItemType.Motive.CREEPER));
 
-  // Crepper Coins
-  public static final RegistryObject<Item> COPPER_TOKEN_COIN_WITH_CREPPER =
-      ITEMS.register("copper_token_coin_with_creeper", CoinItem::new);
-  public static final RegistryObject<Item> GOLD_TOKEN_COIN_WITH_CREPPER =
-      ITEMS.register("gold_token_coin_with_creeper", CoinItem::new);
-  public static final RegistryObject<Item> IRON_TOKEN_COIN_WITH_CREPPER =
-      ITEMS.register("iron_token_coin_with_creeper", CoinItem::new);
-  public static final RegistryObject<Item> STEEL_TOKEN_COIN_WITH_CREPPER =
-      ITEMS.register("steel_token_coin_with_creeper", CoinItem::new);
-  public static final RegistryObject<Item> NETHERITE_TOKEN_COIN_WITH_CREPPER =
-      ITEMS.register("netherite_token_coin_with_creeper", CoinItem::new);
-
   // Basic Coin Stamps
   public static final RegistryObject<Item> COPPER_COIN_STAMP = ITEMS.register("copper_coin_stamp",
       () -> new CoinStampItem(CoinStampItemType.Material.COPPER));
@@ -82,8 +142,6 @@ public class ModItems {
       ITEMS.register("steel_coin_stamp", () -> new CoinStampItem(CoinStampItemType.Material.STEEL));
   public static final RegistryObject<Item> NETHERITE_COIN_STAMP = ITEMS.register(
       "netherite_coin_stamp", () -> new CoinStampItem(CoinStampItemType.Material.NETHERITE));
-  public static final RegistryObject<Item> COIN_STAMP =
-      ITEMS.register("coin_stamp", () -> new CoinStampItem(CoinStampItemType.Material.COPPER));
 
   // Basic Coins
   public static final RegistryObject<Item> COPPER_TOKEN_COIN =
@@ -96,7 +154,6 @@ public class ModItems {
       ITEMS.register("steel_token_coin", CoinItem::new);
   public static final RegistryObject<Item> NETHERITE_TOKEN_COIN =
       ITEMS.register("netherite_token_coin", CoinItem::new);
-  public static final RegistryObject<Item> TOKEN_COIN = ITEMS.register("token_coin", CoinItem::new);
 
   @TemplateEntryPoint("Register Block Items")
   public static final RegistryObject<Item> COIN_PRESS =
