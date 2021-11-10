@@ -1,6 +1,6 @@
 {
 	"credit": "Made with Blockbench by Markus Bordihn",
-	"texture_size": [96, 18],
+	"texture_size": [96, 16],
 	"textures": {
 		"particle": "token_coins:item/coins/netherite_token_coin",
 		"texture": "token_coins:item/coins/netherite_token_coin",
@@ -131,8 +131,8 @@
 			"to": [13, 8.502, 13],
 			"rotation": {"angle": 0, "axis": "z", "origin": [8, 0.5, 8]},
 			"faces": {
-				"up": {"uv": [13.33333, 0, 16, 14.22222], "texture": "#motive"},
-				"down": {"uv": [13.33333, 0, 16, 14.22222], "rotation": 180, "texture": "#motive"}
+				"up": {"uv": [13.33333, 0, 16, 16], "texture": "#motive"},
+				"down": {"uv": [13.33333, 0, 16, 16], "rotation": 180, "texture": "#motive"}
 			}
 		}
 	],

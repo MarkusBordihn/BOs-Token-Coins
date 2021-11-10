@@ -133,8 +133,9 @@ public class CoinPressRecipe extends AbstractCookingRecipe {
 			}
 		}
 		if (recipeMap.size() > 0) {
-			log.info("Cached {} Bo's Token Coins custom recipes in {} ms.", recipeMap.size(),
-					System.currentTimeMillis() - startTime);
+			log.info(
+					"Processed {} coin press recipes and cached {} Bo's Token Coins custom recipes in {} ms.",
+					recipes.size(), recipeMap.size(), System.currentTimeMillis() - startTime);
 		}
 	}
 

@@ -85,6 +85,8 @@ public class CoinPressBlockEntity extends BaseContainerBlockEntity
   private int cookingTotalTime;
   private int stateCheck = 0;
 
+  private final Object2IntOpenHashMap<ResourceLocation> recipesUsed = new Object2IntOpenHashMap<>();
+
   protected final ContainerData dataAccess = new ContainerData() {
     public int get(int index) {
       switch (index) {
@@ -123,7 +125,6 @@ public class CoinPressBlockEntity extends BaseContainerBlockEntity
       return 5;
     }
   };
-  private final Object2IntOpenHashMap<ResourceLocation> recipesUsed = new Object2IntOpenHashMap<>();
 
   public CoinPressBlockEntity(BlockPos blockPos, BlockState blockState) {
     super(ModBlocks.COIN_PRESS_ENTITY.get(), blockPos, blockState);
@@ -235,7 +236,6 @@ public class CoinPressBlockEntity extends BaseContainerBlockEntity
             ((AbstractCookingRecipe) recipe).getExperience());
       });
     }
-
     return list;
   }
 
@@ -354,8 +354,9 @@ public class CoinPressBlockEntity extends BaseContainerBlockEntity
     } else {
       log.error("Unable to process result item {} for {}", resultItem.getItem(), itemResult);
     }
+
+    // Decrease Material Stack
     itemStackMaterial.shrink(1);
-    blockEntity.setRecipeUsed(recipe);
 
     // Increase Item damage for Top stamp and remove, if needed.
     int itemStackStampTopDamage = itemStackStampTop.getDamageValue();
@@ -386,6 +387,10 @@ public class CoinPressBlockEntity extends BaseContainerBlockEntity
     this.burnTime = compoundTag.getInt("burnTime");
     this.cookingProgress = compoundTag.getInt("cookTime");
     this.cookingTotalTime = compoundTag.getInt("cookTimeTotal");
+    CompoundTag recipesUsedCompound = compoundTag.getCompound("recipesUsed");
+    for (String keys : recipesUsedCompound.getAllKeys()) {
+      this.recipesUsed.put(new ResourceLocation(keys), recipesUsedCompound.getInt(keys));
+    }
   }
 
   @Override
@@ -396,6 +401,11 @@ public class CoinPressBlockEntity extends BaseContainerBlockEntity
     compoundTag.putInt("cookTime", this.cookingProgress);
     compoundTag.putInt("cookTimeTotal", this.cookingTotalTime);
     ContainerHelper.saveAllItems(compoundTag, this.items);
+    CompoundTag recipesUsedCompound = new CompoundTag();
+    this.recipesUsed.forEach((resourceLocation, index) -> {
+      recipesUsedCompound.putInt(resourceLocation.toString(), index);
+    });
+    compoundTag.put("recipesUsed", recipesUsedCompound);
     return compoundTag;
   }
 

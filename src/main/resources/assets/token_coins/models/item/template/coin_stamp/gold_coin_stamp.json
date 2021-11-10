@@ -1,6 +1,6 @@
 {
 	"credit": "Made with Blockbench by Markus Bordihn",
-	"texture_size": [96, 18],
+	"texture_size": [96, 16],
 	"textures": {
 		"motive": "token_coins:item/motives/dragon",
 		"particle": "minecraft:block/gold_block",
@@ -13,7 +13,7 @@
 			"to": [13.5, 16, 13.5],
 			"rotation": {"angle": 0, "axis": "z", "origin": [8, 0.5, 8]},
 			"faces": {
-				"up": {"uv": [2.66667, 0, 5.33334, 14.22222], "texture": "#motive", "cullface": "up"}
+				"up": {"uv": [2.66667, 0, 5.33334, 16], "texture": "#motive", "cullface": "up"}
 			}
 		},
 		{

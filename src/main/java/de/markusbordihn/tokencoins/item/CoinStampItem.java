@@ -20,7 +20,7 @@
 package de.markusbordihn.tokencoins.item;
 
 import net.minecraft.world.item.Item;
-
+import net.minecraft.world.item.ItemStack;
 import de.markusbordihn.tokencoins.tabs.TokenCoinsTab;
 
 public class CoinStampItem extends Item {
@@ -73,6 +73,20 @@ public class CoinStampItem extends Item {
         break;
     }
     return properties.durability(stampDurability).tab(TokenCoinsTab.COIN_STAMPS);
+  }
+
+  @Override
+  public boolean isValidRepairItem(ItemStack itemStackItem, ItemStack itemStackMaterial) {
+    if (super.isValidRepairItem(itemStackItem, itemStackMaterial)) {
+      return true;
+    }
+    Item item = itemStackItem.getItem();
+    Item material = itemStackMaterial.getItem();
+    if (item instanceof CoinStampItem coinStamp
+        && material instanceof CoinStampItem coinStampMaterial) {
+      return coinStamp.getStampMaterial() == coinStampMaterial.getStampMaterial();
+    }
+    return false;
   }
 
 }

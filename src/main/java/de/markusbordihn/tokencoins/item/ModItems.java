@@ -42,33 +42,34 @@ public class ModItems {
   @TemplateEntryPoint("Register Items")
 
   // Wheat Coins
-  public static final RegistryObject<Item> COPPER_TOKEN_COIN_WITH_WHEAT = ITEMS.register(
-      "copper_token_coin_with_wheat", CoinItem::new);
-  public static final RegistryObject<Item> GOLD_TOKEN_COIN_WITH_WHEAT = ITEMS.register(
-      "gold_token_coin_with_wheat", CoinItem::new);
-  public static final RegistryObject<Item> IRON_TOKEN_COIN_WITH_WHEAT = ITEMS.register(
-      "iron_token_coin_with_wheat", CoinItem::new);
-  public static final RegistryObject<Item> STEEL_TOKEN_COIN_WITH_WHEAT = ITEMS.register(
-      "steel_token_coin_with_wheat", CoinItem::new);
-  public static final RegistryObject<Item> NETHERITE_TOKEN_COIN_WITH_WHEAT = ITEMS.register(
-      "netherite_token_coin_with_wheat", CoinItem::new);
+  public static final RegistryObject<Item> COPPER_TOKEN_COIN_WITH_WHEAT =
+      ITEMS.register("copper_token_coin_with_wheat", CoinItem::new);
+  public static final RegistryObject<Item> GOLD_TOKEN_COIN_WITH_WHEAT =
+      ITEMS.register("gold_token_coin_with_wheat", CoinItem::new);
+  public static final RegistryObject<Item> IRON_TOKEN_COIN_WITH_WHEAT =
+      ITEMS.register("iron_token_coin_with_wheat", CoinItem::new);
+  public static final RegistryObject<Item> STEEL_TOKEN_COIN_WITH_WHEAT =
+      ITEMS.register("steel_token_coin_with_wheat", CoinItem::new);
+  public static final RegistryObject<Item> NETHERITE_TOKEN_COIN_WITH_WHEAT =
+      ITEMS.register("netherite_token_coin_with_wheat", CoinItem::new);
 
   // Wheat Coin Stamps
   public static final RegistryObject<Item> COPPER_COIN_STAMP_WITH_WHEAT = ITEMS.register(
       "copper_coin_stamp_with_wheat",
       () -> new CoinStampItem(CoinStampItemType.Material.COPPER, CoinStampItemType.Motive.WHEAT));
-  public static final RegistryObject<Item> GOLD_COIN_STAMP_WITH_WHEAT = ITEMS.register(
-      "gold_coin_stamp_with_wheat",
-      () -> new CoinStampItem(CoinStampItemType.Material.GOLD, CoinStampItemType.Motive.WHEAT));
-  public static final RegistryObject<Item> IRON_COIN_STAMP_WITH_WHEAT = ITEMS.register(
-      "iron_coin_stamp_with_wheat",
-      () -> new CoinStampItem(CoinStampItemType.Material.IRON, CoinStampItemType.Motive.WHEAT));
+  public static final RegistryObject<Item> GOLD_COIN_STAMP_WITH_WHEAT =
+      ITEMS.register("gold_coin_stamp_with_wheat",
+          () -> new CoinStampItem(CoinStampItemType.Material.GOLD, CoinStampItemType.Motive.WHEAT));
+  public static final RegistryObject<Item> IRON_COIN_STAMP_WITH_WHEAT =
+      ITEMS.register("iron_coin_stamp_with_wheat",
+          () -> new CoinStampItem(CoinStampItemType.Material.IRON, CoinStampItemType.Motive.WHEAT));
   public static final RegistryObject<Item> STEEL_COIN_STAMP_WITH_WHEAT = ITEMS.register(
       "steel_coin_stamp_with_wheat",
       () -> new CoinStampItem(CoinStampItemType.Material.STEEL, CoinStampItemType.Motive.WHEAT));
-  public static final RegistryObject<Item> NETHERITE_COIN_STAMP_WITH_WHEAT = ITEMS.register(
-      "netherite_coin_stamp_with_wheat",
-      () -> new CoinStampItem(CoinStampItemType.Material.NETHERITE, CoinStampItemType.Motive.WHEAT));
+  public static final RegistryObject<Item> NETHERITE_COIN_STAMP_WITH_WHEAT =
+      ITEMS.register("netherite_coin_stamp_with_wheat",
+          () -> new CoinStampItem(CoinStampItemType.Material.NETHERITE,
+              CoinStampItemType.Motive.WHEAT));
 
   // Poppy Coins
   public static final RegistryObject<Item> COPPER_TOKEN_COIN_WITH_POPPY =

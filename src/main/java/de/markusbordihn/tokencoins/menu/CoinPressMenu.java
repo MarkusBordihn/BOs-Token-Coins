@@ -98,7 +98,7 @@ public class CoinPressMenu extends AbstractContainerMenu {
     this.addSlot(new CoinPressStampTopSlot(container, STAMP_TOP_SLOT, STAMP_TOP_SLOT_LEFT,
         STAMP_TOP_SLOT_TOP));
     this.addSlot(new CoinPressFuelSlot(container, FUEL_SLOT, FUEL_SLOT_LEFT, FUEL_SLOT_TOP));
-    this.addSlot(new FurnaceResultSlot(playerInventory.player, container, RESULT_SLOT,
+    this.addSlot(new CoinPressResultSlot(playerInventory.player, container, RESULT_SLOT,
         RESULT_SLOT_LEFT, RESULT_SLOT_TOP));
 
     // Player Inventory Slots
@@ -157,6 +157,8 @@ public class CoinPressMenu extends AbstractContainerMenu {
     } else {
       slot.setChanged();
     }
+
+    slot.onTake(player, slotItemStack);
 
     return ItemStack.EMPTY;
   }
