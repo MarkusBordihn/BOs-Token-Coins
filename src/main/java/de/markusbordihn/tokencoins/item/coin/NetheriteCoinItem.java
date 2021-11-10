@@ -17,19 +17,18 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package de.markusbordihn.tokencoins.item;
+package de.markusbordihn.tokencoins.item.coin;
 
-import net.minecraft.world.item.Item;
+public class NetheriteCoinItem extends CoinItem {
 
-import de.markusbordihn.tokencoins.tabs.TokenCoinsTab;
-
-public class CoinItem extends Item {
-
-  public CoinItem () {
-    super(new Item.Properties().tab(TokenCoinsTab.COINS));
+  public NetheriteCoinItem() {
+    super(CoinItemType.Material.NETHERITE);
+    this.coinValue = 1000;
   }
 
-  public CoinItem(Item.Properties properties) {
-    super(properties.tab(TokenCoinsTab.COINS));
+  public NetheriteCoinItem(CoinItemType.Motive motive) {
+    super(CoinItemType.Material.NETHERITE, motive);
+    this.coinValue = 1000;
   }
+
 }

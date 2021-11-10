@@ -10,7 +10,7 @@
       "item": "token_coins:steel_coin_stamp"
     },
     "O": {
-      "item": "minecraft:skeleton_skull"
+      "tag": "token_coins:skeleton_heads"
     }
   },
   "result": {

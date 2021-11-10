@@ -7,32 +7,32 @@
 
   // [[ --ItemName-- ]] Coins
   public static final RegistryObject<Item> COPPER_TOKEN_COIN_WITH_[[ --ITEM_NAME-- ]] = ITEMS.register(
-      "copper_token_coin_with_[[ --item_name-- ]]", CoinItem::new);
+      "copper_token_coin_with_[[ --item_name-- ]]", CopperCoinItem::new);
   public static final RegistryObject<Item> GOLD_TOKEN_COIN_WITH_[[ --ITEM_NAME-- ]] = ITEMS.register(
-      "gold_token_coin_with_[[ --item_name-- ]]", CoinItem::new);
+      "gold_token_coin_with_[[ --item_name-- ]]", GoldCoinItem::new);
   public static final RegistryObject<Item> IRON_TOKEN_COIN_WITH_[[ --ITEM_NAME-- ]] = ITEMS.register(
-      "iron_token_coin_with_[[ --item_name-- ]]", CoinItem::new);
+      "iron_token_coin_with_[[ --item_name-- ]]", IronCoinItem::new);
   public static final RegistryObject<Item> STEEL_TOKEN_COIN_WITH_[[ --ITEM_NAME-- ]] = ITEMS.register(
-      "steel_token_coin_with_[[ --item_name-- ]]", CoinItem::new);
+      "steel_token_coin_with_[[ --item_name-- ]]", SteelCoinItem::new);
   public static final RegistryObject<Item> NETHERITE_TOKEN_COIN_WITH_[[ --ITEM_NAME-- ]] = ITEMS.register(
-      "netherite_token_coin_with_[[ --item_name-- ]]", CoinItem::new);
+      "netherite_token_coin_with_[[ --item_name-- ]]", NetheriteCoinItem::new);
 
   // [[ --ItemName-- ]] Coin Stamps
   public static final RegistryObject<Item> COPPER_COIN_STAMP_WITH_[[ --ITEM_NAME-- ]] = ITEMS.register(
       "copper_coin_stamp_with_[[ --item_name-- ]]",
-      () -> new CoinStampItem(CoinStampItemType.Material.COPPER, CoinStampItemType.Motive.[[ --ITEM_NAME-- ]]));
+      () -> new CopperCoinStampItem(CoinStampItemType.Motive.[[ --ITEM_NAME-- ]]));
   public static final RegistryObject<Item> GOLD_COIN_STAMP_WITH_[[ --ITEM_NAME-- ]] = ITEMS.register(
       "gold_coin_stamp_with_[[ --item_name-- ]]",
-      () -> new CoinStampItem(CoinStampItemType.Material.GOLD, CoinStampItemType.Motive.[[ --ITEM_NAME-- ]]));
+      () -> new GoldCoinStampItem(CoinStampItemType.Motive.[[ --ITEM_NAME-- ]]));
   public static final RegistryObject<Item> IRON_COIN_STAMP_WITH_[[ --ITEM_NAME-- ]] = ITEMS.register(
       "iron_coin_stamp_with_[[ --item_name-- ]]",
-      () -> new CoinStampItem(CoinStampItemType.Material.IRON, CoinStampItemType.Motive.[[ --ITEM_NAME-- ]]));
+      () -> new IronCoinStampItem(CoinStampItemType.Motive.[[ --ITEM_NAME-- ]]));
   public static final RegistryObject<Item> STEEL_COIN_STAMP_WITH_[[ --ITEM_NAME-- ]] = ITEMS.register(
       "steel_coin_stamp_with_[[ --item_name-- ]]",
-      () -> new CoinStampItem(CoinStampItemType.Material.STEEL, CoinStampItemType.Motive.[[ --ITEM_NAME-- ]]));
+      () -> new SteelCoinStampItem(CoinStampItemType.Motive.[[ --ITEM_NAME-- ]]));
   public static final RegistryObject<Item> NETHERITE_COIN_STAMP_WITH_[[ --ITEM_NAME-- ]] = ITEMS.register(
       "netherite_coin_stamp_with_[[ --item_name-- ]]",
-      () -> new CoinStampItem(CoinStampItemType.Material.NETHERITE, CoinStampItemType.Motive.[[ --ITEM_NAME-- ]]));
+      () -> new NetheriteCoinStampItem(CoinStampItemType.Motive.[[ --ITEM_NAME-- ]]));
 
 +++ lang/en_us.json
 @@@ before:"item.placeholder.text" @@@

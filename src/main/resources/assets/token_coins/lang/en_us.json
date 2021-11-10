@@ -1,5 +1,7 @@
 {
   "text.token_coins.coin_press": "Coin Press",
+  "text.token_coins.coin_value": "Value: %1$s",
+
   "block.token_coins.coin_press": "Coin Press",
   "block.placeholder.text": "Template placeholder do not remove!",
   "container.coin_press": "Coin Press",
@@ -87,6 +89,18 @@
   "item.token_coins.iron_token_coin_with_wheat": "Iron Coin (Wheat)",
   "item.token_coins.steel_token_coin_with_wheat": "Steel Coin (Wheat)",
   "item.token_coins.netherite_token_coin_with_wheat": "Netherite Coin (Wheat)",
+
+  "item.token_coins.copper_coin_stamp_with_wither": "Copper Coin Stamp (Wither)",
+  "item.token_coins.gold_coin_stamp_with_wither": "Gold Coin Stamp (Wither)",
+  "item.token_coins.iron_coin_stamp_with_wither": "Iron Coin Stamp Wither)",
+  "item.token_coins.steel_coin_stamp_with_wither": "Steel Coin Stamp (Wither)",
+  "item.token_coins.netherite_coin_stamp_with_wither": "Netherite Coin Stamp (Wither)",
+
+  "item.token_coins.copper_token_coin_with_wither": "Copper Coin (Wither)",
+  "item.token_coins.gold_token_coin_with_wither": "Gold Coin (Wither)",
+  "item.token_coins.iron_token_coin_with_wither": "Iron Coin (Wither)",
+  "item.token_coins.steel_token_coin_with_wither": "Steel Coin (Wither)",
+  "item.token_coins.netherite_token_coin_with_wither": "Netherite Coin (Wither)",
   "item.placeholder.text": "Template placeholder do not remove!",
 
   "itemGroup.coins": "Token Coins: Coins",

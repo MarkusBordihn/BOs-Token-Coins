@@ -19,11 +19,10 @@
 
 package de.markusbordihn.tokencoins.menu;
 
+import de.markusbordihn.tokencoins.item.coinstamp.CoinStampItem;
 import net.minecraft.world.Container;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
-
-import de.markusbordihn.tokencoins.item.CoinStampItem;
 
 public class CoinPressStampTopSlot extends Slot {
 

@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "OTO",
-    "O#O",
+    "OUO",
     "O#O"
   ],
   "key": {
@@ -11,6 +11,9 @@
     },
     "T": {
       "item": "minecraft:piston"
+    },
+    "U": {
+      "item": "token_coins:iron_coin_stamp"
     },
     "#": {
       "item": "minecraft:iron_block"

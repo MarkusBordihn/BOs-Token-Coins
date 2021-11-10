@@ -17,11 +17,11 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package de.markusbordihn.tokencoins.item;
+package de.markusbordihn.tokencoins.item.coin;
 
-public class CoinStampItemType {
+public class CoinItemType {
 
-  protected CoinStampItemType() {}
+  protected CoinItemType() {}
 
   public enum Type {
     DEFAULT,
@@ -37,6 +37,7 @@ public class CoinStampItemType {
   }
 
   public enum Motive {
+    WITHER,
     WHEAT,
     POPPY,
     SKELETON,
@@ -45,5 +46,4 @@ public class CoinStampItemType {
     NONE,
     CREEPER,
   }
-
 }

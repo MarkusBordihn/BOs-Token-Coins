@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "OOO",
+    "zzz",
+    " # "
+  ],
+  "key": {
+    "O": {
+      "item": "minecraft:wither_skeleton_skull"
+    },
+    "z": {
+      "item": "minecraft:soul_sand"
+    },
+    "#": {
+      "item": "token_coins:copper_coin_stamp"
+    }
+  },
+  "result": {
+    "item": "token_coins:gold_coin_stamp_with_wither",
+    "count": 1
+  }
+}

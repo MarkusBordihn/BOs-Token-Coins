@@ -1,7 +1,6 @@
 {
   "parent": "token_coins:item/template/coin_stamp/steel_coin_stamp",
   "textures": {
-    "texture": "material_elements:block/steel_block",
     "motive": "token_coins:item/blank"
   }
 }

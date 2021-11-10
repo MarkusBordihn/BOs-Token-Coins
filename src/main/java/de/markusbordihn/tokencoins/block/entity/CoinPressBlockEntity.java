@@ -41,6 +41,9 @@ import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
 import net.minecraft.world.Container;
 import net.minecraft.world.ContainerHelper;
@@ -65,10 +68,11 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.wrapper.SidedInvWrapper;
 
+import de.markusbordihn.tokencoins.item.ModItems;
+import de.markusbordihn.tokencoins.item.coinstamp.CoinStampItem;
 import de.markusbordihn.tokencoins.Constants;
 import de.markusbordihn.tokencoins.block.CoinPressBlock;
 import de.markusbordihn.tokencoins.block.ModBlocks;
-import de.markusbordihn.tokencoins.item.CoinStampItem;
 import de.markusbordihn.tokencoins.menu.CoinPressMenu;
 import de.markusbordihn.tokencoins.recipe.CoinPressRecipe;
 
@@ -323,11 +327,11 @@ public class CoinPressBlockEntity extends BaseContainerBlockEntity
       // Progress Items, if coin press is active and result slot is not overloaded or empty.
       if (recipe != null && blockEntity.isPowered()
           && (recipe.getResultItem().is(itemResult.getItem()) || itemResult.isEmpty())) {
-
         if (blockEntity.cookingProgress == blockEntity.cookingTotalTime) {
           // Create result as soon item is done
           processResult(recipe, blockEntity, itemStackMaterial, itemResult, itemStackStampBottom,
               itemStackStampTop);
+          progressAdditionalEffects(recipe, blockPos, level);
         } else {
           // Otherwise update cooking Progress
           ++blockEntity.cookingProgress;
@@ -378,6 +382,18 @@ public class CoinPressBlockEntity extends BaseContainerBlockEntity
     blockEntity.setRecipeUsed(recipe);
   }
 
+  // Adding sound effects for specific coins
+  public static void progressAdditionalEffects(CoinPressRecipe recipe, BlockPos blockPos,
+      Level level) {
+    SoundEvent soundEvent = null;
+    if (recipe.getResultItem().is(ModItems.NETHERITE_TOKEN_COIN_WITH_WITHER.get())) {
+      soundEvent = SoundEvents.WITHER_SPAWN;
+    }
+    if (soundEvent != null) {
+      level.playSound(null, blockPos, soundEvent, SoundSource.BLOCKS, 0.5F, 1.0F);
+    }
+  }
+
   @Override
   public void load(CompoundTag compoundTag) {
     super.load(compoundTag);
@@ -402,9 +418,8 @@ public class CoinPressBlockEntity extends BaseContainerBlockEntity
     compoundTag.putInt("cookTimeTotal", this.cookingTotalTime);
     ContainerHelper.saveAllItems(compoundTag, this.items);
     CompoundTag recipesUsedCompound = new CompoundTag();
-    this.recipesUsed.forEach((resourceLocation, index) -> {
-      recipesUsedCompound.putInt(resourceLocation.toString(), index);
-    });
+    this.recipesUsed.forEach((resourceLocation, index) -> recipesUsedCompound
+        .putInt(resourceLocation.toString(), index));
     compoundTag.put("recipesUsed", recipesUsedCompound);
     return compoundTag;
   }

@@ -17,7 +17,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package de.markusbordihn.tokencoins.item;
+package de.markusbordihn.tokencoins.item.coinstamp;
 
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;

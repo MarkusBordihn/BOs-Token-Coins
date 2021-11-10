@@ -17,25 +17,16 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package de.markusbordihn.tokencoins.menu;
+package de.markusbordihn.tokencoins.item.coinstamp;
 
-import de.markusbordihn.tokencoins.item.coinstamp.CoinStampItem;
-import net.minecraft.world.Container;
-import net.minecraft.world.inventory.Slot;
-import net.minecraft.world.item.ItemStack;
+public class GoldCoinStampItem extends CoinStampItem {
 
-public class CoinPressStampBottomSlot extends Slot {
-
-  public CoinPressStampBottomSlot(Container p_40223_, int p_40224_, int p_40225_, int p_40226_) {
-    super(p_40223_, p_40224_, p_40225_, p_40226_);
+  public GoldCoinStampItem() {
+    super(CoinStampItemType.Material.GOLD);
   }
 
-  @Override
-  public boolean mayPlace(ItemStack itemStack) {
-    ItemStack partnerItem = this.container.getItem(CoinPressMenu.STAMP_TOP_SLOT);
-    return CoinPressMenu.isCoinStamp(itemStack)
-        && (partnerItem.isEmpty() || (((CoinStampItem) partnerItem.getItem())
-            .getStampMotive() == ((CoinStampItem) itemStack.getItem()).getStampMotive()));
+  public GoldCoinStampItem(CoinStampItemType.Motive motive) {
+    super(CoinStampItemType.Material.GOLD, motive);
   }
 
 }

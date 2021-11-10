@@ -1,7 +1,6 @@
 {
   "parent": "token_coins:item/template/coin_stamp/gold_coin_stamp",
   "textures": {
-    "texture": "minecraft:block/gold_block",
     "motive": "token_coins:item/motives/creeper"
   }
 }
