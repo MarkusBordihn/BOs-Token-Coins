@@ -5,3 +5,5 @@
 Token Coins is a Minecraft Forge Mod which adds different kind of token coins and needed tools like coin stamps and coin press to create them.
 
 [logo]: logo.png
+
+Visit https://markusbordihn.github.io/BOs-Token-Coins/ for a detailed overview.
