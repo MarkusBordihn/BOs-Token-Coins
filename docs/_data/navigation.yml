@@ -7,3 +7,5 @@ main:
     url: /coin_stamps/
   - title: "Coins"
     url: /coins/
+  - title: "Download"
+    url: /download/
