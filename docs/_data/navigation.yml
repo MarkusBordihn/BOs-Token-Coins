@@ -1,0 +1,9 @@
+main:
+  - title: "Home"
+    url: /
+  - title: "Coin Press"
+    url: /coin_press/
+  - title: "Coin Stamps"
+    url: /coin_stamps/
+  - title: "Coins"
+    url: /coins/
