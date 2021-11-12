@@ -27,8 +27,8 @@ logo: "/assets/logo.png"
 #  Google search results) and in your feed.xml site description.
 baseurl: "/BOs-Token-Coins"
 url: "https://markusbordihn.github.io"
+github_username:  MarkusBordihn
 #twitter_username: jekyllrb
-#github_username:  jekyll
 
 # Build settings
 remote_theme: "mmistakes/minimal-mistakes@4.24.0"
@@ -64,3 +64,12 @@ include: ["_pages"]
 
 atom_feed:
   hide: true
+
+author:
+  name: "Kaworru"
+  avatar: "/assets/hurray.png"
+  bio: "Markus Bordihn"
+  links:
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/MarkusBordihn"

@@ -22,18 +22,30 @@ package de.markusbordihn.tokencoins.item.coin;
 import java.util.List;
 import javax.annotation.Nullable;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import net.minecraft.ChatFormatting;
+import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
 
 import de.markusbordihn.tokencoins.Constants;
+import de.markusbordihn.tokencoins.block.TokenCoinCompatible;
 import de.markusbordihn.tokencoins.tabs.TokenCoinsTab;
 
 public class CoinItem extends Item {
+
+  public static final Logger log = LogManager.getLogger(Constants.LOG_NAME);
 
   private CoinItemType.Material coinMaterial = CoinItemType.Material.COPPER;
   private CoinItemType.Motive coinMotive = CoinItemType.Motive.NONE;
@@ -69,6 +81,28 @@ public class CoinItem extends Item {
 
   public int getValue() {
     return coinValue;
+  }
+
+  @Override
+  public InteractionResult useOn(UseOnContext context) {
+    Level level = context.getLevel();
+    BlockPos blockPos = context.getClickedPos();
+    BlockState blockState = level.getBlockState(blockPos);
+    Block block = blockState.getBlock();
+
+    // Only interact with the Block if it is Token Coin compatible.
+    if (block instanceof TokenCoinCompatible tokenCoinCompatibleBlock) {
+      ItemStack itemStack = context.getItemInHand();
+      BlockEntity blockEntity = level.getBlockEntity(blockPos);
+
+      if (!level.isClientSide) {
+        // Call the consumer and let him do all the operations
+        tokenCoinCompatibleBlock.consumeTokenCoin(level, blockPos, blockState,
+          blockEntity, itemStack, context);
+        return InteractionResult.sidedSuccess(level.isClientSide);
+      }
+    }
+    return InteractionResult.PASS;
   }
 
   @Override

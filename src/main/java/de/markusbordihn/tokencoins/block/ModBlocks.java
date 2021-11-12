@@ -31,6 +31,8 @@ import net.minecraftforge.registries.ForgeRegistries;
 import de.markusbordihn.tokencoins.Constants;
 import de.markusbordihn.tokencoins.Annotations.TemplateEntryPoint;
 import de.markusbordihn.tokencoins.block.entity.CoinPressBlockEntity;
+import de.markusbordihn.tokencoins.block.entity.PiggyBankBlockEntity;
+import de.markusbordihn.tokencoins.block.piggybank.*;
 
 public class ModBlocks {
 
@@ -45,16 +47,38 @@ public class ModBlocks {
       DeferredRegister.create(ForgeRegistries.BLOCK_ENTITIES, Constants.MOD_ID);
 
   @TemplateEntryPoint("Register Blocks")
+
+  // Coin Press Block
   public static final RegistryObject<Block> COIN_PRESS = BLOCKS.register(CoinPressBlock.NAME,
       () -> new CoinPressBlock(
-          BlockBehaviour.Properties.of(Material.METAL).requiresCorrectToolForDrops()
-              .strength(3.5f).sound(SoundType.STONE).lightLevel(blockState -> {
+          BlockBehaviour.Properties.of(Material.METAL).requiresCorrectToolForDrops().strength(3.5f)
+              .sound(SoundType.STONE).lightLevel(blockState -> {
                 return Boolean.TRUE.equals(blockState.getValue(CoinPressBlock.POWERED)) ? 14 : 0;
               })));
 
+  // Piggy Banks
+  public static final RegistryObject<Block> PIGGY_BANK_GHAST = BLOCKS.register(PiggyBankGhastBlock.NAME,
+      () -> new PiggyBankGhastBlock(
+          BlockBehaviour.Properties.of(Material.DECORATION).requiresCorrectToolForDrops()
+              .strength(3.0F, 6.0F).sound(SoundType.METAL)));
+  public static final RegistryObject<Block> PIGGY_BANK = BLOCKS.register(PiggyBankBlock.NAME,
+      () -> new PiggyBankBlock(
+          BlockBehaviour.Properties.of(Material.DECORATION).requiresCorrectToolForDrops()
+              .strength(3.0F, 6.0F).sound(SoundType.METAL).noOcclusion()));
+
   @TemplateEntryPoint("Register Entity")
+
+  // Coin Press Block Entity
   public static final RegistryObject<BlockEntityType<CoinPressBlockEntity>> COIN_PRESS_ENTITY =
-      ENTITIES.register("coin_press", () -> BlockEntityType.Builder
+      ENTITIES.register(CoinPressBlock.NAME, () -> BlockEntityType.Builder
           .of(CoinPressBlockEntity::new, COIN_PRESS.get()).build(null));
+
+  // Piggy Bank Block Entity
+  public static final RegistryObject<BlockEntityType<PiggyBankBlockEntity>> PIGGY_BANK_GHAST_ENTITY =
+      ENTITIES.register(PiggyBankGhastBlock.NAME, () -> BlockEntityType.Builder
+          .of(PiggyBankBlockEntity::new, PIGGY_BANK_GHAST.get()).build(null));
+  public static final RegistryObject<BlockEntityType<PiggyBankBlockEntity>> PIGGY_BANK_ENTITY =
+      ENTITIES.register(PiggyBankBlock.NAME, () -> BlockEntityType.Builder
+          .of(PiggyBankBlockEntity::new, PIGGY_BANK.get()).build(null));
 
 }

@@ -79,6 +79,9 @@ public class TokenCoins {
 
       // Coin Press Block
       ItemBlockRenderTypes.setRenderLayer(ModBlocks.COIN_PRESS.get(), RenderType.cutout());
+
+      // Piggy Banks
+      ItemBlockRenderTypes.setRenderLayer(ModBlocks.PIGGY_BANK_GHAST.get(), RenderType.cutout());
     });
   }
 

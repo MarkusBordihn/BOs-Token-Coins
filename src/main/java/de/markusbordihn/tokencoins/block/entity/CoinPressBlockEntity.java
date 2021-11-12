@@ -88,7 +88,7 @@ public class CoinPressBlockEntity extends BaseContainerBlockEntity
   private int cookingProgress;
   private int cookingTotalTime;
   private int stateCheck = 0;
-
+  private CoinPressRecipe recipe = null;
   private final Object2IntOpenHashMap<ResourceLocation> recipesUsed = new Object2IntOpenHashMap<>();
 
   protected final ContainerData dataAccess = new ContainerData() {
@@ -179,8 +179,8 @@ public class CoinPressBlockEntity extends BaseContainerBlockEntity
     return 0;
   }
 
-  public ItemStack removeItem(int p_58330_, int p_58331_) {
-    return ContainerHelper.removeItem(this.items, p_58330_, p_58331_);
+  public ItemStack removeItem(int index, int count) {
+    return ContainerHelper.removeItem(this.items, index, count);
   }
 
   public ItemStack removeItemNoUpdate(int index) {
@@ -234,10 +234,10 @@ public class CoinPressBlockEntity extends BaseContainerBlockEntity
   public List<Recipe<?>> getRecipesToAwardAndPopExperience(ServerLevel level, Vec3 vec3) {
     List<Recipe<?>> list = Lists.newArrayList();
     for (Entry<ResourceLocation> entry : this.recipesUsed.object2IntEntrySet()) {
-      level.getRecipeManager().byKey(entry.getKey()).ifPresent(recipe -> {
-        list.add(recipe);
+      level.getRecipeManager().byKey(entry.getKey()).ifPresent(recipeEntry -> {
+        list.add(recipeEntry);
         createExperience(level, vec3, entry.getIntValue(),
-            ((AbstractCookingRecipe) recipe).getExperience());
+            ((AbstractCookingRecipe) recipeEntry).getExperience());
       });
     }
     return list;
@@ -297,47 +297,58 @@ public class CoinPressBlockEntity extends BaseContainerBlockEntity
       blockEntity.stateCheck = 0;
     }
 
-    // Progress Items if slots are not empty
-    if (!itemStackMaterial.isEmpty() && !itemStackStampBottom.isEmpty()
-        && !itemStackStampTop.isEmpty() && itemResult.getCount() < itemResult.getMaxStackSize()) {
-      CoinPressRecipe recipe = CoinPressRecipe.getRecipeFor(blockEntity, level);
+    // Clear cached recipe if any slot get's empty (or changed).
+    if (itemStackMaterial.isEmpty() || itemStackStampBottom.isEmpty()
+        || itemStackStampTop.isEmpty()) {
+      blockEntity.recipe = null;
+    } else if (itemResult.getCount() < itemResult.getMaxStackSize()) {
+      // Cache coin press recipe to avoid on-going look ups on each tick.
+      if (blockEntity.recipe == null) {
+        blockEntity.recipe = CoinPressRecipe.getRecipeFor(blockEntity, level);
+      }
 
-      // Lit block, if result slot is not overloaded or empty.
-      if (Boolean.TRUE
-          .equals(recipe != null && !itemStackFuel.isEmpty() && !blockEntity.isPowered())
-          && (recipe.getResultItem().is(itemResult.getItem()) || itemResult.isEmpty())) {
-        // Get burn time for the fuel slot.
-        blockEntity.burnTime = net.minecraftforge.common.ForgeHooks.getBurnTime(itemStackFuel,
-            Constants.COIN_PRESS_RECIPE_TYPE);
+      // Check if we could process result to result slot
+      boolean canProcessResult = blockEntity.recipe != null
+          && (blockEntity.recipe.getResultItem().is(itemResult.getItem()) || itemResult.isEmpty());
 
-        // Store total burn duration for animation effects.
-        blockEntity.burnDuration = blockEntity.burnTime;
-        if (itemStackFuel.hasContainerItem()) {
-          // Handle Buckets or other fluids
-          blockEntity.items.set(CoinPressMenu.FUEL_SLOT, itemStackFuel.getContainerItem());
-        } else {
-          // Handle normal items
-          itemStackFuel.shrink(1);
-          if (itemStackFuel.isEmpty()) {
-            blockEntity.items.set(CoinPressMenu.FUEL_SLOT, itemStackFuel.getContainerItem());
-          }
-        }
+      // Power / lit block, if result slot is not overloaded or empty.
+      if (Boolean.TRUE.equals(!itemStackFuel.isEmpty() && !blockEntity.isPowered())
+          && canProcessResult) {
+        power(blockEntity, itemStackFuel);
       }
 
       // Progress Items, if coin press is active and result slot is not overloaded or empty.
-      if (recipe != null && blockEntity.isPowered()
-          && (recipe.getResultItem().is(itemResult.getItem()) || itemResult.isEmpty())) {
+      if (Boolean.TRUE.equals(blockEntity.isPowered()) && canProcessResult) {
         if (blockEntity.cookingProgress == blockEntity.cookingTotalTime) {
           // Create result as soon item is done
-          processResult(recipe, blockEntity, itemStackMaterial, itemResult, itemStackStampBottom,
-              itemStackStampTop);
-          progressAdditionalEffects(recipe, blockPos, level);
+          processResult(blockEntity.recipe, blockEntity, itemStackMaterial, itemResult,
+              itemStackStampBottom, itemStackStampTop);
+          progressAdditionalEffects(blockEntity.recipe, blockPos, level);
         } else {
           // Otherwise update cooking Progress
           ++blockEntity.cookingProgress;
         }
       } else {
         blockEntity.cookingProgress = 0;
+      }
+    }
+  }
+
+  private static void power(CoinPressBlockEntity blockEntity, ItemStack itemStackFuel) {
+    // Get burn time for the fuel slot.
+    blockEntity.burnTime = net.minecraftforge.common.ForgeHooks.getBurnTime(itemStackFuel,
+        Constants.COIN_PRESS_RECIPE_TYPE);
+
+    // Store total burn duration for animation effects.
+    blockEntity.burnDuration = blockEntity.burnTime;
+    if (itemStackFuel.hasContainerItem()) {
+      // Handle Buckets or other fluids
+      blockEntity.items.set(CoinPressMenu.FUEL_SLOT, itemStackFuel.getContainerItem());
+    } else {
+      // Handle normal items
+      itemStackFuel.shrink(1);
+      if (itemStackFuel.isEmpty()) {
+        blockEntity.items.set(CoinPressMenu.FUEL_SLOT, itemStackFuel.getContainerItem());
       }
     }
   }

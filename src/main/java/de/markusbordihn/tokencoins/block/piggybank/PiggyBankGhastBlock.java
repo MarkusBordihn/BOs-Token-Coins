@@ -17,33 +17,27 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package de.markusbordihn.tokencoins.item.coin;
+package de.markusbordihn.tokencoins.block.piggybank;
 
-public class CoinItemType {
+import de.markusbordihn.tokencoins.block.PiggyBankBlock;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
 
-  protected CoinItemType() {}
+public class PiggyBankGhastBlock extends PiggyBankBlock {
 
-  public enum Type {
-    DEFAULT,
-    CUSTOM
+  public static final String NAME = "piggy_bank_ghast";
+
+  public PiggyBankGhastBlock(Properties properties) {
+    super(properties);
   }
 
-  public enum Material {
-    COPPER,
-    GOLD,
-    IRON,
-    STEEL,
-    NETHERITE
+  @Override
+  public VoxelShape getShape(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos,
+      CollisionContext collisionContext) {
+    return PiggyBankBlock.SHAPE_10_10_10_AABB;
   }
 
-  public enum Motive {
-    CREEPER,
-    DRAGON,
-    NONE,
-    POPPY,
-    SKELETON,
-    WHEAT,
-    WITHER,
-    ZOMBIE,
-  }
 }

@@ -6,6 +6,7 @@
   "files.trimTrailingWhitespace": true,
   "files.insertFinalNewline": true,
   "cSpell.words": [
+    "AABB",
     "advancementstracker",
     "amphithere",
     "autosave",
@@ -18,6 +19,7 @@
     "cookingtime",
     "CREPPER",
     "Critera",
+    "cullface",
     "curseforge",
     "DISPLAYTEST",
     "Framebuffer",
@@ -44,16 +46,11 @@
     "untrack",
     "Voxel"
   ],
-  "cSpell.ignorePaths" : [
-    "*.yml",
-    ".gradle",
-    ".vscode",
-    "build",
-    "run"
-  ],
+  "cSpell.ignorePaths": ["*.yml", ".gradle", ".vscode", "build", "run"],
   "java.configuration.updateBuildConfiguration": "automatic",
   "java.format.settings.url": "./java-google-style.xml",
   "java.format.settings.profile": "GoogleStyle",
   "java.dependency.showMembers": true,
-  "java.dependency.packagePresentation": "flat"
+  "java.dependency.packagePresentation": "flat",
+  "editor.detectIndentation": false
 }

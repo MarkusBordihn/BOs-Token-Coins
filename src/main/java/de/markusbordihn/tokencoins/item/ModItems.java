@@ -259,8 +259,18 @@ public class ModItems {
       ITEMS.register("netherite_token_coin", NetheriteCoinItem::new);
 
   @TemplateEntryPoint("Register Block Items")
+
+  // Piggy Banks
+  public static final RegistryObject<Item> PIGGY_BANK_GHAST =
+      ITEMS.register("piggy_bank_ghast", () -> new BlockItem(ModBlocks.PIGGY_BANK_GHAST.get(),
+          new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
+  public static final RegistryObject<Item> PIGGY_BANK =
+      ITEMS.register("piggy_bank", () -> new BlockItem(ModBlocks.PIGGY_BANK.get(),
+          new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
+
+  // Coin Press
   public static final RegistryObject<Item> COIN_PRESS =
       ITEMS.register("coin_press", () -> new BlockItem(ModBlocks.COIN_PRESS.get(),
-          new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)));
+          new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
 
 }

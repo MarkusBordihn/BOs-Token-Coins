@@ -1,0 +1,46 @@
+{
+	"credit": "Made with Blockbench by Markus Bordihn",
+	"texture_size": [32, 32],
+	"textures": {
+		"particle": "token_coins:block/piggy_bank",
+		"texture": "token_coins:block/piggy_bank"
+	},
+	"elements": [
+		{
+			"from": [4, 0, 4],
+			"to": [12, 8, 12],
+			"faces": {
+				"north": {"uv": [0, 0, 4, 4], "texture": "#texture"},
+				"east": {"uv": [0, 4, 4, 8], "texture": "#texture"},
+				"south": {"uv": [4, 0, 8, 4], "texture": "#texture"},
+				"west": {"uv": [4, 4, 8, 8], "texture": "#texture"},
+				"up": {"uv": [4, 12, 0, 8], "texture": "#texture"},
+				"down": {"uv": [12, 0, 8, 4], "texture": "#texture", "cullface": "down"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"translation": [0, 4, 0],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"thirdperson_lefthand": {
+			"translation": [0, 4, 0],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"ground": {
+			"translation": [0, 1, 0],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"gui": {
+			"rotation": [45, 45, 0],
+			"translation": [0, 3, 0]
+		},
+		"head": {
+			"translation": [0, 15.25, 0]
+		},
+		"fixed": {
+			"translation": [0, 4.25, -4.25]
+		}
+	}
+}

@@ -1,5 +1,6 @@
 ---
 layout: single
+author_profile: false
 ---
 
 ![Token Coins][logo]

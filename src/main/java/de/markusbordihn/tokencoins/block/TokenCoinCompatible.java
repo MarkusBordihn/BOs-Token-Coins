@@ -17,33 +17,29 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package de.markusbordihn.tokencoins.item.coin;
+package de.markusbordihn.tokencoins.block;
 
-public class CoinItemType {
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-  protected CoinItemType() {}
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
 
-  public enum Type {
-    DEFAULT,
-    CUSTOM
-  }
+import de.markusbordihn.tokencoins.Constants;
 
-  public enum Material {
-    COPPER,
-    GOLD,
-    IRON,
-    STEEL,
-    NETHERITE
-  }
+/**
+ * This interface is used to interact with the token coins.
+ */
 
-  public enum Motive {
-    CREEPER,
-    DRAGON,
-    NONE,
-    POPPY,
-    SKELETON,
-    WHEAT,
-    WITHER,
-    ZOMBIE,
-  }
+public interface TokenCoinCompatible {
+
+  public static final Logger log = LogManager.getLogger(Constants.LOG_NAME);
+
+  InteractionResult consumeTokenCoin(Level level, BlockPos blockPos, BlockState blockState,
+      BlockEntity blockEntity, ItemStack itemStack, UseOnContext context);
 }

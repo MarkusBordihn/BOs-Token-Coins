@@ -1,0 +1,18 @@
+{
+  "variants": {
+    "facing=north,state=0": { "model": "token_coins:block/piggy_bank_ghast_state_0", "y": 180 },
+    "facing=east,state=0": { "model": "token_coins:block/piggy_bank_ghast_state_0", "y": 270 },
+    "facing=south,state=0": { "model": "token_coins:block/piggy_bank_ghast_state_0", "y": 0 },
+    "facing=west,state=0": { "model": "token_coins:block/piggy_bank_ghast_state_0", "y": 90 },
+
+    "facing=north,state=1": { "model": "token_coins:block/piggy_bank_ghast_state_1", "y": 180 },
+    "facing=east,state=1": { "model": "token_coins:block/piggy_bank_ghast_state_1", "y": 270 },
+    "facing=south,state=1": { "model": "token_coins:block/piggy_bank_ghast_state_1", "y": 0 },
+    "facing=west,state=1": { "model": "token_coins:block/piggy_bank_ghast_state_1", "y": 90 },
+
+    "facing=north,state=2": { "model": "token_coins:block/piggy_bank_ghast_state_2", "y": 180 },
+    "facing=east,state=2": { "model": "token_coins:block/piggy_bank_ghast_state_2", "y": 270 },
+    "facing=south,state=2": { "model": "token_coins:block/piggy_bank_ghast_state_2", "y": 0 },
+    "facing=west,state=2": { "model": "token_coins:block/piggy_bank_ghast_state_2", "y": 90 }
+  }
+}
