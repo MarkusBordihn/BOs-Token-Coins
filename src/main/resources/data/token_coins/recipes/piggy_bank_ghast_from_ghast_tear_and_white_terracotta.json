@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#O#",
+    "#g#",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:white_terracotta"
+    },
+    "O": {
+      "tag": "token_coins:coins"
+    },
+    "g": {
+      "item": "minecraft:ghast_tear"
+    }
+  },
+  "result": {
+    "item": "token_coins:piggy_bank_ghast",
+    "count": 1
+  }
+}

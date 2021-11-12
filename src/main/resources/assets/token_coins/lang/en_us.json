@@ -113,5 +113,6 @@
   "item.placeholder.text": "Template placeholder do not remove!",
 
   "itemGroup.coins": "Token Coins: Coins",
-  "itemGroup.coin_stamps": "Token Coins: Coin Stamps"
+  "itemGroup.coin_stamps": "Token Coins: Coin Stamps",
+  "itemGroup.piggy_bank": "Token Coins: Piggy Bank"
 }

@@ -1,0 +1,257 @@
++++ block/piggybank/PiggyBank[[ --BlockClassName-- ]]Block.java
+@@@ create @@@
+package de.markusbordihn.tokencoins.block.piggybank;
+
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
+
+import de.markusbordihn.tokencoins.block.PiggyBankBlock;
+
+public class PiggyBank[[ --BlockClassName-- ]]Block extends PiggyBankBlock {
+
+  public static final String NAME = "piggy_bank_[[ --block_name-- ]]";
+
+  public PiggyBank[[ --BlockClassName-- ]]Block(Properties properties) {
+    super(properties);
+  }
+
+  @Override
+  public VoxelShape getShape(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos,
+      CollisionContext collisionContext) {
+    return PiggyBankBlock.SHAPE_10_10_10_AABB;
+  }
+
+}
+
++++ block/ModBlocks.java
+@@@ after:// Piggy Banks @@@
+  public static final RegistryObject<Block> PIGGY_BANK_[[ --BLOCK_NAME-- ]] = BLOCKS.register(PiggyBank[[ --BlockClassName-- ]]Block.NAME,
+      () -> new PiggyBank[[ --BlockClassName-- ]]Block(
+          BlockBehaviour.Properties.of(Material.DECORATION).requiresCorrectToolForDrops()
+              .strength(3.0F, 6.0F).sound(SoundType.METAL)));
+
++++ block/ModBlocks.java
+@@@ after:// Piggy Bank Block Entity @@@
+  public static final RegistryObject<BlockEntityType<PiggyBankBlockEntity>> PIGGY_BANK_[[ --BLOCK_NAME-- ]]_ENTITY =
+      ENTITIES.register(PiggyBank[[ --BlockClassName-- ]]Block.NAME, () -> BlockEntityType.Builder
+          .of(PiggyBankBlockEntity::new, PIGGY_BANK_[[ --BLOCK_NAME-- ]].get()).build(null));
+
++++ item/ModItems.java
+@@@ after:// Piggy Banks @@@
+  public static final RegistryObject<Item> PIGGY_BANK_[[ --BLOCK_NAME-- ]] =
+      ITEMS.register(PiggyBank[[ --BlockClassName-- ]]Block.NAME, () -> new BlockItem(ModBlocks.PIGGY_BANK_[[ --BLOCK_NAME-- ]].get(),
+          new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
+
++++ TokenCoins.java
+@@@ after:// Piggy Banks @@@
+ItemBlockRenderTypes.setRenderLayer(ModBlocks.PIGGY_BANK_[[ --BLOCK_NAME-- ]].get(), RenderType.cutout());
+
++++ blockstates/piggy_bank_[[ --block_name-- ]].json
+@@@ create @@@
+{
+  "variants": {
+    "facing=north,state=0": { "model": "token_coins:block/piggy_bank_[[ --block_name-- ]]_state_0", "y": 180 },
+    "facing=east,state=0": { "model": "token_coins:block/piggy_bank_[[ --block_name-- ]]_state_0", "y": 270 },
+    "facing=south,state=0": { "model": "token_coins:block/piggy_bank_[[ --block_name-- ]]_state_0", "y": 0 },
+    "facing=west,state=0": { "model": "token_coins:block/piggy_bank_[[ --block_name-- ]]_state_0", "y": 90 },
+
+    "facing=north,state=1": { "model": "token_coins:block/piggy_bank_[[ --block_name-- ]]_state_1", "y": 180 },
+    "facing=east,state=1": { "model": "token_coins:block/piggy_bank_[[ --block_name-- ]]_state_1", "y": 270 },
+    "facing=south,state=1": { "model": "token_coins:block/piggy_bank_[[ --block_name-- ]]_state_1", "y": 0 },
+    "facing=west,state=1": { "model": "token_coins:block/piggy_bank_[[ --block_name-- ]]_state_1", "y": 90 },
+
+    "facing=north,state=2": { "model": "token_coins:block/piggy_bank_[[ --block_name-- ]]_state_2", "y": 180 },
+    "facing=east,state=2": { "model": "token_coins:block/piggy_bank_[[ --block_name-- ]]_state_2", "y": 270 },
+    "facing=south,state=2": { "model": "token_coins:block/piggy_bank_[[ --block_name-- ]]_state_2", "y": 0 },
+    "facing=west,state=2": { "model": "token_coins:block/piggy_bank_[[ --block_name-- ]]_state_2", "y": 90 }
+  }
+}
+
++++ lang/en_us.json
+@@@ before:"block.placeholder.text" @@@
+  "block.token_coins.piggy_bank_[[ --block_name-- ]]": "Piggy Bank ([[ --BlockName-- ]])",
+
++++ models/block/template/piggy_bank_[[ --block_name-- ]].json
+@@@ create @@@
+{
+	"credit": "Made with Blockbench by Markus Bordihn",
+	"texture_size": [64, 32],
+	"textures": {
+		"particle": "minecraft:entity/ghast/ghast",
+		"motive": "minecraft:entity/ghast/ghast",
+		"coin_slot": "token_coins:block/piggy_bank/piggy_bank_slot",
+		"coin_up": "token_coins:item/coins/copper_token_coin",
+		"coin_down": "token_coins:item/coins/gold_token_coin"
+	},
+	"elements": [
+		{
+			"name": "coin_up",
+			"from": [5, 10, 7.75],
+			"to": [11, 16, 8.25],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 11.5, 8]},
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#coin_up"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#coin_up", "cullface": "north"},
+				"down": {"uv": [0, 0, 0.25, 3], "rotation": 90, "texture": "#missing"}
+			}
+		},
+		{
+			"name": "coin_down",
+			"from": [5, 7, 7.7],
+			"to": [11, 13, 8.3],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 11.5, 8]},
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#coin_down"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#coin_down", "cullface": "north"},
+				"down": {"uv": [0, 0, 0.25, 3], "rotation": 90, "texture": "#missing"}
+			}
+		},
+		{
+			"from": [3, 0, 3],
+			"to": [13, 10, 13],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 5, 8]},
+			"faces": {
+				"north": {"uv": [4, 0, 8, 8], "texture": "#motive"},
+				"east": {"uv": [8, 8, 12, 16], "texture": "#motive"},
+				"south": {"uv": [4, 8, 8, 16], "texture": "#motive"},
+				"west": {"uv": [0, 8, 4, 16], "texture": "#motive"},
+				"up": {"uv": [12, 8, 16, 16], "texture": "#motive"},
+				"down": {"uv": [8, 0, 12, 8], "rotation": 90, "texture": "#motive"}
+			}
+		},
+		{
+			"name": "slot",
+			"from": [4, 9.1, 7],
+			"to": [12, 10.1, 9],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 9.6, 8]},
+			"faces": {
+				"up": {"uv": [0, 0, 8, 2.5], "texture": "#coin_slot"}
+			}
+		}
+	],
+	"display": {
+    "thirdperson_righthand": {
+      "rotation": [60, -180, 0],
+      "translation": [0, 4, 1],
+      "scale": [0.5, 0.5, 0.5]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [60, -180, 0],
+      "translation": [0, 4, 1],
+      "scale": [0.5, 0.5, 0.5]
+    },
+    "ground": {
+      "translation": [0, 1, 0],
+      "scale": [0.5, 0.5, 0.5]
+    },
+    "gui": {
+      "rotation": [45, 45, 0],
+      "translation": [0, 2, 0],
+      "scale": [0.9, 0.9, 0.9]
+    },
+    "head": {
+      "rotation": [0, -180, 0],
+      "translation": [0, 15, 0]
+    },
+    "fixed": {
+      "rotation": [0, -180, 0],
+      "translation": [0, 1, 0]
+    }
+  },
+	"groups": [
+		{
+			"name": "coin",
+			"origin": [0, 0, 0],
+			"color": 0,
+			"children": [0, 1]
+		},
+		{
+			"name": "model",
+			"origin": [0, 0, 0],
+			"color": 0,
+			"children": [2]
+		},
+		{
+			"name": "slot",
+			"origin": [8, 8, 8],
+			"color": 0,
+			"children": [3]
+		},
+		{
+			"name": "VoxelShape",
+			"origin": [8, 8, 8],
+			"color": 0,
+			"children": [4]
+		}
+	]
+}
+
++++ models/block/piggy_bank_[[ --block_name-- ]]_state_0.json
+@@@ create @@@
+{
+  "parent": "token_coins:block/template/piggy_bank_[[ --block_name-- ]]",
+  "textures": {
+    "coin_up": "token_coins:block/blank",
+    "coin_down": "token_coins:block/blank"
+  }
+}
+
++++ models/block/piggy_bank_[[ --block_name-- ]]_state_1.json
+@@@ create @@@
+{
+  "parent": "token_coins:block/template/piggy_bank_[[ --block_name-- ]]",
+  "textures": {
+    "coin_up": "token_coins:item/coins/gold_token_coin",
+    "coin_down": "token_coins:block/blank"
+  }
+}
+
++++ models/block/piggy_bank_[[ --block_name-- ]]_state_2.json
+@@@ create @@@
+{
+  "parent": "token_coins:block/template/piggy_bank_[[ --block_name-- ]]",
+  "textures": {
+    "coin_up": "token_coins:block/blank",
+    "coin_down": "token_coins:item/coins/gold_token_coin"
+  }
+}
+
++++ models/item/piggy_bank_[[ --block_name-- ]].json
+@@@ create @@@
+{
+  "parent": "token_coins:block/piggy_bank_[[ --block_name-- ]]"
+}
+
++++ recipes/piggy_bank_[[ --block_name-- ]]_from_xxx.json
+@@@ create @@@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   ",
+    "   ",
+    "   "
+  ],
+  "key": {
+    "#": {
+      "item": "token_coins:netherite_coin_stamp"
+    },
+    "O": {
+      "item": "[ENTER ITEM HERE]"
+    }
+  },
+  "result": {
+    "item": "token_coins:piggy_bank_[[ --block_name-- ]]",
+    "count": 1
+  }
+}
+
++++ minecraft/tags/blocks/mineable/pickaxe.json
+@@@ after: "token_coins:piggy_bank",@@@
+    "token_coins:piggy_bank_[[ --block_name-- ]]",
+
++++ minecraft/tags/needs_iron_tool.json
+@@@ after: "token_coins:piggy_bank",@@@
+    "token_coins:piggy_bank_[[ --block_name-- ]]",

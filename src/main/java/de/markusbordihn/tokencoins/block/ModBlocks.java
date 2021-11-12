@@ -64,7 +64,7 @@ public class ModBlocks {
   public static final RegistryObject<Block> PIGGY_BANK = BLOCKS.register(PiggyBankBlock.NAME,
       () -> new PiggyBankBlock(
           BlockBehaviour.Properties.of(Material.DECORATION).requiresCorrectToolForDrops()
-              .strength(3.0F, 6.0F).sound(SoundType.METAL).noOcclusion()));
+              .strength(3.0F, 6.0F).sound(SoundType.METAL)));
 
   @TemplateEntryPoint("Register Entity")
 
