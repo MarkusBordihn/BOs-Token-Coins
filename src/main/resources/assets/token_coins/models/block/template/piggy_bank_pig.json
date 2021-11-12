@@ -1,0 +1,182 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [64, 32],
+	"textures": {
+		"coin_slot": "token_coins:block/piggy_bank/piggy_bank_slot",
+		"coin_up": "token_coins:item/coins/copper_token_coin",
+		"coin_down": "token_coins:item/coins/gold_token_coin",
+		"particle": "entity/pig/pig",
+		"motive": "entity/pig/pig"
+	},
+	"elements": [
+		{
+			"name": "coin_up",
+			"from": [5, 10, 7.75],
+			"to": [11, 16, 8.25],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 11.5, 8]},
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#coin_up"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#coin_up", "cullface": "north"},
+				"down": {"uv": [0, 0, 0.25, 3], "rotation": 90, "texture": "#missing"}
+			}
+		},
+		{
+			"name": "coin_down",
+			"from": [5, 7, 7.7],
+			"to": [11, 13, 8.3],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 11.5, 8]},
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#coin_down"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#coin_down", "cullface": "north"},
+				"down": {"uv": [0, 0, 0.25, 3], "rotation": 90, "texture": "#missing"}
+			}
+		},
+		{
+			"name": "pig",
+			"from": [3, 2, 1],
+			"to": [13, 10, 15],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 5, 8]},
+			"faces": {
+				"north": {"uv": [11.5, 4, 14, 8], "texture": "#motive"},
+				"east": {"uv": [7, 8, 9.25, 16], "rotation": 90, "texture": "#motive"},
+				"south": {"uv": [2, 4, 4, 8], "texture": "#motive"},
+				"west": {"uv": [11.25, 8, 13.5, 16], "rotation": 270, "texture": "#motive"},
+				"up": {"uv": [13.75, 8, 16, 16], "texture": "#motive"},
+				"down": {"uv": [9.25, 8, 11.25, 16], "rotation": 180, "texture": "#motive"}
+			}
+		},
+		{
+			"name": "nase",
+			"from": [6, 2, 15],
+			"to": [10, 5, 16],
+			"faces": {
+				"north": {"uv": [0, 0, 1, 1.5], "texture": "#missing"},
+				"east": {"uv": [5.25, 8.5, 5.5, 10], "texture": "#motive"},
+				"south": {"uv": [4.25, 8.5, 5.25, 10], "texture": "#motive"},
+				"west": {"uv": [4, 8.5, 4.25, 10], "texture": "#motive"},
+				"up": {"uv": [5.25, 8, 6.25, 8.5], "texture": "#motive"},
+				"down": {"uv": [4.25, 8, 5.25, 8.5], "texture": "#motive"}
+			}
+		},
+		{
+			"name": "bein",
+			"from": [11, 0, 11],
+			"to": [13, 2, 13],
+			"faces": {
+				"north": {"uv": [1, 11.5, 1.75, 13], "texture": "#motive"},
+				"east": {"uv": [2.25, 10.5, 3, 12], "texture": "#motive"},
+				"south": {"uv": [1, 11.5, 1.75, 13], "texture": "#motive"},
+				"west": {"uv": [1, 10, 1.75, 11.5], "texture": "#motive"},
+				"up": {"uv": [1, 8, 1.75, 9.5], "texture": "#motive"},
+				"down": {"uv": [2, 8, 2.75, 9.5], "texture": "#motive"}
+			}
+		},
+		{
+			"name": "bein",
+			"from": [3, 0, 2],
+			"to": [5, 2, 4],
+			"faces": {
+				"north": {"uv": [1, 11.5, 1.75, 13], "texture": "#motive"},
+				"east": {"uv": [2.25, 10.5, 3, 12], "texture": "#motive"},
+				"south": {"uv": [1, 11.5, 1.75, 13], "texture": "#motive"},
+				"west": {"uv": [1, 10, 1.75, 11.5], "texture": "#motive"},
+				"up": {"uv": [1, 8, 1.75, 9.5], "texture": "#motive"},
+				"down": {"uv": [2, 8, 2.75, 9.5], "texture": "#motive"}
+			}
+		},
+		{
+			"name": "bein",
+			"from": [11, 0, 2],
+			"to": [13, 2, 4],
+			"faces": {
+				"north": {"uv": [1, 11.5, 1.75, 13], "texture": "#motive"},
+				"east": {"uv": [2.25, 10.5, 3, 12], "texture": "#motive"},
+				"south": {"uv": [1, 11.5, 1.75, 13], "texture": "#motive"},
+				"west": {"uv": [1, 10, 1.75, 11.5], "texture": "#motive"},
+				"up": {"uv": [1, 8, 1.75, 9.5], "texture": "#motive"},
+				"down": {"uv": [2, 8, 2.75, 9.5], "texture": "#motive"}
+			}
+		},
+		{
+			"name": "bein",
+			"from": [3, 0, 11],
+			"to": [5, 2, 13],
+			"faces": {
+				"north": {"uv": [1, 11.5, 1.75, 13], "texture": "#motive"},
+				"east": {"uv": [2.25, 10.5, 3, 12], "texture": "#motive"},
+				"south": {"uv": [1, 11.5, 1.75, 13], "texture": "#motive"},
+				"west": {"uv": [1, 10, 1.75, 11.5], "texture": "#motive"},
+				"up": {"uv": [1, 8, 1.75, 9.5], "texture": "#motive"},
+				"down": {"uv": [2, 8, 2.75, 9.5], "texture": "#motive"}
+			}
+		},
+		{
+			"name": "slot",
+			"from": [4, 9.1, 7],
+			"to": [12, 10.1, 9],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 9.6, 8]},
+			"faces": {
+				"up": {"uv": [0, 0, 8, 2.5], "texture": "#coin_slot"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [60, -180, 0],
+			"translation": [0, 4, 1],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"ground": {
+			"translation": [0, 1, 0],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"gui": {
+			"rotation": [45, 45, 0],
+			"translation": [0, 2, 0],
+			"scale": [0.9, 0.9, 0.9]
+		},
+		"head": {
+			"rotation": [0, -180, 0],
+			"translation": [0, 15, 0]
+		},
+		"fixed": {
+			"rotation": [0, -180, 0],
+			"translation": [0, 1, 0]
+		}
+	},
+	"groups": [
+		{
+			"name": "coin",
+			"origin": [0, 0, 0],
+			"color": 0,
+			"children": [0, 1]
+		},
+		{
+			"name": "model",
+			"origin": [0, 0, 0],
+			"color": 0,
+			"children": [
+				2,
+				3,
+				{
+					"name": "group",
+					"origin": [0, 0, 0],
+					"color": 0,
+					"children": [4, 5, 6, 7]
+				}
+			]
+		},
+		{
+			"name": "slot",
+			"origin": [8, 8, 8],
+			"color": 0,
+			"children": [8]
+		},
+		{
+			"name": "VoxelShape",
+			"origin": [8, 8, 8],
+			"color": 0,
+			"children": []
+		}
+	]
+}
