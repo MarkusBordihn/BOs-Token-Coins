@@ -7,5 +7,9 @@ main:
     url: /coin_stamps/
   - title: "Coins"
     url: /coins/
+  - title: "Piggy Bank"
+    url: /piggy_bank/
   - title: "Download"
     url: /download/
+  - title: "API"
+    url: /api/

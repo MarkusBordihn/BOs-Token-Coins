@@ -6,7 +6,8 @@ title: "Coin Press"
 
 ![Coin Press Image](../assets/coin_press.gif)
 
-The coin press is used together with the coin stamps to craft the corresponding coins with basic material like:
+The coin press is used together with the coin stamps to craft the corresponding coins with basic
+material like:
 
 ![](../assets/nuggets/copper_nugget.png) Copper Nuggets<br>
 ![](../assets/nuggets/gold_nugget.png) Gold Nuggets<br>
@@ -40,13 +41,15 @@ Put the items in the correct slot and the machine should start working.
 ## Coin Press Recipes
 
 The mod use custom recipes for the coins which are calculated by the first use.
-But because the mod has a [JEI](https://www.curseforge.com/minecraft/mc-mods/jei) integration you can easily look them up.
+But because the mod has a [JEI](https://www.curseforge.com/minecraft/mc-mods/jei) integration you
+can easily look them up.
 
 ![](../assets/coin_press_jei.jpg)
 
 ## Hopper Support
 
-The coin press has an auto sorting function and will automatically put the items in the correct slot, regardless of the connected face.
+The coin press has an auto sorting function and will automatically put the items in the correct
+slot, regardless of the connected face.
 **The bottom face will be only use for the output of the corresponding coins.**
 
 ![](../assets/coin_press_hopper.png)
