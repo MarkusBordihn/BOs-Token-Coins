@@ -30,13 +30,19 @@ public class TokenCoinsTab {
 
   public static final CreativeModeTab COINS = new CreativeModeTab("coins") {
     public ItemStack makeIcon() {
-      return new ItemStack(ModItems.GOLD_TOKEN_COIN.get());
+      return new ItemStack(ModItems.GOLD_TOKEN_COIN_WITH_CREPPER.get());
     }
   };
 
   public static final CreativeModeTab COIN_STAMPS = new CreativeModeTab("coin_stamps") {
     public ItemStack makeIcon() {
-      return new ItemStack(ModItems.GOLD_COIN_STAMP.get());
+      return new ItemStack(ModItems.GOLD_COIN_STAMP_WITH_CREPPER.get());
+    }
+  };
+
+  public static final CreativeModeTab PIGGY_BANK = new CreativeModeTab("piggy_bank") {
+    public ItemStack makeIcon() {
+      return new ItemStack(ModItems.PIGGY_BANK_GHAST.get());
     }
   };
 

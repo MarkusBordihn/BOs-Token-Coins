@@ -30,6 +30,7 @@ import de.markusbordihn.tokencoins.Constants;
 import de.markusbordihn.tokencoins.block.ModBlocks;
 import de.markusbordihn.tokencoins.item.coin.*;
 import de.markusbordihn.tokencoins.item.coinstamp.*;
+import de.markusbordihn.tokencoins.tabs.TokenCoinsTab;
 import de.markusbordihn.tokencoins.Annotations.TemplateEntryPoint;
 
 public class ModItems {
@@ -263,10 +264,10 @@ public class ModItems {
   // Piggy Banks
   public static final RegistryObject<Item> PIGGY_BANK_GHAST =
       ITEMS.register("piggy_bank_ghast", () -> new BlockItem(ModBlocks.PIGGY_BANK_GHAST.get(),
-          new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
+          new Item.Properties().tab(TokenCoinsTab.PIGGY_BANK)));
   public static final RegistryObject<Item> PIGGY_BANK =
       ITEMS.register("piggy_bank", () -> new BlockItem(ModBlocks.PIGGY_BANK.get(),
-          new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
+          new Item.Properties().tab(TokenCoinsTab.PIGGY_BANK)));
 
   // Coin Press
   public static final RegistryObject<Item> COIN_PRESS =
