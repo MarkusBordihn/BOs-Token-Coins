@@ -1,5 +1,5 @@
 {
-  "parent": "token_coins:block/template/coin_press_working",
+  "parent": "token_coins:block/coin_press/coin_press",
   "textures": {
     "texture": "token_coins:block/coin_press_powered",
     "material": "minecraft:item/iron_nugget"

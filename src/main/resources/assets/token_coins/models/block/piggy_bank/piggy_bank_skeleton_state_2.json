@@ -1,5 +1,5 @@
 {
-  "parent": "token_coins:block/template/piggy_bank_ghast",
+  "parent": "token_coins:block/piggy_bank/piggy_bank_skeleton",
   "textures": {
     "coin_up": "token_coins:block/blank",
     "coin_down": "token_coins:item/coins/gold_token_coin"

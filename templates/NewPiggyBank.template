@@ -74,7 +74,7 @@ ItemBlockRenderTypes.setRenderLayer(ModBlocks.PIGGY_BANK_[[ --BLOCK_NAME-- ]].ge
 @@@ before:"block.placeholder.text" @@@
   "block.token_coins.piggy_bank_[[ --block_name-- ]]": "Piggy Bank ([[ --BlockName-- ]])",
 
-+++ models/block/template/piggy_bank_[[ --block_name-- ]].json
++++ models/block/piggy_bank/piggy_bank_[[ --block_name-- ]].json
 @@@ create @@@
 {
 	"credit": "Made with Blockbench by Markus Bordihn",
@@ -192,7 +192,7 @@ ItemBlockRenderTypes.setRenderLayer(ModBlocks.PIGGY_BANK_[[ --BLOCK_NAME-- ]].ge
 +++ models/block/piggy_bank_[[ --block_name-- ]]_state_0.json
 @@@ create @@@
 {
-  "parent": "token_coins:block/template/piggy_bank_[[ --block_name-- ]]",
+  "parent": "token_coins:block/piggy_bank/piggy_bank_[[ --block_name-- ]]",
   "textures": {
     "coin_up": "token_coins:block/blank",
     "coin_down": "token_coins:block/blank"
@@ -202,7 +202,7 @@ ItemBlockRenderTypes.setRenderLayer(ModBlocks.PIGGY_BANK_[[ --BLOCK_NAME-- ]].ge
 +++ models/block/piggy_bank_[[ --block_name-- ]]_state_1.json
 @@@ create @@@
 {
-  "parent": "token_coins:block/template/piggy_bank_[[ --block_name-- ]]",
+  "parent": "token_coins:block/piggy_bank/piggy_bank_[[ --block_name-- ]]",
   "textures": {
     "coin_up": "token_coins:item/coins/gold_token_coin",
     "coin_down": "token_coins:block/blank"
@@ -212,7 +212,7 @@ ItemBlockRenderTypes.setRenderLayer(ModBlocks.PIGGY_BANK_[[ --BLOCK_NAME-- ]].ge
 +++ models/block/piggy_bank_[[ --block_name-- ]]_state_2.json
 @@@ create @@@
 {
-  "parent": "token_coins:block/template/piggy_bank_[[ --block_name-- ]]",
+  "parent": "token_coins:block/piggy_bank/piggy_bank_[[ --block_name-- ]]",
   "textures": {
     "coin_up": "token_coins:block/blank",
     "coin_down": "token_coins:item/coins/gold_token_coin"
@@ -225,7 +225,7 @@ ItemBlockRenderTypes.setRenderLayer(ModBlocks.PIGGY_BANK_[[ --BLOCK_NAME-- ]].ge
   "parent": "token_coins:block/piggy_bank_[[ --block_name-- ]]_state_0"
 }
 
-+++ recipes/piggy_bank_[[ --block_name-- ]]_from_xxx.json_
++++ recipes/XYZ_piggy_bank_[[ --block_name-- ]]_from_xyz_and_xyz_terracotta.json
 @@@ create @@@
 {
   "type": "minecraft:crafting_shaped",
@@ -255,6 +255,6 @@ ItemBlockRenderTypes.setRenderLayer(ModBlocks.PIGGY_BANK_[[ --BLOCK_NAME-- ]].ge
 @@@ after: "token_coins:piggy_bank",@@@
     "token_coins:piggy_bank_[[ --block_name-- ]]",
 
-+++ minecraft/tags/needs_iron_tool.json
++++ minecraft/tags/blocks/needs_iron_tool.json
 @@@ after: "token_coins:piggy_bank",@@@
     "token_coins:piggy_bank_[[ --block_name-- ]]",
