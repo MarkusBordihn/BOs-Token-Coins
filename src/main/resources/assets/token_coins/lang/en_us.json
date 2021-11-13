@@ -11,11 +11,12 @@
   "block.token_coins.piggy_bank": "Piggy Bank",
   "block.token_coins.piggy_bank_ghast": "Piggy Bank (Ghast)",
   "block.token_coins.piggy_bank_pig": "Piggy Bank (Pig)",
+  "block.token_coins.piggy_bank_safe": "Piggy Bank (Safe)",
+  "block.token_coins.piggy_bank_skeleton": "Piggy Bank (Skeleton)",
   "block.token_coins.piggy_bank_tnt": "Piggy Bank (TNT)",
 
   "block.token_coins.coin_press": "Coin Press",
 
-  "block.token_coins.piggy_bank_skeleton": "Piggy Bank (Skeleton)",
   "block.placeholder.text": "Template placeholder do not remove!",
   "container.coin_press": "Coin Press",
 

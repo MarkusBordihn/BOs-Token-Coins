@@ -57,6 +57,10 @@ public class ModBlocks {
               })));
 
   // Piggy Banks
+  public static final RegistryObject<Block> PIGGY_BANK_SAFE =
+      BLOCKS.register(PiggyBankSafeBlock.NAME,
+          () -> new PiggyBankSafeBlock(BlockBehaviour.Properties.of(Material.DECORATION)
+              .requiresCorrectToolForDrops().strength(3.0F, 6.0F).sound(SoundType.METAL)));
   public static final RegistryObject<Block> PIGGY_BANK_SKELETON =
       BLOCKS.register(PiggyBankSkeletonBlock.NAME,
           () -> new PiggyBankSkeletonBlock(BlockBehaviour.Properties.of(Material.DECORATION)
@@ -83,6 +87,9 @@ public class ModBlocks {
           .of(CoinPressBlockEntity::new, COIN_PRESS.get()).build(null));
 
   // Piggy Bank Block Entity
+  public static final RegistryObject<BlockEntityType<PiggyBankBlockEntity>> PIGGY_BANK_SAFE_ENTITY =
+      ENTITIES.register(PiggyBankSafeBlock.NAME, () -> BlockEntityType.Builder
+          .of(PiggyBankBlockEntity::new, PIGGY_BANK_SAFE.get()).build(null));
   public static final RegistryObject<BlockEntityType<PiggyBankBlockEntity>> PIGGY_BANK_SKELETON_ENTITY =
       ENTITIES.register(PiggyBankSkeletonBlock.NAME, () -> BlockEntityType.Builder
           .of(PiggyBankBlockEntity::new, PIGGY_BANK_SKELETON.get()).build(null));

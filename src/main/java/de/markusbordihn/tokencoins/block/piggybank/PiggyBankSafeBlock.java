@@ -17,11 +17,11 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 import de.markusbordihn.tokencoins.block.PiggyBankBlock;
 
-public class PiggyBankTNTBlock extends PiggyBankBlock {
+public class PiggyBankSafeBlock extends PiggyBankBlock {
 
-  public static final String NAME = "piggy_bank_tnt";
+  public static final String NAME = "piggy_bank_safe";
 
-  public PiggyBankTNTBlock(Properties properties) {
+  public PiggyBankSafeBlock(Properties properties) {
     super(properties);
   }
 
@@ -36,10 +36,9 @@ public class PiggyBankTNTBlock extends PiggyBankBlock {
       InteractionHand hand, BlockHitResult hitResult) {
     ItemStack handItemStack = player.getItemInHand(hand);
     if (handItemStack.is(Items.FLINT_AND_STEEL)) {
-      playSound(player, SoundEvents.TNT_PRIMED);
-      addParticle(level, ParticleTypes.EXPLOSION, blockPos);
-      playSound(player, SoundEvents.GENERIC_EXPLODE);
-      addParticle(level, ParticleTypes.EXPLOSION, blockPos);
+      playSound(player, SoundEvents.FLINTANDSTEEL_USE);
+      addParticleOnTop(level, ParticleTypes.SMOKE, blockPos);
+      playSound(player, SoundEvents.VILLAGER_NO);
       return InteractionResult.SUCCESS;
     }
     return super.use(blockState, level, blockPos, player, hand, hitResult);

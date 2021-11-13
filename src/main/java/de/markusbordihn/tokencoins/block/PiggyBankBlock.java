@@ -28,7 +28,9 @@ import org.apache.logging.log4j.Logger;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
@@ -81,6 +83,32 @@ public class PiggyBankBlock extends Block implements EntityBlock, TokenCoinCompa
     super(properties);
     this.registerDefaultState(
         this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(STATE, 0));
+  }
+
+  public void addParticle(Level level, ParticleOptions particle, double x, double y, double z) {
+    if (level.isClientSide) {
+      level.addParticle(particle, x, y, z, 0.0D, 0.0D, 0.0D);
+    }
+  }
+
+  public void addParticle(Level level, ParticleOptions particle, BlockPos blockPos) {
+    addParticle(level, particle, blockPos.getX() + 0.5, blockPos.getY() + 0.5,
+        blockPos.getZ() + 0.5);
+  }
+
+  public void addParticleOnTop(Level level, ParticleOptions particle, BlockPos blockPos) {
+    addParticle(level, particle, blockPos.getX() + 0.5, blockPos.getY() + 0.75,
+        blockPos.getZ() + 0.5);
+  }
+
+  public void playSound(Player player, SoundEvent sound, float volume, float pitch) {
+    if (player.level.isClientSide) {
+      player.playSound(sound, volume, pitch);
+    }
+  }
+
+  public void playSound(Player player, SoundEvent sound) {
+    playSound(player, sound, 1.0F, 1.0F);
   }
 
   @Override
@@ -163,6 +191,7 @@ public class PiggyBankBlock extends Block implements EntityBlock, TokenCoinCompa
     return InteractionResult.FAIL;
   }
 
+  @Override
   public InteractionResult use(BlockState blockState, Level level, BlockPos blockPos, Player player,
       InteractionHand hand, BlockHitResult hitResult) {
     BlockEntity blockEntity = level.getBlockEntity(blockPos);

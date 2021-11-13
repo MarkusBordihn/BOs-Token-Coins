@@ -35,11 +35,10 @@ public class PiggyBankSkeletonBlock extends PiggyBankBlock {
   public InteractionResult use(BlockState blockState, Level level, BlockPos blockPos, Player player,
       InteractionHand hand, BlockHitResult hitResult) {
     ItemStack handItemStack = player.getItemInHand(hand);
-    if (level.isClientSide && handItemStack.is(Items.CARROT)) {
-      player.playSound(SoundEvents.HORSE_EAT, 1.0F, 1.0F);
-      level.addParticle(ParticleTypes.HEART, blockPos.getX(), blockPos.getY(), blockPos.getZ(),
-          0.0D, 0.0D, 0.0D);
-      return InteractionResult.CONSUME;
+    if (handItemStack.is(Items.BONE)) {
+      playSound(player, SoundEvents.GENERIC_EAT);
+      addParticle(level, ParticleTypes.HEART, blockPos);
+      return InteractionResult.SUCCESS;
     }
     return super.use(blockState, level, blockPos, player, hand, hitResult);
   }

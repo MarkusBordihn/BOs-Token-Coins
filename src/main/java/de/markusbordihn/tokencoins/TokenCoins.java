@@ -77,12 +77,13 @@ public class TokenCoins {
       // Coin Press UI screen
       MenuScreens.register(CoinPressMenu.TYPE, CoinPressScreen::new);
 
-      // Coin Press Block
+      // Coin Press Block (transparent cutout)
       ItemBlockRenderTypes.setRenderLayer(ModBlocks.COIN_PRESS.get(), RenderType.cutout());
 
-      // Piggy Banks
+      // Piggy Banks (transparent cutout's)
       ItemBlockRenderTypes.setRenderLayer(ModBlocks.PIGGY_BANK_GHAST.get(), RenderType.cutout());
       ItemBlockRenderTypes.setRenderLayer(ModBlocks.PIGGY_BANK_PIG.get(), RenderType.cutout());
+      ItemBlockRenderTypes.setRenderLayer(ModBlocks.PIGGY_BANK_SAFE.get(), RenderType.cutout());
       ItemBlockRenderTypes.setRenderLayer(ModBlocks.PIGGY_BANK_SKELETON.get(), RenderType.cutout());
       ItemBlockRenderTypes.setRenderLayer(ModBlocks.PIGGY_BANK_TNT.get(), RenderType.cutout());
     });

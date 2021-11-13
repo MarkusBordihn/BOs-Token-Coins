@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#O#",
+    "#s#",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:gray_terracotta"
+    },
+    "O": {
+      "tag": "token_coins:coins"
+    },
+    "s": {
+      "item": "material_elements:steel_ingot"
+    }
+  },
+  "result": {
+    "item": "token_coins:piggy_bank_safe",
+    "count": 1
+  }
+}
