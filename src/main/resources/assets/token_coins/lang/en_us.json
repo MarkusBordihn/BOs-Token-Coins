@@ -8,9 +8,11 @@
   "text.token_coins.piggy_bank_check_balance_normal": "You have saved a good amount of about %1$s.",
   "text.token_coins.piggy_bank_check_balance_high": "You saved a lot of money, it's about %1$s!",
 
-  "block.token_coins.coin_press": "Coin Press",
   "block.token_coins.piggy_bank": "Piggy Bank",
   "block.token_coins.piggy_bank_ghast": "Piggy Bank (Ghast)",
+  "block.token_coins.piggy_bank_pig": "Piggy Bank (Pig)",
+
+  "block.token_coins.coin_press": "Coin Press",
 
   "block.placeholder.text": "Template placeholder do not remove!",
   "container.coin_press": "Coin Press",

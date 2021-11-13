@@ -43,7 +43,7 @@ public class PiggyBank[[ --BlockClassName-- ]]Block extends PiggyBankBlock {
 @@@ after:// Piggy Banks @@@
   public static final RegistryObject<Item> PIGGY_BANK_[[ --BLOCK_NAME-- ]] =
       ITEMS.register(PiggyBank[[ --BlockClassName-- ]]Block.NAME, () -> new BlockItem(ModBlocks.PIGGY_BANK_[[ --BLOCK_NAME-- ]].get(),
-          new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
+          new Item.Properties().tab(TokenCoinsTab.PIGGY_BANK)));
 
 +++ TokenCoins.java
 @@@ after:// Piggy Banks @@@
@@ -222,24 +222,27 @@ ItemBlockRenderTypes.setRenderLayer(ModBlocks.PIGGY_BANK_[[ --BLOCK_NAME-- ]].ge
 +++ models/item/piggy_bank_[[ --block_name-- ]].json
 @@@ create @@@
 {
-  "parent": "token_coins:block/piggy_bank_[[ --block_name-- ]]"
+  "parent": "token_coins:block/piggy_bank_[[ --block_name-- ]]_state_0"
 }
 
-+++ recipes/piggy_bank_[[ --block_name-- ]]_from_xxx.json
++++ recipes/piggy_bank_[[ --block_name-- ]]_from_xxx.json_
 @@@ create @@@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "   ",
-    "   ",
-    "   "
+    "#O#",
+    "#p#",
+    "###"
   ],
   "key": {
     "#": {
-      "item": "token_coins:netherite_coin_stamp"
+      "item": "minecraft:white_terracotta"
     },
     "O": {
-      "item": "[ENTER ITEM HERE]"
+      "tag": "token_coins:coins"
+    },
+    "p": {
+      "item": "[ Enter your Drop Item here]"
     }
   },
   "result": {

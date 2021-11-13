@@ -68,6 +68,7 @@ public class PiggyBankBlock extends Block implements EntityBlock, TokenCoinCompa
   // Predefined Voxel Shapes
   protected static final VoxelShape SHAPE_AABB = Block.box(4, 0, 4, 12, 8, 12);
   protected static final VoxelShape SHAPE_10_10_10_AABB = Block.box(3, 0, 3, 13, 10, 13);
+  protected static final VoxelShape SHAPE_10_12_12_AABB = Block.box(3, 0, 1, 13, 10, 15);
 
   // Animation specific ticker
   public int animateTicker = 0;

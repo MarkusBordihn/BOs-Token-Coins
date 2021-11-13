@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#O#",
+    "#p#",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:pink_terracotta"
+    },
+    "O": {
+      "tag": "token_coins:coins"
+    },
+    "p": {
+      "item": "minecraft:porkchop"
+    }
+  },
+  "result": {
+    "item": "token_coins:piggy_bank_pig",
+    "count": 1
+  }
+}

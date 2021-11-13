@@ -16,8 +16,7 @@
 			"rotation": {"angle": 0, "axis": "y", "origin": [8, 11.5, 8]},
 			"faces": {
 				"north": {"uv": [0, 0, 16, 16], "texture": "#coin_up"},
-				"south": {"uv": [0, 0, 16, 16], "texture": "#coin_up", "cullface": "north"},
-				"down": {"uv": [0, 0, 0.25, 3], "rotation": 90, "texture": "#missing"}
+				"south": {"uv": [0, 0, 16, 16], "texture": "#coin_up"}
 			}
 		},
 		{
@@ -27,8 +26,7 @@
 			"rotation": {"angle": 0, "axis": "y", "origin": [8, 11.5, 8]},
 			"faces": {
 				"north": {"uv": [0, 0, 16, 16], "texture": "#coin_down"},
-				"south": {"uv": [0, 0, 16, 16], "texture": "#coin_down", "cullface": "north"},
-				"down": {"uv": [0, 0, 0.25, 3], "rotation": 90, "texture": "#missing"}
+				"south": {"uv": [0, 0, 16, 16], "texture": "#coin_down"}
 			}
 		},
 		{
@@ -41,7 +39,7 @@
 				"south": {"uv": [4, 8, 8, 16], "texture": "#motive"},
 				"west": {"uv": [0, 8, 4, 16], "texture": "#motive"},
 				"up": {"uv": [12, 8, 16, 16], "texture": "#motive"},
-				"down": {"uv": [8, 0, 12, 8], "rotation": 90, "texture": "#motive"}
+				"down": {"uv": [8, 0, 12, 8], "rotation": 90, "texture": "#motive", "cullface": "down"}
 			}
 		},
 		{
@@ -55,34 +53,34 @@
 		}
 	],
 	"display": {
-    "thirdperson_righthand": {
-      "rotation": [60, -180, 0],
-      "translation": [0, 4, 1],
-      "scale": [0.5, 0.5, 0.5]
-    },
-    "thirdperson_lefthand": {
-      "rotation": [60, -180, 0],
-      "translation": [0, 4, 1],
-      "scale": [0.5, 0.5, 0.5]
-    },
-    "ground": {
-      "translation": [0, 1, 0],
-      "scale": [0.5, 0.5, 0.5]
-    },
-    "gui": {
-      "rotation": [45, 45, 0],
-      "translation": [0, 2, 0],
-      "scale": [0.9, 0.9, 0.9]
-    },
-    "head": {
-      "rotation": [0, -180, 0],
-      "translation": [0, 15, 0]
-    },
-    "fixed": {
-      "rotation": [0, -180, 0],
-      "translation": [0, 1, 0]
-    }
-  },
+		"thirdperson_righthand": {
+			"rotation": [60, -180, 0],
+			"translation": [0, 4, 1],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [60, -180, 0],
+			"translation": [0, 4, 1],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"ground": {
+			"translation": [0, 1, 0],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"gui": {
+			"rotation": [45, 45, 0],
+			"translation": [0, 2, 0],
+			"scale": [0.9, 0.9, 0.9]
+		},
+		"head": {
+			"rotation": [0, -180, 0],
+			"translation": [0, 15, 0]
+		},
+		"fixed": {
+			"rotation": [0, -180, 0],
+			"translation": [0, 1, 0]
+		}
+	},
 	"groups": [
 		{
 			"name": "coin",
@@ -103,10 +101,10 @@
 			"children": [3]
 		},
 		{
-			"name": "VoxelShape",
+			"name": "VoxelShapes",
 			"origin": [8, 8, 8],
 			"color": 0,
-			"children": [4]
+			"children": []
 		}
 	]
 }

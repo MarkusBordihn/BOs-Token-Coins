@@ -9,7 +9,7 @@ title: "API"
 If you want to create new blocks or machines like a vending machine which are using token coin
 items, we are offering a simple way / api for this.
 
-## 🪙 The TokeCoinCompatible Interface
+## 🪙 The TokenCoinCompatible Interface
 
 The token coin items are using a interface called **TokenCoinCompatible** to see if they could be used
 with such block.

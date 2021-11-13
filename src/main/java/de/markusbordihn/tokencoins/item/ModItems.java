@@ -28,6 +28,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 import de.markusbordihn.tokencoins.Constants;
 import de.markusbordihn.tokencoins.block.ModBlocks;
+import de.markusbordihn.tokencoins.block.piggybank.*;
 import de.markusbordihn.tokencoins.item.coin.*;
 import de.markusbordihn.tokencoins.item.coinstamp.*;
 import de.markusbordihn.tokencoins.tabs.TokenCoinsTab;
@@ -262,8 +263,11 @@ public class ModItems {
   @TemplateEntryPoint("Register Block Items")
 
   // Piggy Banks
+  public static final RegistryObject<Item> PIGGY_BANK_PIG =
+      ITEMS.register(PiggyBankPigBlock.NAME, () -> new BlockItem(ModBlocks.PIGGY_BANK_PIG.get(),
+          new Item.Properties().tab(TokenCoinsTab.PIGGY_BANK)));
   public static final RegistryObject<Item> PIGGY_BANK_GHAST =
-      ITEMS.register("piggy_bank_ghast", () -> new BlockItem(ModBlocks.PIGGY_BANK_GHAST.get(),
+      ITEMS.register(PiggyBankGhastBlock.NAME, () -> new BlockItem(ModBlocks.PIGGY_BANK_GHAST.get(),
           new Item.Properties().tab(TokenCoinsTab.PIGGY_BANK)));
   public static final RegistryObject<Item> PIGGY_BANK =
       ITEMS.register("piggy_bank", () -> new BlockItem(ModBlocks.PIGGY_BANK.get(),
