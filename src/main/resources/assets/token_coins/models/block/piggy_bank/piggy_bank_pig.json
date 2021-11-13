@@ -1,5 +1,4 @@
 {
-
 	"credit": "Made with Blockbench",
 	"texture_size": [64, 32],
 	"textures": {
@@ -105,6 +104,19 @@
 			}
 		},
 		{
+			"name": "ohr",
+			"from": [2.45, 5, 11],
+			"to": [13.45, 9, 14],
+			"faces": {
+				"north": {"uv": [5.25, 5.5, 7.9375, 7.5], "texture": "#motive"},
+				"east": {"uv": [4.25, 5, 5, 7], "texture": "#motive"},
+				"south": {"uv": [5.25, 5.5, 7.9375, 7.5], "texture": "#motive"},
+				"west": {"uv": [1, 5, 1.75, 7], "texture": "#motive"},
+				"up": {"uv": [5.25, 5.5, 7.9375, 7], "texture": "#motive"},
+				"down": {"uv": [5, 5.5, 7.6875, 7], "texture": "#motive"}
+			}
+		},
+		{
 			"name": "slot",
 			"from": [4, 9.1, 7],
 			"to": [12, 10.1, 9],
@@ -157,14 +169,15 @@
 					"origin": [0, 0, 0],
 					"color": 0,
 					"children": [4, 5, 6, 7]
-				}
+				},
+				8
 			]
 		},
 		{
 			"name": "slot",
 			"origin": [8, 8, 8],
 			"color": 0,
-			"children": [8]
+			"children": [9]
 		},
 		{
 			"name": "VoxelShapes",
