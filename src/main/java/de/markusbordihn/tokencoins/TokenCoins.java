@@ -81,8 +81,10 @@ public class TokenCoins {
       ItemBlockRenderTypes.setRenderLayer(ModBlocks.COIN_PRESS.get(), RenderType.cutout());
 
       // Piggy Banks
-ItemBlockRenderTypes.setRenderLayer(ModBlocks.PIGGY_BANK_PIG.get(), RenderType.cutout());
       ItemBlockRenderTypes.setRenderLayer(ModBlocks.PIGGY_BANK_GHAST.get(), RenderType.cutout());
+      ItemBlockRenderTypes.setRenderLayer(ModBlocks.PIGGY_BANK_PIG.get(), RenderType.cutout());
+      ItemBlockRenderTypes.setRenderLayer(ModBlocks.PIGGY_BANK_SKELETON.get(), RenderType.cutout());
+      ItemBlockRenderTypes.setRenderLayer(ModBlocks.PIGGY_BANK_TNT.get(), RenderType.cutout());
     });
   }
 

@@ -1,0 +1,7 @@
+{
+  "parent": "token_coins:block/template/piggy_bank_tnt",
+  "textures": {
+    "coin_up": "token_coins:item/coins/gold_token_coin",
+    "coin_down": "token_coins:block/blank"
+  }
+}

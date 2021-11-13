@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#O#",
+    "TNT",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:red_terracotta"
+    },
+    "T": {
+      "item": "minecraft:white_terracotta"
+    },
+    "O": {
+      "tag": "token_coins:coins"
+    },
+    "N": {
+      "item": "minecraft:tnt"
+    }
+  },
+  "result": {
+    "item": "token_coins:piggy_bank_tnt",
+    "count": 1
+  }
+}

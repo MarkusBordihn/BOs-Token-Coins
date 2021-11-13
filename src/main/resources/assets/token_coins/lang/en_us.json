@@ -6,14 +6,16 @@
   "text.token_coins.piggy_bank_check_balance_empty": "The piggy banks seems to be empty.",
   "text.token_coins.piggy_bank_check_balance_low": "There are some coins in it, but not more than %1$s.",
   "text.token_coins.piggy_bank_check_balance_normal": "You have saved a good amount of about %1$s.",
-  "text.token_coins.piggy_bank_check_balance_high": "You saved a lot of money, it's about %1$s!",
+  "text.token_coins.piggy_bank_check_balance_high": "You saved a lot of coins, it's about %1$s!",
 
   "block.token_coins.piggy_bank": "Piggy Bank",
   "block.token_coins.piggy_bank_ghast": "Piggy Bank (Ghast)",
   "block.token_coins.piggy_bank_pig": "Piggy Bank (Pig)",
+  "block.token_coins.piggy_bank_tnt": "Piggy Bank (TNT)",
 
   "block.token_coins.coin_press": "Coin Press",
 
+  "block.token_coins.piggy_bank_skeleton": "Piggy Bank (Skeleton)",
   "block.placeholder.text": "Template placeholder do not remove!",
   "container.coin_press": "Coin Press",
 

@@ -263,6 +263,12 @@ public class ModItems {
   @TemplateEntryPoint("Register Block Items")
 
   // Piggy Banks
+  public static final RegistryObject<Item> PIGGY_BANK_SKELETON = ITEMS.register(
+      PiggyBankSkeletonBlock.NAME, () -> new BlockItem(ModBlocks.PIGGY_BANK_SKELETON.get(),
+          new Item.Properties().tab(TokenCoinsTab.PIGGY_BANK)));
+  public static final RegistryObject<Item> PIGGY_BANK_TNT =
+      ITEMS.register(PiggyBankTNTBlock.NAME, () -> new BlockItem(ModBlocks.PIGGY_BANK_TNT.get(),
+          new Item.Properties().tab(TokenCoinsTab.PIGGY_BANK)));
   public static final RegistryObject<Item> PIGGY_BANK_PIG =
       ITEMS.register(PiggyBankPigBlock.NAME, () -> new BlockItem(ModBlocks.PIGGY_BANK_PIG.get(),
           new Item.Properties().tab(TokenCoinsTab.PIGGY_BANK)));
