@@ -19,18 +19,16 @@
 
 package de.markusbordihn.tokencoins.block;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 
-import de.markusbordihn.tokencoins.Constants;
+import de.markusbordihn.tokencoins.item.coin.CoinItem;
 
 /**
  * This interface is used to interact with the token coins.
@@ -38,8 +36,19 @@ import de.markusbordihn.tokencoins.Constants;
 
 public interface TokenCoinCompatible {
 
-  public static final Logger log = LogManager.getLogger(Constants.LOG_NAME);
-
+  /**
+   * Defines the action for consuming the token coin.
+   */
   InteractionResult consumeTokenCoin(Level level, BlockPos blockPos, BlockState blockState,
       BlockEntity blockEntity, ItemStack itemStack, UseOnContext context);
+
+  /**
+   * Defines is the block is able to consume the token coin.
+   * If this is false consumeTokenCoin will not be triggered.
+   */
+  default boolean canConsumeTokenCoin(Level level, BlockPos blockPos, BlockState blockState,
+      BlockEntity blockEntity, Player player, ItemStack itemStack) {
+    return itemStack.getItem() instanceof CoinItem;
+  }
+
 }

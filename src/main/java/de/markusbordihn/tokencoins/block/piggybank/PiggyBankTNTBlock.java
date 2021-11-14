@@ -37,8 +37,9 @@ public class PiggyBankTNTBlock extends PiggyBankBlock {
     ItemStack handItemStack = player.getItemInHand(hand);
     if (handItemStack.is(Items.FLINT_AND_STEEL)) {
       playSound(player, SoundEvents.TNT_PRIMED);
-      addParticle(level, ParticleTypes.EXPLOSION, blockPos);
+      addParticleOnTop(level, ParticleTypes.FLAME, blockPos);
       playSound(player, SoundEvents.GENERIC_EXPLODE);
+      addParticle(level, ParticleTypes.FLASH, blockPos);
       addParticle(level, ParticleTypes.EXPLOSION, blockPos);
       return InteractionResult.SUCCESS;
     }

@@ -30,6 +30,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
@@ -94,13 +95,16 @@ public class CoinItem extends Item {
     if (block instanceof TokenCoinCompatible tokenCoinCompatibleBlock) {
       ItemStack itemStack = context.getItemInHand();
       BlockEntity blockEntity = level.getBlockEntity(blockPos);
-
+      Player player = context.getPlayer();
+      // Make sure that the block can consume the token, we only accept server-side confirmations.
       if (!level.isClientSide) {
-        // Call the consumer and let him do all the operations
-        tokenCoinCompatibleBlock.consumeTokenCoin(level, blockPos, blockState,
-          blockEntity, itemStack, context);
-        return InteractionResult.sidedSuccess(level.isClientSide);
+        if (tokenCoinCompatibleBlock.canConsumeTokenCoin(level, blockPos, blockState, blockEntity, player, itemStack)) {
+          return tokenCoinCompatibleBlock.consumeTokenCoin(level, blockPos, blockState, blockEntity,
+            itemStack, context);
+        }
+        return InteractionResult.FAIL;
       }
+      return InteractionResult.sidedSuccess(level.isClientSide);
     }
     return InteractionResult.PASS;
   }
