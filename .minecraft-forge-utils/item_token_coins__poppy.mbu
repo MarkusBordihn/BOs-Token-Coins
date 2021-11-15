@@ -1,0 +1,32 @@
+{
+  "attributes": {
+    "foil": false
+  },
+  "bedrock": {
+    "formatVersion": "1.16.1"
+  },
+  "category": "items",
+  "component": "item",
+  "configVersion": "0.0.1",
+  "description": "",
+  "events": {},
+  "forge": {
+    "className": "Poppy"
+  },
+  "icon": "poppy",
+  "id": "token_coins:poppy",
+  "itemName": "poppy",
+  "misc": {},
+  "name": "Poppy",
+  "namespace": "token_coins",
+  "placeholder": {
+    "CreativeTab": "TAB_MISC",
+    "ItemName": "Poppy",
+    "ITEM_NAME": "POPPY",
+    "item_name": "poppy",
+    "ItemClassName": "Poppy"
+  },
+  "template": ".\\\\templates\\\\NewTokenCoins.template",
+  "type": "template",
+  "variation": ""
+}

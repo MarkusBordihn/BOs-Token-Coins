@@ -1,0 +1,32 @@
+{
+  "attributes": {
+    "foil": false
+  },
+  "bedrock": {
+    "formatVersion": "1.16.1"
+  },
+  "category": "items",
+  "component": "item",
+  "configVersion": "0.0.1",
+  "description": "",
+  "events": {},
+  "forge": {
+    "className": "Wither"
+  },
+  "icon": "wither",
+  "id": "token_coins:wither",
+  "itemName": "wither",
+  "misc": {},
+  "name": "Wither",
+  "namespace": "token_coins",
+  "placeholder": {
+    "CreativeTab": "TAB_MISC",
+    "ItemName": "Wither",
+    "ITEM_NAME": "WITHER",
+    "item_name": "wither",
+    "ItemClassName": "Wither"
+  },
+  "template": ".\\\\templates\\\\NewTokenCoins.template",
+  "type": "template",
+  "variation": ""
+}

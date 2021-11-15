@@ -1,0 +1,32 @@
+{
+  "attributes": {
+    "soundType": "SoundType.METAL"
+  },
+  "bedrock": {
+    "formatVersion": "1.16.1"
+  },
+  "blockName": "skeleton",
+  "component": "block",
+  "configVersion": "0.0.1",
+  "description": "",
+  "events": {},
+  "forge": {
+    "className": "Skeleton"
+  },
+  "icon": "skeleton",
+  "id": "token_coins:skeleton",
+  "misc": {},
+  "name": "Skeleton",
+  "namespace": "token_coins",
+  "placeholder": {
+    "CreativeTab": "TAB_MISC",
+    "BlockName": "Skeleton",
+    "BLOCK_NAME": "SKELETON",
+    "block_name": "skeleton",
+    "BlockClassName": "Skeleton",
+    "SoundType": "SoundType.METAL"
+  },
+  "template": ".\\\\templates\\\\NewPiggyBank.template",
+  "type": "template",
+  "variation": ""
+}

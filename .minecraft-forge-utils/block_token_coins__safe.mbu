@@ -1,0 +1,32 @@
+{
+  "attributes": {
+    "soundType": "SoundType.METAL"
+  },
+  "bedrock": {
+    "formatVersion": "1.16.1"
+  },
+  "blockName": "safe",
+  "component": "block",
+  "configVersion": "0.0.1",
+  "description": "",
+  "events": {},
+  "forge": {
+    "className": "Safe"
+  },
+  "icon": "safe",
+  "id": "token_coins:safe",
+  "misc": {},
+  "name": "Safe",
+  "namespace": "token_coins",
+  "placeholder": {
+    "CreativeTab": "TAB_MISC",
+    "BlockName": "Safe",
+    "BLOCK_NAME": "SAFE",
+    "block_name": "safe",
+    "BlockClassName": "Safe",
+    "SoundType": "SoundType.METAL"
+  },
+  "template": ".\\\\templates\\\\NewPiggyBank.template",
+  "type": "template",
+  "variation": ""
+}

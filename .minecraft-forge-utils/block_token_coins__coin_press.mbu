@@ -1,0 +1,31 @@
+{
+  "attributes": {
+    "soundType": "SoundType.METAL"
+  },
+  "bedrock": {
+    "formatVersion": "1.16.1"
+  },
+  "blockName": "coin_press",
+  "component": "block",
+  "configVersion": "0.0.1",
+  "description": "",
+  "events": {},
+  "forge": {
+    "className": "CoinPress"
+  },
+  "icon": "coin_press",
+  "id": "token_coins:coin_press",
+  "misc": {},
+  "name": "Coin Press",
+  "namespace": "token_coins",
+  "placeholder": {
+    "CreativeTab": "TAB_MISC",
+    "BlockName": "Coin Press",
+    "BLOCK_NAME": "COIN_PRESS",
+    "block_name": "coin_press",
+    "BlockClassName": "CoinPress",
+    "SoundType": "SoundType.METAL"
+  },
+  "type": "custom",
+  "variation": ""
+}

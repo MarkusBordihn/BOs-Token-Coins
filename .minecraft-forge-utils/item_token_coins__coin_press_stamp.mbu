@@ -1,0 +1,31 @@
+{
+  "attributes": {
+    "foil": false
+  },
+  "bedrock": {
+    "formatVersion": "1.16.1"
+  },
+  "category": "items",
+  "component": "item",
+  "configVersion": "0.0.1",
+  "description": "",
+  "events": {},
+  "forge": {
+    "className": "CoinPressStamp"
+  },
+  "icon": "coin_press_stamp",
+  "id": "token_coins:coin_press_stamp",
+  "itemName": "coin_press_stamp",
+  "misc": {},
+  "name": "Coin Press Stamp",
+  "namespace": "token_coins",
+  "placeholder": {
+    "CreativeTab": "TAB_MISC",
+    "ItemName": "Coin Press Stamp",
+    "ITEM_NAME": "COIN_PRESS_STAMP",
+    "item_name": "coin_press_stamp",
+    "ItemClassName": "CoinPressStamp"
+  },
+  "type": "simple",
+  "variation": ""
+}

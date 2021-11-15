@@ -27,9 +27,6 @@ npm-debug.log
 # Files from Forge MDK
 forge*changelog.txt
 
-# Minecraft Forge Utils
-.minecraft-forge-utils
-
 # Other
 .DS_Store
 generated

@@ -1,0 +1,31 @@
+{
+  "attributes": {
+    "foil": false
+  },
+  "bedrock": {
+    "formatVersion": "1.16.1"
+  },
+  "category": "items",
+  "component": "item",
+  "configVersion": "0.0.1",
+  "description": "",
+  "events": {},
+  "forge": {
+    "className": "TokenCoin"
+  },
+  "icon": "token_coin",
+  "id": "token_coins:token_coin",
+  "itemName": "token_coin",
+  "misc": {},
+  "name": "Token Coin",
+  "namespace": "token_coins",
+  "placeholder": {
+    "CreativeTab": "TAB_MISC",
+    "ItemName": "Token Coin",
+    "ITEM_NAME": "TOKEN_COIN",
+    "item_name": "token_coin",
+    "ItemClassName": "TokenCoin"
+  },
+  "type": "simple",
+  "variation": ""
+}

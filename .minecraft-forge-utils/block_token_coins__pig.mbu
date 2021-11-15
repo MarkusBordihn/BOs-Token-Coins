@@ -1,0 +1,32 @@
+{
+  "attributes": {
+    "soundType": "SoundType.METAL"
+  },
+  "bedrock": {
+    "formatVersion": "1.16.1"
+  },
+  "blockName": "pig",
+  "component": "block",
+  "configVersion": "0.0.1",
+  "description": "",
+  "events": {},
+  "forge": {
+    "className": "Pig"
+  },
+  "icon": "pig",
+  "id": "token_coins:pig",
+  "misc": {},
+  "name": "Pig",
+  "namespace": "token_coins",
+  "placeholder": {
+    "CreativeTab": "TAB_MISC",
+    "BlockName": "Pig",
+    "BLOCK_NAME": "PIG",
+    "block_name": "pig",
+    "BlockClassName": "Pig",
+    "SoundType": "SoundType.METAL"
+  },
+  "template": ".\\\\templates\\\\NewPiggyBank.template",
+  "type": "template",
+  "variation": ""
+}

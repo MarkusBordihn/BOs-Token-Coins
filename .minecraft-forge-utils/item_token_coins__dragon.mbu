@@ -1,0 +1,32 @@
+{
+  "attributes": {
+    "foil": false
+  },
+  "bedrock": {
+    "formatVersion": "1.16.1"
+  },
+  "category": "items",
+  "component": "item",
+  "configVersion": "0.0.1",
+  "description": "",
+  "events": {},
+  "forge": {
+    "className": "Dragon"
+  },
+  "icon": "dragon",
+  "id": "token_coins:dragon",
+  "itemName": "dragon",
+  "misc": {},
+  "name": "Dragon",
+  "namespace": "token_coins",
+  "placeholder": {
+    "CreativeTab": "TAB_MISC",
+    "ItemName": "Dragon",
+    "ITEM_NAME": "DRAGON",
+    "item_name": "dragon",
+    "ItemClassName": "Dragon"
+  },
+  "template": ".\\\\templates\\\\NewTokenCoins.template",
+  "type": "template",
+  "variation": ""
+}

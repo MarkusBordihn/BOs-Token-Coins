@@ -35,6 +35,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 
 import de.markusbordihn.tokencoins.Constants;
@@ -51,6 +52,11 @@ public class PiggyBankBlockEntity extends BlockEntity {
 
   public PiggyBankBlockEntity(BlockPos blockPos, BlockState blockState) {
     super(ModBlocks.PIGGY_BANK_ENTITY.get(), blockPos, blockState);
+  }
+
+  public PiggyBankBlockEntity(BlockEntityType<?> blockEntityType, BlockPos blockPos,
+      BlockState blockState) {
+    super(blockEntityType, blockPos, blockState);
   }
 
   public void increaseStoredValue(int value) {
@@ -86,7 +92,7 @@ public class PiggyBankBlockEntity extends BlockEntity {
 
   public boolean canStoreTokenCoin(Item item) {
     // Cheap reverse pre-check to make sure we are able to store the token coin.
-    for (int index = this.items.size()-1; 0 <= index; index--) {
+    for (int index = this.items.size() - 1; 0 <= index; index--) {
       ItemStack existingItems = this.items.get(index);
       if (existingItems.isEmpty()) {
         return true;

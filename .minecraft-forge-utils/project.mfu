@@ -1,0 +1,44 @@
+{
+  "author": "Markus Bordihn",
+  "bedrock": {
+    "behaviorPack": {
+      "description": "Behavior Pack for New cool items"
+    },
+    "resourcePack": {
+      "description": "Resource Pack for New cool items"
+    },
+    "skinPack": {
+      "description": "Skin Pack for New cool skins"
+    },
+    "folderName": "New_cool_items"
+  },
+  "component": "project",
+  "configVersion": "0.0.1",
+  "forge": {
+    "assetsPath": "src\\main\\resources\\assets\\token_coins",
+    "className": "TokenCoins",
+    "classPath": "src\\main\\java\\de\\markusbordihn\\tokencoins",
+    "description": "This is the description for a new Forge mod",
+    "templatePath": "node_modules\\minecraft-forge-utils\\third_party\\minecraft-forge-template-1.17.1",
+    "templatesPath": "node_modules\\minecraft-forge-utils\\third_party\\minecraft-forge-template-1.17.1\\templates",
+    "namespace": "de.markusbordihn.tokencoins",
+    "vendorName": "markusbordihn",
+    "dataPath": "src\\main\\resources\\data\\token_coins"
+  },
+  "gameType": "forge",
+  "id": "token_coins",
+  "license": "MIT",
+  "minEngineVersion": "1.17.1",
+  "misc": {},
+  "name": "Bo's Token Coins",
+  "placeholder": {
+    "Author": "Markus Bordihn",
+    "ModId": "token_coins",
+    "ModName": "Bo's Token Coins",
+    "packageNamespace": "de.markusbordihn.tokencoins",
+    "classPath": "src\\main\\java\\de\\markusbordihn\\tokencoins",
+    "assetsPath": "src\\main\\resources\\assets\\token_coins"
+  },
+  "type": "unknown",
+  "version": "0.0.0"
+}

@@ -1,0 +1,32 @@
+{
+  "attributes": {
+    "foil": false
+  },
+  "bedrock": {
+    "formatVersion": "1.16.1"
+  },
+  "category": "items",
+  "component": "item",
+  "configVersion": "0.0.1",
+  "description": "",
+  "events": {},
+  "forge": {
+    "className": "Zombie"
+  },
+  "icon": "zombie",
+  "id": "token_coins:zombie",
+  "itemName": "zombie",
+  "misc": {},
+  "name": "Zombie",
+  "namespace": "token_coins",
+  "placeholder": {
+    "CreativeTab": "TAB_MISC",
+    "ItemName": "Zombie",
+    "ITEM_NAME": "ZOMBIE",
+    "item_name": "zombie",
+    "ItemClassName": "Zombie"
+  },
+  "template": ".\\\\templates\\\\NewTokenCoins.template",
+  "type": "template",
+  "variation": ""
+}
