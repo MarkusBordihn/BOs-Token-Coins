@@ -71,6 +71,7 @@ public class PiggyBankBlock extends BaseEntityBlock implements TokenCoinCompatib
   protected static final VoxelShape SHAPE_AABB = Block.box(4, 0, 4, 12, 8, 12);
   protected static final VoxelShape SHAPE_10_10_10_AABB = Block.box(3, 0, 3, 13, 10, 13);
   protected static final VoxelShape SHAPE_10_12_12_AABB = Block.box(3, 0, 1, 13, 10, 15);
+  protected static final VoxelShape SHAPE_10_12_12_90DEG_AABB = Block.box(1, 0, 3, 15, 10, 13);
 
   // Block States
   public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;

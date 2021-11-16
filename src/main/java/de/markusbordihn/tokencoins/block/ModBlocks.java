@@ -57,6 +57,17 @@ public class ModBlocks {
               })));
 
   // Piggy Banks
+  public static final RegistryObject<Block> PIGGY_BANK_GHAST =
+      BLOCKS.register(PiggyBankGhastBlock.NAME,
+          () -> new PiggyBankGhastBlock(BlockBehaviour.Properties.of(Material.DECORATION)
+              .requiresCorrectToolForDrops().strength(3.0F, 6.0F).sound(SoundType.METAL)));
+  public static final RegistryObject<Block> PIGGY_BANK_NOTE_BLOCK =
+      BLOCKS.register(PiggyBankNoteBlockBlock.NAME,
+          () -> new PiggyBankNoteBlockBlock(BlockBehaviour.Properties.of(Material.DECORATION)
+              .requiresCorrectToolForDrops().strength(3.0F, 6.0F).sound(SoundType.METAL)));
+  public static final RegistryObject<Block> PIGGY_BANK_PIG = BLOCKS.register(PiggyBankPigBlock.NAME,
+      () -> new PiggyBankPigBlock(BlockBehaviour.Properties.of(Material.DECORATION)
+          .requiresCorrectToolForDrops().strength(3.0F, 6.0F).sound(SoundType.METAL)));
   public static final RegistryObject<Block> PIGGY_BANK_SAFE =
       BLOCKS.register(PiggyBankSafeBlock.NAME,
           () -> new PiggyBankSafeBlock(BlockBehaviour.Properties.of(Material.DECORATION)
@@ -68,13 +79,6 @@ public class ModBlocks {
   public static final RegistryObject<Block> PIGGY_BANK_TNT = BLOCKS.register(PiggyBankTNTBlock.NAME,
       () -> new PiggyBankTNTBlock(BlockBehaviour.Properties.of(Material.DECORATION)
           .requiresCorrectToolForDrops().strength(3.0F, 6.0F).sound(SoundType.METAL)));
-  public static final RegistryObject<Block> PIGGY_BANK_PIG = BLOCKS.register(PiggyBankPigBlock.NAME,
-      () -> new PiggyBankPigBlock(BlockBehaviour.Properties.of(Material.DECORATION)
-          .requiresCorrectToolForDrops().strength(3.0F, 6.0F).sound(SoundType.METAL)));
-  public static final RegistryObject<Block> PIGGY_BANK_GHAST =
-      BLOCKS.register(PiggyBankGhastBlock.NAME,
-          () -> new PiggyBankGhastBlock(BlockBehaviour.Properties.of(Material.DECORATION)
-              .requiresCorrectToolForDrops().strength(3.0F, 6.0F).sound(SoundType.METAL)));
   public static final RegistryObject<Block> PIGGY_BANK = BLOCKS.register(PiggyBankBlock.NAME,
       () -> new PiggyBankBlock(BlockBehaviour.Properties.of(Material.DECORATION)
           .requiresCorrectToolForDrops().strength(3.0F, 6.0F).sound(SoundType.METAL)));
@@ -87,6 +91,15 @@ public class ModBlocks {
           .of(CoinPressBlockEntity::new, COIN_PRESS.get()).build(null));
 
   // Piggy Bank Block Entity
+  public static final RegistryObject<BlockEntityType<PiggyBankBlockEntity>> PIGGY_BANK_GHAST_ENTITY =
+      ENTITIES.register(PiggyBankGhastBlock.NAME, () -> BlockEntityType.Builder
+          .of(PiggyBankBlockEntity::new, PIGGY_BANK_GHAST.get()).build(null));
+  public static final RegistryObject<BlockEntityType<PiggyBankBlockEntity>> PIGGY_BANK_NOTE_BLOCK_ENTITY =
+      ENTITIES.register(PiggyBankNoteBlockBlock.NAME, () -> BlockEntityType.Builder
+          .of(PiggyBankBlockEntity::new, PIGGY_BANK_NOTE_BLOCK.get()).build(null));
+  public static final RegistryObject<BlockEntityType<PiggyBankBlockEntity>> PIGGY_BANK_PIG_ENTITY =
+      ENTITIES.register(PiggyBankPigBlock.NAME, () -> BlockEntityType.Builder
+          .of(PiggyBankBlockEntity::new, PIGGY_BANK_PIG.get()).build(null));
   public static final RegistryObject<BlockEntityType<PiggyBankBlockEntity>> PIGGY_BANK_SAFE_ENTITY =
       ENTITIES.register(PiggyBankSafeBlock.NAME, () -> BlockEntityType.Builder
           .of(PiggyBankBlockEntity::new, PIGGY_BANK_SAFE.get()).build(null));
@@ -96,12 +109,6 @@ public class ModBlocks {
   public static final RegistryObject<BlockEntityType<PiggyBankBlockEntity>> PIGGY_BANK_TNT_ENTITY =
       ENTITIES.register(PiggyBankTNTBlock.NAME, () -> BlockEntityType.Builder
           .of(PiggyBankBlockEntity::new, PIGGY_BANK_TNT.get()).build(null));
-  public static final RegistryObject<BlockEntityType<PiggyBankBlockEntity>> PIGGY_BANK_PIG_ENTITY =
-      ENTITIES.register(PiggyBankPigBlock.NAME, () -> BlockEntityType.Builder
-          .of(PiggyBankBlockEntity::new, PIGGY_BANK_PIG.get()).build(null));
-  public static final RegistryObject<BlockEntityType<PiggyBankBlockEntity>> PIGGY_BANK_GHAST_ENTITY =
-      ENTITIES.register(PiggyBankGhastBlock.NAME, () -> BlockEntityType.Builder
-          .of(PiggyBankBlockEntity::new, PIGGY_BANK_GHAST.get()).build(null));
   public static final RegistryObject<BlockEntityType<PiggyBankBlockEntity>> PIGGY_BANK_ENTITY =
       ENTITIES.register(PiggyBankBlock.NAME, () -> BlockEntityType.Builder
           .of(PiggyBankBlockEntity::new, PIGGY_BANK.get()).build(null));

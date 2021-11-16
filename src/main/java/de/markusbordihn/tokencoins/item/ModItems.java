@@ -263,6 +263,9 @@ public class ModItems {
   @TemplateEntryPoint("Register Block Items")
 
   // Piggy Banks
+  public static final RegistryObject<Item> PIGGY_BANK_NOTE_BLOCK =
+      ITEMS.register(PiggyBankNoteBlockBlock.NAME, () -> new BlockItem(ModBlocks.PIGGY_BANK_NOTE_BLOCK.get(),
+          new Item.Properties().tab(TokenCoinsTab.PIGGY_BANK)));
   public static final RegistryObject<Item> PIGGY_BANK_SAFE =
       ITEMS.register(PiggyBankSafeBlock.NAME, () -> new BlockItem(ModBlocks.PIGGY_BANK_SAFE.get(),
           new Item.Properties().tab(TokenCoinsTab.PIGGY_BANK)));

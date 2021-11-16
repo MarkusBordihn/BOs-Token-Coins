@@ -64,26 +64,27 @@ public class PiggyBank[[ --BlockClassName-- ]]Block extends PiggyBankBlock {
 
 +++ TokenCoins.java
 @@@ after:// Piggy Banks @@@
+
 ItemBlockRenderTypes.setRenderLayer(ModBlocks.PIGGY_BANK_[[ --BLOCK_NAME-- ]].get(), RenderType.cutout());
 
 +++ blockstates/piggy_bank_[[ --block_name-- ]].json
 @@@ create @@@
 {
   "variants": {
-    "facing=north,state=0": { "model": "token_coins:block/piggy_bank_[[ --block_name-- ]]_state_0", "y": 180 },
-    "facing=east,state=0": { "model": "token_coins:block/piggy_bank_[[ --block_name-- ]]_state_0", "y": 270 },
-    "facing=south,state=0": { "model": "token_coins:block/piggy_bank_[[ --block_name-- ]]_state_0", "y": 0 },
-    "facing=west,state=0": { "model": "token_coins:block/piggy_bank_[[ --block_name-- ]]_state_0", "y": 90 },
+    "facing=north,state=0": { "model": "token_coins:block/piggy_bank/piggy_bank_[[ --block_name-- ]]_state_0", "y": 180 },
+    "facing=east,state=0": { "model": "token_coins:block/piggy_bank/piggy_bank_[[ --block_name-- ]]_state_0", "y": 270 },
+    "facing=south,state=0": { "model": "token_coins:block/piggy_bank/piggy_bank_[[ --block_name-- ]]_state_0", "y": 0 },
+    "facing=west,state=0": { "model": "token_coins:block/piggy_bank/piggy_bank_[[ --block_name-- ]]_state_0", "y": 90 },
 
-    "facing=north,state=1": { "model": "token_coins:block/piggy_bank_[[ --block_name-- ]]_state_1", "y": 180 },
-    "facing=east,state=1": { "model": "token_coins:block/piggy_bank_[[ --block_name-- ]]_state_1", "y": 270 },
-    "facing=south,state=1": { "model": "token_coins:block/piggy_bank_[[ --block_name-- ]]_state_1", "y": 0 },
-    "facing=west,state=1": { "model": "token_coins:block/piggy_bank_[[ --block_name-- ]]_state_1", "y": 90 },
+    "facing=north,state=1": { "model": "token_coins:block/piggy_bank/piggy_bank_[[ --block_name-- ]]_state_1", "y": 180 },
+    "facing=east,state=1": { "model": "token_coins:block/piggy_bank/piggy_bank_[[ --block_name-- ]]_state_1", "y": 270 },
+    "facing=south,state=1": { "model": "token_coins:block/piggy_bank/piggy_bank_[[ --block_name-- ]]_state_1", "y": 0 },
+    "facing=west,state=1": { "model": "token_coins:block/piggy_bank/piggy_bank_[[ --block_name-- ]]_state_1", "y": 90 },
 
-    "facing=north,state=2": { "model": "token_coins:block/piggy_bank_[[ --block_name-- ]]_state_2", "y": 180 },
-    "facing=east,state=2": { "model": "token_coins:block/piggy_bank_[[ --block_name-- ]]_state_2", "y": 270 },
-    "facing=south,state=2": { "model": "token_coins:block/piggy_bank_[[ --block_name-- ]]_state_2", "y": 0 },
-    "facing=west,state=2": { "model": "token_coins:block/piggy_bank_[[ --block_name-- ]]_state_2", "y": 90 }
+    "facing=north,state=2": { "model": "token_coins:block/piggy_bank/piggy_bank_[[ --block_name-- ]]_state_2", "y": 180 },
+    "facing=east,state=2": { "model": "token_coins:block/piggy_bank/piggy_bank_[[ --block_name-- ]]_state_2", "y": 270 },
+    "facing=south,state=2": { "model": "token_coins:block/piggy_bank/piggy_bank_[[ --block_name-- ]]_state_2", "y": 0 },
+    "facing=west,state=2": { "model": "token_coins:block/piggy_bank/piggy_bank_[[ --block_name-- ]]_state_2", "y": 90 }
   }
 }
 
@@ -206,7 +207,7 @@ ItemBlockRenderTypes.setRenderLayer(ModBlocks.PIGGY_BANK_[[ --BLOCK_NAME-- ]].ge
 	]
 }
 
-+++ models/block/piggy_bank_[[ --block_name-- ]]_state_0.json
++++ models/block/piggy_bank/piggy_bank_[[ --block_name-- ]]_state_0.json
 @@@ create @@@
 {
   "parent": "token_coins:block/piggy_bank/piggy_bank_[[ --block_name-- ]]",
@@ -216,7 +217,7 @@ ItemBlockRenderTypes.setRenderLayer(ModBlocks.PIGGY_BANK_[[ --BLOCK_NAME-- ]].ge
   }
 }
 
-+++ models/block/piggy_bank_[[ --block_name-- ]]_state_1.json
++++ models/block/piggy_bank/piggy_bank_[[ --block_name-- ]]_state_1.json
 @@@ create @@@
 {
   "parent": "token_coins:block/piggy_bank/piggy_bank_[[ --block_name-- ]]",
@@ -226,7 +227,7 @@ ItemBlockRenderTypes.setRenderLayer(ModBlocks.PIGGY_BANK_[[ --BLOCK_NAME-- ]].ge
   }
 }
 
-+++ models/block/piggy_bank_[[ --block_name-- ]]_state_2.json
++++ models/block/piggy_bank/piggy_bank_[[ --block_name-- ]]_state_2.json
 @@@ create @@@
 {
   "parent": "token_coins:block/piggy_bank/piggy_bank_[[ --block_name-- ]]",
@@ -269,9 +270,9 @@ ItemBlockRenderTypes.setRenderLayer(ModBlocks.PIGGY_BANK_[[ --BLOCK_NAME-- ]].ge
 }
 
 +++ minecraft/tags/blocks/mineable/pickaxe.json
-@@@ after: "token_coins:piggy_bank",@@@
+@@@ after: "values": [@@@
     "token_coins:piggy_bank_[[ --block_name-- ]]",
 
 +++ minecraft/tags/blocks/needs_iron_tool.json
-@@@ after: "token_coins:piggy_bank",@@@
+@@@ after: "values": [@@@
     "token_coins:piggy_bank_[[ --block_name-- ]]",

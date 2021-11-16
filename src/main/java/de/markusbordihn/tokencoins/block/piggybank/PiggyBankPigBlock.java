@@ -1,6 +1,7 @@
 package de.markusbordihn.tokencoins.block.piggybank;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.InteractionHand;
@@ -31,6 +32,10 @@ public class PiggyBankPigBlock extends PiggyBankBlock {
   @Override
   public VoxelShape getShape(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos,
       CollisionContext collisionContext) {
+    Direction facing = blockState.getValue(PiggyBankBlock.FACING);
+    if (facing == Direction.EAST || facing == Direction.WEST) {
+      return PiggyBankBlock.SHAPE_10_12_12_90DEG_AABB;
+    }
     return PiggyBankBlock.SHAPE_10_12_12_AABB;
   }
 
