@@ -258,7 +258,6 @@ public class PiggyBankBlock extends BaseEntityBlock implements TokenCoinCompatib
     }
 
     return InteractionResult.FAIL;
-
   }
 
   @Override

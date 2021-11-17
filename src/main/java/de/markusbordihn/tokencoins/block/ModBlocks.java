@@ -28,11 +28,13 @@ import net.minecraftforge.fmllegacy.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
-import de.markusbordihn.tokencoins.Constants;
 import de.markusbordihn.tokencoins.Annotations.TemplateEntryPoint;
+import de.markusbordihn.tokencoins.Constants;
+import de.markusbordihn.tokencoins.block.coinstack.*;
 import de.markusbordihn.tokencoins.block.entity.CoinPressBlockEntity;
 import de.markusbordihn.tokencoins.block.entity.PiggyBankBlockEntity;
 import de.markusbordihn.tokencoins.block.piggybank.*;
+import de.markusbordihn.tokencoins.item.ModItems;
 
 public class ModBlocks {
 
@@ -47,6 +49,28 @@ public class ModBlocks {
       DeferredRegister.create(ForgeRegistries.BLOCK_ENTITIES, Constants.MOD_ID);
 
   @TemplateEntryPoint("Register Blocks")
+
+  // Basic Coin Stack Block
+  public static final RegistryObject<Block> COPPER_COIN_STACK =
+      BLOCKS.register(CopperCoinStackBlock.NAME,
+          () -> new CopperCoinStackBlock(ModItems.COPPER_TOKEN_COIN, BlockBehaviour.Properties
+              .of(Material.METAL).requiresCorrectToolForDrops().strength(3.0F, 6.0F)));
+  public static final RegistryObject<Block> GOLD_COIN_STACK =
+      BLOCKS.register(GoldCoinStackBlock.NAME,
+          () -> new GoldCoinStackBlock(ModItems.GOLD_TOKEN_COIN, BlockBehaviour.Properties
+              .of(Material.METAL).requiresCorrectToolForDrops().strength(3.0F, 6.0F)));
+  public static final RegistryObject<Block> IRON_COIN_STACK =
+      BLOCKS.register(IronCoinStackBlock.NAME,
+          () -> new IronCoinStackBlock(ModItems.IRON_TOKEN_COIN, BlockBehaviour.Properties
+              .of(Material.METAL).requiresCorrectToolForDrops().strength(3.0F, 6.0F)));
+  public static final RegistryObject<Block> STEEL_COIN_STACK =
+      BLOCKS.register(SteelCoinStackBlock.NAME,
+          () -> new SteelCoinStackBlock(ModItems.STEEL_TOKEN_COIN, BlockBehaviour.Properties
+              .of(Material.METAL).requiresCorrectToolForDrops().strength(3.0F, 6.0F)));
+  public static final RegistryObject<Block> NETHERITE_COIN_STACK =
+      BLOCKS.register(NetheriteCoinStackBlock.NAME,
+          () -> new NetheriteCoinStackBlock(ModItems.NETHERITE_TOKEN_COIN, BlockBehaviour.Properties
+              .of(Material.METAL).requiresCorrectToolForDrops().strength(3.0F, 6.0F)));
 
   // Coin Press Block
   public static final RegistryObject<Block> COIN_PRESS = BLOCKS.register(CoinPressBlock.NAME,

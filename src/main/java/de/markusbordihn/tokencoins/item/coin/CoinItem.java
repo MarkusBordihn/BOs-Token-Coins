@@ -27,6 +27,7 @@ import org.apache.logging.log4j.Logger;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.InteractionResult;
@@ -37,11 +38,14 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 
 import de.markusbordihn.tokencoins.Constants;
+import de.markusbordihn.tokencoins.block.ModBlocks;
 import de.markusbordihn.tokencoins.block.TokenCoinCompatible;
+import de.markusbordihn.tokencoins.block.coinstack.CoinStackBlock;
 import de.markusbordihn.tokencoins.tabs.TokenCoinsTab;
 
 public class CoinItem extends Item {
@@ -84,6 +88,35 @@ public class CoinItem extends Item {
     return coinValue;
   }
 
+  public boolean placeCoinStack(Level level, BlockPos blockPos, ItemStack itemStack,
+      Direction direction) {
+    BlockState blockState = null;
+    Item item = itemStack.getItem();
+    if (item instanceof CopperCoinItem) {
+      blockState = ModBlocks.COPPER_COIN_STACK.get().defaultBlockState();
+    } else if (item instanceof GoldCoinItem) {
+      blockState = ModBlocks.GOLD_COIN_STACK.get().defaultBlockState();
+    } else if (item instanceof IronCoinItem) {
+      blockState = ModBlocks.IRON_COIN_STACK.get().defaultBlockState();
+    } else if (item instanceof SteelCoinItem) {
+      blockState = ModBlocks.STEEL_COIN_STACK.get().defaultBlockState();
+    } else if (item instanceof NetheriteCoinItem) {
+      blockState = ModBlocks.NETHERITE_COIN_STACK.get().defaultBlockState();
+    }
+    if (blockState != null) {
+      level.setBlockAndUpdate(blockPos, blockState.setValue(CoinStackBlock.FACING, direction));
+      if (level.getBlockState(blockPos).getBlock() instanceof CoinStackBlock
+          && itemStack.getItem() instanceof CoinItem) {
+        return true;
+      } else {
+        log.warn("Unable to place coin stack block at {} in {}", blockPos, level);
+      }
+    } else {
+      log.warn("Unsupported token coin item {}", item);
+    }
+    return false;
+  }
+
   @Override
   public InteractionResult useOn(UseOnContext context) {
     Level level = context.getLevel();
@@ -98,14 +131,32 @@ public class CoinItem extends Item {
       Player player = context.getPlayer();
       // Make sure that the block can consume the token, we only accept server-side confirmations.
       if (!level.isClientSide) {
-        if (tokenCoinCompatibleBlock.canConsumeTokenCoin(level, blockPos, blockState, blockEntity, player, itemStack)) {
+        if (tokenCoinCompatibleBlock.canConsumeTokenCoin(level, blockPos, blockState, blockEntity,
+            player, itemStack)) {
           return tokenCoinCompatibleBlock.consumeTokenCoin(level, blockPos, blockState, blockEntity,
-            itemStack, context);
+              itemStack, context);
         }
         return InteractionResult.FAIL;
       }
       return InteractionResult.sidedSuccess(level.isClientSide);
     }
+
+    // Check if we clicked an empty block and maybe could place a coin stack
+    BlockPos blockPosAbove = blockPos.above();
+    BlockState blockStateBlockAbove = level.getBlockState(blockPosAbove);
+    if (blockStateBlockAbove.is(Blocks.AIR)) {
+      if (!level.isClientSide) {
+        ItemStack itemStack = context.getItemInHand();
+        Direction direction = context.getHorizontalDirection().getOpposite();
+        if (placeCoinStack(level, blockPosAbove, itemStack, direction)) {
+          return InteractionResult.PASS;
+        }
+        return InteractionResult.FAIL;
+      }
+      return InteractionResult.sidedSuccess(level.isClientSide);
+    }
+
+    log.info("Maybe just throw the coin ...");
     return InteractionResult.PASS;
   }
 

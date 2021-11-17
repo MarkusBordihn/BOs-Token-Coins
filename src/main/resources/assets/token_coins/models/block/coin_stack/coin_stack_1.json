@@ -1,0 +1,48 @@
+{
+	"credit": "Made with Blockbench by Markus Bordihn",
+	"textures": {
+		"particle": "token_coins:item/coins/gold_token_coin",
+		"coin": "token_coins:item/coins/gold_token_coin",
+		"motive": "token_coins:item/motives/dragon"
+	},
+	"elements": [
+		{
+			"name": "motive",
+			"from": [1.75, 0, 11.75],
+			"to": [4.25, 0.26, 14.25],
+			"rotation": {"angle": 0, "axis": "y", "origin": [3, 0.1275, 13]},
+			"faces": {
+				"up": {"uv": [0, 0, 3, 16], "texture": "#motive"}
+			}
+		},
+		{
+			"name": "coin",
+			"from": [1, 0, 11],
+			"to": [5, 0.25, 15],
+			"rotation": {"angle": 0, "axis": "y", "origin": [3, 0.1275, 13]},
+			"faces": {
+				"north": {"uv": [1, 14, 15, 15], "texture": "#coin"},
+				"east": {"uv": [14, 1, 15, 15], "rotation": 90, "texture": "#coin"},
+				"south": {"uv": [1, 14, 15, 15], "texture": "#coin"},
+				"west": {"uv": [1, 1, 2, 15], "rotation": 90, "texture": "#coin"},
+				"up": {"uv": [1, 1, 15, 15], "texture": "#coin"},
+				"down": {"uv": [1, 1, 15, 15], "texture": "#coin", "cullface": "down"}
+			}
+		}
+	],
+	"groups": [
+		{
+			"name": "coins",
+			"origin": [0, 0, 0],
+			"color": 0,
+			"children": [
+				{
+					"name": "coin",
+					"origin": [0, 0, 0],
+					"color": 0,
+					"children": [0, 1]
+				}
+			]
+		}
+	]
+}
