@@ -43,14 +43,15 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.fmllegacy.RegistryObject;
 
 import de.markusbordihn.tokencoins.Constants;
 import de.markusbordihn.tokencoins.block.TokenCoinCompatible;
+import de.markusbordihn.tokencoins.item.TokenCoinType;
 import de.markusbordihn.tokencoins.item.coin.CoinItem;
-import de.markusbordihn.tokencoins.item.coin.CoinItemType;
 
 public class CoinStackBlock extends FallingBlock implements TokenCoinCompatible {
 
@@ -62,23 +63,18 @@ public class CoinStackBlock extends FallingBlock implements TokenCoinCompatible 
   public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
   public static final IntegerProperty AMOUNT = IntegerProperty.create("amount", 1, MAX_STACK_SIZE);
 
-  public static final VoxelShape SHAPE_DEFAULT_AABB = Block.box(0.1, 0, 0.1, 15.9, 15.9, 15.9);
-  public static final VoxelShape SHAPE_1_10_AABB = Block.box(0.1, 0, 0.1, 15.9, 0.26, 15.9);
-  public static final VoxelShape SHAPE_11_20_AABB = Block.box(0.1, 0, 0.1, 15.9, 0.53, 15.9);
+  public static final VoxelShape SHAPE_DEFAULT_AABB = Block.box(0.05, 0, 0.05, 15.95, 15.95, 15.95);
+  public static final VoxelShape SHAPE_1_10_AABB = Block.box(0.05, 0, 0.05, 15.9, 0.30, 15.95);
+  public static final VoxelShape SHAPE_11_20_AABB = Block.box(0.05, 0, 0.05, 15.9, 0.60, 15.95);
 
-  private CoinItemType.Material coinMaterial = null;
-  private CoinItemType.Motive coinMotive = null;
+  private TokenCoinType.Material coinMaterial = null;
+  private TokenCoinType.Motive coinMotive = null;
   private CoinItem coinItem = null;
   private RegistryObject<Item> registryItem = null;
 
-  public CoinStackBlock(BlockBehaviour.Properties properties) {
-    super(properties);
-    this.registerDefaultState(
-        this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(AMOUNT, 1));
-  }
-
-  public CoinStackBlock(RegistryObject<Item> item, BlockBehaviour.Properties properties) {
-    super(properties);
+  public CoinStackBlock(RegistryObject<Item> item) {
+    super(BlockBehaviour.Properties.of(Material.METAL).requiresCorrectToolForDrops()
+        .strength(3.0F, 6.0F).noOcclusion());
     this.registerDefaultState(
         this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(AMOUNT, 1));
     registryItem = item;

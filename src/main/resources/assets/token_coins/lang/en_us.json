@@ -117,6 +117,18 @@
   "item.token_coins.iron_token_coin_with_wither": "Iron Coin (Wither)",
   "item.token_coins.steel_token_coin_with_wither": "Steel Coin (Wither)",
   "item.token_coins.netherite_token_coin_with_wither": "Netherite Coin (Wither)",
+
+  "item.token_coins.copper_coin_stamp_with_lekoopa": "Copper Coin Stamp (LeKoopa)",
+  "item.token_coins.gold_coin_stamp_with_lekoopa": "Gold Coin Stamp (LeKoopa)",
+  "item.token_coins.iron_coin_stamp_with_lekoopa": "Iron Coin Stamp LeKoopa)",
+  "item.token_coins.steel_coin_stamp_with_lekoopa": "Steel Coin Stamp (LeKoopa)",
+  "item.token_coins.netherite_coin_stamp_with_lekoopa": "Netherite Coin Stamp (LeKoopa)",
+
+  "item.token_coins.copper_token_coin_with_lekoopa": "Copper Coin (LeKoopa)",
+  "item.token_coins.gold_token_coin_with_lekoopa": "Gold Coin (LeKoopa)",
+  "item.token_coins.iron_token_coin_with_lekoopa": "Iron Coin (LeKoopa)",
+  "item.token_coins.steel_token_coin_with_lekoopa": "Steel Coin (LeKoopa)",
+  "item.token_coins.netherite_token_coin_with_lekoopa": "Netherite Coin (LeKoopa)",
   "item.placeholder.text": "Template placeholder do not remove!",
 
   "itemGroup.coins": "Token Coins: Coins",

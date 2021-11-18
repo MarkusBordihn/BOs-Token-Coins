@@ -21,38 +21,31 @@ package de.markusbordihn.tokencoins.item.coinstamp;
 
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+
+import de.markusbordihn.tokencoins.item.TokenCoinType;
 import de.markusbordihn.tokencoins.tabs.TokenCoinsTab;
 
 public class CoinStampItem extends Item {
 
-  private CoinStampItemType.Material stampMaterial = CoinStampItemType.Material.COPPER;
-  private CoinStampItemType.Motive stampMotive = CoinStampItemType.Motive.NONE;
+  private TokenCoinType.Material stampMaterial = TokenCoinType.Material.COPPER;
+  private TokenCoinType.Motive stampMotive = TokenCoinType.Motive.NONE;
 
-  public CoinStampItem(CoinStampItemType.Material material) {
-    super(getItemPropertiesPerMaterial(material, new Item.Properties()));
-    this.stampMaterial = material;
-  }
 
-  public CoinStampItem(CoinStampItemType.Material material, CoinStampItemType.Motive motive) {
+  public CoinStampItem(TokenCoinType.Material material, TokenCoinType.Motive motive) {
     super(getItemPropertiesPerMaterial(material, new Item.Properties()));
     this.stampMaterial = material;
     this.stampMotive = motive;
   }
 
-  public CoinStampItem(CoinStampItemType.Material material, Item.Properties properties) {
-    super(getItemPropertiesPerMaterial(material, properties));
-    this.stampMaterial = material;
-  }
-
-  public CoinStampItemType.Material getStampMaterial() {
+  public TokenCoinType.Material getStampMaterial() {
     return this.stampMaterial;
   }
 
-  public CoinStampItemType.Motive getStampMotive() {
+  public TokenCoinType.Motive getStampMotive() {
     return this.stampMotive;
   }
 
-  public static Item.Properties getItemPropertiesPerMaterial(CoinStampItemType.Material material,
+  public static Item.Properties getItemPropertiesPerMaterial(TokenCoinType.Material material,
       Item.Properties properties) {
     int stampDurability = 8;
     switch (material) {

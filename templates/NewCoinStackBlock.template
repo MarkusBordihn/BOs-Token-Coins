@@ -1,0 +1,1289 @@
++++ block/ModBlocks.java
+@@@ after:@TemplateEntryPoint("Register Blocks") @@@
+
+  // [[ --BlockName-- ]] Coin Stack
+  public static final RegistryObject<Block> COPPER_COIN_STACK_WITH_[[ --BLOCK_NAME-- ]] =
+      BLOCKS.register("copper_coin_stack_with_[[ --block_name-- ]]",
+          () -> new CopperCoinStackBlock(ModItems.COPPER_TOKEN_COIN_WITH_[[ --BLOCK_NAME-- ]]));
+  public static final RegistryObject<Block> GOLD_COIN_STACK_WITH_[[ --BLOCK_NAME-- ]] =
+      BLOCKS.register("gold_coin_stack_with_[[ --block_name-- ]]",
+          () -> new GoldCoinStackBlock(ModItems.GOLD_TOKEN_COIN_WITH_[[ --BLOCK_NAME-- ]]));
+  public static final RegistryObject<Block> IRON_COIN_STACK_WITH_[[ --BLOCK_NAME-- ]] =
+      BLOCKS.register("iron_coin_stack_with_[[ --block_name-- ]]",
+          () -> new IronCoinStackBlock(ModItems.IRON_TOKEN_COIN_WITH_[[ --BLOCK_NAME-- ]]));
+  public static final RegistryObject<Block> STEEL_COIN_STACK_WITH_[[ --BLOCK_NAME-- ]] =
+      BLOCKS.register("steel_coin_stack_with_[[ --block_name-- ]]",
+          () -> new SteelCoinStackBlock(ModItems.STEEL_TOKEN_COIN_WITH_[[ --BLOCK_NAME-- ]]));
+  public static final RegistryObject<Block> NETHERITE_COIN_STACK_WITH_[[ --BLOCK_NAME-- ]] =
+      BLOCKS.register("netherite_coin_stack_with_[[ --block_name-- ]]",
+          () -> new NetheriteCoinStackBlock(ModItems.NETHERITE_TOKEN_COIN_WITH_[[ --BLOCK_NAME-- ]]));
+
++++ item/ModItems_template.java
+@@@ create @@@
+
+  // [[ --BlockName-- ]] Coins
+  public static final RegistryObject<Item> COPPER_TOKEN_COIN_WITH_[[ --BLOCK_NAME-- ]] = ITEMS.register(
+      "copper_token_coin_with_[[ --block_name-- ]]", () -> new CopperCoinItem(TokenCoinType.Motive.[[ --BLOCK_NAME-- ]],
+          ModBlocks.COPPER_COIN_STACK_WITH_[[ --BLOCK_NAME-- ]]));
+  public static final RegistryObject<Item> GOLD_TOKEN_COIN_WITH_[[ --BLOCK_NAME-- ]] = ITEMS.register(
+      "gold_token_coin_with_[[ --block_name-- ]]",
+      () -> new GoldCoinItem(TokenCoinType.Motive.[[ --BLOCK_NAME-- ]], ModBlocks.GOLD_COIN_STACK_WITH_[[ --BLOCK_NAME-- ]]));
+  public static final RegistryObject<Item> IRON_TOKEN_COIN_WITH_[[ --BLOCK_NAME-- ]] = ITEMS.register(
+      "iron_token_coin_with_[[ --block_name-- ]]",
+      () -> new IronCoinItem(TokenCoinType.Motive.[[ --BLOCK_NAME-- ]], ModBlocks.IRON_COIN_STACK_WITH_[[ --BLOCK_NAME-- ]]));
+  public static final RegistryObject<Item> STEEL_TOKEN_COIN_WITH_[[ --BLOCK_NAME-- ]] = ITEMS.register(
+      "steel_token_coin_with_[[ --block_name-- ]]", () -> new SteelCoinItem(TokenCoinType.Motive.[[ --BLOCK_NAME-- ]],
+          ModBlocks.STEEL_COIN_STACK_WITH_[[ --BLOCK_NAME-- ]]));
+  public static final RegistryObject<Item> NETHERITE_TOKEN_COIN_WITH_[[ --BLOCK_NAME-- ]] = ITEMS.register(
+      "netherite_token_coin_with_[[ --block_name-- ]]", () -> new NetheriteCoinItem(TokenCoinType.Motive.[[ --BLOCK_NAME-- ]],
+          ModBlocks.NETHERITE_COIN_STACK_WITH_[[ --BLOCK_NAME-- ]]));
+
++++ ClientSetup.java
+@@@ after:@TemplateEntryPoint("Set Render Layer") @@@
+
+      // Creeper Coin Stack (transparent cutout)
+      ItemBlockRenderTypes.setRenderLayer(ModBlocks.COPPER_COIN_STACK_WITH_[[ --BLOCK_NAME-- ]].get(),
+          RenderType.cutoutMipped());
+      ItemBlockRenderTypes.setRenderLayer(ModBlocks.GOLD_COIN_STACK_WITH_[[ --BLOCK_NAME-- ]].get(),
+          RenderType.cutoutMipped());
+      ItemBlockRenderTypes.setRenderLayer(ModBlocks.IRON_COIN_STACK_WITH_[[ --BLOCK_NAME-- ]].get(),
+          RenderType.cutoutMipped());
+      ItemBlockRenderTypes.setRenderLayer(ModBlocks.STEEL_COIN_STACK_WITH_[[ --BLOCK_NAME-- ]].get(),
+          RenderType.cutoutMipped());
+      ItemBlockRenderTypes.setRenderLayer(ModBlocks.NETHERITE_COIN_STACK_WITH_[[ --BLOCK_NAME-- ]].get(),
+          RenderType.cutoutMipped());
+
++++ blockstates/copper_coin_stack_with_[[ --block_name-- ]].json
+@@@ create @@@
+
+{
+  "variants": {
+    "amount=1,facing=north": { "model": "token_coins:block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_1", "y": 180},
+    "amount=1,facing=east": { "model": "token_coins:block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_1", "y": 270},
+    "amount=1,facing=south": { "model": "token_coins:block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_1", "y": 0},
+    "amount=1,facing=west": { "model": "token_coins:block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_1", "y": 90},
+
+    "amount=2,facing=north": { "model": "token_coins:block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_2", "y": 180},
+    "amount=2,facing=east": { "model": "token_coins:block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_2", "y": 270},
+    "amount=2,facing=south": { "model": "token_coins:block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_2", "y": 0},
+    "amount=2,facing=west": { "model": "token_coins:block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_2", "y": 90},
+
+    "amount=3,facing=north": { "model": "token_coins:block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_3", "y": 180},
+    "amount=3,facing=east": { "model": "token_coins:block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_3", "y": 270},
+    "amount=3,facing=south": { "model": "token_coins:block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_3", "y": 0},
+    "amount=3,facing=west": { "model": "token_coins:block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_3", "y": 90},
+
+    "amount=4,facing=north": { "model": "token_coins:block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_4", "y": 180},
+    "amount=4,facing=east": { "model": "token_coins:block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_4", "y": 270},
+    "amount=4,facing=south": { "model": "token_coins:block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_4", "y": 0},
+    "amount=4,facing=west": { "model": "token_coins:block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_4", "y": 90},
+
+    "amount=5,facing=north": { "model": "token_coins:block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_5", "y": 180},
+    "amount=5,facing=east": { "model": "token_coins:block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_5", "y": 270},
+    "amount=5,facing=south": { "model": "token_coins:block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_5", "y": 0},
+    "amount=5,facing=west": { "model": "token_coins:block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_5", "y": 90},
+
+    "amount=6,facing=north": { "model": "token_coins:block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_6", "y": 180},
+    "amount=6,facing=east": { "model": "token_coins:block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_6", "y": 270},
+    "amount=6,facing=south": { "model": "token_coins:block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_6", "y": 0},
+    "amount=6,facing=west": { "model": "token_coins:block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_6", "y": 90},
+
+    "amount=7,facing=north": { "model": "token_coins:block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_7", "y": 180},
+    "amount=7,facing=east": { "model": "token_coins:block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_7", "y": 270},
+    "amount=7,facing=south": { "model": "token_coins:block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_7", "y": 0},
+    "amount=7,facing=west": { "model": "token_coins:block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_7", "y": 90},
+
+    "amount=8,facing=north": { "model": "token_coins:block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_8", "y": 180},
+    "amount=8,facing=east": { "model": "token_coins:block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_8", "y": 270},
+    "amount=8,facing=south": { "model": "token_coins:block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_8", "y": 0},
+    "amount=8,facing=west": { "model": "token_coins:block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_8", "y": 90},
+
+    "amount=9,facing=north": { "model": "token_coins:block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_9", "y": 180},
+    "amount=9,facing=east": { "model": "token_coins:block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_9", "y": 270},
+    "amount=9,facing=south": { "model": "token_coins:block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_9", "y": 0},
+    "amount=9,facing=west": { "model": "token_coins:block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_9", "y": 90},
+
+    "amount=10,facing=north": { "model": "token_coins:block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_10", "y": 180},
+    "amount=10,facing=east": { "model": "token_coins:block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_10", "y": 270},
+    "amount=10,facing=south": { "model": "token_coins:block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_10", "y": 0},
+    "amount=10,facing=west": { "model": "token_coins:block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_10", "y": 90},
+
+    "amount=11,facing=north": { "model": "token_coins:block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_11", "y": 180},
+    "amount=11,facing=east": { "model": "token_coins:block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_11", "y": 270},
+    "amount=11,facing=south": { "model": "token_coins:block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_11", "y": 0},
+    "amount=11,facing=west": { "model": "token_coins:block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_11", "y": 90},
+
+    "amount=12,facing=north": { "model": "token_coins:block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_12", "y": 180},
+    "amount=12,facing=east": { "model": "token_coins:block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_12", "y": 270},
+    "amount=12,facing=south": { "model": "token_coins:block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_12", "y": 0},
+    "amount=12,facing=west": { "model": "token_coins:block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_12", "y": 90},
+
+    "amount=13,facing=north": { "model": "token_coins:block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_13", "y": 180},
+    "amount=13,facing=east": { "model": "token_coins:block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_13", "y": 270},
+    "amount=13,facing=south": { "model": "token_coins:block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_13", "y": 0},
+    "amount=13,facing=west": { "model": "token_coins:block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_13", "y": 90},
+
+    "amount=14,facing=north": { "model": "token_coins:block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_14", "y": 180},
+    "amount=14,facing=east": { "model": "token_coins:block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_14", "y": 270},
+    "amount=14,facing=south": { "model": "token_coins:block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_14", "y": 0},
+    "amount=14,facing=west": { "model": "token_coins:block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_14", "y": 90},
+
+    "amount=15,facing=north": { "model": "token_coins:block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_15", "y": 180},
+    "amount=15,facing=east": { "model": "token_coins:block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_15", "y": 270},
+    "amount=15,facing=south": { "model": "token_coins:block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_15", "y": 0},
+    "amount=15,facing=west": { "model": "token_coins:block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_15", "y": 90},
+
+    "amount=16,facing=north": { "model": "token_coins:block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_16", "y": 180},
+    "amount=16,facing=east": { "model": "token_coins:block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_16", "y": 270},
+    "amount=16,facing=south": { "model": "token_coins:block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_16", "y": 0},
+    "amount=16,facing=west": { "model": "token_coins:block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_16", "y": 90}
+  }
+}
+
++++ blockstates/gold_coin_stack_with_[[ --block_name-- ]].json
+@@@ create @@@
+
+{
+  "variants": {
+    "amount=1,facing=north": { "model": "token_coins:block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_1", "y": 180},
+    "amount=1,facing=east": { "model": "token_coins:block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_1", "y": 270},
+    "amount=1,facing=south": { "model": "token_coins:block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_1", "y": 0},
+    "amount=1,facing=west": { "model": "token_coins:block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_1", "y": 90},
+
+    "amount=2,facing=north": { "model": "token_coins:block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_2", "y": 180},
+    "amount=2,facing=east": { "model": "token_coins:block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_2", "y": 270},
+    "amount=2,facing=south": { "model": "token_coins:block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_2", "y": 0},
+    "amount=2,facing=west": { "model": "token_coins:block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_2", "y": 90},
+
+    "amount=3,facing=north": { "model": "token_coins:block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_3", "y": 180},
+    "amount=3,facing=east": { "model": "token_coins:block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_3", "y": 270},
+    "amount=3,facing=south": { "model": "token_coins:block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_3", "y": 0},
+    "amount=3,facing=west": { "model": "token_coins:block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_3", "y": 90},
+
+    "amount=4,facing=north": { "model": "token_coins:block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_4", "y": 180},
+    "amount=4,facing=east": { "model": "token_coins:block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_4", "y": 270},
+    "amount=4,facing=south": { "model": "token_coins:block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_4", "y": 0},
+    "amount=4,facing=west": { "model": "token_coins:block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_4", "y": 90},
+
+    "amount=5,facing=north": { "model": "token_coins:block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_5", "y": 180},
+    "amount=5,facing=east": { "model": "token_coins:block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_5", "y": 270},
+    "amount=5,facing=south": { "model": "token_coins:block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_5", "y": 0},
+    "amount=5,facing=west": { "model": "token_coins:block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_5", "y": 90},
+
+    "amount=6,facing=north": { "model": "token_coins:block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_6", "y": 180},
+    "amount=6,facing=east": { "model": "token_coins:block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_6", "y": 270},
+    "amount=6,facing=south": { "model": "token_coins:block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_6", "y": 0},
+    "amount=6,facing=west": { "model": "token_coins:block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_6", "y": 90},
+
+    "amount=7,facing=north": { "model": "token_coins:block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_7", "y": 180},
+    "amount=7,facing=east": { "model": "token_coins:block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_7", "y": 270},
+    "amount=7,facing=south": { "model": "token_coins:block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_7", "y": 0},
+    "amount=7,facing=west": { "model": "token_coins:block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_7", "y": 90},
+
+    "amount=8,facing=north": { "model": "token_coins:block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_8", "y": 180},
+    "amount=8,facing=east": { "model": "token_coins:block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_8", "y": 270},
+    "amount=8,facing=south": { "model": "token_coins:block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_8", "y": 0},
+    "amount=8,facing=west": { "model": "token_coins:block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_8", "y": 90},
+
+    "amount=9,facing=north": { "model": "token_coins:block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_9", "y": 180},
+    "amount=9,facing=east": { "model": "token_coins:block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_9", "y": 270},
+    "amount=9,facing=south": { "model": "token_coins:block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_9", "y": 0},
+    "amount=9,facing=west": { "model": "token_coins:block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_9", "y": 90},
+
+    "amount=10,facing=north": { "model": "token_coins:block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_10", "y": 180},
+    "amount=10,facing=east": { "model": "token_coins:block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_10", "y": 270},
+    "amount=10,facing=south": { "model": "token_coins:block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_10", "y": 0},
+    "amount=10,facing=west": { "model": "token_coins:block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_10", "y": 90},
+
+    "amount=11,facing=north": { "model": "token_coins:block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_11", "y": 180},
+    "amount=11,facing=east": { "model": "token_coins:block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_11", "y": 270},
+    "amount=11,facing=south": { "model": "token_coins:block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_11", "y": 0},
+    "amount=11,facing=west": { "model": "token_coins:block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_11", "y": 90},
+
+    "amount=12,facing=north": { "model": "token_coins:block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_12", "y": 180},
+    "amount=12,facing=east": { "model": "token_coins:block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_12", "y": 270},
+    "amount=12,facing=south": { "model": "token_coins:block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_12", "y": 0},
+    "amount=12,facing=west": { "model": "token_coins:block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_12", "y": 90},
+
+    "amount=13,facing=north": { "model": "token_coins:block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_13", "y": 180},
+    "amount=13,facing=east": { "model": "token_coins:block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_13", "y": 270},
+    "amount=13,facing=south": { "model": "token_coins:block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_13", "y": 0},
+    "amount=13,facing=west": { "model": "token_coins:block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_13", "y": 90},
+
+    "amount=14,facing=north": { "model": "token_coins:block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_14", "y": 180},
+    "amount=14,facing=east": { "model": "token_coins:block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_14", "y": 270},
+    "amount=14,facing=south": { "model": "token_coins:block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_14", "y": 0},
+    "amount=14,facing=west": { "model": "token_coins:block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_14", "y": 90},
+
+    "amount=15,facing=north": { "model": "token_coins:block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_15", "y": 180},
+    "amount=15,facing=east": { "model": "token_coins:block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_15", "y": 270},
+    "amount=15,facing=south": { "model": "token_coins:block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_15", "y": 0},
+    "amount=15,facing=west": { "model": "token_coins:block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_15", "y": 90},
+
+    "amount=16,facing=north": { "model": "token_coins:block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_16", "y": 180},
+    "amount=16,facing=east": { "model": "token_coins:block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_16", "y": 270},
+    "amount=16,facing=south": { "model": "token_coins:block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_16", "y": 0},
+    "amount=16,facing=west": { "model": "token_coins:block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_16", "y": 90}
+  }
+}
+
++++ blockstates/iron_coin_stack_with_[[ --block_name-- ]].json
+@@@ create @@@
+
+{
+  "variants": {
+    "amount=1,facing=north": { "model": "token_coins:block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_1", "y": 180},
+    "amount=1,facing=east": { "model": "token_coins:block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_1", "y": 270},
+    "amount=1,facing=south": { "model": "token_coins:block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_1", "y": 0},
+    "amount=1,facing=west": { "model": "token_coins:block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_1", "y": 90},
+
+    "amount=2,facing=north": { "model": "token_coins:block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_2", "y": 180},
+    "amount=2,facing=east": { "model": "token_coins:block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_2", "y": 270},
+    "amount=2,facing=south": { "model": "token_coins:block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_2", "y": 0},
+    "amount=2,facing=west": { "model": "token_coins:block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_2", "y": 90},
+
+    "amount=3,facing=north": { "model": "token_coins:block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_3", "y": 180},
+    "amount=3,facing=east": { "model": "token_coins:block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_3", "y": 270},
+    "amount=3,facing=south": { "model": "token_coins:block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_3", "y": 0},
+    "amount=3,facing=west": { "model": "token_coins:block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_3", "y": 90},
+
+    "amount=4,facing=north": { "model": "token_coins:block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_4", "y": 180},
+    "amount=4,facing=east": { "model": "token_coins:block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_4", "y": 270},
+    "amount=4,facing=south": { "model": "token_coins:block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_4", "y": 0},
+    "amount=4,facing=west": { "model": "token_coins:block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_4", "y": 90},
+
+    "amount=5,facing=north": { "model": "token_coins:block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_5", "y": 180},
+    "amount=5,facing=east": { "model": "token_coins:block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_5", "y": 270},
+    "amount=5,facing=south": { "model": "token_coins:block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_5", "y": 0},
+    "amount=5,facing=west": { "model": "token_coins:block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_5", "y": 90},
+
+    "amount=6,facing=north": { "model": "token_coins:block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_6", "y": 180},
+    "amount=6,facing=east": { "model": "token_coins:block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_6", "y": 270},
+    "amount=6,facing=south": { "model": "token_coins:block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_6", "y": 0},
+    "amount=6,facing=west": { "model": "token_coins:block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_6", "y": 90},
+
+    "amount=7,facing=north": { "model": "token_coins:block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_7", "y": 180},
+    "amount=7,facing=east": { "model": "token_coins:block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_7", "y": 270},
+    "amount=7,facing=south": { "model": "token_coins:block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_7", "y": 0},
+    "amount=7,facing=west": { "model": "token_coins:block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_7", "y": 90},
+
+    "amount=8,facing=north": { "model": "token_coins:block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_8", "y": 180},
+    "amount=8,facing=east": { "model": "token_coins:block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_8", "y": 270},
+    "amount=8,facing=south": { "model": "token_coins:block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_8", "y": 0},
+    "amount=8,facing=west": { "model": "token_coins:block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_8", "y": 90},
+
+    "amount=9,facing=north": { "model": "token_coins:block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_9", "y": 180},
+    "amount=9,facing=east": { "model": "token_coins:block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_9", "y": 270},
+    "amount=9,facing=south": { "model": "token_coins:block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_9", "y": 0},
+    "amount=9,facing=west": { "model": "token_coins:block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_9", "y": 90},
+
+    "amount=10,facing=north": { "model": "token_coins:block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_10", "y": 180},
+    "amount=10,facing=east": { "model": "token_coins:block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_10", "y": 270},
+    "amount=10,facing=south": { "model": "token_coins:block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_10", "y": 0},
+    "amount=10,facing=west": { "model": "token_coins:block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_10", "y": 90},
+
+    "amount=11,facing=north": { "model": "token_coins:block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_11", "y": 180},
+    "amount=11,facing=east": { "model": "token_coins:block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_11", "y": 270},
+    "amount=11,facing=south": { "model": "token_coins:block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_11", "y": 0},
+    "amount=11,facing=west": { "model": "token_coins:block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_11", "y": 90},
+
+    "amount=12,facing=north": { "model": "token_coins:block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_12", "y": 180},
+    "amount=12,facing=east": { "model": "token_coins:block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_12", "y": 270},
+    "amount=12,facing=south": { "model": "token_coins:block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_12", "y": 0},
+    "amount=12,facing=west": { "model": "token_coins:block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_12", "y": 90},
+
+    "amount=13,facing=north": { "model": "token_coins:block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_13", "y": 180},
+    "amount=13,facing=east": { "model": "token_coins:block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_13", "y": 270},
+    "amount=13,facing=south": { "model": "token_coins:block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_13", "y": 0},
+    "amount=13,facing=west": { "model": "token_coins:block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_13", "y": 90},
+
+    "amount=14,facing=north": { "model": "token_coins:block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_14", "y": 180},
+    "amount=14,facing=east": { "model": "token_coins:block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_14", "y": 270},
+    "amount=14,facing=south": { "model": "token_coins:block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_14", "y": 0},
+    "amount=14,facing=west": { "model": "token_coins:block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_14", "y": 90},
+
+    "amount=15,facing=north": { "model": "token_coins:block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_15", "y": 180},
+    "amount=15,facing=east": { "model": "token_coins:block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_15", "y": 270},
+    "amount=15,facing=south": { "model": "token_coins:block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_15", "y": 0},
+    "amount=15,facing=west": { "model": "token_coins:block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_15", "y": 90},
+
+    "amount=16,facing=north": { "model": "token_coins:block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_16", "y": 180},
+    "amount=16,facing=east": { "model": "token_coins:block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_16", "y": 270},
+    "amount=16,facing=south": { "model": "token_coins:block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_16", "y": 0},
+    "amount=16,facing=west": { "model": "token_coins:block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_16", "y": 90}
+  }
+}
+
++++ blockstates/steel_coin_stack_with_[[ --block_name-- ]].json
+@@@ create @@@
+
+{
+  "variants": {
+    "amount=1,facing=north": { "model": "token_coins:block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_1", "y": 180},
+    "amount=1,facing=east": { "model": "token_coins:block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_1", "y": 270},
+    "amount=1,facing=south": { "model": "token_coins:block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_1", "y": 0},
+    "amount=1,facing=west": { "model": "token_coins:block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_1", "y": 90},
+
+    "amount=2,facing=north": { "model": "token_coins:block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_2", "y": 180},
+    "amount=2,facing=east": { "model": "token_coins:block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_2", "y": 270},
+    "amount=2,facing=south": { "model": "token_coins:block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_2", "y": 0},
+    "amount=2,facing=west": { "model": "token_coins:block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_2", "y": 90},
+
+    "amount=3,facing=north": { "model": "token_coins:block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_3", "y": 180},
+    "amount=3,facing=east": { "model": "token_coins:block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_3", "y": 270},
+    "amount=3,facing=south": { "model": "token_coins:block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_3", "y": 0},
+    "amount=3,facing=west": { "model": "token_coins:block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_3", "y": 90},
+
+    "amount=4,facing=north": { "model": "token_coins:block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_4", "y": 180},
+    "amount=4,facing=east": { "model": "token_coins:block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_4", "y": 270},
+    "amount=4,facing=south": { "model": "token_coins:block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_4", "y": 0},
+    "amount=4,facing=west": { "model": "token_coins:block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_4", "y": 90},
+
+    "amount=5,facing=north": { "model": "token_coins:block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_5", "y": 180},
+    "amount=5,facing=east": { "model": "token_coins:block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_5", "y": 270},
+    "amount=5,facing=south": { "model": "token_coins:block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_5", "y": 0},
+    "amount=5,facing=west": { "model": "token_coins:block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_5", "y": 90},
+
+    "amount=6,facing=north": { "model": "token_coins:block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_6", "y": 180},
+    "amount=6,facing=east": { "model": "token_coins:block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_6", "y": 270},
+    "amount=6,facing=south": { "model": "token_coins:block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_6", "y": 0},
+    "amount=6,facing=west": { "model": "token_coins:block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_6", "y": 90},
+
+    "amount=7,facing=north": { "model": "token_coins:block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_7", "y": 180},
+    "amount=7,facing=east": { "model": "token_coins:block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_7", "y": 270},
+    "amount=7,facing=south": { "model": "token_coins:block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_7", "y": 0},
+    "amount=7,facing=west": { "model": "token_coins:block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_7", "y": 90},
+
+    "amount=8,facing=north": { "model": "token_coins:block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_8", "y": 180},
+    "amount=8,facing=east": { "model": "token_coins:block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_8", "y": 270},
+    "amount=8,facing=south": { "model": "token_coins:block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_8", "y": 0},
+    "amount=8,facing=west": { "model": "token_coins:block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_8", "y": 90},
+
+    "amount=9,facing=north": { "model": "token_coins:block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_9", "y": 180},
+    "amount=9,facing=east": { "model": "token_coins:block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_9", "y": 270},
+    "amount=9,facing=south": { "model": "token_coins:block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_9", "y": 0},
+    "amount=9,facing=west": { "model": "token_coins:block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_9", "y": 90},
+
+    "amount=10,facing=north": { "model": "token_coins:block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_10", "y": 180},
+    "amount=10,facing=east": { "model": "token_coins:block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_10", "y": 270},
+    "amount=10,facing=south": { "model": "token_coins:block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_10", "y": 0},
+    "amount=10,facing=west": { "model": "token_coins:block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_10", "y": 90},
+
+    "amount=11,facing=north": { "model": "token_coins:block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_11", "y": 180},
+    "amount=11,facing=east": { "model": "token_coins:block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_11", "y": 270},
+    "amount=11,facing=south": { "model": "token_coins:block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_11", "y": 0},
+    "amount=11,facing=west": { "model": "token_coins:block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_11", "y": 90},
+
+    "amount=12,facing=north": { "model": "token_coins:block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_12", "y": 180},
+    "amount=12,facing=east": { "model": "token_coins:block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_12", "y": 270},
+    "amount=12,facing=south": { "model": "token_coins:block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_12", "y": 0},
+    "amount=12,facing=west": { "model": "token_coins:block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_12", "y": 90},
+
+    "amount=13,facing=north": { "model": "token_coins:block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_13", "y": 180},
+    "amount=13,facing=east": { "model": "token_coins:block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_13", "y": 270},
+    "amount=13,facing=south": { "model": "token_coins:block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_13", "y": 0},
+    "amount=13,facing=west": { "model": "token_coins:block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_13", "y": 90},
+
+    "amount=14,facing=north": { "model": "token_coins:block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_14", "y": 180},
+    "amount=14,facing=east": { "model": "token_coins:block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_14", "y": 270},
+    "amount=14,facing=south": { "model": "token_coins:block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_14", "y": 0},
+    "amount=14,facing=west": { "model": "token_coins:block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_14", "y": 90},
+
+    "amount=15,facing=north": { "model": "token_coins:block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_15", "y": 180},
+    "amount=15,facing=east": { "model": "token_coins:block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_15", "y": 270},
+    "amount=15,facing=south": { "model": "token_coins:block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_15", "y": 0},
+    "amount=15,facing=west": { "model": "token_coins:block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_15", "y": 90},
+
+    "amount=16,facing=north": { "model": "token_coins:block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_16", "y": 180},
+    "amount=16,facing=east": { "model": "token_coins:block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_16", "y": 270},
+    "amount=16,facing=south": { "model": "token_coins:block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_16", "y": 0},
+    "amount=16,facing=west": { "model": "token_coins:block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_16", "y": 90}
+  }
+}
+
++++ blockstates/netherite_coin_stack_with_[[ --block_name-- ]].json
+@@@ create @@@
+
+{
+  "variants": {
+    "amount=1,facing=north": { "model": "token_coins:block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_1", "y": 180},
+    "amount=1,facing=east": { "model": "token_coins:block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_1", "y": 270},
+    "amount=1,facing=south": { "model": "token_coins:block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_1", "y": 0},
+    "amount=1,facing=west": { "model": "token_coins:block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_1", "y": 90},
+
+    "amount=2,facing=north": { "model": "token_coins:block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_2", "y": 180},
+    "amount=2,facing=east": { "model": "token_coins:block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_2", "y": 270},
+    "amount=2,facing=south": { "model": "token_coins:block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_2", "y": 0},
+    "amount=2,facing=west": { "model": "token_coins:block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_2", "y": 90},
+
+    "amount=3,facing=north": { "model": "token_coins:block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_3", "y": 180},
+    "amount=3,facing=east": { "model": "token_coins:block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_3", "y": 270},
+    "amount=3,facing=south": { "model": "token_coins:block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_3", "y": 0},
+    "amount=3,facing=west": { "model": "token_coins:block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_3", "y": 90},
+
+    "amount=4,facing=north": { "model": "token_coins:block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_4", "y": 180},
+    "amount=4,facing=east": { "model": "token_coins:block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_4", "y": 270},
+    "amount=4,facing=south": { "model": "token_coins:block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_4", "y": 0},
+    "amount=4,facing=west": { "model": "token_coins:block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_4", "y": 90},
+
+    "amount=5,facing=north": { "model": "token_coins:block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_5", "y": 180},
+    "amount=5,facing=east": { "model": "token_coins:block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_5", "y": 270},
+    "amount=5,facing=south": { "model": "token_coins:block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_5", "y": 0},
+    "amount=5,facing=west": { "model": "token_coins:block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_5", "y": 90},
+
+    "amount=6,facing=north": { "model": "token_coins:block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_6", "y": 180},
+    "amount=6,facing=east": { "model": "token_coins:block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_6", "y": 270},
+    "amount=6,facing=south": { "model": "token_coins:block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_6", "y": 0},
+    "amount=6,facing=west": { "model": "token_coins:block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_6", "y": 90},
+
+    "amount=7,facing=north": { "model": "token_coins:block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_7", "y": 180},
+    "amount=7,facing=east": { "model": "token_coins:block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_7", "y": 270},
+    "amount=7,facing=south": { "model": "token_coins:block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_7", "y": 0},
+    "amount=7,facing=west": { "model": "token_coins:block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_7", "y": 90},
+
+    "amount=8,facing=north": { "model": "token_coins:block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_8", "y": 180},
+    "amount=8,facing=east": { "model": "token_coins:block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_8", "y": 270},
+    "amount=8,facing=south": { "model": "token_coins:block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_8", "y": 0},
+    "amount=8,facing=west": { "model": "token_coins:block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_8", "y": 90},
+
+    "amount=9,facing=north": { "model": "token_coins:block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_9", "y": 180},
+    "amount=9,facing=east": { "model": "token_coins:block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_9", "y": 270},
+    "amount=9,facing=south": { "model": "token_coins:block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_9", "y": 0},
+    "amount=9,facing=west": { "model": "token_coins:block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_9", "y": 90},
+
+    "amount=10,facing=north": { "model": "token_coins:block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_10", "y": 180},
+    "amount=10,facing=east": { "model": "token_coins:block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_10", "y": 270},
+    "amount=10,facing=south": { "model": "token_coins:block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_10", "y": 0},
+    "amount=10,facing=west": { "model": "token_coins:block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_10", "y": 90},
+
+    "amount=11,facing=north": { "model": "token_coins:block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_11", "y": 180},
+    "amount=11,facing=east": { "model": "token_coins:block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_11", "y": 270},
+    "amount=11,facing=south": { "model": "token_coins:block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_11", "y": 0},
+    "amount=11,facing=west": { "model": "token_coins:block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_11", "y": 90},
+
+    "amount=12,facing=north": { "model": "token_coins:block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_12", "y": 180},
+    "amount=12,facing=east": { "model": "token_coins:block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_12", "y": 270},
+    "amount=12,facing=south": { "model": "token_coins:block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_12", "y": 0},
+    "amount=12,facing=west": { "model": "token_coins:block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_12", "y": 90},
+
+    "amount=13,facing=north": { "model": "token_coins:block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_13", "y": 180},
+    "amount=13,facing=east": { "model": "token_coins:block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_13", "y": 270},
+    "amount=13,facing=south": { "model": "token_coins:block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_13", "y": 0},
+    "amount=13,facing=west": { "model": "token_coins:block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_13", "y": 90},
+
+    "amount=14,facing=north": { "model": "token_coins:block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_14", "y": 180},
+    "amount=14,facing=east": { "model": "token_coins:block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_14", "y": 270},
+    "amount=14,facing=south": { "model": "token_coins:block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_14", "y": 0},
+    "amount=14,facing=west": { "model": "token_coins:block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_14", "y": 90},
+
+    "amount=15,facing=north": { "model": "token_coins:block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_15", "y": 180},
+    "amount=15,facing=east": { "model": "token_coins:block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_15", "y": 270},
+    "amount=15,facing=south": { "model": "token_coins:block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_15", "y": 0},
+    "amount=15,facing=west": { "model": "token_coins:block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_15", "y": 90},
+
+    "amount=16,facing=north": { "model": "token_coins:block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_16", "y": 180},
+    "amount=16,facing=east": { "model": "token_coins:block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_16", "y": 270},
+    "amount=16,facing=south": { "model": "token_coins:block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_16", "y": 0},
+    "amount=16,facing=west": { "model": "token_coins:block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_16", "y": 90}
+  }
+}
+
++++ models/block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_1.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/copper/template/coin_stack_1",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_2.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/copper/template/coin_stack_2",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_3.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/copper/template/coin_stack_3",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_4.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/copper/template/coin_stack_4",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_5.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/copper/template/coin_stack_5",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_6.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/copper/template/coin_stack_6",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_7.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/copper/template/coin_stack_7",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_8.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/copper/template/coin_stack_8",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_9.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/copper/template/coin_stack_9",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_10.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/copper/template/coin_stack_10",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_11.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/copper/template/coin_stack_11",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_12.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/copper/template/coin_stack_12",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_13.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/copper/template/coin_stack_13",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_14.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/copper/template/coin_stack_14",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_15.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/copper/template/coin_stack_15",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_16.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/copper/template/coin_stack_16",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_1.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/gold/template/coin_stack_1",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_2.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/gold/template/coin_stack_2",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_3.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/gold/template/coin_stack_3",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_4.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/gold/template/coin_stack_4",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_5.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/gold/template/coin_stack_5",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_6.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/gold/template/coin_stack_6",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_7.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/gold/template/coin_stack_7",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_8.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/gold/template/coin_stack_8",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_9.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/gold/template/coin_stack_9",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_10.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/gold/template/coin_stack_10",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_11.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/gold/template/coin_stack_11",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_12.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/gold/template/coin_stack_12",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_13.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/gold/template/coin_stack_13",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_14.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/gold/template/coin_stack_14",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_15.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/gold/template/coin_stack_15",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_16.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/gold/template/coin_stack_16",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_1.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/iron/template/coin_stack_1",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_2.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/iron/template/coin_stack_2",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_3.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/iron/template/coin_stack_3",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_4.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/iron/template/coin_stack_4",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_5.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/iron/template/coin_stack_5",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_6.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/iron/template/coin_stack_6",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_7.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/iron/template/coin_stack_7",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_8.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/iron/template/coin_stack_8",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_9.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/iron/template/coin_stack_9",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_10.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/iron/template/coin_stack_10",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_11.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/iron/template/coin_stack_11",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_12.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/iron/template/coin_stack_12",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_13.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/iron/template/coin_stack_13",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_14.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/iron/template/coin_stack_14",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_15.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/iron/template/coin_stack_15",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_16.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/iron/template/coin_stack_16",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_1.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/steel/template/coin_stack_1",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_2.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/steel/template/coin_stack_2",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_3.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/steel/template/coin_stack_3",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_4.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/steel/template/coin_stack_4",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_5.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/steel/template/coin_stack_5",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_6.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/steel/template/coin_stack_6",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_7.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/steel/template/coin_stack_7",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_8.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/steel/template/coin_stack_8",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_9.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/steel/template/coin_stack_9",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_10.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/steel/template/coin_stack_10",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_11.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/steel/template/coin_stack_11",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_12.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/steel/template/coin_stack_12",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_13.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/steel/template/coin_stack_13",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_14.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/steel/template/coin_stack_14",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_15.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/steel/template/coin_stack_15",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_16.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/steel/template/coin_stack_16",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_1.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/netherite/template/coin_stack_1",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_2.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/netherite/template/coin_stack_2",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_3.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/netherite/template/coin_stack_3",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_4.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/netherite/template/coin_stack_4",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_5.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/netherite/template/coin_stack_5",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_6.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/netherite/template/coin_stack_6",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_7.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/netherite/template/coin_stack_7",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_8.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/netherite/template/coin_stack_8",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_9.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/netherite/template/coin_stack_9",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_10.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/netherite/template/coin_stack_10",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_11.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/netherite/template/coin_stack_11",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_12.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/netherite/template/coin_stack_12",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_13.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/netherite/template/coin_stack_13",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_14.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/netherite/template/coin_stack_14",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_15.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/netherite/template/coin_stack_15",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}
+
++++ models/block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_16.json
+@@@ create @@@
+
+{
+  "parent": "token_coins:block/coin_stack/netherite/template/coin_stack_16",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --block_name-- ]]"
+  }
+}

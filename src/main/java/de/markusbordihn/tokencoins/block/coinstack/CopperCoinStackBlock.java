@@ -20,15 +20,14 @@
 package de.markusbordihn.tokencoins.block.coinstack;
 
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.fmllegacy.RegistryObject;
 
 public class CopperCoinStackBlock extends CoinStackBlock {
 
   public static final String NAME = "copper_coin_stack";
 
-  public CopperCoinStackBlock(RegistryObject<Item> item, BlockBehaviour.Properties properties) {
-    super(item, properties);
+  public CopperCoinStackBlock(RegistryObject<Item> item) {
+    super(item);
   }
 
 }

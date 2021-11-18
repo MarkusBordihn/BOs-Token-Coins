@@ -19,16 +19,26 @@
 
 package de.markusbordihn.tokencoins.item.coin;
 
+import de.markusbordihn.tokencoins.item.TokenCoinType;
+import net.minecraft.world.level.block.Block;
+import net.minecraftforge.fmllegacy.RegistryObject;
+
 public class NetheriteCoinItem extends CoinItem {
 
   public NetheriteCoinItem() {
-    super(CoinItemType.Material.NETHERITE);
+    super(TokenCoinType.Material.NETHERITE, TokenCoinType.Motive.NONE);
     this.coinValue = 1000;
   }
 
-  public NetheriteCoinItem(CoinItemType.Motive motive) {
-    super(CoinItemType.Material.NETHERITE, motive);
+  public NetheriteCoinItem(TokenCoinType.Motive motive) {
+    super(TokenCoinType.Material.NETHERITE, motive);
     this.coinValue = 1000;
   }
+
+  public NetheriteCoinItem(TokenCoinType.Motive motive, RegistryObject<Block> block) {
+    super(TokenCoinType.Material.NETHERITE, motive, block);
+    this.coinValue = 1000;
+  }
+
 
 }

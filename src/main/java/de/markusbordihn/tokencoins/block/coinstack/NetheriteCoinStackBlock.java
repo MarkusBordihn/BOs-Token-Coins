@@ -20,15 +20,15 @@
 package de.markusbordihn.tokencoins.block.coinstack;
 
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.state.BlockBehaviour;
+
 import net.minecraftforge.fmllegacy.RegistryObject;
 
 public class NetheriteCoinStackBlock extends CoinStackBlock {
 
   public static final String NAME = "netherite_coin_stack";
 
-  public NetheriteCoinStackBlock(RegistryObject<Item> item, BlockBehaviour.Properties properties) {
-    super(item, properties);
+  public NetheriteCoinStackBlock(RegistryObject<Item> item) {
+    super(item);
   }
 
 }

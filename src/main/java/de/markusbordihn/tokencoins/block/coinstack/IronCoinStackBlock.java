@@ -27,8 +27,8 @@ public class IronCoinStackBlock extends CoinStackBlock {
 
   public static final String NAME = "iron_coin_stack";
 
-  public IronCoinStackBlock(RegistryObject<Item> item, BlockBehaviour.Properties properties) {
-    super(item, properties);
+  public IronCoinStackBlock(RegistryObject<Item> item) {
+    super(item);
   }
 
 }

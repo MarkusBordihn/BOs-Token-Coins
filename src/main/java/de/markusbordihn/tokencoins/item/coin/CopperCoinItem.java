@@ -19,15 +19,24 @@
 
 package de.markusbordihn.tokencoins.item.coin;
 
+import de.markusbordihn.tokencoins.item.TokenCoinType;
+import net.minecraft.world.level.block.Block;
+import net.minecraftforge.fmllegacy.RegistryObject;
+
 public class CopperCoinItem extends CoinItem {
 
   public CopperCoinItem() {
-    super(CoinItemType.Material.COPPER);
+    super(TokenCoinType.Material.COPPER, TokenCoinType.Motive.NONE);
     this.coinValue = 1;
   }
 
-  public CopperCoinItem(CoinItemType.Motive motive) {
-    super(CoinItemType.Material.COPPER, motive);
+  public CopperCoinItem(TokenCoinType.Motive motive) {
+    super(TokenCoinType.Material.COPPER, motive);
+    this.coinValue = 1;
+  }
+
+  public CopperCoinItem(TokenCoinType.Motive motive, RegistryObject<Block> block) {
+    super(TokenCoinType.Material.COPPER, motive, block);
     this.coinValue = 1;
   }
 

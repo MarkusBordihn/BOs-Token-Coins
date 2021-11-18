@@ -19,15 +19,24 @@
 
 package de.markusbordihn.tokencoins.item.coin;
 
+import de.markusbordihn.tokencoins.item.TokenCoinType;
+import net.minecraft.world.level.block.Block;
+import net.minecraftforge.fmllegacy.RegistryObject;
+
 public class SteelCoinItem extends CoinItem {
 
   public SteelCoinItem() {
-    super(CoinItemType.Material.STEEL);
+    super(TokenCoinType.Material.STEEL, TokenCoinType.Motive.NONE);
     this.coinValue = 50;
   }
 
-  public SteelCoinItem(CoinItemType.Motive motive) {
-    super(CoinItemType.Material.STEEL, motive);
+  public SteelCoinItem(TokenCoinType.Motive motive) {
+    super(TokenCoinType.Material.STEEL, motive);
+    this.coinValue = 50;
+  }
+
+  public SteelCoinItem(TokenCoinType.Motive motive, RegistryObject<Block> block) {
+    super(TokenCoinType.Material.STEEL, motive, block);
     this.coinValue = 50;
   }
 

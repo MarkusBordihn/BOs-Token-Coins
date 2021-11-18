@@ -19,14 +19,16 @@
 
 package de.markusbordihn.tokencoins.item.coinstamp;
 
+import de.markusbordihn.tokencoins.item.TokenCoinType;
+
 public class IronCoinStampItem extends CoinStampItem {
 
   public IronCoinStampItem() {
-    super(CoinStampItemType.Material.IRON);
+    super(TokenCoinType.Material.IRON, TokenCoinType.Motive.NONE);
   }
 
-  public IronCoinStampItem(CoinStampItemType.Motive motive) {
-    super(CoinStampItemType.Material.IRON, motive);
+  public IronCoinStampItem(TokenCoinType.Motive motive) {
+    super(TokenCoinType.Material.IRON, motive);
   }
 
 }

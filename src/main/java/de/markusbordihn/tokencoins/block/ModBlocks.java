@@ -50,29 +50,37 @@ public class ModBlocks {
 
   @TemplateEntryPoint("Register Blocks")
 
-  // Basic Coin Stack Block
-  public static final RegistryObject<Block> COPPER_COIN_STACK =
-      BLOCKS.register(CopperCoinStackBlock.NAME,
-          () -> new CopperCoinStackBlock(ModItems.COPPER_TOKEN_COIN, BlockBehaviour.Properties
-              .of(Material.METAL).requiresCorrectToolForDrops().strength(3.0F, 6.0F)));
-  public static final RegistryObject<Block> GOLD_COIN_STACK =
-      BLOCKS.register(GoldCoinStackBlock.NAME,
-          () -> new GoldCoinStackBlock(ModItems.GOLD_TOKEN_COIN, BlockBehaviour.Properties
-              .of(Material.METAL).requiresCorrectToolForDrops().strength(3.0F, 6.0F)));
-  public static final RegistryObject<Block> IRON_COIN_STACK =
-      BLOCKS.register(IronCoinStackBlock.NAME,
-          () -> new IronCoinStackBlock(ModItems.IRON_TOKEN_COIN, BlockBehaviour.Properties
-              .of(Material.METAL).requiresCorrectToolForDrops().strength(3.0F, 6.0F)));
-  public static final RegistryObject<Block> STEEL_COIN_STACK =
-      BLOCKS.register(SteelCoinStackBlock.NAME,
-          () -> new SteelCoinStackBlock(ModItems.STEEL_TOKEN_COIN, BlockBehaviour.Properties
-              .of(Material.METAL).requiresCorrectToolForDrops().strength(3.0F, 6.0F)));
+  // Creeper Coin Stack
+  public static final RegistryObject<Block> COPPER_COIN_STACK_WITH_CREEPER =
+      BLOCKS.register("copper_coin_stack_with_creeper",
+          () -> new CopperCoinStackBlock(ModItems.COPPER_TOKEN_COIN_WITH_CREPPER));
+  public static final RegistryObject<Block> GOLD_COIN_STACK_WITH_CREEPER =
+      BLOCKS.register("gold_coin_stack_with_creeper",
+          () -> new GoldCoinStackBlock(ModItems.GOLD_TOKEN_COIN_WITH_CREPPER));
+  public static final RegistryObject<Block> IRON_COIN_STACK_WITH_CREEPER =
+      BLOCKS.register("iron_coin_stack_with_creeper",
+          () -> new IronCoinStackBlock(ModItems.IRON_TOKEN_COIN_WITH_CREPPER));
+  public static final RegistryObject<Block> STEEL_COIN_STACK_WITH_CREEPER =
+      BLOCKS.register("steel_coin_stack_with_creeper",
+          () -> new SteelCoinStackBlock(ModItems.STEEL_TOKEN_COIN_WITH_CREPPER));
+  public static final RegistryObject<Block> NETHERITE_COIN_STACK_WITH_CREEPER =
+      BLOCKS.register("netherite_coin_stack_with_creeper",
+          () -> new NetheriteCoinStackBlock(ModItems.NETHERITE_TOKEN_COIN_WITH_CREPPER));
+
+  // Basic Coin Stack
+  public static final RegistryObject<Block> COPPER_COIN_STACK = BLOCKS.register(
+      CopperCoinStackBlock.NAME, () -> new CopperCoinStackBlock(ModItems.COPPER_TOKEN_COIN));
+  public static final RegistryObject<Block> GOLD_COIN_STACK = BLOCKS
+      .register(GoldCoinStackBlock.NAME, () -> new GoldCoinStackBlock(ModItems.GOLD_TOKEN_COIN));
+  public static final RegistryObject<Block> IRON_COIN_STACK = BLOCKS
+      .register(IronCoinStackBlock.NAME, () -> new IronCoinStackBlock(ModItems.IRON_TOKEN_COIN));
+  public static final RegistryObject<Block> STEEL_COIN_STACK = BLOCKS
+      .register(SteelCoinStackBlock.NAME, () -> new SteelCoinStackBlock(ModItems.STEEL_TOKEN_COIN));
   public static final RegistryObject<Block> NETHERITE_COIN_STACK =
       BLOCKS.register(NetheriteCoinStackBlock.NAME,
-          () -> new NetheriteCoinStackBlock(ModItems.NETHERITE_TOKEN_COIN, BlockBehaviour.Properties
-              .of(Material.METAL).requiresCorrectToolForDrops().strength(3.0F, 6.0F)));
+          () -> new NetheriteCoinStackBlock(ModItems.NETHERITE_TOKEN_COIN));
 
-  // Coin Press Block
+  // Coin Press
   public static final RegistryObject<Block> COIN_PRESS = BLOCKS.register(CoinPressBlock.NAME,
       () -> new CoinPressBlock(
           BlockBehaviour.Properties.of(Material.METAL).requiresCorrectToolForDrops().strength(3.5f)

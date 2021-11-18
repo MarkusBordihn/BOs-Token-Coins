@@ -19,14 +19,16 @@
 
 package de.markusbordihn.tokencoins.item.coinstamp;
 
+import de.markusbordihn.tokencoins.item.TokenCoinType;
+
 public class NetheriteCoinStampItem extends CoinStampItem {
 
   public NetheriteCoinStampItem() {
-    super(CoinStampItemType.Material.NETHERITE);
+    super(TokenCoinType.Material.NETHERITE, TokenCoinType.Motive.NONE);
   }
 
-  public NetheriteCoinStampItem(CoinStampItemType.Motive motive) {
-    super(CoinStampItemType.Material.NETHERITE, motive);
+  public NetheriteCoinStampItem(TokenCoinType.Motive motive) {
+    super(TokenCoinType.Material.NETHERITE, motive);
   }
 
 }

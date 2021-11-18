@@ -1,8 +1,0 @@
-{
-  "parent": "token_coins:block/coin_stack/coin_stack_14",
-  "textures": {
-    "particle": "token_coins:item/coins/steel_token_coin",
-    "coin": "token_coins:item/coins/steel_token_coin",
-    "motive": "token_coins:item/blank"
-  }
-}

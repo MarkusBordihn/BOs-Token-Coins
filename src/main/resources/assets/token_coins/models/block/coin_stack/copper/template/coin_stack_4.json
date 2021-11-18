@@ -1,0 +1,135 @@
+{
+	"credit": "Made with Blockbench by Markus Bordihn",
+	"textures": {
+		"particle": "token_coins:item/coins/copper_token_coin",
+		"coin": "token_coins:item/coins/copper_token_coin",
+		"motive": "token_coins:item/motives/creeper"
+	},
+	"elements": [
+		{
+			"name": "motive",
+			"from": [6.75, 0, 9.75],
+			"to": [9.25, 0.26, 12.25],
+			"rotation": {"angle": -22.5, "axis": "y", "origin": [8, 0.1275, 11]},
+			"faces": {
+				"up": {"uv": [5.33333, 0, 8, 16], "texture": "#motive"}
+			}
+		},
+		{
+			"name": "coin",
+			"from": [6, 0, 9],
+			"to": [10, 0.25, 13],
+			"rotation": {"angle": -22.5, "axis": "y", "origin": [8, 0.1275, 11]},
+			"faces": {
+				"north": {"uv": [1, 14, 15, 15], "texture": "#coin"},
+				"east": {"uv": [14, 1, 15, 15], "rotation": 90, "texture": "#coin"},
+				"south": {"uv": [1, 14, 15, 15], "texture": "#coin"},
+				"west": {"uv": [1, 1, 2, 15], "rotation": 90, "texture": "#coin"},
+				"up": {"uv": [1, 1, 15, 15], "texture": "#coin"},
+				"down": {"uv": [1, 1, 15, 15], "texture": "#coin"}
+			}
+		},
+		{
+			"name": "motive",
+			"from": [6.75, 0, 2.75],
+			"to": [9.25, 0.26, 5.25],
+			"rotation": {"angle": 45, "axis": "y", "origin": [8, 0.1275, 11]},
+			"faces": {
+				"up": {"uv": [5.33333, 0, 8, 16], "texture": "#motive"}
+			}
+		},
+		{
+			"name": "coin",
+			"from": [6, 0, 2],
+			"to": [10, 0.25, 6],
+			"rotation": {"angle": 45, "axis": "y", "origin": [8, 0.1275, 11]},
+			"faces": {
+				"north": {"uv": [1, 14, 15, 15], "texture": "#coin"},
+				"east": {"uv": [14, 1, 15, 15], "rotation": 90, "texture": "#coin"},
+				"south": {"uv": [1, 14, 15, 15], "texture": "#coin"},
+				"west": {"uv": [1, 1, 2, 15], "rotation": 90, "texture": "#coin"},
+				"up": {"uv": [1, 1, 15, 15], "texture": "#coin"},
+				"down": {"uv": [1, 1, 15, 15], "texture": "#coin"}
+			}
+		},
+		{
+			"name": "motive",
+			"from": [10.19415, 0, 1.43508],
+			"to": [12.69415, 0.26, 3.93508],
+			"rotation": {"angle": -22.5, "axis": "y", "origin": [11.44415, 0.1275, 2.68508]},
+			"faces": {
+				"up": {"uv": [5.33333, 0, 8, 16], "texture": "#motive"}
+			}
+		},
+		{
+			"name": "coin",
+			"from": [9.44415, 0, 0.68508],
+			"to": [13.44415, 0.25, 4.68508],
+			"rotation": {"angle": -22.5, "axis": "y", "origin": [11.44415, 0.1275, 2.68508]},
+			"faces": {
+				"north": {"uv": [1, 14, 15, 15], "texture": "#coin"},
+				"east": {"uv": [14, 1, 15, 15], "rotation": 90, "texture": "#coin"},
+				"south": {"uv": [1, 14, 15, 15], "texture": "#coin"},
+				"west": {"uv": [1, 1, 2, 15], "rotation": 90, "texture": "#coin"},
+				"up": {"uv": [1, 1, 15, 15], "texture": "#coin"},
+				"down": {"uv": [1, 1, 15, 15], "texture": "#coin"}
+			}
+		},
+		{
+			"name": "motive",
+			"from": [10.19415, 0, 6.43508],
+			"to": [12.69415, 0.26, 8.93508],
+			"rotation": {"angle": 22.5, "axis": "y", "origin": [11.44415, 0.1275, 2.68508]},
+			"faces": {
+				"up": {"uv": [5.33333, 0, 8, 16], "rotation": 270, "texture": "#motive"}
+			}
+		},
+		{
+			"name": "coin",
+			"from": [9.44415, 0, 5.68508],
+			"to": [13.44415, 0.25, 9.68508],
+			"rotation": {"angle": 22.5, "axis": "y", "origin": [11.44415, 0.1275, 2.68508]},
+			"faces": {
+				"north": {"uv": [14, 1, 15, 15], "rotation": 90, "texture": "#coin"},
+				"east": {"uv": [1, 14, 15, 15], "texture": "#coin"},
+				"south": {"uv": [1, 1, 2, 15], "rotation": 90, "texture": "#coin"},
+				"west": {"uv": [1, 14, 15, 15], "texture": "#coin"},
+				"up": {"uv": [1, 1, 15, 15], "rotation": 270, "texture": "#coin"},
+				"down": {"uv": [1, 1, 15, 15], "rotation": 90, "texture": "#coin"}
+			}
+		}
+	],
+	"groups": [
+		{
+			"name": "coins",
+			"origin": [0, 0, 0],
+			"color": 0,
+			"children": [
+				{
+					"name": "coin",
+					"origin": [0, 0, 0],
+					"color": 0,
+					"children": [0, 1]
+				},
+				{
+					"name": "coin",
+					"origin": [0, 0, 0],
+					"color": 0,
+					"children": [2, 3]
+				},
+				{
+					"name": "coin",
+					"origin": [0, 0, 0],
+					"color": 0,
+					"children": [4, 5]
+				},
+				{
+					"name": "coin",
+					"origin": [0, 0, 0],
+					"color": 0,
+					"children": [6, 7]
+				}
+			]
+		}
+	]
+}
