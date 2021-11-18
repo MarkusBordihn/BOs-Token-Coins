@@ -1,0 +1,32 @@
+{
+  "attributes": {
+    "soundType": "SoundType.METAL"
+  },
+  "bedrock": {
+    "formatVersion": "1.16.1"
+  },
+  "blockName": "note_block",
+  "component": "block",
+  "configVersion": "0.0.1",
+  "description": "",
+  "events": {},
+  "forge": {
+    "className": "NoteBlock"
+  },
+  "icon": "note_block",
+  "id": "token_coins:note_block",
+  "misc": {},
+  "name": "Note Block",
+  "namespace": "token_coins",
+  "placeholder": {
+    "CreativeTab": "TAB_MISC",
+    "BlockName": "Note Block",
+    "BLOCK_NAME": "NOTE_BLOCK",
+    "block_name": "note_block",
+    "BlockClassName": "NoteBlock",
+    "SoundType": "SoundType.METAL"
+  },
+  "template": ".\\\\templates\\\\NewPiggyBank.template",
+  "type": "template",
+  "variation": ""
+}

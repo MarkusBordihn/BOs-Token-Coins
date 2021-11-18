@@ -99,12 +99,10 @@ public class CoinPressBlock extends BaseEntityBlock {
   @Override
   public InteractionResult use(BlockState blockState, Level level, BlockPos blockPos, Player player,
       InteractionHand interactionHand, BlockHitResult blockHitResult) {
-    if (level.isClientSide) {
-      return InteractionResult.SUCCESS;
-    } else {
+    if (!level.isClientSide) {
       this.openContainer(level, blockPos, player);
-      return InteractionResult.CONSUME;
     }
+    return InteractionResult.sidedSuccess(level.isClientSide);
   }
 
   @Override

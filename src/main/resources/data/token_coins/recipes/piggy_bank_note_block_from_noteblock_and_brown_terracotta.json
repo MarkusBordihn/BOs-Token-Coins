@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#O#",
+    "+p+",
+    "#+#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:brown_terracotta"
+    },
+    "+": {
+      "item": "minecraft:brown_terracotta"
+    },
+    "O": {
+      "tag": "token_coins:coins"
+    },
+    "p": {
+      "item": "minecraft:note_block"
+    }
+  },
+  "result": {
+    "item": "token_coins:piggy_bank_note_block",
+    "count": 1
+  }
+}

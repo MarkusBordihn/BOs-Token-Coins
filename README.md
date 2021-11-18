@@ -13,7 +13,12 @@ Features:
 - Coins with different motives
 - JRE Integration
 
+Requires:
+
+- [Bo's Material and Elements][material-elements]
+
 🚀 Visit https://markusbordihn.github.io/BOs-Token-Coins/ for a detailed overview.
 
 [logo]: logo.png
+[material-elements]: https://www.curseforge.com/minecraft/mc-mods/material-elements
 [coin_press]: docs/assets/coin_press.gif

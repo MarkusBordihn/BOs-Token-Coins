@@ -14,7 +14,7 @@ items, we are offering a simple way / api for this.
 The token coin items are using a interface called **TokenCoinCompatible** to see if they could be used
 with such block.
 If you click with a coin on such a compatible block, token coin will automatically call the
-**consumeTokenCoin** function of the target block.
+**canConsumeTokenCoin** and **consumeTokenCoin** function of the target block.
 
 Example:
 
@@ -24,13 +24,21 @@ import de.markusbordihn.tokencoins.block.TokenCoinCompatible;
 public class YourBlock extends Block implements EntityBlock, TokenCoinCompatible {
 
   @Override
+  public boolean canConsumeTokenCoin(Level level, BlockPos blockPos, BlockState blockState,
+      BlockEntity blockEntity, Player player, ItemStack itemStack) {
+    ...
+  }
+
+  @Override
   public InteractionResult consumeTokenCoin(Level level, BlockPos blockPos, BlockState blockState,
       BlockEntity blockEntity, ItemStack itemStack, UseOnContext context) {
     ...
   }
-
 }
 ```
+
+The **consumeTokenCoin** will be only called if **canConsumeTokenCoin** returns true, which is the
+default without any overwrite.
 
 With these passed parameters you can easily handle all kind of integrations.
 The **itemStack** parameter will return the currently used token coin item stack which could be used
@@ -48,7 +56,7 @@ You can add these dependency in your main/resources/META-INF/mods.toml file:
     modId="material_elements"
     mandatory=true
     # This version range declares a minimum of the current version up to but not including the next major version
-    versionRange="[0.4.1,)"
+    versionRange="[0.5.1,)"
     ordering="NONE"
     side="BOTH"
 
@@ -56,7 +64,7 @@ You can add these dependency in your main/resources/META-INF/mods.toml file:
     modId="token_coins"
     mandatory=true
     # This version range declares a minimum of the current version up to but not including the next major version
-    versionRange="[1.0.1,)"
+    versionRange="[1.1.1,)"
     ordering="NONE"
     side="BOTH"
 ```
@@ -83,9 +91,9 @@ dependencies {
     ...
 
     // Required: Bo's Material Elements (dev dependency)
-    implementation fg.deobf("curse.maven:token_coins-544494:3523846")
+    implementation fg.deobf("curse.maven:token_coins-544494:3526791")
 
     // Required: Bo's Material Elements (dev dependency)
-    implementation fg.deobf("curse.maven:material_elements-541620:3517924")
+    implementation fg.deobf("curse.maven:material_elements-541620:3527198")
 }
 ```

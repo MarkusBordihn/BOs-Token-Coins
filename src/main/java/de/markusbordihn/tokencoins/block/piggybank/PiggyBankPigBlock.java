@@ -1,6 +1,7 @@
 package de.markusbordihn.tokencoins.block.piggybank;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.InteractionHand;
@@ -10,12 +11,15 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
+import de.markusbordihn.tokencoins.block.ModBlocks;
 import de.markusbordihn.tokencoins.block.PiggyBankBlock;
+import de.markusbordihn.tokencoins.block.entity.PiggyBankBlockEntity;
 
 public class PiggyBankPigBlock extends PiggyBankBlock {
 
@@ -28,6 +32,10 @@ public class PiggyBankPigBlock extends PiggyBankBlock {
   @Override
   public VoxelShape getShape(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos,
       CollisionContext collisionContext) {
+    Direction facing = blockState.getValue(PiggyBankBlock.FACING);
+    if (facing == Direction.EAST || facing == Direction.WEST) {
+      return PiggyBankBlock.SHAPE_10_12_12_90DEG_AABB;
+    }
     return PiggyBankBlock.SHAPE_10_12_12_AABB;
   }
 
@@ -52,6 +60,11 @@ public class PiggyBankPigBlock extends PiggyBankBlock {
       return InteractionResult.SUCCESS;
     }
     return super.use(blockState, level, blockPos, player, hand, hitResult);
+  }
+
+  @Override
+  public BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
+    return new PiggyBankBlockEntity(ModBlocks.PIGGY_BANK_PIG_ENTITY.get(), blockPos, blockState);
   }
 
 }

@@ -78,14 +78,33 @@ public class TokenCoins {
       MenuScreens.register(CoinPressMenu.TYPE, CoinPressScreen::new);
 
       // Coin Press Block (transparent cutout)
-      ItemBlockRenderTypes.setRenderLayer(ModBlocks.COIN_PRESS.get(), RenderType.cutout());
+      ItemBlockRenderTypes.setRenderLayer(ModBlocks.COIN_PRESS.get(), RenderType.cutoutMipped());
 
-      // Piggy Banks (transparent cutout's)
-      ItemBlockRenderTypes.setRenderLayer(ModBlocks.PIGGY_BANK_GHAST.get(), RenderType.cutout());
-      ItemBlockRenderTypes.setRenderLayer(ModBlocks.PIGGY_BANK_PIG.get(), RenderType.cutout());
-      ItemBlockRenderTypes.setRenderLayer(ModBlocks.PIGGY_BANK_SAFE.get(), RenderType.cutout());
-      ItemBlockRenderTypes.setRenderLayer(ModBlocks.PIGGY_BANK_SKELETON.get(), RenderType.cutout());
-      ItemBlockRenderTypes.setRenderLayer(ModBlocks.PIGGY_BANK_TNT.get(), RenderType.cutout());
+      // Piggy Banks (transparent cutout)
+      ItemBlockRenderTypes.setRenderLayer(ModBlocks.PIGGY_BANK_GHAST.get(),
+          RenderType.cutoutMipped());
+      ItemBlockRenderTypes.setRenderLayer(ModBlocks.PIGGY_BANK_NOTE_BLOCK.get(),
+          RenderType.cutoutMipped());
+      ItemBlockRenderTypes.setRenderLayer(ModBlocks.PIGGY_BANK_PIG.get(),
+          RenderType.cutoutMipped());
+      ItemBlockRenderTypes.setRenderLayer(ModBlocks.PIGGY_BANK_SAFE.get(),
+          RenderType.cutoutMipped());
+      ItemBlockRenderTypes.setRenderLayer(ModBlocks.PIGGY_BANK_SKELETON.get(),
+          RenderType.cutoutMipped());
+      ItemBlockRenderTypes.setRenderLayer(ModBlocks.PIGGY_BANK_TNT.get(),
+          RenderType.cutoutMipped());
+
+      // Coin Stacks (transparent cutout)
+      ItemBlockRenderTypes.setRenderLayer(ModBlocks.COPPER_COIN_STACK.get(),
+          RenderType.cutoutMipped());
+      ItemBlockRenderTypes.setRenderLayer(ModBlocks.GOLD_COIN_STACK.get(),
+          RenderType.cutoutMipped());
+      ItemBlockRenderTypes.setRenderLayer(ModBlocks.IRON_COIN_STACK.get(),
+          RenderType.cutoutMipped());
+      ItemBlockRenderTypes.setRenderLayer(ModBlocks.STEEL_COIN_STACK.get(),
+          RenderType.cutoutMipped());
+      ItemBlockRenderTypes.setRenderLayer(ModBlocks.NETHERITE_COIN_STACK.get(),
+          RenderType.cutoutMipped());
     });
   }
 

@@ -10,12 +10,15 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
+import de.markusbordihn.tokencoins.block.ModBlocks;
 import de.markusbordihn.tokencoins.block.PiggyBankBlock;
+import de.markusbordihn.tokencoins.block.entity.PiggyBankBlockEntity;
 
 public class PiggyBankSkeletonBlock extends PiggyBankBlock {
 
@@ -41,6 +44,11 @@ public class PiggyBankSkeletonBlock extends PiggyBankBlock {
       return InteractionResult.SUCCESS;
     }
     return super.use(blockState, level, blockPos, player, hand, hitResult);
+  }
+
+  @Override
+  public BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
+    return new PiggyBankBlockEntity(ModBlocks.PIGGY_BANK_SKELETON_ENTITY.get(), blockPos, blockState);
   }
 
 }

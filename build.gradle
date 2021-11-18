@@ -94,7 +94,7 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             // Specify the modid for data generation, where to output the resulting resource, and where to look for existing resources.
-            args '--mod', '[[ --Mod Id-- ]]', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+            args '--mod', 'token_coins', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
 
             mods {
                 token_coins {
@@ -132,7 +132,7 @@ dependencies {
     // Specify the version of Minecraft to use, If this is any group other then 'net.minecraft' it is assumed
     // that the dep is a ForgeGradle 'patcher' dependency. And it's patches will be applied.
     // The userdev artifact is a special name and will get all sorts of transformations applied to it.
-    minecraft 'net.minecraftforge:forge:1.17.1-37.0.104'
+    minecraft 'net.minecraftforge:forge:1.17.1-37.0.109'
 
     // Required: Bo's Material Elements (dev dependency)
     implementation fg.deobf("curse.maven:material_elements-541620:${material_elements_version}")
@@ -184,9 +184,14 @@ curseforge {
   apiKey = "${credentials.curseforge_api_token}"
   project {
     id = "${curseforge_project_id}"
-    changelog = '[[ --Change Log-- ]]'
+    changelog = 'See https://github.com/MarkusBordihn/BOs-Token-Coins/commits/main'
     releaseType = 'release'
     addGameVersion("1.17.1")
     addGameVersion("Forge")
+    mainArtifact(jar) {
+      relations {
+        requiredDependency 'material-elements'
+      }
+    }
   }
 }

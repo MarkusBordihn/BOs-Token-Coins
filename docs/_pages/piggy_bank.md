@@ -6,7 +6,7 @@ title: "Piggy Bank"
 
 ![Piggy Bank](../assets/piggy_bank.gif)
 
-Piggy Banks exists in different of formats and colors and are used to store your coins.
+Piggy Banks exists in different kind of formats and colors and are used to store your coins.
 
 ## Crafting
 
