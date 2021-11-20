@@ -55,7 +55,6 @@
 
 +++ blockstates/copper_coin_stack_with_[[ --block_name-- ]].json
 @@@ create @@@
-
 {
   "variants": {
     "amount=1,facing=north": { "model": "token_coins:block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_1", "y": 180},
@@ -142,7 +141,6 @@
 
 +++ blockstates/gold_coin_stack_with_[[ --block_name-- ]].json
 @@@ create @@@
-
 {
   "variants": {
     "amount=1,facing=north": { "model": "token_coins:block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_1", "y": 180},
@@ -229,7 +227,6 @@
 
 +++ blockstates/iron_coin_stack_with_[[ --block_name-- ]].json
 @@@ create @@@
-
 {
   "variants": {
     "amount=1,facing=north": { "model": "token_coins:block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_1", "y": 180},
@@ -316,7 +313,6 @@
 
 +++ blockstates/steel_coin_stack_with_[[ --block_name-- ]].json
 @@@ create @@@
-
 {
   "variants": {
     "amount=1,facing=north": { "model": "token_coins:block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_1", "y": 180},
@@ -403,7 +399,6 @@
 
 +++ blockstates/netherite_coin_stack_with_[[ --block_name-- ]].json
 @@@ create @@@
-
 {
   "variants": {
     "amount=1,facing=north": { "model": "token_coins:block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_1", "y": 180},
@@ -490,7 +485,6 @@
 
 +++ models/block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_1.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/copper/template/coin_stack_1",
   "textures": {
@@ -500,7 +494,6 @@
 
 +++ models/block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_2.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/copper/template/coin_stack_2",
   "textures": {
@@ -510,7 +503,6 @@
 
 +++ models/block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_3.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/copper/template/coin_stack_3",
   "textures": {
@@ -520,7 +512,6 @@
 
 +++ models/block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_4.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/copper/template/coin_stack_4",
   "textures": {
@@ -530,7 +521,6 @@
 
 +++ models/block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_5.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/copper/template/coin_stack_5",
   "textures": {
@@ -540,7 +530,6 @@
 
 +++ models/block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_6.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/copper/template/coin_stack_6",
   "textures": {
@@ -550,7 +539,6 @@
 
 +++ models/block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_7.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/copper/template/coin_stack_7",
   "textures": {
@@ -560,7 +548,6 @@
 
 +++ models/block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_8.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/copper/template/coin_stack_8",
   "textures": {
@@ -570,7 +557,6 @@
 
 +++ models/block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_9.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/copper/template/coin_stack_9",
   "textures": {
@@ -580,7 +566,6 @@
 
 +++ models/block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_10.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/copper/template/coin_stack_10",
   "textures": {
@@ -590,7 +575,6 @@
 
 +++ models/block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_11.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/copper/template/coin_stack_11",
   "textures": {
@@ -600,7 +584,6 @@
 
 +++ models/block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_12.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/copper/template/coin_stack_12",
   "textures": {
@@ -610,7 +593,6 @@
 
 +++ models/block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_13.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/copper/template/coin_stack_13",
   "textures": {
@@ -620,7 +602,6 @@
 
 +++ models/block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_14.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/copper/template/coin_stack_14",
   "textures": {
@@ -630,7 +611,6 @@
 
 +++ models/block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_15.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/copper/template/coin_stack_15",
   "textures": {
@@ -640,7 +620,6 @@
 
 +++ models/block/coin_stack/copper/[[ --block_name-- ]]/coin_stack_16.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/copper/template/coin_stack_16",
   "textures": {
@@ -650,7 +629,6 @@
 
 +++ models/block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_1.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/gold/template/coin_stack_1",
   "textures": {
@@ -660,7 +638,6 @@
 
 +++ models/block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_2.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/gold/template/coin_stack_2",
   "textures": {
@@ -670,7 +647,6 @@
 
 +++ models/block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_3.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/gold/template/coin_stack_3",
   "textures": {
@@ -680,7 +656,6 @@
 
 +++ models/block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_4.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/gold/template/coin_stack_4",
   "textures": {
@@ -690,7 +665,6 @@
 
 +++ models/block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_5.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/gold/template/coin_stack_5",
   "textures": {
@@ -700,7 +674,6 @@
 
 +++ models/block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_6.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/gold/template/coin_stack_6",
   "textures": {
@@ -710,7 +683,6 @@
 
 +++ models/block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_7.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/gold/template/coin_stack_7",
   "textures": {
@@ -720,7 +692,6 @@
 
 +++ models/block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_8.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/gold/template/coin_stack_8",
   "textures": {
@@ -730,7 +701,6 @@
 
 +++ models/block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_9.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/gold/template/coin_stack_9",
   "textures": {
@@ -740,7 +710,6 @@
 
 +++ models/block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_10.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/gold/template/coin_stack_10",
   "textures": {
@@ -750,7 +719,6 @@
 
 +++ models/block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_11.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/gold/template/coin_stack_11",
   "textures": {
@@ -760,7 +728,6 @@
 
 +++ models/block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_12.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/gold/template/coin_stack_12",
   "textures": {
@@ -770,7 +737,6 @@
 
 +++ models/block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_13.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/gold/template/coin_stack_13",
   "textures": {
@@ -780,7 +746,6 @@
 
 +++ models/block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_14.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/gold/template/coin_stack_14",
   "textures": {
@@ -790,7 +755,6 @@
 
 +++ models/block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_15.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/gold/template/coin_stack_15",
   "textures": {
@@ -800,7 +764,6 @@
 
 +++ models/block/coin_stack/gold/[[ --block_name-- ]]/coin_stack_16.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/gold/template/coin_stack_16",
   "textures": {
@@ -810,7 +773,6 @@
 
 +++ models/block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_1.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/iron/template/coin_stack_1",
   "textures": {
@@ -820,7 +782,6 @@
 
 +++ models/block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_2.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/iron/template/coin_stack_2",
   "textures": {
@@ -830,7 +791,6 @@
 
 +++ models/block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_3.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/iron/template/coin_stack_3",
   "textures": {
@@ -840,7 +800,6 @@
 
 +++ models/block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_4.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/iron/template/coin_stack_4",
   "textures": {
@@ -850,7 +809,6 @@
 
 +++ models/block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_5.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/iron/template/coin_stack_5",
   "textures": {
@@ -860,7 +818,6 @@
 
 +++ models/block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_6.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/iron/template/coin_stack_6",
   "textures": {
@@ -870,7 +827,6 @@
 
 +++ models/block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_7.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/iron/template/coin_stack_7",
   "textures": {
@@ -880,7 +836,6 @@
 
 +++ models/block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_8.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/iron/template/coin_stack_8",
   "textures": {
@@ -890,7 +845,6 @@
 
 +++ models/block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_9.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/iron/template/coin_stack_9",
   "textures": {
@@ -900,7 +854,6 @@
 
 +++ models/block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_10.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/iron/template/coin_stack_10",
   "textures": {
@@ -910,7 +863,6 @@
 
 +++ models/block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_11.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/iron/template/coin_stack_11",
   "textures": {
@@ -920,7 +872,6 @@
 
 +++ models/block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_12.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/iron/template/coin_stack_12",
   "textures": {
@@ -930,7 +881,6 @@
 
 +++ models/block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_13.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/iron/template/coin_stack_13",
   "textures": {
@@ -940,7 +890,6 @@
 
 +++ models/block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_14.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/iron/template/coin_stack_14",
   "textures": {
@@ -950,7 +899,6 @@
 
 +++ models/block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_15.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/iron/template/coin_stack_15",
   "textures": {
@@ -960,7 +908,6 @@
 
 +++ models/block/coin_stack/iron/[[ --block_name-- ]]/coin_stack_16.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/iron/template/coin_stack_16",
   "textures": {
@@ -970,7 +917,6 @@
 
 +++ models/block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_1.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/steel/template/coin_stack_1",
   "textures": {
@@ -980,7 +926,6 @@
 
 +++ models/block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_2.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/steel/template/coin_stack_2",
   "textures": {
@@ -990,7 +935,6 @@
 
 +++ models/block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_3.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/steel/template/coin_stack_3",
   "textures": {
@@ -1000,7 +944,6 @@
 
 +++ models/block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_4.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/steel/template/coin_stack_4",
   "textures": {
@@ -1010,7 +953,6 @@
 
 +++ models/block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_5.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/steel/template/coin_stack_5",
   "textures": {
@@ -1020,7 +962,6 @@
 
 +++ models/block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_6.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/steel/template/coin_stack_6",
   "textures": {
@@ -1030,7 +971,6 @@
 
 +++ models/block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_7.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/steel/template/coin_stack_7",
   "textures": {
@@ -1040,7 +980,6 @@
 
 +++ models/block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_8.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/steel/template/coin_stack_8",
   "textures": {
@@ -1050,7 +989,6 @@
 
 +++ models/block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_9.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/steel/template/coin_stack_9",
   "textures": {
@@ -1060,7 +998,6 @@
 
 +++ models/block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_10.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/steel/template/coin_stack_10",
   "textures": {
@@ -1070,7 +1007,6 @@
 
 +++ models/block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_11.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/steel/template/coin_stack_11",
   "textures": {
@@ -1080,7 +1016,6 @@
 
 +++ models/block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_12.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/steel/template/coin_stack_12",
   "textures": {
@@ -1090,7 +1025,6 @@
 
 +++ models/block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_13.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/steel/template/coin_stack_13",
   "textures": {
@@ -1100,7 +1034,6 @@
 
 +++ models/block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_14.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/steel/template/coin_stack_14",
   "textures": {
@@ -1110,7 +1043,6 @@
 
 +++ models/block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_15.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/steel/template/coin_stack_15",
   "textures": {
@@ -1120,7 +1052,6 @@
 
 +++ models/block/coin_stack/steel/[[ --block_name-- ]]/coin_stack_16.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/steel/template/coin_stack_16",
   "textures": {
@@ -1130,7 +1061,6 @@
 
 +++ models/block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_1.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/netherite/template/coin_stack_1",
   "textures": {
@@ -1140,7 +1070,6 @@
 
 +++ models/block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_2.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/netherite/template/coin_stack_2",
   "textures": {
@@ -1150,7 +1079,6 @@
 
 +++ models/block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_3.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/netherite/template/coin_stack_3",
   "textures": {
@@ -1160,7 +1088,6 @@
 
 +++ models/block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_4.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/netherite/template/coin_stack_4",
   "textures": {
@@ -1170,7 +1097,6 @@
 
 +++ models/block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_5.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/netherite/template/coin_stack_5",
   "textures": {
@@ -1180,7 +1106,6 @@
 
 +++ models/block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_6.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/netherite/template/coin_stack_6",
   "textures": {
@@ -1190,7 +1115,6 @@
 
 +++ models/block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_7.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/netherite/template/coin_stack_7",
   "textures": {
@@ -1200,7 +1124,6 @@
 
 +++ models/block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_8.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/netherite/template/coin_stack_8",
   "textures": {
@@ -1210,7 +1133,6 @@
 
 +++ models/block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_9.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/netherite/template/coin_stack_9",
   "textures": {
@@ -1220,7 +1142,6 @@
 
 +++ models/block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_10.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/netherite/template/coin_stack_10",
   "textures": {
@@ -1230,7 +1151,6 @@
 
 +++ models/block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_11.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/netherite/template/coin_stack_11",
   "textures": {
@@ -1240,7 +1160,6 @@
 
 +++ models/block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_12.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/netherite/template/coin_stack_12",
   "textures": {
@@ -1250,7 +1169,6 @@
 
 +++ models/block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_13.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/netherite/template/coin_stack_13",
   "textures": {
@@ -1260,7 +1178,6 @@
 
 +++ models/block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_14.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/netherite/template/coin_stack_14",
   "textures": {
@@ -1270,7 +1187,6 @@
 
 +++ models/block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_15.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/netherite/template/coin_stack_15",
   "textures": {
@@ -1280,10 +1196,17 @@
 
 +++ models/block/coin_stack/netherite/[[ --block_name-- ]]/coin_stack_16.json
 @@@ create @@@
-
 {
   "parent": "token_coins:block/coin_stack/netherite/template/coin_stack_16",
   "textures": {
     "motive": "token_coins:item/motives/[[ --block_name-- ]]"
   }
 }
+
++++ tags/blocks/coin_stack.json
+@@@ after: "values": [ @@@
+    "token_coins:copper_coin_stack_with_[[ --block_name-- ]]",
+    "token_coins:gold_coin_stack_with_[[ --block_name-- ]]",
+    "token_coins:iron_coin_stack_with_[[ --block_name-- ]]",
+    "token_coins:steel_coin_stack_with_[[ --block_name-- ]]",
+    "token_coins:netherite_coin_stack_with_[[ --block_name-- ]]",

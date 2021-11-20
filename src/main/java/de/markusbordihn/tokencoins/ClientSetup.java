@@ -61,6 +61,90 @@ public class ClientSetup {
       //@TemplateEntryPoint("Set Render Layer")
 
       // Creeper Coin Stack (transparent cutout)
+      ItemBlockRenderTypes.setRenderLayer(ModBlocks.COPPER_COIN_STACK_WITH_LEKOOPA.get(),
+          RenderType.cutoutMipped());
+      ItemBlockRenderTypes.setRenderLayer(ModBlocks.GOLD_COIN_STACK_WITH_LEKOOPA.get(),
+          RenderType.cutoutMipped());
+      ItemBlockRenderTypes.setRenderLayer(ModBlocks.IRON_COIN_STACK_WITH_LEKOOPA.get(),
+          RenderType.cutoutMipped());
+      ItemBlockRenderTypes.setRenderLayer(ModBlocks.STEEL_COIN_STACK_WITH_LEKOOPA.get(),
+          RenderType.cutoutMipped());
+      ItemBlockRenderTypes.setRenderLayer(ModBlocks.NETHERITE_COIN_STACK_WITH_LEKOOPA.get(),
+          RenderType.cutoutMipped());
+
+      // Creeper Coin Stack (transparent cutout)
+      ItemBlockRenderTypes.setRenderLayer(ModBlocks.COPPER_COIN_STACK_WITH_WITHER.get(),
+          RenderType.cutoutMipped());
+      ItemBlockRenderTypes.setRenderLayer(ModBlocks.GOLD_COIN_STACK_WITH_WITHER.get(),
+          RenderType.cutoutMipped());
+      ItemBlockRenderTypes.setRenderLayer(ModBlocks.IRON_COIN_STACK_WITH_WITHER.get(),
+          RenderType.cutoutMipped());
+      ItemBlockRenderTypes.setRenderLayer(ModBlocks.STEEL_COIN_STACK_WITH_WITHER.get(),
+          RenderType.cutoutMipped());
+      ItemBlockRenderTypes.setRenderLayer(ModBlocks.NETHERITE_COIN_STACK_WITH_WITHER.get(),
+          RenderType.cutoutMipped());
+
+      // Creeper Coin Stack (transparent cutout)
+      ItemBlockRenderTypes.setRenderLayer(ModBlocks.COPPER_COIN_STACK_WITH_WHEAT.get(),
+          RenderType.cutoutMipped());
+      ItemBlockRenderTypes.setRenderLayer(ModBlocks.GOLD_COIN_STACK_WITH_WHEAT.get(),
+          RenderType.cutoutMipped());
+      ItemBlockRenderTypes.setRenderLayer(ModBlocks.IRON_COIN_STACK_WITH_WHEAT.get(),
+          RenderType.cutoutMipped());
+      ItemBlockRenderTypes.setRenderLayer(ModBlocks.STEEL_COIN_STACK_WITH_WHEAT.get(),
+          RenderType.cutoutMipped());
+      ItemBlockRenderTypes.setRenderLayer(ModBlocks.NETHERITE_COIN_STACK_WITH_WHEAT.get(),
+          RenderType.cutoutMipped());
+
+      // Creeper Coin Stack (transparent cutout)
+      ItemBlockRenderTypes.setRenderLayer(ModBlocks.COPPER_COIN_STACK_WITH_POPPY.get(),
+          RenderType.cutoutMipped());
+      ItemBlockRenderTypes.setRenderLayer(ModBlocks.GOLD_COIN_STACK_WITH_POPPY.get(),
+          RenderType.cutoutMipped());
+      ItemBlockRenderTypes.setRenderLayer(ModBlocks.IRON_COIN_STACK_WITH_POPPY.get(),
+          RenderType.cutoutMipped());
+      ItemBlockRenderTypes.setRenderLayer(ModBlocks.STEEL_COIN_STACK_WITH_POPPY.get(),
+          RenderType.cutoutMipped());
+      ItemBlockRenderTypes.setRenderLayer(ModBlocks.NETHERITE_COIN_STACK_WITH_POPPY.get(),
+          RenderType.cutoutMipped());
+
+      // Creeper Coin Stack (transparent cutout)
+      ItemBlockRenderTypes.setRenderLayer(ModBlocks.COPPER_COIN_STACK_WITH_SKELETON.get(),
+          RenderType.cutoutMipped());
+      ItemBlockRenderTypes.setRenderLayer(ModBlocks.GOLD_COIN_STACK_WITH_SKELETON.get(),
+          RenderType.cutoutMipped());
+      ItemBlockRenderTypes.setRenderLayer(ModBlocks.IRON_COIN_STACK_WITH_SKELETON.get(),
+          RenderType.cutoutMipped());
+      ItemBlockRenderTypes.setRenderLayer(ModBlocks.STEEL_COIN_STACK_WITH_SKELETON.get(),
+          RenderType.cutoutMipped());
+      ItemBlockRenderTypes.setRenderLayer(ModBlocks.NETHERITE_COIN_STACK_WITH_SKELETON.get(),
+          RenderType.cutoutMipped());
+
+      // Creeper Coin Stack (transparent cutout)
+      ItemBlockRenderTypes.setRenderLayer(ModBlocks.COPPER_COIN_STACK_WITH_DRAGON.get(),
+          RenderType.cutoutMipped());
+      ItemBlockRenderTypes.setRenderLayer(ModBlocks.GOLD_COIN_STACK_WITH_DRAGON.get(),
+          RenderType.cutoutMipped());
+      ItemBlockRenderTypes.setRenderLayer(ModBlocks.IRON_COIN_STACK_WITH_DRAGON.get(),
+          RenderType.cutoutMipped());
+      ItemBlockRenderTypes.setRenderLayer(ModBlocks.STEEL_COIN_STACK_WITH_DRAGON.get(),
+          RenderType.cutoutMipped());
+      ItemBlockRenderTypes.setRenderLayer(ModBlocks.NETHERITE_COIN_STACK_WITH_DRAGON.get(),
+          RenderType.cutoutMipped());
+
+      // Creeper Coin Stack (transparent cutout)
+      ItemBlockRenderTypes.setRenderLayer(ModBlocks.COPPER_COIN_STACK_WITH_ZOMBIE.get(),
+          RenderType.cutoutMipped());
+      ItemBlockRenderTypes.setRenderLayer(ModBlocks.GOLD_COIN_STACK_WITH_ZOMBIE.get(),
+          RenderType.cutoutMipped());
+      ItemBlockRenderTypes.setRenderLayer(ModBlocks.IRON_COIN_STACK_WITH_ZOMBIE.get(),
+          RenderType.cutoutMipped());
+      ItemBlockRenderTypes.setRenderLayer(ModBlocks.STEEL_COIN_STACK_WITH_ZOMBIE.get(),
+          RenderType.cutoutMipped());
+      ItemBlockRenderTypes.setRenderLayer(ModBlocks.NETHERITE_COIN_STACK_WITH_ZOMBIE.get(),
+          RenderType.cutoutMipped());
+
+      // Creeper Coin Stack (transparent cutout)
       ItemBlockRenderTypes.setRenderLayer(ModBlocks.COPPER_COIN_STACK_WITH_CREEPER.get(),
           RenderType.cutoutMipped());
       ItemBlockRenderTypes.setRenderLayer(ModBlocks.GOLD_COIN_STACK_WITH_CREEPER.get(),

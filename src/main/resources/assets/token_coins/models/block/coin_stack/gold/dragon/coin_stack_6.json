@@ -1,0 +1,6 @@
+{
+  "parent": "token_coins:block/coin_stack/gold/template/coin_stack_6",
+  "textures": {
+    "motive": "token_coins:item/motives/dragon"
+  }
+}

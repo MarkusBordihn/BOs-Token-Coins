@@ -50,6 +50,125 @@ public class ModBlocks {
 
   @TemplateEntryPoint("Register Blocks")
 
+  // LeKoopa Coin Stack
+  public static final RegistryObject<Block> COPPER_COIN_STACK_WITH_LEKOOPA =
+      BLOCKS.register("copper_coin_stack_with_lekoopa",
+          () -> new CopperCoinStackBlock(ModItems.COPPER_TOKEN_COIN_WITH_LEKOOPA));
+  public static final RegistryObject<Block> GOLD_COIN_STACK_WITH_LEKOOPA =
+      BLOCKS.register("gold_coin_stack_with_lekoopa",
+          () -> new GoldCoinStackBlock(ModItems.GOLD_TOKEN_COIN_WITH_LEKOOPA));
+  public static final RegistryObject<Block> IRON_COIN_STACK_WITH_LEKOOPA =
+      BLOCKS.register("iron_coin_stack_with_lekoopa",
+          () -> new IronCoinStackBlock(ModItems.IRON_TOKEN_COIN_WITH_LEKOOPA));
+  public static final RegistryObject<Block> STEEL_COIN_STACK_WITH_LEKOOPA =
+      BLOCKS.register("steel_coin_stack_with_lekoopa",
+          () -> new SteelCoinStackBlock(ModItems.STEEL_TOKEN_COIN_WITH_LEKOOPA));
+  public static final RegistryObject<Block> NETHERITE_COIN_STACK_WITH_LEKOOPA =
+      BLOCKS.register("netherite_coin_stack_with_lekoopa",
+          () -> new NetheriteCoinStackBlock(ModItems.NETHERITE_TOKEN_COIN_WITH_LEKOOPA));
+
+  // Wither Coin Stack
+  public static final RegistryObject<Block> COPPER_COIN_STACK_WITH_WITHER =
+      BLOCKS.register("copper_coin_stack_with_wither",
+          () -> new CopperCoinStackBlock(ModItems.COPPER_TOKEN_COIN_WITH_WITHER));
+  public static final RegistryObject<Block> GOLD_COIN_STACK_WITH_WITHER =
+      BLOCKS.register("gold_coin_stack_with_wither",
+          () -> new GoldCoinStackBlock(ModItems.GOLD_TOKEN_COIN_WITH_WITHER));
+  public static final RegistryObject<Block> IRON_COIN_STACK_WITH_WITHER =
+      BLOCKS.register("iron_coin_stack_with_wither",
+          () -> new IronCoinStackBlock(ModItems.IRON_TOKEN_COIN_WITH_WITHER));
+  public static final RegistryObject<Block> STEEL_COIN_STACK_WITH_WITHER =
+      BLOCKS.register("steel_coin_stack_with_wither",
+          () -> new SteelCoinStackBlock(ModItems.STEEL_TOKEN_COIN_WITH_WITHER));
+  public static final RegistryObject<Block> NETHERITE_COIN_STACK_WITH_WITHER =
+      BLOCKS.register("netherite_coin_stack_with_wither",
+          () -> new NetheriteCoinStackBlock(ModItems.NETHERITE_TOKEN_COIN_WITH_WITHER));
+
+  // Wheat Coin Stack
+  public static final RegistryObject<Block> COPPER_COIN_STACK_WITH_WHEAT =
+      BLOCKS.register("copper_coin_stack_with_wheat",
+          () -> new CopperCoinStackBlock(ModItems.COPPER_TOKEN_COIN_WITH_WHEAT));
+  public static final RegistryObject<Block> GOLD_COIN_STACK_WITH_WHEAT =
+      BLOCKS.register("gold_coin_stack_with_wheat",
+          () -> new GoldCoinStackBlock(ModItems.GOLD_TOKEN_COIN_WITH_WHEAT));
+  public static final RegistryObject<Block> IRON_COIN_STACK_WITH_WHEAT =
+      BLOCKS.register("iron_coin_stack_with_wheat",
+          () -> new IronCoinStackBlock(ModItems.IRON_TOKEN_COIN_WITH_WHEAT));
+  public static final RegistryObject<Block> STEEL_COIN_STACK_WITH_WHEAT =
+      BLOCKS.register("steel_coin_stack_with_wheat",
+          () -> new SteelCoinStackBlock(ModItems.STEEL_TOKEN_COIN_WITH_WHEAT));
+  public static final RegistryObject<Block> NETHERITE_COIN_STACK_WITH_WHEAT =
+      BLOCKS.register("netherite_coin_stack_with_wheat",
+          () -> new NetheriteCoinStackBlock(ModItems.NETHERITE_TOKEN_COIN_WITH_WHEAT));
+
+  // Poppy Coin Stack
+  public static final RegistryObject<Block> COPPER_COIN_STACK_WITH_POPPY =
+      BLOCKS.register("copper_coin_stack_with_poppy",
+          () -> new CopperCoinStackBlock(ModItems.COPPER_TOKEN_COIN_WITH_POPPY));
+  public static final RegistryObject<Block> GOLD_COIN_STACK_WITH_POPPY =
+      BLOCKS.register("gold_coin_stack_with_poppy",
+          () -> new GoldCoinStackBlock(ModItems.GOLD_TOKEN_COIN_WITH_POPPY));
+  public static final RegistryObject<Block> IRON_COIN_STACK_WITH_POPPY =
+      BLOCKS.register("iron_coin_stack_with_poppy",
+          () -> new IronCoinStackBlock(ModItems.IRON_TOKEN_COIN_WITH_POPPY));
+  public static final RegistryObject<Block> STEEL_COIN_STACK_WITH_POPPY =
+      BLOCKS.register("steel_coin_stack_with_poppy",
+          () -> new SteelCoinStackBlock(ModItems.STEEL_TOKEN_COIN_WITH_POPPY));
+  public static final RegistryObject<Block> NETHERITE_COIN_STACK_WITH_POPPY =
+      BLOCKS.register("netherite_coin_stack_with_poppy",
+          () -> new NetheriteCoinStackBlock(ModItems.NETHERITE_TOKEN_COIN_WITH_POPPY));
+
+  // Skeleton Coin Stack
+  public static final RegistryObject<Block> COPPER_COIN_STACK_WITH_SKELETON =
+      BLOCKS.register("copper_coin_stack_with_skeleton",
+          () -> new CopperCoinStackBlock(ModItems.COPPER_TOKEN_COIN_WITH_SKELETON));
+  public static final RegistryObject<Block> GOLD_COIN_STACK_WITH_SKELETON =
+      BLOCKS.register("gold_coin_stack_with_skeleton",
+          () -> new GoldCoinStackBlock(ModItems.GOLD_TOKEN_COIN_WITH_SKELETON));
+  public static final RegistryObject<Block> IRON_COIN_STACK_WITH_SKELETON =
+      BLOCKS.register("iron_coin_stack_with_skeleton",
+          () -> new IronCoinStackBlock(ModItems.IRON_TOKEN_COIN_WITH_SKELETON));
+  public static final RegistryObject<Block> STEEL_COIN_STACK_WITH_SKELETON =
+      BLOCKS.register("steel_coin_stack_with_skeleton",
+          () -> new SteelCoinStackBlock(ModItems.STEEL_TOKEN_COIN_WITH_SKELETON));
+  public static final RegistryObject<Block> NETHERITE_COIN_STACK_WITH_SKELETON =
+      BLOCKS.register("netherite_coin_stack_with_skeleton",
+          () -> new NetheriteCoinStackBlock(ModItems.NETHERITE_TOKEN_COIN_WITH_SKELETON));
+
+  // Dragon Coin Stack
+  public static final RegistryObject<Block> COPPER_COIN_STACK_WITH_DRAGON =
+      BLOCKS.register("copper_coin_stack_with_dragon",
+          () -> new CopperCoinStackBlock(ModItems.COPPER_TOKEN_COIN_WITH_DRAGON));
+  public static final RegistryObject<Block> GOLD_COIN_STACK_WITH_DRAGON =
+      BLOCKS.register("gold_coin_stack_with_dragon",
+          () -> new GoldCoinStackBlock(ModItems.GOLD_TOKEN_COIN_WITH_DRAGON));
+  public static final RegistryObject<Block> IRON_COIN_STACK_WITH_DRAGON =
+      BLOCKS.register("iron_coin_stack_with_dragon",
+          () -> new IronCoinStackBlock(ModItems.IRON_TOKEN_COIN_WITH_DRAGON));
+  public static final RegistryObject<Block> STEEL_COIN_STACK_WITH_DRAGON =
+      BLOCKS.register("steel_coin_stack_with_dragon",
+          () -> new SteelCoinStackBlock(ModItems.STEEL_TOKEN_COIN_WITH_DRAGON));
+  public static final RegistryObject<Block> NETHERITE_COIN_STACK_WITH_DRAGON =
+      BLOCKS.register("netherite_coin_stack_with_dragon",
+          () -> new NetheriteCoinStackBlock(ModItems.NETHERITE_TOKEN_COIN_WITH_DRAGON));
+
+  // Zombie Coin Stack
+  public static final RegistryObject<Block> COPPER_COIN_STACK_WITH_ZOMBIE =
+      BLOCKS.register("copper_coin_stack_with_zombie",
+          () -> new CopperCoinStackBlock(ModItems.COPPER_TOKEN_COIN_WITH_ZOMBIE));
+  public static final RegistryObject<Block> GOLD_COIN_STACK_WITH_ZOMBIE =
+      BLOCKS.register("gold_coin_stack_with_zombie",
+          () -> new GoldCoinStackBlock(ModItems.GOLD_TOKEN_COIN_WITH_ZOMBIE));
+  public static final RegistryObject<Block> IRON_COIN_STACK_WITH_ZOMBIE =
+      BLOCKS.register("iron_coin_stack_with_zombie",
+          () -> new IronCoinStackBlock(ModItems.IRON_TOKEN_COIN_WITH_ZOMBIE));
+  public static final RegistryObject<Block> STEEL_COIN_STACK_WITH_ZOMBIE =
+      BLOCKS.register("steel_coin_stack_with_zombie",
+          () -> new SteelCoinStackBlock(ModItems.STEEL_TOKEN_COIN_WITH_ZOMBIE));
+  public static final RegistryObject<Block> NETHERITE_COIN_STACK_WITH_ZOMBIE =
+      BLOCKS.register("netherite_coin_stack_with_zombie",
+          () -> new NetheriteCoinStackBlock(ModItems.NETHERITE_TOKEN_COIN_WITH_ZOMBIE));
+
   // Creeper Coin Stack
   public static final RegistryObject<Block> COPPER_COIN_STACK_WITH_CREEPER =
       BLOCKS.register("copper_coin_stack_with_creeper",

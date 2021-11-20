@@ -1,0 +1,32 @@
+{
+  "attributes": {
+    "soundType": "SoundType.METAL"
+  },
+  "bedrock": {
+    "formatVersion": "1.16.1"
+  },
+  "blockName": "zombie",
+  "component": "block",
+  "configVersion": "0.0.1",
+  "description": "",
+  "events": {},
+  "forge": {
+    "className": "Zombie"
+  },
+  "icon": "zombie",
+  "id": "token_coins:zombie",
+  "misc": {},
+  "name": "Zombie",
+  "namespace": "token_coins",
+  "placeholder": {
+    "CreativeTab": "TAB_MISC",
+    "BlockName": "Zombie",
+    "BLOCK_NAME": "ZOMBIE",
+    "block_name": "zombie",
+    "BlockClassName": "Zombie",
+    "SoundType": "SoundType.METAL"
+  },
+  "template": ".\\\\templates\\\\NewCoinStackBlock.template",
+  "type": "template",
+  "variation": ""
+}

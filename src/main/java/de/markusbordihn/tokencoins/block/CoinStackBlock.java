@@ -17,7 +17,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package de.markusbordihn.tokencoins.block.coinstack;
+package de.markusbordihn.tokencoins.block;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -49,7 +49,6 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.fmllegacy.RegistryObject;
 
 import de.markusbordihn.tokencoins.Constants;
-import de.markusbordihn.tokencoins.block.TokenCoinCompatible;
 import de.markusbordihn.tokencoins.item.TokenCoinType;
 import de.markusbordihn.tokencoins.item.coin.CoinItem;
 

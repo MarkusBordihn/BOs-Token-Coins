@@ -44,8 +44,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.fmllegacy.RegistryObject;
 
 import de.markusbordihn.tokencoins.Constants;
+import de.markusbordihn.tokencoins.block.CoinStackBlock;
 import de.markusbordihn.tokencoins.block.TokenCoinCompatible;
-import de.markusbordihn.tokencoins.block.coinstack.CoinStackBlock;
 import de.markusbordihn.tokencoins.item.TokenCoinType;
 import de.markusbordihn.tokencoins.tabs.TokenCoinsTab;
 

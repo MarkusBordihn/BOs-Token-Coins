@@ -22,6 +22,8 @@ package de.markusbordihn.tokencoins.block.coinstack;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.fmllegacy.RegistryObject;
 
+import de.markusbordihn.tokencoins.block.CoinStackBlock;
+
 public class CopperCoinStackBlock extends CoinStackBlock {
 
   public static final String NAME = "copper_coin_stack";

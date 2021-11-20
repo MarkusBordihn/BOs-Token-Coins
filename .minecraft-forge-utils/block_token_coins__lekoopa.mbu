@@ -1,0 +1,32 @@
+{
+  "attributes": {
+    "soundType": "SoundType.METAL"
+  },
+  "bedrock": {
+    "formatVersion": "1.16.1"
+  },
+  "blockName": "lekoopa",
+  "component": "block",
+  "configVersion": "0.0.1",
+  "description": "",
+  "events": {},
+  "forge": {
+    "className": "LeKoopa"
+  },
+  "icon": "lekoopa",
+  "id": "token_coins:lekoopa",
+  "misc": {},
+  "name": "LeKoopa",
+  "namespace": "token_coins",
+  "placeholder": {
+    "CreativeTab": "TAB_MISC",
+    "BlockName": "LeKoopa",
+    "BLOCK_NAME": "LEKOOPA",
+    "block_name": "lekoopa",
+    "BlockClassName": "LeKoopa",
+    "SoundType": "SoundType.METAL"
+  },
+  "template": ".\\\\templates\\\\NewCoinStackBlock.template",
+  "type": "template",
+  "variation": ""
+}

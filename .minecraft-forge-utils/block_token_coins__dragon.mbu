@@ -1,0 +1,32 @@
+{
+  "attributes": {
+    "soundType": "SoundType.METAL"
+  },
+  "bedrock": {
+    "formatVersion": "1.16.1"
+  },
+  "blockName": "dragon",
+  "component": "block",
+  "configVersion": "0.0.1",
+  "description": "",
+  "events": {},
+  "forge": {
+    "className": "Dragon"
+  },
+  "icon": "dragon",
+  "id": "token_coins:dragon",
+  "misc": {},
+  "name": "Dragon",
+  "namespace": "token_coins",
+  "placeholder": {
+    "CreativeTab": "TAB_MISC",
+    "BlockName": "Dragon",
+    "BLOCK_NAME": "DRAGON",
+    "block_name": "dragon",
+    "BlockClassName": "Dragon",
+    "SoundType": "SoundType.METAL"
+  },
+  "template": ".\\\\templates\\\\NewCoinStackBlock.template",
+  "type": "template",
+  "variation": ""
+}

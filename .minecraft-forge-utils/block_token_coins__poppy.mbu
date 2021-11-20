@@ -1,0 +1,32 @@
+{
+  "attributes": {
+    "soundType": "SoundType.METAL"
+  },
+  "bedrock": {
+    "formatVersion": "1.16.1"
+  },
+  "blockName": "poppy",
+  "component": "block",
+  "configVersion": "0.0.1",
+  "description": "",
+  "events": {},
+  "forge": {
+    "className": "Poppy"
+  },
+  "icon": "poppy",
+  "id": "token_coins:poppy",
+  "misc": {},
+  "name": "Poppy",
+  "namespace": "token_coins",
+  "placeholder": {
+    "CreativeTab": "TAB_MISC",
+    "BlockName": "Poppy",
+    "BLOCK_NAME": "POPPY",
+    "block_name": "poppy",
+    "BlockClassName": "Poppy",
+    "SoundType": "SoundType.METAL"
+  },
+  "template": ".\\\\templates\\\\NewCoinStackBlock.template",
+  "type": "template",
+  "variation": ""
+}

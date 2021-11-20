@@ -46,16 +46,21 @@ public class ModItems {
   @TemplateEntryPoint("Register Items")
 
   // LeKoopa Coins
-  public static final RegistryObject<Item> COPPER_TOKEN_COIN_WITH_LEKOOPA =
-      ITEMS.register("copper_token_coin_with_lekoopa", CopperCoinItem::new);
-  public static final RegistryObject<Item> GOLD_TOKEN_COIN_WITH_LEKOOPA =
-      ITEMS.register("gold_token_coin_with_lekoopa", GoldCoinItem::new);
-  public static final RegistryObject<Item> IRON_TOKEN_COIN_WITH_LEKOOPA =
-      ITEMS.register("iron_token_coin_with_lekoopa", IronCoinItem::new);
-  public static final RegistryObject<Item> STEEL_TOKEN_COIN_WITH_LEKOOPA =
-      ITEMS.register("steel_token_coin_with_lekoopa", SteelCoinItem::new);
-  public static final RegistryObject<Item> NETHERITE_TOKEN_COIN_WITH_LEKOOPA =
-      ITEMS.register("netherite_token_coin_with_lekoopa", NetheriteCoinItem::new);
+  public static final RegistryObject<Item> COPPER_TOKEN_COIN_WITH_LEKOOPA = ITEMS.register(
+      "copper_token_coin_with_lekoopa", () -> new CopperCoinItem(TokenCoinType.Motive.LEKOOPA,
+          ModBlocks.COPPER_COIN_STACK_WITH_LEKOOPA));
+  public static final RegistryObject<Item> GOLD_TOKEN_COIN_WITH_LEKOOPA = ITEMS.register(
+      "gold_token_coin_with_lekoopa",
+      () -> new GoldCoinItem(TokenCoinType.Motive.LEKOOPA, ModBlocks.GOLD_COIN_STACK_WITH_LEKOOPA));
+  public static final RegistryObject<Item> IRON_TOKEN_COIN_WITH_LEKOOPA = ITEMS.register(
+      "iron_token_coin_with_lekoopa",
+      () -> new IronCoinItem(TokenCoinType.Motive.LEKOOPA, ModBlocks.IRON_COIN_STACK_WITH_LEKOOPA));
+  public static final RegistryObject<Item> STEEL_TOKEN_COIN_WITH_LEKOOPA = ITEMS.register(
+      "steel_token_coin_with_lekoopa", () -> new SteelCoinItem(TokenCoinType.Motive.LEKOOPA,
+          ModBlocks.STEEL_COIN_STACK_WITH_LEKOOPA));
+  public static final RegistryObject<Item> NETHERITE_TOKEN_COIN_WITH_LEKOOPA = ITEMS.register(
+      "netherite_token_coin_with_lekoopa", () -> new NetheriteCoinItem(TokenCoinType.Motive.LEKOOPA,
+          ModBlocks.NETHERITE_COIN_STACK_WITH_LEKOOPA));
 
   // LeKoopa Coin Stamps
   public static final RegistryObject<Item> COPPER_COIN_STAMP_WITH_LEKOOPA =
@@ -72,16 +77,21 @@ public class ModItems {
           () -> new NetheriteCoinStampItem(TokenCoinType.Motive.LEKOOPA));
 
   // Wither Coins
-  public static final RegistryObject<Item> COPPER_TOKEN_COIN_WITH_WITHER =
-      ITEMS.register("copper_token_coin_with_wither", CopperCoinItem::new);
-  public static final RegistryObject<Item> GOLD_TOKEN_COIN_WITH_WITHER =
-      ITEMS.register("gold_token_coin_with_wither", GoldCoinItem::new);
-  public static final RegistryObject<Item> IRON_TOKEN_COIN_WITH_WITHER =
-      ITEMS.register("iron_token_coin_with_wither", IronCoinItem::new);
-  public static final RegistryObject<Item> STEEL_TOKEN_COIN_WITH_WITHER =
-      ITEMS.register("steel_token_coin_with_wither", SteelCoinItem::new);
-  public static final RegistryObject<Item> NETHERITE_TOKEN_COIN_WITH_WITHER =
-      ITEMS.register("netherite_token_coin_with_wither", NetheriteCoinItem::new);
+  public static final RegistryObject<Item> COPPER_TOKEN_COIN_WITH_WITHER = ITEMS.register(
+      "copper_token_coin_with_wither", () -> new CopperCoinItem(TokenCoinType.Motive.WITHER,
+          ModBlocks.COPPER_COIN_STACK_WITH_WITHER));
+  public static final RegistryObject<Item> GOLD_TOKEN_COIN_WITH_WITHER = ITEMS.register(
+      "gold_token_coin_with_wither",
+      () -> new GoldCoinItem(TokenCoinType.Motive.WITHER, ModBlocks.GOLD_COIN_STACK_WITH_WITHER));
+  public static final RegistryObject<Item> IRON_TOKEN_COIN_WITH_WITHER = ITEMS.register(
+      "iron_token_coin_with_wither",
+      () -> new IronCoinItem(TokenCoinType.Motive.WITHER, ModBlocks.IRON_COIN_STACK_WITH_WITHER));
+  public static final RegistryObject<Item> STEEL_TOKEN_COIN_WITH_WITHER = ITEMS.register(
+      "steel_token_coin_with_wither",
+      () -> new SteelCoinItem(TokenCoinType.Motive.WITHER, ModBlocks.STEEL_COIN_STACK_WITH_WITHER));
+  public static final RegistryObject<Item> NETHERITE_TOKEN_COIN_WITH_WITHER = ITEMS.register(
+      "netherite_token_coin_with_wither", () -> new NetheriteCoinItem(TokenCoinType.Motive.WITHER,
+          ModBlocks.NETHERITE_COIN_STACK_WITH_WITHER));
 
   // Wither Coin Stamps
   public static final RegistryObject<Item> COPPER_COIN_STAMP_WITH_WITHER = ITEMS.register(
@@ -97,16 +107,21 @@ public class ModItems {
           () -> new NetheriteCoinStampItem(TokenCoinType.Motive.WITHER));
 
   // Wheat Coins
-  public static final RegistryObject<Item> COPPER_TOKEN_COIN_WITH_WHEAT =
-      ITEMS.register("copper_token_coin_with_wheat", CopperCoinItem::new);
+  public static final RegistryObject<Item> COPPER_TOKEN_COIN_WITH_WHEAT = ITEMS.register(
+      "copper_token_coin_with_wheat",
+      () -> new CopperCoinItem(TokenCoinType.Motive.WHEAT, ModBlocks.COPPER_COIN_STACK_WITH_WHEAT));
   public static final RegistryObject<Item> GOLD_TOKEN_COIN_WITH_WHEAT =
-      ITEMS.register("gold_token_coin_with_wheat", GoldCoinItem::new);
+      ITEMS.register("gold_token_coin_with_wheat",
+          () -> new GoldCoinItem(TokenCoinType.Motive.WHEAT, ModBlocks.GOLD_COIN_STACK_WITH_WHEAT));
   public static final RegistryObject<Item> IRON_TOKEN_COIN_WITH_WHEAT =
-      ITEMS.register("iron_token_coin_with_wheat", IronCoinItem::new);
-  public static final RegistryObject<Item> STEEL_TOKEN_COIN_WITH_WHEAT =
-      ITEMS.register("steel_token_coin_with_wheat", SteelCoinItem::new);
-  public static final RegistryObject<Item> NETHERITE_TOKEN_COIN_WITH_WHEAT =
-      ITEMS.register("netherite_token_coin_with_wheat", NetheriteCoinItem::new);
+      ITEMS.register("iron_token_coin_with_wheat",
+          () -> new IronCoinItem(TokenCoinType.Motive.WHEAT, ModBlocks.IRON_COIN_STACK_WITH_WHEAT));
+  public static final RegistryObject<Item> STEEL_TOKEN_COIN_WITH_WHEAT = ITEMS.register(
+      "steel_token_coin_with_wheat",
+      () -> new SteelCoinItem(TokenCoinType.Motive.WHEAT, ModBlocks.STEEL_COIN_STACK_WITH_WHEAT));
+  public static final RegistryObject<Item> NETHERITE_TOKEN_COIN_WITH_WHEAT = ITEMS.register(
+      "netherite_token_coin_with_wheat", () -> new NetheriteCoinItem(TokenCoinType.Motive.WHEAT,
+          ModBlocks.NETHERITE_COIN_STACK_WITH_WHEAT));
 
   // Wheat Coin Stamps
   public static final RegistryObject<Item> COPPER_COIN_STAMP_WITH_WHEAT = ITEMS.register(
@@ -122,16 +137,21 @@ public class ModItems {
           () -> new NetheriteCoinStampItem(TokenCoinType.Motive.WHEAT));
 
   // Poppy Coins
-  public static final RegistryObject<Item> COPPER_TOKEN_COIN_WITH_POPPY =
-      ITEMS.register("copper_token_coin_with_poppy", CopperCoinItem::new);
+  public static final RegistryObject<Item> COPPER_TOKEN_COIN_WITH_POPPY = ITEMS.register(
+      "copper_token_coin_with_poppy",
+      () -> new CopperCoinItem(TokenCoinType.Motive.POPPY, ModBlocks.COPPER_COIN_STACK_WITH_POPPY));
   public static final RegistryObject<Item> GOLD_TOKEN_COIN_WITH_POPPY =
-      ITEMS.register("gold_token_coin_with_poppy", GoldCoinItem::new);
+      ITEMS.register("gold_token_coin_with_poppy",
+          () -> new GoldCoinItem(TokenCoinType.Motive.POPPY, ModBlocks.GOLD_COIN_STACK_WITH_POPPY));
   public static final RegistryObject<Item> IRON_TOKEN_COIN_WITH_POPPY =
-      ITEMS.register("iron_token_coin_with_poppy", IronCoinItem::new);
-  public static final RegistryObject<Item> STEEL_TOKEN_COIN_WITH_POPPY =
-      ITEMS.register("steel_token_coin_with_poppy", SteelCoinItem::new);
-  public static final RegistryObject<Item> NETHERITE_TOKEN_COIN_WITH_POPPY =
-      ITEMS.register("netherite_token_coin_with_poppy", NetheriteCoinItem::new);
+      ITEMS.register("iron_token_coin_with_poppy",
+          () -> new IronCoinItem(TokenCoinType.Motive.POPPY, ModBlocks.IRON_COIN_STACK_WITH_POPPY));
+  public static final RegistryObject<Item> STEEL_TOKEN_COIN_WITH_POPPY = ITEMS.register(
+      "steel_token_coin_with_poppy",
+      () -> new SteelCoinItem(TokenCoinType.Motive.POPPY, ModBlocks.STEEL_COIN_STACK_WITH_POPPY));
+  public static final RegistryObject<Item> NETHERITE_TOKEN_COIN_WITH_POPPY = ITEMS.register(
+      "netherite_token_coin_with_poppy", () -> new NetheriteCoinItem(TokenCoinType.Motive.POPPY,
+          ModBlocks.NETHERITE_COIN_STACK_WITH_POPPY));
 
   // Poppy Coin Stamps
   public static final RegistryObject<Item> COPPER_COIN_STAMP_WITH_POPPY = ITEMS.register(
@@ -147,16 +167,22 @@ public class ModItems {
           () -> new NetheriteCoinStampItem(TokenCoinType.Motive.POPPY));
 
   // Skeleton Coins
-  public static final RegistryObject<Item> COPPER_TOKEN_COIN_WITH_SKELETON =
-      ITEMS.register("copper_token_coin_with_skeleton", CopperCoinItem::new);
-  public static final RegistryObject<Item> GOLD_TOKEN_COIN_WITH_SKELETON =
-      ITEMS.register("gold_token_coin_with_skeleton", GoldCoinItem::new);
-  public static final RegistryObject<Item> IRON_TOKEN_COIN_WITH_SKELETON =
-      ITEMS.register("iron_token_coin_with_skeleton", IronCoinItem::new);
-  public static final RegistryObject<Item> STEEL_TOKEN_COIN_WITH_SKELETON =
-      ITEMS.register("steel_token_coin_with_skeleton", SteelCoinItem::new);
+  public static final RegistryObject<Item> COPPER_TOKEN_COIN_WITH_SKELETON = ITEMS.register(
+      "copper_token_coin_with_skeleton", () -> new CopperCoinItem(TokenCoinType.Motive.SKELETON,
+          ModBlocks.COPPER_COIN_STACK_WITH_SKELETON));
+  public static final RegistryObject<Item> GOLD_TOKEN_COIN_WITH_SKELETON = ITEMS.register(
+      "gold_token_coin_with_skeleton", () -> new GoldCoinItem(TokenCoinType.Motive.SKELETON,
+          ModBlocks.GOLD_COIN_STACK_WITH_SKELETON));
+  public static final RegistryObject<Item> IRON_TOKEN_COIN_WITH_SKELETON = ITEMS.register(
+      "iron_token_coin_with_skeleton", () -> new IronCoinItem(TokenCoinType.Motive.SKELETON,
+          ModBlocks.IRON_COIN_STACK_WITH_SKELETON));
+  public static final RegistryObject<Item> STEEL_TOKEN_COIN_WITH_SKELETON = ITEMS.register(
+      "steel_token_coin_with_skeleton", () -> new SteelCoinItem(TokenCoinType.Motive.SKELETON,
+          ModBlocks.STEEL_COIN_STACK_WITH_SKELETON));
   public static final RegistryObject<Item> NETHERITE_TOKEN_COIN_WITH_SKELETON =
-      ITEMS.register("netherite_token_coin_with_skeleton", NetheriteCoinItem::new);
+      ITEMS.register("netherite_token_coin_with_skeleton",
+          () -> new NetheriteCoinItem(TokenCoinType.Motive.SKELETON,
+              ModBlocks.NETHERITE_COIN_STACK_WITH_SKELETON));
 
   // Skeleton Coin Stamps
   public static final RegistryObject<Item> COPPER_COIN_STAMP_WITH_SKELETON =
@@ -174,16 +200,21 @@ public class ModItems {
           () -> new NetheriteCoinStampItem(TokenCoinType.Motive.SKELETON));
 
   // Dragon Coins
-  public static final RegistryObject<Item> COPPER_TOKEN_COIN_WITH_DRAGON =
-      ITEMS.register("copper_token_coin_with_dragon", CopperCoinItem::new);
-  public static final RegistryObject<Item> GOLD_TOKEN_COIN_WITH_DRAGON =
-      ITEMS.register("gold_token_coin_with_dragon", GoldCoinItem::new);
-  public static final RegistryObject<Item> IRON_TOKEN_COIN_WITH_DRAGON =
-      ITEMS.register("iron_token_coin_with_dragon", IronCoinItem::new);
-  public static final RegistryObject<Item> STEEL_TOKEN_COIN_WITH_DRAGON =
-      ITEMS.register("steel_token_coin_with_dragon", SteelCoinItem::new);
-  public static final RegistryObject<Item> NETHERITE_TOKEN_COIN_WITH_DRAGON =
-      ITEMS.register("netherite_token_coin_with_dragon", NetheriteCoinItem::new);
+  public static final RegistryObject<Item> COPPER_TOKEN_COIN_WITH_DRAGON = ITEMS.register(
+      "copper_token_coin_with_dragon", () -> new CopperCoinItem(TokenCoinType.Motive.DRAGON,
+          ModBlocks.COPPER_COIN_STACK_WITH_DRAGON));
+  public static final RegistryObject<Item> GOLD_TOKEN_COIN_WITH_DRAGON = ITEMS.register(
+      "gold_token_coin_with_dragon",
+      () -> new GoldCoinItem(TokenCoinType.Motive.DRAGON, ModBlocks.GOLD_COIN_STACK_WITH_DRAGON));
+  public static final RegistryObject<Item> IRON_TOKEN_COIN_WITH_DRAGON = ITEMS.register(
+      "iron_token_coin_with_dragon",
+      () -> new IronCoinItem(TokenCoinType.Motive.DRAGON, ModBlocks.IRON_COIN_STACK_WITH_DRAGON));
+  public static final RegistryObject<Item> STEEL_TOKEN_COIN_WITH_DRAGON = ITEMS.register(
+      "steel_token_coin_with_dragon",
+      () -> new SteelCoinItem(TokenCoinType.Motive.DRAGON, ModBlocks.STEEL_COIN_STACK_WITH_DRAGON));
+  public static final RegistryObject<Item> NETHERITE_TOKEN_COIN_WITH_DRAGON = ITEMS.register(
+      "netherite_token_coin_with_dragon", () -> new NetheriteCoinItem(TokenCoinType.Motive.DRAGON,
+          ModBlocks.NETHERITE_COIN_STACK_WITH_DRAGON));
 
   // Dragon Coin Stamps
   public static final RegistryObject<Item> COPPER_COIN_STAMP_WITH_DRAGON = ITEMS.register(
@@ -199,16 +230,21 @@ public class ModItems {
           () -> new NetheriteCoinStampItem(TokenCoinType.Motive.DRAGON));
 
   // Zombie Coins
-  public static final RegistryObject<Item> COPPER_TOKEN_COIN_WITH_ZOMBIE =
-      ITEMS.register("copper_token_coin_with_zombie", CopperCoinItem::new);
-  public static final RegistryObject<Item> GOLD_TOKEN_COIN_WITH_ZOMBIE =
-      ITEMS.register("gold_token_coin_with_zombie", GoldCoinItem::new);
-  public static final RegistryObject<Item> IRON_TOKEN_COIN_WITH_ZOMBIE =
-      ITEMS.register("iron_token_coin_with_zombie", IronCoinItem::new);
-  public static final RegistryObject<Item> STEEL_TOKEN_COIN_WITH_ZOMBIE =
-      ITEMS.register("steel_token_coin_with_zombie", SteelCoinItem::new);
-  public static final RegistryObject<Item> NETHERITE_TOKEN_STAMP_WITH_ZOMBIE =
-      ITEMS.register("netherite_token_coin_with_zombie", NetheriteCoinItem::new);
+  public static final RegistryObject<Item> COPPER_TOKEN_COIN_WITH_ZOMBIE = ITEMS.register(
+      "copper_token_coin_with_zombie", () -> new CopperCoinItem(TokenCoinType.Motive.ZOMBIE,
+          ModBlocks.COPPER_COIN_STACK_WITH_ZOMBIE));
+  public static final RegistryObject<Item> GOLD_TOKEN_COIN_WITH_ZOMBIE = ITEMS.register(
+      "gold_token_coin_with_zombie",
+      () -> new GoldCoinItem(TokenCoinType.Motive.ZOMBIE, ModBlocks.GOLD_COIN_STACK_WITH_ZOMBIE));
+  public static final RegistryObject<Item> IRON_TOKEN_COIN_WITH_ZOMBIE = ITEMS.register(
+      "iron_token_coin_with_zombie",
+      () -> new IronCoinItem(TokenCoinType.Motive.ZOMBIE, ModBlocks.IRON_COIN_STACK_WITH_ZOMBIE));
+  public static final RegistryObject<Item> STEEL_TOKEN_COIN_WITH_ZOMBIE = ITEMS.register(
+      "steel_token_coin_with_zombie",
+      () -> new SteelCoinItem(TokenCoinType.Motive.ZOMBIE, ModBlocks.STEEL_COIN_STACK_WITH_ZOMBIE));
+  public static final RegistryObject<Item> NETHERITE_TOKEN_COIN_WITH_ZOMBIE = ITEMS.register(
+      "netherite_token_coin_with_zombie", () -> new NetheriteCoinItem(TokenCoinType.Motive.ZOMBIE,
+          ModBlocks.NETHERITE_COIN_STACK_WITH_ZOMBIE));
 
   // Zombie Coin Stamps
   public static final RegistryObject<Item> COPPER_COIN_STAMP_WITH_ZOMBIE = ITEMS.register(
