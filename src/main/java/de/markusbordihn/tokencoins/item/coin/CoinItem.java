@@ -41,46 +41,43 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.fmllegacy.RegistryObject;
 
 import de.markusbordihn.tokencoins.Constants;
-import de.markusbordihn.tokencoins.block.ModBlocks;
+import de.markusbordihn.tokencoins.block.CoinStackBlock;
 import de.markusbordihn.tokencoins.block.TokenCoinCompatible;
-import de.markusbordihn.tokencoins.block.coinstack.CoinStackBlock;
+import de.markusbordihn.tokencoins.item.TokenCoinType;
 import de.markusbordihn.tokencoins.tabs.TokenCoinsTab;
 
 public class CoinItem extends Item {
 
   public static final Logger log = LogManager.getLogger(Constants.LOG_NAME);
 
-  private CoinItemType.Material coinMaterial = CoinItemType.Material.COPPER;
-  private CoinItemType.Motive coinMotive = CoinItemType.Motive.NONE;
+  private TokenCoinType.Material coinMaterial = TokenCoinType.Material.COPPER;
+  private TokenCoinType.Motive coinMotive = TokenCoinType.Motive.NONE;
+  private RegistryObject<Block> coinStackBlock = null;
 
   public int coinValue = 1;
 
-  public CoinItem() {
-    super(new Item.Properties().tab(TokenCoinsTab.COINS));
-  }
-
-  public CoinItem(Item.Properties properties) {
-    super(properties.tab(TokenCoinsTab.COINS));
-  }
-
-  public CoinItem(CoinItemType.Material material) {
-    super(new Item.Properties().tab(TokenCoinsTab.COINS));
-    this.coinMaterial = material;
-  }
-
-  public CoinItem(CoinItemType.Material material, CoinItemType.Motive motive) {
+  public CoinItem(TokenCoinType.Material material, TokenCoinType.Motive motive) {
     super(new Item.Properties().tab(TokenCoinsTab.COINS));
     this.coinMaterial = material;
     this.coinMotive = motive;
   }
 
-  public CoinItemType.Material getMaterial() {
+  public CoinItem(TokenCoinType.Material material, TokenCoinType.Motive motive,
+      RegistryObject<Block> block) {
+    super(new Item.Properties().tab(TokenCoinsTab.COINS));
+    this.coinMaterial = material;
+    this.coinMotive = motive;
+    this.coinStackBlock = block;
+  }
+
+  public TokenCoinType.Material getMaterial() {
     return this.coinMaterial;
   }
 
-  public CoinItemType.Motive getMotive() {
+  public TokenCoinType.Motive getMotive() {
     return this.coinMotive;
   }
 
@@ -88,31 +85,21 @@ public class CoinItem extends Item {
     return coinValue;
   }
 
-  public boolean placeCoinStack(Level level, BlockPos blockPos, ItemStack itemStack,
-      Direction direction) {
-    BlockState blockState = null;
-    Item item = itemStack.getItem();
-    if (item instanceof CopperCoinItem) {
-      blockState = ModBlocks.COPPER_COIN_STACK.get().defaultBlockState();
-    } else if (item instanceof GoldCoinItem) {
-      blockState = ModBlocks.GOLD_COIN_STACK.get().defaultBlockState();
-    } else if (item instanceof IronCoinItem) {
-      blockState = ModBlocks.IRON_COIN_STACK.get().defaultBlockState();
-    } else if (item instanceof SteelCoinItem) {
-      blockState = ModBlocks.STEEL_COIN_STACK.get().defaultBlockState();
-    } else if (item instanceof NetheriteCoinItem) {
-      blockState = ModBlocks.NETHERITE_COIN_STACK.get().defaultBlockState();
+  public Block getCoinStackBlock() {
+    if (coinStackBlock == null) {
+      return null;
     }
-    if (blockState != null) {
-      level.setBlockAndUpdate(blockPos, blockState.setValue(CoinStackBlock.FACING, direction));
-      if (level.getBlockState(blockPos).getBlock() instanceof CoinStackBlock
-          && itemStack.getItem() instanceof CoinItem) {
-        return true;
-      } else {
-        log.warn("Unable to place coin stack block at {} in {}", blockPos, level);
-      }
+    return coinStackBlock.get();
+  }
+
+  public boolean placeCoinStackBlock(Level level, BlockPos blockPos, CoinStackBlock block,
+      Direction direction) {
+    BlockState blockState = block.defaultBlockState();
+    level.setBlockAndUpdate(blockPos, blockState.setValue(CoinStackBlock.FACING, direction));
+    if (level.getBlockState(blockPos).getBlock() instanceof CoinStackBlock) {
+      return true;
     } else {
-      log.warn("Unsupported token coin item {}", item);
+      log.warn("Unable to place coin stack block at {} in {}", blockPos, level);
     }
     return false;
   }
@@ -144,19 +131,27 @@ public class CoinItem extends Item {
     // Check if we clicked an empty block and maybe could place a coin stack
     BlockPos blockPosAbove = blockPos.above();
     BlockState blockStateBlockAbove = level.getBlockState(blockPosAbove);
-    if (blockStateBlockAbove.is(Blocks.AIR)) {
-      if (!level.isClientSide) {
+    BlockState blockStateBlockBelow = level.getBlockState(blockPos.below());
+    if (blockStateBlockAbove.is(Blocks.AIR)
+        && !(blockStateBlockBelow.getBlock() instanceof CoinStackBlock)) {
+      // Make sure we are on server and that there is a known coin stack block.
+      if (!level.isClientSide && coinStackBlock != null) {
         ItemStack itemStack = context.getItemInHand();
         Direction direction = context.getHorizontalDirection().getOpposite();
-        if (placeCoinStack(level, blockPosAbove, itemStack, direction)) {
+        // Try to place the coin stack block
+        BlockState coinStackBlockState = coinStackBlock.get().defaultBlockState();
+        level.setBlockAndUpdate(blockPosAbove,
+            coinStackBlockState.setValue(CoinStackBlock.FACING, direction));
+        if (level.getBlockState(blockPosAbove).getBlock() instanceof CoinStackBlock) {
+          itemStack.shrink(1);
           return InteractionResult.PASS;
+        } else {
+          log.warn("Unable to place coin stack block at {} in {}", blockPos, level);
         }
         return InteractionResult.FAIL;
       }
       return InteractionResult.sidedSuccess(level.isClientSide);
     }
-
-    log.info("Maybe just throw the coin ...");
     return InteractionResult.PASS;
   }
 

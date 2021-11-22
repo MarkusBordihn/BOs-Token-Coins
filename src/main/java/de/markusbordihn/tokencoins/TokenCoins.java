@@ -22,20 +22,15 @@ package de.markusbordihn.tokencoins;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import net.minecraft.client.gui.screens.MenuScreens;
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
-import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.Registry;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 import de.markusbordihn.tokencoins.block.ModBlocks;
-import de.markusbordihn.tokencoins.client.screen.CoinPressScreen;
 import de.markusbordihn.tokencoins.item.ModItems;
 import de.markusbordihn.tokencoins.menu.CoinPressMenu;
 import de.markusbordihn.tokencoins.recipe.CoinPressRecipe;
@@ -48,7 +43,7 @@ public class TokenCoins {
 
   public TokenCoins() {
     FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setupCommon);
-    FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setupClient);
+    FMLJavaModLoadingContext.get().getModEventBus().addListener(ClientSetup::new);
     FMLJavaModLoadingContext.get().getModEventBus().addGenericListener(MenuType.class,
         this::registerContainers);
 
@@ -69,43 +64,6 @@ public class TokenCoins {
     log.info("🪙 Register Bo's Token Coins Container ...");
     event.getRegistry()
         .registerAll(new MenuType<>(CoinPressMenu::new).setRegistryName(Constants.COIN_PRESS));
-  }
-
-  private void setupClient(final FMLClientSetupEvent event) {
-    log.info("🪙 Register Bo's Token Coins Client setup ...");
-    event.enqueueWork(() -> {
-      // Coin Press UI screen
-      MenuScreens.register(CoinPressMenu.TYPE, CoinPressScreen::new);
-
-      // Coin Press Block (transparent cutout)
-      ItemBlockRenderTypes.setRenderLayer(ModBlocks.COIN_PRESS.get(), RenderType.cutoutMipped());
-
-      // Piggy Banks (transparent cutout)
-      ItemBlockRenderTypes.setRenderLayer(ModBlocks.PIGGY_BANK_GHAST.get(),
-          RenderType.cutoutMipped());
-      ItemBlockRenderTypes.setRenderLayer(ModBlocks.PIGGY_BANK_NOTE_BLOCK.get(),
-          RenderType.cutoutMipped());
-      ItemBlockRenderTypes.setRenderLayer(ModBlocks.PIGGY_BANK_PIG.get(),
-          RenderType.cutoutMipped());
-      ItemBlockRenderTypes.setRenderLayer(ModBlocks.PIGGY_BANK_SAFE.get(),
-          RenderType.cutoutMipped());
-      ItemBlockRenderTypes.setRenderLayer(ModBlocks.PIGGY_BANK_SKELETON.get(),
-          RenderType.cutoutMipped());
-      ItemBlockRenderTypes.setRenderLayer(ModBlocks.PIGGY_BANK_TNT.get(),
-          RenderType.cutoutMipped());
-
-      // Coin Stacks (transparent cutout)
-      ItemBlockRenderTypes.setRenderLayer(ModBlocks.COPPER_COIN_STACK.get(),
-          RenderType.cutoutMipped());
-      ItemBlockRenderTypes.setRenderLayer(ModBlocks.GOLD_COIN_STACK.get(),
-          RenderType.cutoutMipped());
-      ItemBlockRenderTypes.setRenderLayer(ModBlocks.IRON_COIN_STACK.get(),
-          RenderType.cutoutMipped());
-      ItemBlockRenderTypes.setRenderLayer(ModBlocks.STEEL_COIN_STACK.get(),
-          RenderType.cutoutMipped());
-      ItemBlockRenderTypes.setRenderLayer(ModBlocks.NETHERITE_COIN_STACK.get(),
-          RenderType.cutoutMipped());
-    });
   }
 
   private void setupCommon(final FMLCommonSetupEvent event) {

@@ -1,0 +1,32 @@
+{
+  "attributes": {
+    "soundType": "SoundType.METAL"
+  },
+  "bedrock": {
+    "formatVersion": "1.16.1"
+  },
+  "blockName": "wither",
+  "component": "block",
+  "configVersion": "0.0.1",
+  "description": "",
+  "events": {},
+  "forge": {
+    "className": "Wither"
+  },
+  "icon": "wither",
+  "id": "token_coins:wither",
+  "misc": {},
+  "name": "Wither",
+  "namespace": "token_coins",
+  "placeholder": {
+    "CreativeTab": "TAB_MISC",
+    "BlockName": "Wither",
+    "BLOCK_NAME": "WITHER",
+    "block_name": "wither",
+    "BlockClassName": "Wither",
+    "SoundType": "SoundType.METAL"
+  },
+  "template": ".\\\\templates\\\\NewCoinStackBlock.template",
+  "type": "template",
+  "variation": ""
+}

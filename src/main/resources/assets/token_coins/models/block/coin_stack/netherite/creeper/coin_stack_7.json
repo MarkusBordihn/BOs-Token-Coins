@@ -1,0 +1,6 @@
+{
+  "parent": "token_coins:block/coin_stack/netherite/template/coin_stack_7",
+  "textures": {
+    "motive": "token_coins:item/motives/creeper"
+  }
+}

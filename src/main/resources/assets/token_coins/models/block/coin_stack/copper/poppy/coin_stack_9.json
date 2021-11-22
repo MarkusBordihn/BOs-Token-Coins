@@ -1,0 +1,6 @@
+{
+  "parent": "token_coins:block/coin_stack/copper/template/coin_stack_9",
+  "textures": {
+    "motive": "token_coins:item/motives/poppy"
+  }
+}

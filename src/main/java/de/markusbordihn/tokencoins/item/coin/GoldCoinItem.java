@@ -19,15 +19,24 @@
 
 package de.markusbordihn.tokencoins.item.coin;
 
+import de.markusbordihn.tokencoins.item.TokenCoinType;
+import net.minecraft.world.level.block.Block;
+import net.minecraftforge.fmllegacy.RegistryObject;
+
 public class GoldCoinItem extends CoinItem {
 
   public GoldCoinItem() {
-    super(CoinItemType.Material.GOLD);
+    super(TokenCoinType.Material.GOLD, TokenCoinType.Motive.NONE);
     this.coinValue = 10;
   }
 
-  public GoldCoinItem(CoinItemType.Motive motive) {
-    super(CoinItemType.Material.GOLD, motive);
+  public GoldCoinItem(TokenCoinType.Motive motive) {
+    super(TokenCoinType.Material.GOLD, motive);
+    this.coinValue = 10;
+  }
+
+  public GoldCoinItem(TokenCoinType.Motive motive, RegistryObject<Block> block) {
+    super(TokenCoinType.Material.GOLD, motive, block);
     this.coinValue = 10;
   }
 

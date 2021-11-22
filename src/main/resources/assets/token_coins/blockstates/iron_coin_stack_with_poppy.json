@@ -1,0 +1,83 @@
+{
+  "variants": {
+    "amount=1,facing=north": { "model": "token_coins:block/coin_stack/iron/poppy/coin_stack_1", "y": 180},
+    "amount=1,facing=east": { "model": "token_coins:block/coin_stack/iron/poppy/coin_stack_1", "y": 270},
+    "amount=1,facing=south": { "model": "token_coins:block/coin_stack/iron/poppy/coin_stack_1", "y": 0},
+    "amount=1,facing=west": { "model": "token_coins:block/coin_stack/iron/poppy/coin_stack_1", "y": 90},
+
+    "amount=2,facing=north": { "model": "token_coins:block/coin_stack/iron/poppy/coin_stack_2", "y": 180},
+    "amount=2,facing=east": { "model": "token_coins:block/coin_stack/iron/poppy/coin_stack_2", "y": 270},
+    "amount=2,facing=south": { "model": "token_coins:block/coin_stack/iron/poppy/coin_stack_2", "y": 0},
+    "amount=2,facing=west": { "model": "token_coins:block/coin_stack/iron/poppy/coin_stack_2", "y": 90},
+
+    "amount=3,facing=north": { "model": "token_coins:block/coin_stack/iron/poppy/coin_stack_3", "y": 180},
+    "amount=3,facing=east": { "model": "token_coins:block/coin_stack/iron/poppy/coin_stack_3", "y": 270},
+    "amount=3,facing=south": { "model": "token_coins:block/coin_stack/iron/poppy/coin_stack_3", "y": 0},
+    "amount=3,facing=west": { "model": "token_coins:block/coin_stack/iron/poppy/coin_stack_3", "y": 90},
+
+    "amount=4,facing=north": { "model": "token_coins:block/coin_stack/iron/poppy/coin_stack_4", "y": 180},
+    "amount=4,facing=east": { "model": "token_coins:block/coin_stack/iron/poppy/coin_stack_4", "y": 270},
+    "amount=4,facing=south": { "model": "token_coins:block/coin_stack/iron/poppy/coin_stack_4", "y": 0},
+    "amount=4,facing=west": { "model": "token_coins:block/coin_stack/iron/poppy/coin_stack_4", "y": 90},
+
+    "amount=5,facing=north": { "model": "token_coins:block/coin_stack/iron/poppy/coin_stack_5", "y": 180},
+    "amount=5,facing=east": { "model": "token_coins:block/coin_stack/iron/poppy/coin_stack_5", "y": 270},
+    "amount=5,facing=south": { "model": "token_coins:block/coin_stack/iron/poppy/coin_stack_5", "y": 0},
+    "amount=5,facing=west": { "model": "token_coins:block/coin_stack/iron/poppy/coin_stack_5", "y": 90},
+
+    "amount=6,facing=north": { "model": "token_coins:block/coin_stack/iron/poppy/coin_stack_6", "y": 180},
+    "amount=6,facing=east": { "model": "token_coins:block/coin_stack/iron/poppy/coin_stack_6", "y": 270},
+    "amount=6,facing=south": { "model": "token_coins:block/coin_stack/iron/poppy/coin_stack_6", "y": 0},
+    "amount=6,facing=west": { "model": "token_coins:block/coin_stack/iron/poppy/coin_stack_6", "y": 90},
+
+    "amount=7,facing=north": { "model": "token_coins:block/coin_stack/iron/poppy/coin_stack_7", "y": 180},
+    "amount=7,facing=east": { "model": "token_coins:block/coin_stack/iron/poppy/coin_stack_7", "y": 270},
+    "amount=7,facing=south": { "model": "token_coins:block/coin_stack/iron/poppy/coin_stack_7", "y": 0},
+    "amount=7,facing=west": { "model": "token_coins:block/coin_stack/iron/poppy/coin_stack_7", "y": 90},
+
+    "amount=8,facing=north": { "model": "token_coins:block/coin_stack/iron/poppy/coin_stack_8", "y": 180},
+    "amount=8,facing=east": { "model": "token_coins:block/coin_stack/iron/poppy/coin_stack_8", "y": 270},
+    "amount=8,facing=south": { "model": "token_coins:block/coin_stack/iron/poppy/coin_stack_8", "y": 0},
+    "amount=8,facing=west": { "model": "token_coins:block/coin_stack/iron/poppy/coin_stack_8", "y": 90},
+
+    "amount=9,facing=north": { "model": "token_coins:block/coin_stack/iron/poppy/coin_stack_9", "y": 180},
+    "amount=9,facing=east": { "model": "token_coins:block/coin_stack/iron/poppy/coin_stack_9", "y": 270},
+    "amount=9,facing=south": { "model": "token_coins:block/coin_stack/iron/poppy/coin_stack_9", "y": 0},
+    "amount=9,facing=west": { "model": "token_coins:block/coin_stack/iron/poppy/coin_stack_9", "y": 90},
+
+    "amount=10,facing=north": { "model": "token_coins:block/coin_stack/iron/poppy/coin_stack_10", "y": 180},
+    "amount=10,facing=east": { "model": "token_coins:block/coin_stack/iron/poppy/coin_stack_10", "y": 270},
+    "amount=10,facing=south": { "model": "token_coins:block/coin_stack/iron/poppy/coin_stack_10", "y": 0},
+    "amount=10,facing=west": { "model": "token_coins:block/coin_stack/iron/poppy/coin_stack_10", "y": 90},
+
+    "amount=11,facing=north": { "model": "token_coins:block/coin_stack/iron/poppy/coin_stack_11", "y": 180},
+    "amount=11,facing=east": { "model": "token_coins:block/coin_stack/iron/poppy/coin_stack_11", "y": 270},
+    "amount=11,facing=south": { "model": "token_coins:block/coin_stack/iron/poppy/coin_stack_11", "y": 0},
+    "amount=11,facing=west": { "model": "token_coins:block/coin_stack/iron/poppy/coin_stack_11", "y": 90},
+
+    "amount=12,facing=north": { "model": "token_coins:block/coin_stack/iron/poppy/coin_stack_12", "y": 180},
+    "amount=12,facing=east": { "model": "token_coins:block/coin_stack/iron/poppy/coin_stack_12", "y": 270},
+    "amount=12,facing=south": { "model": "token_coins:block/coin_stack/iron/poppy/coin_stack_12", "y": 0},
+    "amount=12,facing=west": { "model": "token_coins:block/coin_stack/iron/poppy/coin_stack_12", "y": 90},
+
+    "amount=13,facing=north": { "model": "token_coins:block/coin_stack/iron/poppy/coin_stack_13", "y": 180},
+    "amount=13,facing=east": { "model": "token_coins:block/coin_stack/iron/poppy/coin_stack_13", "y": 270},
+    "amount=13,facing=south": { "model": "token_coins:block/coin_stack/iron/poppy/coin_stack_13", "y": 0},
+    "amount=13,facing=west": { "model": "token_coins:block/coin_stack/iron/poppy/coin_stack_13", "y": 90},
+
+    "amount=14,facing=north": { "model": "token_coins:block/coin_stack/iron/poppy/coin_stack_14", "y": 180},
+    "amount=14,facing=east": { "model": "token_coins:block/coin_stack/iron/poppy/coin_stack_14", "y": 270},
+    "amount=14,facing=south": { "model": "token_coins:block/coin_stack/iron/poppy/coin_stack_14", "y": 0},
+    "amount=14,facing=west": { "model": "token_coins:block/coin_stack/iron/poppy/coin_stack_14", "y": 90},
+
+    "amount=15,facing=north": { "model": "token_coins:block/coin_stack/iron/poppy/coin_stack_15", "y": 180},
+    "amount=15,facing=east": { "model": "token_coins:block/coin_stack/iron/poppy/coin_stack_15", "y": 270},
+    "amount=15,facing=south": { "model": "token_coins:block/coin_stack/iron/poppy/coin_stack_15", "y": 0},
+    "amount=15,facing=west": { "model": "token_coins:block/coin_stack/iron/poppy/coin_stack_15", "y": 90},
+
+    "amount=16,facing=north": { "model": "token_coins:block/coin_stack/iron/poppy/coin_stack_16", "y": 180},
+    "amount=16,facing=east": { "model": "token_coins:block/coin_stack/iron/poppy/coin_stack_16", "y": 270},
+    "amount=16,facing=south": { "model": "token_coins:block/coin_stack/iron/poppy/coin_stack_16", "y": 0},
+    "amount=16,facing=west": { "model": "token_coins:block/coin_stack/iron/poppy/coin_stack_16", "y": 90}
+  }
+}

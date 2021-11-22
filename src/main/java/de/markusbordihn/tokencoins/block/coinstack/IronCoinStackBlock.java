@@ -20,15 +20,16 @@
 package de.markusbordihn.tokencoins.block.coinstack;
 
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.fmllegacy.RegistryObject;
+
+import de.markusbordihn.tokencoins.block.CoinStackBlock;
 
 public class IronCoinStackBlock extends CoinStackBlock {
 
   public static final String NAME = "iron_coin_stack";
 
-  public IronCoinStackBlock(RegistryObject<Item> item, BlockBehaviour.Properties properties) {
-    super(item, properties);
+  public IronCoinStackBlock(RegistryObject<Item> item) {
+    super(item);
   }
 
 }

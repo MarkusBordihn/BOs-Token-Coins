@@ -1,0 +1,32 @@
+{
+  "attributes": {
+    "foil": false
+  },
+  "bedrock": {
+    "formatVersion": "1.16.1"
+  },
+  "category": "items",
+  "component": "item",
+  "configVersion": "0.0.1",
+  "description": "",
+  "events": {},
+  "forge": {
+    "className": "LeKoopa"
+  },
+  "icon": "lekoopa",
+  "id": "token_coins:lekoopa",
+  "itemName": "lekoopa",
+  "misc": {},
+  "name": "LeKoopa",
+  "namespace": "token_coins",
+  "placeholder": {
+    "CreativeTab": "TAB_MISC",
+    "ItemName": "LeKoopa",
+    "ITEM_NAME": "LEKOOPA",
+    "item_name": "lekoopa",
+    "ItemClassName": "LeKoopa"
+  },
+  "template": ".\\\\templates\\\\NewTokenCoins.template",
+  "type": "template",
+  "variation": ""
+}

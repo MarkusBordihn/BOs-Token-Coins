@@ -1,8 +1,0 @@
-{
-  "parent": "token_coins:block/coin_stack/coin_stack_1",
-  "textures": {
-    "particle": "token_coins:item/coins/netherite_token_coin",
-    "coin": "token_coins:item/coins/netherite_token_coin",
-    "motive": "token_coins:item/blank"
-  }
-}

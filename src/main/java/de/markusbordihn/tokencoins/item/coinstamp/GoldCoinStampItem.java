@@ -19,14 +19,16 @@
 
 package de.markusbordihn.tokencoins.item.coinstamp;
 
+import de.markusbordihn.tokencoins.item.TokenCoinType;
+
 public class GoldCoinStampItem extends CoinStampItem {
 
   public GoldCoinStampItem() {
-    super(CoinStampItemType.Material.GOLD);
+    super(TokenCoinType.Material.GOLD, TokenCoinType.Motive.NONE);
   }
 
-  public GoldCoinStampItem(CoinStampItemType.Motive motive) {
-    super(CoinStampItemType.Material.GOLD, motive);
+  public GoldCoinStampItem(TokenCoinType.Motive motive) {
+    super(TokenCoinType.Material.GOLD, motive);
   }
 
 }

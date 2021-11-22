@@ -1,0 +1,6 @@
+{
+  "parent": "token_coins:block/coin_stack/copper/template/coin_stack_5",
+  "textures": {
+    "motive": "token_coins:item/motives/skeleton"
+  }
+}

@@ -19,14 +19,16 @@
 
 package de.markusbordihn.tokencoins.item.coinstamp;
 
+import de.markusbordihn.tokencoins.item.TokenCoinType;
+
 public class CopperCoinStampItem extends CoinStampItem {
 
   public CopperCoinStampItem() {
-    super(CoinStampItemType.Material.COPPER);
+    super(TokenCoinType.Material.COPPER, TokenCoinType.Motive.NONE);
   }
 
-  public CopperCoinStampItem(CoinStampItemType.Motive motive) {
-    super(CoinStampItemType.Material.COPPER, motive);
+  public CopperCoinStampItem(TokenCoinType.Motive motive) {
+    super(TokenCoinType.Material.COPPER, motive);
   }
 
 }

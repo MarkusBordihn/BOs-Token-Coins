@@ -270,9 +270,9 @@ ItemBlockRenderTypes.setRenderLayer(ModBlocks.PIGGY_BANK_[[ --BLOCK_NAME-- ]].ge
 }
 
 +++ minecraft/tags/blocks/mineable/pickaxe.json
-@@@ after: "values": [@@@
+@@@ after: "values": [ @@@
     "token_coins:piggy_bank_[[ --block_name-- ]]",
 
 +++ minecraft/tags/blocks/needs_iron_tool.json
-@@@ after: "values": [@@@
+@@@ after: "values": [ @@@
     "token_coins:piggy_bank_[[ --block_name-- ]]",

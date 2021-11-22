@@ -26,7 +26,7 @@
     "BlockClassName": "Skeleton",
     "SoundType": "SoundType.METAL"
   },
-  "template": ".\\\\templates\\\\NewPiggyBank.template",
+  "template": ".\\\\templates\\\\NewCoinStackBlock.template",
   "type": "template",
   "variation": ""
 }

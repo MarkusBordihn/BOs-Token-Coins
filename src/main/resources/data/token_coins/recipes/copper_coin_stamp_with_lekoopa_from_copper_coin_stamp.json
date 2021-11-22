@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#O#",
+    "#T#"
+  ],
+  "key": {
+    "T": {
+      "item": "token_coins:copper_coin_stamp"
+    },
+    "O": {
+      "item": "minecraft:scute"
+    },
+    "#": {
+      "item": "minecraft:yellow_wool"
+    }
+  },
+  "result": {
+    "item": "token_coins:copper_coin_stamp_with_lekoopa",
+    "count": 1
+  }
+}
