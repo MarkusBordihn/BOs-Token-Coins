@@ -321,6 +321,9 @@ public class ModItems {
   public static final RegistryObject<Item> PIGGY_BANK_GHAST =
       ITEMS.register(PiggyBankGhastBlock.NAME, () -> new BlockItem(ModBlocks.PIGGY_BANK_GHAST.get(),
           new Item.Properties().tab(TokenCoinsTab.PIGGY_BANK)));
+  public static final RegistryObject<Item> PIGGY_BANK_LUMPI =
+      ITEMS.register(PiggyBankLumpiBlock.NAME, () -> new BlockItem(ModBlocks.PIGGY_BANK_LUMPI.get(),
+          new Item.Properties().tab(TokenCoinsTab.PIGGY_BANK)));
   public static final RegistryObject<Item> PIGGY_BANK_NOTE_BLOCK = ITEMS.register(
       PiggyBankNoteBlockBlock.NAME, () -> new BlockItem(ModBlocks.PIGGY_BANK_NOTE_BLOCK.get(),
           new Item.Properties().tab(TokenCoinsTab.PIGGY_BANK)));

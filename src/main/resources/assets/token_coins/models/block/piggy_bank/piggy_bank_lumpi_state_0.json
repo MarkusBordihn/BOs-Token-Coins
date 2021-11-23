@@ -1,0 +1,7 @@
+{
+  "parent": "token_coins:block/piggy_bank/piggy_bank_lumpi",
+  "textures": {
+    "coin_up": "token_coins:block/blank",
+    "coin_down": "token_coins:block/blank"
+  }
+}

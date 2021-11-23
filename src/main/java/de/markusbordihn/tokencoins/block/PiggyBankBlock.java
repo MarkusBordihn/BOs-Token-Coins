@@ -68,10 +68,11 @@ public class PiggyBankBlock extends BaseEntityBlock implements TokenCoinCompatib
   public static final String NAME = "piggy_bank";
 
   // Predefined Voxel Shapes
-  protected static final VoxelShape SHAPE_AABB = Block.box(4, 0, 4, 12, 8, 12);
   protected static final VoxelShape SHAPE_10_10_10_AABB = Block.box(3, 0, 3, 13, 10, 13);
-  protected static final VoxelShape SHAPE_10_12_12_AABB = Block.box(3, 0, 1, 13, 10, 15);
   protected static final VoxelShape SHAPE_10_12_12_90DEG_AABB = Block.box(1, 0, 3, 15, 10, 13);
+  protected static final VoxelShape SHAPE_10_12_12_AABB = Block.box(3, 0, 1, 13, 10, 15);
+  protected static final VoxelShape SHAPE_8_10_12_AABB = Block.box(4, 0, 0, 12, 10, 16);
+  protected static final VoxelShape SHAPE_AABB = Block.box(4, 0, 4, 12, 8, 12);
 
   // Block States
   public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
@@ -107,6 +108,15 @@ public class PiggyBankBlock extends BaseEntityBlock implements TokenCoinCompatib
 
   public void playSound(Player player, SoundEvent sound) {
     playSound(player, sound, 1.0F, 1.0F);
+  }
+
+  /**
+   * Allows to add individual and additional effects for consumed token coins.
+   * Returns true will avoid the default sound.
+   */
+  public boolean consumeTokenCoinEffects(Level level, BlockPos blockPos, BlockState blockState,
+      BlockEntity blockEntity, ItemStack itemStack, UseOnContext context) {
+    return false;
   }
 
   private void scheduleTick(Level level, BlockPos blockPos) {
@@ -199,9 +209,11 @@ public class PiggyBankBlock extends BaseEntityBlock implements TokenCoinCompatib
         level.setBlock(blockPos, blockState.setValue(STATE, 1), 3);
       }
 
-      // Play a confirmation sound
-      level.playSound(null, blockPos, SoundEvents.AMETHYST_BLOCK_HIT, SoundSource.BLOCKS, 1.0F,
-          1.0F);
+      // Play a confirmation sound and effects
+      if (!consumeTokenCoinEffects(level, blockPos, blockState, blockEntity, itemStack, context)) {
+        level.playSound(null, blockPos, SoundEvents.AMETHYST_BLOCK_HIT, SoundSource.BLOCKS, 1.0F,
+            1.0F);
+      }
 
       // Shrink item stack with the stored amount and inform block entity about the change
       itemStack.shrink(storedTokenCoins);

@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#O#",
+    "#p#",
+    "U#U"
+  ],
+  "key": {
+    "U": {
+      "item": "minecraft:brown_terracotta"
+    },
+    "#": {
+      "item": "minecraft:yellow_terracotta"
+    },
+    "O": {
+      "tag": "token_coins:coins"
+    },
+    "p": {
+      "item": "minecraft:cookie"
+    }
+  },
+  "result": {
+    "item": "token_coins:piggy_bank_lumpi",
+    "count": 1
+  }
+}

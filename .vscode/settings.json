@@ -33,6 +33,7 @@
     "Ingame",
     "lefthand",
     "lekoopa",
+    "Lumpi",
     "markus",
     "markusbordihn",
     "minecraft",
@@ -55,7 +56,14 @@
     "untrack",
     "Voxel"
   ],
-  "cSpell.ignorePaths": ["*.yml", ".gradle", ".vscode", "build", "run"],
+  "cSpell.ignorePaths": [
+    "*.yml",
+    ".gradle",
+    ".vscode",
+    "build",
+    "run",
+    "src/main/resources/assets/token_coins/models"
+  ],
   "java.configuration.updateBuildConfiguration": "automatic",
   "java.format.settings.url": "./java-google-style.xml",
   "java.format.settings.profile": "GoogleStyle",

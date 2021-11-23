@@ -47,6 +47,8 @@ public class ClientSetup {
       // Piggy Banks (transparent cutout)
       ItemBlockRenderTypes.setRenderLayer(ModBlocks.PIGGY_BANK_GHAST.get(),
           RenderType.cutoutMipped());
+      ItemBlockRenderTypes.setRenderLayer(ModBlocks.PIGGY_BANK_LUMPI.get(),
+          RenderType.cutoutMipped());
       ItemBlockRenderTypes.setRenderLayer(ModBlocks.PIGGY_BANK_NOTE_BLOCK.get(),
           RenderType.cutoutMipped());
       ItemBlockRenderTypes.setRenderLayer(ModBlocks.PIGGY_BANK_PIG.get(),
@@ -58,7 +60,7 @@ public class ClientSetup {
       ItemBlockRenderTypes.setRenderLayer(ModBlocks.PIGGY_BANK_TNT.get(),
           RenderType.cutoutMipped());
 
-      //@TemplateEntryPoint("Set Render Layer")
+      // @TemplateEntryPoint("Set Render Layer")
 
       // Creeper Coin Stack (transparent cutout)
       ItemBlockRenderTypes.setRenderLayer(ModBlocks.COPPER_COIN_STACK_WITH_LEKOOPA.get(),

@@ -1,0 +1,32 @@
+{
+  "attributes": {
+    "soundType": "SoundType.METAL"
+  },
+  "bedrock": {
+    "formatVersion": "1.16.1"
+  },
+  "blockName": "lumpi",
+  "component": "block",
+  "configVersion": "0.0.1",
+  "description": "",
+  "events": {},
+  "forge": {
+    "className": "Lumpi"
+  },
+  "icon": "lumpi",
+  "id": "token_coins:lumpi",
+  "misc": {},
+  "name": "Lumpi",
+  "namespace": "token_coins",
+  "placeholder": {
+    "CreativeTab": "TAB_MISC",
+    "BlockName": "Lumpi",
+    "BLOCK_NAME": "LUMPI",
+    "block_name": "lumpi",
+    "BlockClassName": "Lumpi",
+    "SoundType": "SoundType.METAL"
+  },
+  "template": ".\\\\templates\\\\NewPiggyBank.template",
+  "type": "template",
+  "variation": ""
+}
