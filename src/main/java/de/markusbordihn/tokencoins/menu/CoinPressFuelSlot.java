@@ -26,21 +26,21 @@ import net.minecraft.world.item.Items;
 
 public class CoinPressFuelSlot extends Slot {
 
-  public CoinPressFuelSlot(Container p_39521_, int p_39522_, int p_39523_, int p_39524_) {
-    super(p_39521_, p_39522_, p_39523_, p_39524_);
+  public CoinPressFuelSlot(Container container, int p_39522_, int p_39523_, int p_39524_) {
+    super(container, p_39522_, p_39523_, p_39524_);
   }
 
   @Override
-  public boolean mayPlace(ItemStack p_39526_) {
-    return CoinPressMenu.isFuel(p_39526_) || isBucket(p_39526_);
+  public boolean mayPlace(ItemStack itemStack) {
+    return CoinPressMenu.isFuel(itemStack) || isBucket(itemStack);
   }
 
   @Override
-  public int getMaxStackSize(ItemStack p_39528_) {
-    return isBucket(p_39528_) ? 1 : super.getMaxStackSize(p_39528_);
+  public int getMaxStackSize(ItemStack itemStack) {
+    return isBucket(itemStack) ? 1 : super.getMaxStackSize(itemStack);
   }
 
-  public static boolean isBucket(ItemStack p_39530_) {
-    return p_39530_.is(Items.BUCKET);
+  public static boolean isBucket(ItemStack itemStack) {
+    return itemStack.is(Items.BUCKET);
   }
 }

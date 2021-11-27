@@ -1,0 +1,6 @@
+{
+  "parent": "token_coins:block/coin_press/coin_press",
+  "textures": {
+    "material": "minecraft:item/cookie"
+  }
+}

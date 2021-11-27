@@ -29,6 +29,7 @@ public class TokenCoinType {
   }
 
   public enum Material {
+    COOKIE,
     COPPER,
     GOLD,
     IRON,

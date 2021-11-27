@@ -36,7 +36,7 @@ public class ClientSetup {
   public static final Logger log = LogManager.getLogger(Constants.LOG_NAME);
 
   public ClientSetup(final FMLClientSetupEvent event) {
-    log.info("🪙 Register Bo's Token Coins Client setup ...");
+    log.info("{} Client setup ...", Constants.LOG_REGISTER_PREFIX);
     event.enqueueWork(() -> {
       // Coin Press UI screen
       MenuScreens.register(CoinPressMenu.TYPE, CoinPressScreen::new);

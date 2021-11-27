@@ -19,6 +19,16 @@
 
 package de.markusbordihn.tokencoins.item.coin;
 
+import java.util.List;
+import javax.annotation.Nullable;
+
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.food.Foods;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -28,30 +38,39 @@ import net.minecraftforge.fmlserverevents.FMLServerAboutToStartEvent;
 import de.markusbordihn.tokencoins.item.TokenCoinType;
 
 @Mod.EventBusSubscriber
-public class IronCoinItem extends CoinItem {
+public class CookieCoinItem extends CoinItem {
 
-  private static int coinValue = COMMON.ironTokenCoinValue.get();
+  private static int coinValue = COMMON.cookieTokenCoinValue.get();
 
   @SubscribeEvent
   public static void onServerAboutToStartEvent(FMLServerAboutToStartEvent event) {
-    coinValue = COMMON.ironTokenCoinValue.get();
+    coinValue = COMMON.cookieTokenCoinValue.get();
   }
 
-  public IronCoinItem() {
-    super(TokenCoinType.Material.IRON, TokenCoinType.Motive.NONE);
+  public CookieCoinItem() {
+    super(new Item.Properties().tab(CreativeModeTab.TAB_FOOD).food(Foods.COOKIE),
+        TokenCoinType.Material.COOKIE, TokenCoinType.Motive.NONE);
   }
 
-  public IronCoinItem(TokenCoinType.Motive motive) {
-    super(TokenCoinType.Material.IRON, motive);
+  public CookieCoinItem(TokenCoinType.Motive motive) {
+    super(new Item.Properties().tab(CreativeModeTab.TAB_FOOD).food(Foods.COOKIE),
+        TokenCoinType.Material.COOKIE, motive);
   }
 
-  public IronCoinItem(TokenCoinType.Motive motive, RegistryObject<Block> block) {
-    super(TokenCoinType.Material.IRON, motive, block);
+  public CookieCoinItem(TokenCoinType.Motive motive, RegistryObject<Block> block) {
+    super(new Item.Properties().tab(CreativeModeTab.TAB_FOOD).food(Foods.COOKIE),
+        TokenCoinType.Material.COOKIE, motive, block);
   }
 
   @Override
   public int getValue() {
     return coinValue;
+  }
+
+  @Override
+  public void appendHoverText(ItemStack itemStack, @Nullable Level level,
+      List<Component> tooltipList, TooltipFlag tooltipFlag) {
+    // No hover text needed.
   }
 
 }

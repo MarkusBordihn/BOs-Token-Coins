@@ -74,7 +74,7 @@ public class CoinPressBlock extends BaseEntityBlock {
   public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
   public static final BooleanProperty POWERED = BlockStateProperties.LIT;
   public static final BooleanProperty WORKING = BooleanProperty.create("working");
-  public static final IntegerProperty VARIANT = IntegerProperty.create("variant", 0, 5);
+  public static final IntegerProperty VARIANT = IntegerProperty.create("variant", 0, 6);
 
   // General map to be able animate each model individual regardless of the current block state.
   private Map<String, Boolean> lastWorkingStateMap = new HashMap<>();
@@ -135,9 +135,9 @@ public class CoinPressBlock extends BaseEntityBlock {
 
   @Override
   @SuppressWarnings("deprecation")
-  public void onRemove(BlockState p_48713_, Level level, BlockPos blockPos, BlockState p_48716_,
-      boolean p_48717_) {
-    if (!p_48713_.is(p_48716_.getBlock())) {
+  public void onRemove(BlockState blockState, Level level, BlockPos blockPos, BlockState blockState2,
+      boolean flag) {
+    if (!blockState.is(blockState2.getBlock())) {
       BlockEntity blockentity = level.getBlockEntity(blockPos);
       if (blockentity instanceof CoinPressBlockEntity coinPressBlockEntity) {
         if (level instanceof ServerLevel) {
@@ -145,7 +145,7 @@ public class CoinPressBlock extends BaseEntityBlock {
         }
         level.updateNeighbourForOutputSignal(blockPos, this);
       }
-      super.onRemove(p_48713_, level, blockPos, p_48716_, p_48717_);
+      super.onRemove(blockState, level, blockPos, blockState2, flag);
     }
   }
 

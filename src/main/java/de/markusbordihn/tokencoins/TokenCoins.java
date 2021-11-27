@@ -47,27 +47,27 @@ public class TokenCoins {
     FMLJavaModLoadingContext.get().getModEventBus().addGenericListener(MenuType.class,
         this::registerContainers);
 
-    log.info("🪙 Register Bo's Token Coins Items ...");
+    log.info("{} Items ...", Constants.LOG_REGISTER_PREFIX);
     ModItems.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
 
-    log.info("🪙 Register Bo's Token Coins Blocks ...");
+    log.info("{} Blocks ...", Constants.LOG_REGISTER_PREFIX);
     ModBlocks.BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
 
-    log.info("🪙 Register Bo's Token Coins Blocks Entities ...");
+    log.info("{} Block Entities ...", Constants.LOG_REGISTER_PREFIX);
     ModBlocks.ENTITIES.register(FMLJavaModLoadingContext.get().getModEventBus());
 
-    log.info("🪙 Register Bo's Token Coins Recipes Serializers ...");
+    log.info("{} Recipe Serializers ...", Constants.LOG_REGISTER_PREFIX);
     ModRecipes.RECIPES_SERIALIZERS.register(FMLJavaModLoadingContext.get().getModEventBus());
   }
 
   private void registerContainers(RegistryEvent.Register<MenuType<?>> event) {
-    log.info("🪙 Register Bo's Token Coins Container ...");
+    log.info("{} Container ...", Constants.LOG_REGISTER_PREFIX);
     event.getRegistry()
         .registerAll(new MenuType<>(CoinPressMenu::new).setRegistryName(Constants.COIN_PRESS));
   }
 
   private void setupCommon(final FMLCommonSetupEvent event) {
-    log.info("🪙 Register Bo's Token Coins Recipe Type");
+    log.info("{} Recipe Type ...", Constants.LOG_REGISTER_PREFIX);
     Registry.register(Registry.RECIPE_TYPE, Constants.COIN_PRESS_RECIPE_ID,
         new RecipeType<CoinPressRecipe>() {
           public String toString() {

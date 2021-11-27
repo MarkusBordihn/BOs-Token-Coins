@@ -19,26 +19,39 @@
 
 package de.markusbordihn.tokencoins.item.coin;
 
-import de.markusbordihn.tokencoins.item.TokenCoinType;
 import net.minecraft.world.level.block.Block;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fmllegacy.RegistryObject;
+import net.minecraftforge.fmlserverevents.FMLServerAboutToStartEvent;
 
+import de.markusbordihn.tokencoins.item.TokenCoinType;
+
+@Mod.EventBusSubscriber
 public class NetheriteCoinItem extends CoinItem {
+
+  private static int coinValue = COMMON.netheriteTokenCoinValue.get();
+
+  @SubscribeEvent
+  public static void onServerAboutToStartEvent(FMLServerAboutToStartEvent event) {
+    coinValue = COMMON.netheriteTokenCoinValue.get();
+  }
 
   public NetheriteCoinItem() {
     super(TokenCoinType.Material.NETHERITE, TokenCoinType.Motive.NONE);
-    this.coinValue = 1000;
   }
 
   public NetheriteCoinItem(TokenCoinType.Motive motive) {
     super(TokenCoinType.Material.NETHERITE, motive);
-    this.coinValue = 1000;
   }
 
   public NetheriteCoinItem(TokenCoinType.Motive motive, RegistryObject<Block> block) {
     super(TokenCoinType.Material.NETHERITE, motive, block);
-    this.coinValue = 1000;
   }
 
+  @Override
+  public int getValue() {
+    return coinValue;
+  }
 
 }

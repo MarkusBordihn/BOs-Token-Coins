@@ -49,6 +49,9 @@ public class CoinStampItem extends Item {
       Item.Properties properties) {
     int stampDurability = 8;
     switch (material) {
+      case COOKIE:
+        stampDurability = 1;
+        break;
       case COPPER:
         stampDurability = 8;
         break;

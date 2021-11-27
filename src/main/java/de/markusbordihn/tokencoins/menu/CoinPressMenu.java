@@ -178,7 +178,8 @@ public class CoinPressMenu extends AbstractContainerMenu {
   }
 
   public static boolean isNugget(ItemStack itemStack) {
-    return (itemStack.is(Items.GOLD_NUGGET) || itemStack.is(Items.IRON_NUGGET)
+    return (itemStack.is(Items.COOKIE) || itemStack.is(Items.GOLD_NUGGET)
+        || itemStack.is(Items.IRON_NUGGET)
         || itemStack.is(de.markusbordihn.materialelements.item.ModItems.COPPER_NUGGET.get())
         || itemStack.is(de.markusbordihn.materialelements.item.ModItems.STEEL_NUGGET.get())
         || itemStack.is(de.markusbordihn.materialelements.item.ModItems.NETHERITE_NUGGET.get()));

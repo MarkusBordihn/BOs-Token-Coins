@@ -6,6 +6,8 @@
 @@@ after:@TemplateEntryPoint("Register Items") @@@
 
   // [[ --ItemName-- ]] Coins
+  public static final RegistryObject<Item> COOKIE_TOKEN_COIN_WITH_[[ --ITEM_NAME-- ]] = ITEMS.register(
+      "cookie_token_coin_with_[[ --item_name-- ]]", CookieCoinItem::new);
   public static final RegistryObject<Item> COPPER_TOKEN_COIN_WITH_[[ --ITEM_NAME-- ]] = ITEMS.register(
       "copper_token_coin_with_[[ --item_name-- ]]", CopperCoinItem::new);
   public static final RegistryObject<Item> GOLD_TOKEN_COIN_WITH_[[ --ITEM_NAME-- ]] = ITEMS.register(
@@ -43,6 +45,7 @@
   "item.[[ --ModId-- ]].steel_coin_stamp_with_[[ --item_name-- ]]": "Steel Coin Stamp ([[ --ItemName-- ]])",
   "item.[[ --ModId-- ]].netherite_coin_stamp_with_[[ --item_name-- ]]": "Netherite Coin Stamp ([[ --ItemName-- ]])",
 
+  "item.[[ --ModId-- ]].cookie_token_coin_with_[[ --item_name-- ]]": "Cookie Coin ([[ --ItemName-- ]])",
   "item.[[ --ModId-- ]].copper_token_coin_with_[[ --item_name-- ]]": "Copper Coin ([[ --ItemName-- ]])",
   "item.[[ --ModId-- ]].gold_token_coin_with_[[ --item_name-- ]]": "Gold Coin ([[ --ItemName-- ]])",
   "item.[[ --ModId-- ]].iron_token_coin_with_[[ --item_name-- ]]": "Iron Coin ([[ --ItemName-- ]])",
@@ -89,6 +92,15 @@
 @@@ create @@@
 {
   "parent": "token_coins:item/template/coin_stamp/netherite_coin_stamp",
+  "textures": {
+    "motive": "token_coins:item/motives/[[ --item_name-- ]]"
+  }
+}
+
++++ models/item/cookie_token_coin_with_[[ --item_name-- ]].json
+@@@ create @@@
+{
+  "parent": "token_coins:item/template/coin/cookie_token_coin",
   "textures": {
     "motive": "token_coins:item/motives/[[ --item_name-- ]]"
   }
@@ -252,6 +264,53 @@
     "item": "token_coins:netherite_coin_stamp_with_[[ --item_name-- ]]",
     "count": 1
   }
+}
+
++++ recipes/cookie_token_coin_with_[[ --item_name-- ]]_by_coin_press.json
+@@@ create @@@
+{
+  "type": "token_coins:coin_press",
+  "ingredient": {
+    "item": "minecraft:cookie"
+  },
+  "stamp_top": [
+    {
+      "item": "token_coins:copper_coin_stamp_with_[[ --item_name-- ]]"
+    },
+    {
+      "item": "token_coins:gold_coin_stamp_with_[[ --item_name-- ]]"
+    },
+    {
+      "item": "token_coins:iron_coin_stamp_with_[[ --item_name-- ]]"
+    },
+    {
+      "item": "token_coins:steel_coin_stamp_with_[[ --item_name-- ]]"
+    },
+    {
+      "item": "token_coins:netherite_coin_stamp_with_[[ --item_name-- ]]"
+    }
+  ],
+  "stamp_bottom": [
+    {
+      "item": "token_coins:copper_coin_stamp_with_[[ --item_name-- ]]"
+    },
+    {
+      "item": "token_coins:gold_coin_stamp_with_[[ --item_name-- ]]"
+    },
+    {
+      "item": "token_coins:iron_coin_stamp_with_[[ --item_name-- ]]"
+    },
+    {
+      "item": "token_coins:steel_coin_stamp_with_[[ --item_name-- ]]"
+    },
+    {
+      "item": "token_coins:netherite_coin_stamp_with_[[ --item_name-- ]]"
+    }
+  ],
+  "result": "token_coins:cookie_token_coin_with_[[ --item_name-- ]]",
+  "count": 1,
+  "experience": 0.1,
+  "cookingtime": 400
 }
 
 +++ recipes/copper_token_coin_with_[[ --item_name-- ]]_by_coin_press.json

@@ -29,6 +29,7 @@
   "item.token_coins.steel_coin_stamp": "Steel Coin Stamp",
   "item.token_coins.netherite_coin_stamp": "Netherite Coin Stamp",
 
+  "item.token_coins.cookie_token_coin": "Cookie Coin",
   "item.token_coins.copper_token_coin": "Copper Coin",
   "item.token_coins.gold_token_coin": "Gold Coin",
   "item.token_coins.iron_token_coin": "Iron Coin",
@@ -41,6 +42,7 @@
   "item.token_coins.steel_coin_stamp_with_creeper": "Steel Coin Stamp (Creeper)",
   "item.token_coins.netherite_coin_stamp_with_creeper": "Netherite Coin Stamp (Creeper)",
 
+  "item.token_coins.cookie_token_coin_with_creeper": "Cookie Coin (Creeper)",
   "item.token_coins.copper_token_coin_with_creeper": "Copper Coin (Creeper)",
   "item.token_coins.gold_token_coin_with_creeper": "Gold Coin (Creeper)",
   "item.token_coins.iron_token_coin_with_creeper": "Iron Coin (Creeper)",
@@ -53,6 +55,7 @@
   "item.token_coins.steel_coin_stamp_with_zombie": "Steel Coin Stamp (Zombie)",
   "item.token_coins.netherite_coin_stamp_with_zombie": "Netherite Coin Stamp (Zombie)",
 
+  "item.token_coins.cookie_token_coin_with_zombie": "Cookie Coin (Zombie)",
   "item.token_coins.copper_token_coin_with_zombie": "Copper Coin (Zombie)",
   "item.token_coins.gold_token_coin_with_zombie": "Gold Coin (Zombie)",
   "item.token_coins.iron_token_coin_with_zombie": "Iron Coin (Zombie)",
@@ -65,6 +68,7 @@
   "item.token_coins.steel_coin_stamp_with_dragon": "Steel Coin Stamp (Dragon)",
   "item.token_coins.netherite_coin_stamp_with_dragon": "Netherite Coin Stamp (Dragon)",
 
+  "item.token_coins.cookie_token_coin_with_dragon": "Cookie Coin (Dragon)",
   "item.token_coins.copper_token_coin_with_dragon": "Copper Coin (Dragon)",
   "item.token_coins.gold_token_coin_with_dragon": "Gold Coin (Dragon)",
   "item.token_coins.iron_token_coin_with_dragon": "Iron Coin (Dragon)",
@@ -77,6 +81,7 @@
   "item.token_coins.steel_coin_stamp_with_skeleton": "Steel Coin Stamp (Skeleton)",
   "item.token_coins.netherite_coin_stamp_with_skeleton": "Netherite Coin Stamp (Skeleton)",
 
+  "item.token_coins.cookie_token_coin_with_skeleton": "Cookie Coin (Skeleton)",
   "item.token_coins.copper_token_coin_with_skeleton": "Copper Coin (Skeleton)",
   "item.token_coins.gold_token_coin_with_skeleton": "Gold Coin (Skeleton)",
   "item.token_coins.iron_token_coin_with_skeleton": "Iron Coin (Skeleton)",
@@ -89,6 +94,7 @@
   "item.token_coins.steel_coin_stamp_with_poppy": "Steel Coin Stamp (Poppy)",
   "item.token_coins.netherite_coin_stamp_with_poppy": "Netherite Coin Stamp (Poppy)",
 
+  "item.token_coins.cookie_token_coin_with_poppy": "Cookie Coin (Poppy)",
   "item.token_coins.copper_token_coin_with_poppy": "Copper Coin (Poppy)",
   "item.token_coins.gold_token_coin_with_poppy": "Gold Coin (Poppy)",
   "item.token_coins.iron_token_coin_with_poppy": "Iron Coin (Poppy)",
@@ -101,6 +107,7 @@
   "item.token_coins.steel_coin_stamp_with_wheat": "Steel Coin Stamp (Wheat)",
   "item.token_coins.netherite_coin_stamp_with_wheat": "Netherite Coin Stamp (Wheat)",
 
+  "item.token_coins.cookie_token_coin_with_wheat": "Cookie Coin (Wheat)",
   "item.token_coins.copper_token_coin_with_wheat": "Copper Coin (Wheat)",
   "item.token_coins.gold_token_coin_with_wheat": "Gold Coin (Wheat)",
   "item.token_coins.iron_token_coin_with_wheat": "Iron Coin (Wheat)",
@@ -113,6 +120,7 @@
   "item.token_coins.steel_coin_stamp_with_wither": "Steel Coin Stamp (Wither)",
   "item.token_coins.netherite_coin_stamp_with_wither": "Netherite Coin Stamp (Wither)",
 
+  "item.token_coins.cookie_token_coin_with_wither": "Cookie Coin (Wither)",
   "item.token_coins.copper_token_coin_with_wither": "Copper Coin (Wither)",
   "item.token_coins.gold_token_coin_with_wither": "Gold Coin (Wither)",
   "item.token_coins.iron_token_coin_with_wither": "Iron Coin (Wither)",
@@ -125,6 +133,7 @@
   "item.token_coins.steel_coin_stamp_with_lekoopa": "Steel Coin Stamp (LeKoopa)",
   "item.token_coins.netherite_coin_stamp_with_lekoopa": "Netherite Coin Stamp (LeKoopa)",
 
+  "item.token_coins.cookie_token_coin_with_lekoopa": "Cookie Coin (LeKoopa)",
   "item.token_coins.copper_token_coin_with_lekoopa": "Copper Coin (LeKoopa)",
   "item.token_coins.gold_token_coin_with_lekoopa": "Gold Coin (LeKoopa)",
   "item.token_coins.iron_token_coin_with_lekoopa": "Iron Coin (LeKoopa)",

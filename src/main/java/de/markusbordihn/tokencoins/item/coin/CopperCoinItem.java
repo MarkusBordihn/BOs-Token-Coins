@@ -19,25 +19,39 @@
 
 package de.markusbordihn.tokencoins.item.coin;
 
-import de.markusbordihn.tokencoins.item.TokenCoinType;
 import net.minecraft.world.level.block.Block;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fmllegacy.RegistryObject;
+import net.minecraftforge.fmlserverevents.FMLServerAboutToStartEvent;
 
+import de.markusbordihn.tokencoins.item.TokenCoinType;
+
+@Mod.EventBusSubscriber
 public class CopperCoinItem extends CoinItem {
+
+  private static int coinValue = COMMON.copperTokenCoinValue.get();
+
+  @SubscribeEvent
+  public static void onServerAboutToStartEvent(FMLServerAboutToStartEvent event) {
+    coinValue = COMMON.copperTokenCoinValue.get();
+  }
 
   public CopperCoinItem() {
     super(TokenCoinType.Material.COPPER, TokenCoinType.Motive.NONE);
-    this.coinValue = 1;
   }
 
   public CopperCoinItem(TokenCoinType.Motive motive) {
     super(TokenCoinType.Material.COPPER, motive);
-    this.coinValue = 1;
   }
 
   public CopperCoinItem(TokenCoinType.Motive motive, RegistryObject<Block> block) {
     super(TokenCoinType.Material.COPPER, motive, block);
-    this.coinValue = 1;
+  }
+
+  @Override
+  public int getValue() {
+    return coinValue;
   }
 
 }

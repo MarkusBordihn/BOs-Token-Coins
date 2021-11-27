@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "token_coins:cookie_token_coin",
     "token_coins:copper_token_coin",
     "token_coins:gold_token_coin",
     "token_coins:iron_token_coin",

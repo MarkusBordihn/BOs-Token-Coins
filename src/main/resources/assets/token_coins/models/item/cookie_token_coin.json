@@ -1,0 +1,7 @@
+{
+  "parent": "token_coins:item/template/coin/cookie_token_coin",
+  "textures": {
+    "motive": "token_coins:item/blank",
+    "overlay": "token_coins:item/blank"
+  }
+}

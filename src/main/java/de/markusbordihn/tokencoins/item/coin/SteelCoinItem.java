@@ -19,25 +19,39 @@
 
 package de.markusbordihn.tokencoins.item.coin;
 
-import de.markusbordihn.tokencoins.item.TokenCoinType;
 import net.minecraft.world.level.block.Block;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fmllegacy.RegistryObject;
+import net.minecraftforge.fmlserverevents.FMLServerAboutToStartEvent;
 
+import de.markusbordihn.tokencoins.item.TokenCoinType;
+
+@Mod.EventBusSubscriber
 public class SteelCoinItem extends CoinItem {
+
+  private static int coinValue = COMMON.steelTokenCoinValue.get();
+
+  @SubscribeEvent
+  public static void onServerAboutToStartEvent(FMLServerAboutToStartEvent event) {
+    coinValue = COMMON.steelTokenCoinValue.get();
+  }
 
   public SteelCoinItem() {
     super(TokenCoinType.Material.STEEL, TokenCoinType.Motive.NONE);
-    this.coinValue = 50;
   }
 
   public SteelCoinItem(TokenCoinType.Motive motive) {
     super(TokenCoinType.Material.STEEL, motive);
-    this.coinValue = 50;
   }
 
   public SteelCoinItem(TokenCoinType.Motive motive, RegistryObject<Block> block) {
     super(TokenCoinType.Material.STEEL, motive, block);
-    this.coinValue = 50;
+  }
+
+  @Override
+  public int getValue() {
+    return coinValue;
   }
 
 }

@@ -36,9 +36,7 @@ import de.markusbordihn.tokencoins.Annotations.TemplateEntryPoint;
 
 public class ModItems {
 
-  protected ModItems() {
-
-  }
+  protected ModItems() {}
 
   public static final DeferredRegister<Item> ITEMS =
       DeferredRegister.create(ForgeRegistries.ITEMS, Constants.MOD_ID);
@@ -46,6 +44,8 @@ public class ModItems {
   @TemplateEntryPoint("Register Items")
 
   // LeKoopa Coins
+  public static final RegistryObject<Item> COOKIE_TOKEN_COIN_WITH_LEKOOPA = ITEMS.register(
+      "cookie_token_coin_with_lekoopa", () -> new CookieCoinItem(TokenCoinType.Motive.LEKOOPA));
   public static final RegistryObject<Item> COPPER_TOKEN_COIN_WITH_LEKOOPA = ITEMS.register(
       "copper_token_coin_with_lekoopa", () -> new CopperCoinItem(TokenCoinType.Motive.LEKOOPA,
           ModBlocks.COPPER_COIN_STACK_WITH_LEKOOPA));
@@ -77,6 +77,8 @@ public class ModItems {
           () -> new NetheriteCoinStampItem(TokenCoinType.Motive.LEKOOPA));
 
   // Wither Coins
+  public static final RegistryObject<Item> COOKIE_TOKEN_COIN_WITH_WITHER = ITEMS.register(
+      "cookie_token_coin_with_wither", () -> new CookieCoinItem(TokenCoinType.Motive.WITHER));
   public static final RegistryObject<Item> COPPER_TOKEN_COIN_WITH_WITHER = ITEMS.register(
       "copper_token_coin_with_wither", () -> new CopperCoinItem(TokenCoinType.Motive.WITHER,
           ModBlocks.COPPER_COIN_STACK_WITH_WITHER));
@@ -107,6 +109,8 @@ public class ModItems {
           () -> new NetheriteCoinStampItem(TokenCoinType.Motive.WITHER));
 
   // Wheat Coins
+  public static final RegistryObject<Item> COOKIE_TOKEN_COIN_WITH_WHEAT = ITEMS.register(
+      "cookie_token_coin_with_wheat", () -> new CookieCoinItem(TokenCoinType.Motive.WHEAT));
   public static final RegistryObject<Item> COPPER_TOKEN_COIN_WITH_WHEAT = ITEMS.register(
       "copper_token_coin_with_wheat",
       () -> new CopperCoinItem(TokenCoinType.Motive.WHEAT, ModBlocks.COPPER_COIN_STACK_WITH_WHEAT));
@@ -137,6 +141,8 @@ public class ModItems {
           () -> new NetheriteCoinStampItem(TokenCoinType.Motive.WHEAT));
 
   // Poppy Coins
+  public static final RegistryObject<Item> COOKIE_TOKEN_COIN_WITH_POPPY = ITEMS.register(
+      "cookie_token_coin_with_poppy", () -> new CookieCoinItem(TokenCoinType.Motive.POPPY));
   public static final RegistryObject<Item> COPPER_TOKEN_COIN_WITH_POPPY = ITEMS.register(
       "copper_token_coin_with_poppy",
       () -> new CopperCoinItem(TokenCoinType.Motive.POPPY, ModBlocks.COPPER_COIN_STACK_WITH_POPPY));
@@ -167,6 +173,8 @@ public class ModItems {
           () -> new NetheriteCoinStampItem(TokenCoinType.Motive.POPPY));
 
   // Skeleton Coins
+  public static final RegistryObject<Item> COOKIE_TOKEN_COIN_WITH_SKELETON = ITEMS.register(
+      "cookie_token_coin_with_skeleton", () -> new CookieCoinItem(TokenCoinType.Motive.SKELETON));
   public static final RegistryObject<Item> COPPER_TOKEN_COIN_WITH_SKELETON = ITEMS.register(
       "copper_token_coin_with_skeleton", () -> new CopperCoinItem(TokenCoinType.Motive.SKELETON,
           ModBlocks.COPPER_COIN_STACK_WITH_SKELETON));
@@ -200,6 +208,8 @@ public class ModItems {
           () -> new NetheriteCoinStampItem(TokenCoinType.Motive.SKELETON));
 
   // Dragon Coins
+  public static final RegistryObject<Item> COOKIE_TOKEN_COIN_WITH_DRAGON = ITEMS.register(
+      "cookie_token_coin_with_dragon", () -> new CookieCoinItem(TokenCoinType.Motive.DRAGON));
   public static final RegistryObject<Item> COPPER_TOKEN_COIN_WITH_DRAGON = ITEMS.register(
       "copper_token_coin_with_dragon", () -> new CopperCoinItem(TokenCoinType.Motive.DRAGON,
           ModBlocks.COPPER_COIN_STACK_WITH_DRAGON));
@@ -230,6 +240,8 @@ public class ModItems {
           () -> new NetheriteCoinStampItem(TokenCoinType.Motive.DRAGON));
 
   // Zombie Coins
+  public static final RegistryObject<Item> COOKIE_TOKEN_COIN_WITH_ZOMBIE = ITEMS.register(
+      "cookie_token_coin_with_zombie", () -> new CookieCoinItem(TokenCoinType.Motive.ZOMBIE));
   public static final RegistryObject<Item> COPPER_TOKEN_COIN_WITH_ZOMBIE = ITEMS.register(
       "copper_token_coin_with_zombie", () -> new CopperCoinItem(TokenCoinType.Motive.ZOMBIE,
           ModBlocks.COPPER_COIN_STACK_WITH_ZOMBIE));
@@ -260,6 +272,8 @@ public class ModItems {
           () -> new NetheriteCoinStampItem(TokenCoinType.Motive.ZOMBIE));
 
   // Crepper Coins
+  public static final RegistryObject<Item> COOKIE_TOKEN_COIN_WITH_CREPPER = ITEMS.register(
+      "cookie_token_coin_with_creeper", () -> new CookieCoinItem(TokenCoinType.Motive.CREEPER));
   public static final RegistryObject<Item> COPPER_TOKEN_COIN_WITH_CREPPER = ITEMS.register(
       "copper_token_coin_with_creeper", () -> new CopperCoinItem(TokenCoinType.Motive.CREEPER,
           ModBlocks.COPPER_COIN_STACK_WITH_CREEPER));
@@ -303,6 +317,8 @@ public class ModItems {
       "netherite_coin_stamp", () -> new NetheriteCoinStampItem(TokenCoinType.Motive.NONE));
 
   // Basic Coins
+  public static final RegistryObject<Item> COOKIE_TOKEN_COIN =
+      ITEMS.register("cookie_token_coin", () -> new CookieCoinItem(TokenCoinType.Motive.NONE));
   public static final RegistryObject<Item> COPPER_TOKEN_COIN = ITEMS.register("copper_token_coin",
       () -> new CopperCoinItem(TokenCoinType.Motive.NONE, ModBlocks.COPPER_COIN_STACK));
   public static final RegistryObject<Item> GOLD_TOKEN_COIN = ITEMS.register("gold_token_coin",

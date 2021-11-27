@@ -30,6 +30,11 @@
     "facing=west,lit=false,working=false,variant=5": { "model": "token_coins:block/coin_press/coin_press_with_netherite", "y": 270 },
     "facing=north,lit=false,working=false,variant=5": { "model": "token_coins:block/coin_press/coin_press_with_netherite", "y": 0 },
 
+    "facing=east,lit=false,working=false,variant=6": { "model": "token_coins:block/coin_press/coin_press_with_cookie", "y": 90 },
+    "facing=south,lit=false,working=false,variant=6": { "model": "token_coins:block/coin_press/coin_press_with_cookie", "y": 180 },
+    "facing=west,lit=false,working=false,variant=6": { "model": "token_coins:block/coin_press/coin_press_with_cookie", "y": 270 },
+    "facing=north,lit=false,working=false,variant=6": { "model": "token_coins:block/coin_press/coin_press_with_cookie", "y": 0 },
+
     "facing=east,lit=true,working=false,variant=0": { "model": "token_coins:block/coin_press/coin_press_powered_default", "y": 90 },
     "facing=south,lit=true,working=false,variant=0": { "model": "token_coins:block/coin_press/coin_press_powered_default", "y": 180 },
     "facing=west,lit=true,working=false,variant=0": { "model": "token_coins:block/coin_press/coin_press_powered_default", "y": 270 },
@@ -60,6 +65,11 @@
     "facing=west,lit=true,working=false,variant=5": { "model": "token_coins:block/coin_press/coin_press_powered_with_netherite", "y": 270 },
     "facing=north,lit=true,working=false,variant=5": { "model": "token_coins:block/coin_press/coin_press_powered_with_netherite", "y": 0 },
 
+    "facing=east,lit=true,working=false,variant=6": { "model": "token_coins:block/coin_press/coin_press_powered_with_cookie", "y": 90 },
+    "facing=south,lit=true,working=false,variant=6": { "model": "token_coins:block/coin_press/coin_press_powered_with_cookie", "y": 180 },
+    "facing=west,lit=true,working=false,variant=6": { "model": "token_coins:block/coin_press/coin_press_powered_with_cookie", "y": 270 },
+    "facing=north,lit=true,working=false,variant=6": { "model": "token_coins:block/coin_press/coin_press_powered_with_cookie", "y": 0 },
+
     "facing=east,lit=true,working=true,variant=0": { "model": "token_coins:block/coin_press/coin_press_working_default", "y": 90 },
     "facing=south,lit=true,working=true,variant=0": { "model": "token_coins:block/coin_press/coin_press_working_default", "y": 180 },
     "facing=west,lit=true,working=true,variant=0": { "model": "token_coins:block/coin_press/coin_press_working_default", "y": 270 },
@@ -89,6 +99,11 @@
     "facing=south,lit=true,working=true,variant=5": { "model": "token_coins:block/coin_press/coin_press_working_with_netherite", "y": 180 },
     "facing=west,lit=true,working=true,variant=5": { "model": "token_coins:block/coin_press/coin_press_working_with_netherite", "y": 270 },
     "facing=north,lit=true,working=true,variant=5": { "model": "token_coins:block/coin_press/coin_press_working_with_netherite", "y": 0 },
+
+    "facing=east,lit=true,working=true,variant=6": { "model": "token_coins:block/coin_press/coin_press_working_with_cookie", "y": 90 },
+    "facing=south,lit=true,working=true,variant=6": { "model": "token_coins:block/coin_press/coin_press_working_with_cookie", "y": 180 },
+    "facing=west,lit=true,working=true,variant=6": { "model": "token_coins:block/coin_press/coin_press_working_with_cookie", "y": 270 },
+    "facing=north,lit=true,working=true,variant=6": { "model": "token_coins:block/coin_press/coin_press_working_with_cookie", "y": 0 },
 
     "facing=east,lit=false,working=true": { "model": "token_coins:block/coin_press/coin_press_default", "y": 90 },
     "facing=south,lit=false,working=true": { "model": "token_coins:block/coin_press/coin_press_default", "y": 180 },

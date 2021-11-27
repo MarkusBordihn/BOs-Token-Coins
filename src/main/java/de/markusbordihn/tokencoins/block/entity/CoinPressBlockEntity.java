@@ -175,6 +175,8 @@ public class CoinPressBlockEntity extends BaseContainerBlockEntity
     } else if (itemStack
         .is(de.markusbordihn.materialelements.item.ModItems.NETHERITE_NUGGET.get())) {
       return 5;
+    } else if (itemStack.is(Items.COOKIE)) {
+      return 6;
     }
     return 0;
   }

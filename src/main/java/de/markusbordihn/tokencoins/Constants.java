@@ -30,6 +30,7 @@ public final class Constants {
 
   // General Mod definitions
   public static final String LOG_NAME = "Bo's Token Coins";
+  public static final String LOG_REGISTER_PREFIX = "🪙 Register Bo's Token";
   public static final String MOD_COMMAND = "token_coins";
   public static final String MOD_ID = "token_coins";
   public static final String MOD_NAME = "Bo's Token Coins";

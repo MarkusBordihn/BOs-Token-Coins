@@ -26,8 +26,8 @@ import net.minecraft.world.item.ItemStack;
 
 public class CoinPressStampTopSlot extends Slot {
 
-  public CoinPressStampTopSlot(Container p_40223_, int p_40224_, int p_40225_, int p_40226_) {
-    super(p_40223_, p_40224_, p_40225_, p_40226_);
+  public CoinPressStampTopSlot(Container container, int p_40224_, int p_40225_, int p_40226_) {
+    super(container, p_40224_, p_40225_, p_40226_);
   }
 
   @Override

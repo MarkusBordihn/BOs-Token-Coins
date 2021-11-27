@@ -19,25 +19,39 @@
 
 package de.markusbordihn.tokencoins.item.coin;
 
-import de.markusbordihn.tokencoins.item.TokenCoinType;
 import net.minecraft.world.level.block.Block;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fmllegacy.RegistryObject;
+import net.minecraftforge.fmlserverevents.FMLServerAboutToStartEvent;
 
+import de.markusbordihn.tokencoins.item.TokenCoinType;
+
+@Mod.EventBusSubscriber
 public class GoldCoinItem extends CoinItem {
+
+  private static int coinValue = COMMON.goldTokenCoinValue.get();
+
+  @SubscribeEvent
+  public static void onServerAboutToStartEvent(FMLServerAboutToStartEvent event) {
+    coinValue = COMMON.goldTokenCoinValue.get();
+  }
 
   public GoldCoinItem() {
     super(TokenCoinType.Material.GOLD, TokenCoinType.Motive.NONE);
-    this.coinValue = 10;
   }
 
   public GoldCoinItem(TokenCoinType.Motive motive) {
     super(TokenCoinType.Material.GOLD, motive);
-    this.coinValue = 10;
   }
 
   public GoldCoinItem(TokenCoinType.Motive motive, RegistryObject<Block> block) {
     super(TokenCoinType.Material.GOLD, motive, block);
-    this.coinValue = 10;
+  }
+
+  @Override
+  public int getValue() {
+    return coinValue;
   }
 
 }
