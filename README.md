@@ -21,4 +21,4 @@ Requires:
 
 [logo]: src/main/resources/logo.png
 [material-elements]: https://www.curseforge.com/minecraft/mc-mods/material-elements
-[coin_press]: docs/assets/coin_press.gif
+[coin_press]: docs/assets/coin_press.png
