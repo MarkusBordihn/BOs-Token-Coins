@@ -4,7 +4,7 @@ layout: single
 title: "Coins"
 ---
 
-![Coin Image](../assets/token_coin.gif)
+![Coin Image](../assets/token_coin.png)
 
 ## Crafting
 

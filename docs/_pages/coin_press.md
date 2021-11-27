@@ -4,7 +4,7 @@ layout: single
 title: "Coin Press"
 ---
 
-![Coin Press Image](../assets/coin_press.gif)
+![Coin Press Image](../assets/coin_press.png)
 
 The coin press is used together with the coin stamps to craft the corresponding coins with basic
 material like:

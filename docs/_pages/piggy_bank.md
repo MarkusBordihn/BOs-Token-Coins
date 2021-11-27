@@ -4,7 +4,7 @@ layout: single
 title: "Piggy Bank"
 ---
 
-![Piggy Bank](../assets/piggy_bank.gif)
+![Piggy Bank](../assets/piggy_bank.png)
 
 Piggy Banks exists in different kind of formats and colors and are used to store your coins.
 

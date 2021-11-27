@@ -4,7 +4,7 @@ layout: single
 title: "Coin Stamps"
 ---
 
-![Coin Stamp Image](../assets/coin_stamp.gif)
+![Coin Stamp Image](../assets/coin_stamp.png)
 
 Coin stamp could have different kind of motives and are used to craft coins in the coin press.
 

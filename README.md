@@ -19,6 +19,6 @@ Requires:
 
 🚀 Visit https://markusbordihn.github.io/BOs-Token-Coins/ for a detailed overview.
 
-[logo]: logo.png
+[logo]: src/main/resources/logo.png
 [material-elements]: https://www.curseforge.com/minecraft/mc-mods/material-elements
 [coin_press]: docs/assets/coin_press.gif
