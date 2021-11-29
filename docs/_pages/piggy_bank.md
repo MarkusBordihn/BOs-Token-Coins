@@ -36,6 +36,14 @@ in your piggy bank.
 Just like a normal piggy bank, destroy you piggy bank and it will drop all of your collected coins.
 Note: The piggy bank itself will not be dropped and is just destroyed.
 
+## Effects
+
+Piggy banks has special effects which could be activated with specific items.
+For example give a carrot to the pig piggy bank and see whats happen.
+Keep in mind that not all effects are positive, so you should not use flint and stone on the TNT piggy bank.
+
+Note: The effects could be deactivated over the configuration file.
+
 ## Limitations
 
 The piggy bank is limited internally to about 27 slots and tries to intelligent sort and stack the

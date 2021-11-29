@@ -26,3 +26,12 @@ Coins are available in the following 5 materials:
 ![](../assets/coins/iron_token_coin.png) Iron Token Coin<br>
 ![](../assets/coins/steel_token_coin.png) Steel Token Coin<br>
 ![](../assets/coins/netherite_token_coin.png) Netherite Token Coin<br>
+
+Tip: You can use cookies to create eatable cookie token coins.
+
+## Configuration
+
+The token coin values could be adjusted over the config file.
+
+Note: The piggy bank value could be incorrect for already stored coins, if the value is increased or decreased.
+But as soon you break the piggy bank the coins should have the correct values.

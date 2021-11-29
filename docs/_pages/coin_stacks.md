@@ -26,3 +26,7 @@ Coin Stacks are limited to a max. of 16 token coins and can't be mixed inside a 
 ## Performance
 
 Because coin stacks are more or less static blocks, placed blocks will cause no performance issues on the server.
+
+## Configuration
+
+The coin stack feature could be deactivated over the config file.

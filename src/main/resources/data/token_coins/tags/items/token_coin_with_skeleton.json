@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "token_coins:copper_token_coin_with_skeleton",
+    "token_coins:gold_token_coin_with_skeleton",
+    "token_coins:iron_token_coin_with_skeleton",
+    "token_coins:steel_token_coin_with_skeleton",
+    "token_coins:netherite_token_coin_with_skeleton"
+  ]
+}

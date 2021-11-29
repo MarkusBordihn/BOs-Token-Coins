@@ -6,11 +6,14 @@ Token Coins is a Minecraft Forge Mod which adds different kind of token coins an
 
 ![Coin Press][coin_press]
 
-Features:
+🪙 Features:
 
 - Coin Press
 - Coins in different kind of Material
 - Coins with different motives
+- Piggy Banks to store your coins with special effects
+- Decorative coin stacks
+- Configurable values per coin type
 - JRE Integration
 
 Requires:

@@ -26,6 +26,7 @@ import net.minecraft.core.Registry;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -42,22 +43,22 @@ public class TokenCoins {
   public static final Logger log = LogManager.getLogger(Constants.LOG_NAME);
 
   public TokenCoins() {
-    FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setupCommon);
-    FMLJavaModLoadingContext.get().getModEventBus().addListener(ClientSetup::new);
-    FMLJavaModLoadingContext.get().getModEventBus().addGenericListener(MenuType.class,
-        this::registerContainers);
+    final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+    modEventBus.addListener(this::setupCommon);
+    modEventBus.addListener(ClientSetup::new);
+    modEventBus.addGenericListener(MenuType.class, this::registerContainers);
 
     log.info("{} Items ...", Constants.LOG_REGISTER_PREFIX);
-    ModItems.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
+    ModItems.ITEMS.register(modEventBus);
 
     log.info("{} Blocks ...", Constants.LOG_REGISTER_PREFIX);
-    ModBlocks.BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
+    ModBlocks.BLOCKS.register(modEventBus);
 
     log.info("{} Block Entities ...", Constants.LOG_REGISTER_PREFIX);
-    ModBlocks.ENTITIES.register(FMLJavaModLoadingContext.get().getModEventBus());
+    ModBlocks.ENTITIES.register(modEventBus);
 
     log.info("{} Recipe Serializers ...", Constants.LOG_REGISTER_PREFIX);
-    ModRecipes.RECIPES_SERIALIZERS.register(FMLJavaModLoadingContext.get().getModEventBus());
+    ModRecipes.RECIPES_SERIALIZERS.register(modEventBus);
   }
 
   private void registerContainers(RegistryEvent.Register<MenuType<?>> event) {

@@ -54,15 +54,22 @@ public class PiggyBankGhastBlock extends PiggyBankBlock {
   }
 
   @Override
-  public InteractionResult use(BlockState blockState, Level level, BlockPos blockPos, Player player,
+  public InteractionResult useEffect(BlockState blockState, Level level, BlockPos blockPos, Player player,
       InteractionHand hand, BlockHitResult hitResult) {
     ItemStack handItemStack = player.getItemInHand(hand);
     if (handItemStack.is(Items.MAGMA_CREAM)) {
       playSound(player, SoundEvents.GENERIC_EAT);
       addParticleOnTop(level, ParticleTypes.HEART, blockPos);
       return InteractionResult.SUCCESS;
+    } else if (handItemStack.is(Items.FLINT_AND_STEEL)) {
+      playSound(player, SoundEvents.FLINTANDSTEEL_USE);
+      addParticleOnTop(level, ParticleTypes.FLAME, blockPos, 2);
+      playSound(player, SoundEvents.GHAST_HURT);
+      addParticle(level, ParticleTypes.ANGRY_VILLAGER, blockPos);
+      shootSnowball(level, blockPos, blockState, player);
+      return InteractionResult.SUCCESS;
     }
-    return super.use(blockState, level, blockPos, player, hand, hitResult);
+    return InteractionResult.PASS;
   }
 
   @Override

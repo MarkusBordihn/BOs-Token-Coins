@@ -41,7 +41,10 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fmllegacy.RegistryObject;
+import net.minecraftforge.fmlserverevents.FMLServerAboutToStartEvent;
 
 import de.markusbordihn.tokencoins.Constants;
 import de.markusbordihn.tokencoins.block.CoinStackBlock;
@@ -50,17 +53,30 @@ import de.markusbordihn.tokencoins.config.CommonConfig;
 import de.markusbordihn.tokencoins.item.TokenCoinType;
 import de.markusbordihn.tokencoins.tabs.TokenCoinsTab;
 
+@Mod.EventBusSubscriber
 public class CoinItem extends Item {
 
   public static final Logger log = LogManager.getLogger(Constants.LOG_NAME);
 
+  // Config
   public static final CommonConfig.Config COMMON = CommonConfig.COMMON;
+  private static boolean enableTokenCoinStacks = COMMON.enableTokenCoinStacks.get();
 
   private TokenCoinType.Material coinMaterial = TokenCoinType.Material.COPPER;
   private TokenCoinType.Motive coinMotive = TokenCoinType.Motive.NONE;
   private RegistryObject<Block> coinStackBlock = null;
 
   private int defaultCoinValue = 1;
+
+  @SubscribeEvent
+  public static void onServerAboutToStartEvent(FMLServerAboutToStartEvent event) {
+    enableTokenCoinStacks = COMMON.enableTokenCoinStacks.get();
+    if (enableTokenCoinStacks) {
+      log.info("🪙 \u25BA Enable Token Coin Stacks ...");
+    } else {
+      log.info("🪙 \u25A0 Disable Token Coin Stacks ...");
+    }
+  }
 
   public CoinItem(TokenCoinType.Material material, TokenCoinType.Motive motive) {
     super(new Item.Properties().tab(TokenCoinsTab.COINS));
@@ -152,7 +168,7 @@ public class CoinItem extends Item {
 
     // Check if we can place a coin stack block and clicked an empty block and maybe could place a
     // coin stack
-    if (canPlaceCoinStackBlock()) {
+    if (enableTokenCoinStacks && canPlaceCoinStackBlock()) {
       BlockPos blockPosAbove = blockPos.above();
       BlockState blockStateBlockAbove = level.getBlockState(blockPosAbove);
       BlockState blockStateBlockBelow = level.getBlockState(blockPos.below());

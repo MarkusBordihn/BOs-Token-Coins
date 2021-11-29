@@ -38,6 +38,8 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.Snowball;
+import net.minecraft.world.entity.projectile.ThrownEgg;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.item.context.UseOnContext;
@@ -56,16 +58,25 @@ import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fmlserverevents.FMLServerAboutToStartEvent;
 
 import de.markusbordihn.tokencoins.Constants;
 import de.markusbordihn.tokencoins.block.entity.PiggyBankBlockEntity;
+import de.markusbordihn.tokencoins.config.CommonConfig;
 import de.markusbordihn.tokencoins.item.coin.CoinItem;
 
+@Mod.EventBusSubscriber
 public class PiggyBankBlock extends BaseEntityBlock implements TokenCoinCompatible {
 
   public static final Logger log = LogManager.getLogger(Constants.LOG_NAME);
 
   public static final String NAME = "piggy_bank";
+
+  // Config
+  public static final CommonConfig.Config COMMON = CommonConfig.COMMON;
+  public static boolean enablePiggyBankEffects = COMMON.enablePiggyBankEffects.get();
 
   // Predefined Voxel Shapes
   protected static final VoxelShape SHAPE_10_10_10_AABB = Block.box(3, 0, 3, 13, 10, 13);
@@ -77,6 +88,16 @@ public class PiggyBankBlock extends BaseEntityBlock implements TokenCoinCompatib
   // Block States
   public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
   public static final IntegerProperty STATE = IntegerProperty.create("state", 0, 2);
+
+  @SubscribeEvent
+  public static void onServerAboutToStartEvent(FMLServerAboutToStartEvent event) {
+    enablePiggyBankEffects = COMMON.enablePiggyBankEffects.get();
+    if (enablePiggyBankEffects) {
+      log.info("🪙 \u25BA Enable Piggy Bank Effects ...");
+    } else {
+      log.info("🪙 \u25A0 Disable Piggy Bank Effects ...");
+    }
+  }
 
   public PiggyBankBlock(Properties properties) {
     super(properties);
@@ -95,9 +116,22 @@ public class PiggyBankBlock extends BaseEntityBlock implements TokenCoinCompatib
         blockPos.getZ() + 0.5);
   }
 
+  public void addParticle(Level level, ParticleOptions particle, BlockPos blockPos, int repeat) {
+    for (int i = 0; i < repeat; ++i) {
+      addParticle(level, particle, blockPos);
+    }
+  }
+
   public void addParticleOnTop(Level level, ParticleOptions particle, BlockPos blockPos) {
     addParticle(level, particle, blockPos.getX() + 0.5, blockPos.getY() + 0.75,
         blockPos.getZ() + 0.5);
+  }
+
+  public void addParticleOnTop(Level level, ParticleOptions particle, BlockPos blockPos,
+      int repeat) {
+    for (int i = 0; i < repeat; ++i) {
+      addParticleOnTop(level, particle, blockPos);
+    }
   }
 
   public void playSound(Player player, SoundEvent sound, float volume, float pitch) {
@@ -110,9 +144,23 @@ public class PiggyBankBlock extends BaseEntityBlock implements TokenCoinCompatib
     playSound(player, sound, 1.0F, 1.0F);
   }
 
+  public void shootEgg(Level level, BlockPos blockPos, BlockState blockState, Player player) {
+    Direction direction = blockState.getValue(PiggyBankBlock.FACING);
+    ThrownEgg thrownEgg = new ThrownEgg(level, blockPos.getX(), blockPos.getY(), blockPos.getZ());
+    thrownEgg.shoot(direction.getStepX(), direction.getStepY(), direction.getStepZ(), 0.5F, 0.5F);
+    level.addFreshEntity(thrownEgg);
+  }
+
+  public void shootSnowball(Level level, BlockPos blockPos, BlockState blockState, Player player) {
+    Direction direction = blockState.getValue(PiggyBankBlock.FACING);
+    Snowball snowball = new Snowball(level, blockPos.getX(), blockPos.getY(), blockPos.getZ());
+    snowball.shoot(direction.getStepX(), direction.getStepY(), direction.getStepZ(), 0.5F, 0.5F);
+    level.addFreshEntity(snowball);
+  }
+
   /**
-   * Allows to add individual and additional effects for consumed token coins.
-   * Returns true will avoid the default sound.
+   * Allows to add individual and additional effects for consumed token coins. Return of true will
+   * avoid the default sound.
    */
   public boolean consumeTokenCoinEffects(Level level, BlockPos blockPos, BlockState blockState,
       BlockEntity blockEntity, ItemStack itemStack, UseOnContext context) {
@@ -123,6 +171,14 @@ public class PiggyBankBlock extends BaseEntityBlock implements TokenCoinCompatib
     if (!level.getBlockTicks().hasScheduledTick(blockPos, this)) {
       level.getBlockTicks().scheduleTick(blockPos, this, 20);
     }
+  }
+
+  /**
+   * Allows adding additional use effects for fun or for more interaction.
+   */
+  public InteractionResult useEffect(BlockState blockState, Level level, BlockPos blockPos,
+      Player player, InteractionHand hand, BlockHitResult hitResult) {
+    return InteractionResult.PASS;
   }
 
   @Override
@@ -227,6 +283,15 @@ public class PiggyBankBlock extends BaseEntityBlock implements TokenCoinCompatib
   @Override
   public InteractionResult use(BlockState blockState, Level level, BlockPos blockPos, Player player,
       InteractionHand hand, BlockHitResult hitResult) {
+
+    // Check if there are any use effect and early return if result is not pass.
+    if (enablePiggyBankEffects) {
+      InteractionResult interactionResultEffect =
+          useEffect(blockState, level, blockPos, player, hand, hitResult);
+      if (interactionResultEffect != InteractionResult.PASS) {
+        return interactionResultEffect;
+      }
+    }
 
     // Return fail, if server or client thinks that the hand is not empty.
     if (!player.getMainHandItem().isEmpty() || !player.getItemInHand(hand).isEmpty()) {
