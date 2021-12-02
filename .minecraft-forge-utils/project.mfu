@@ -18,12 +18,12 @@
     "assetsPath": "src\\main\\resources\\assets\\token_coins",
     "className": "TokenCoins",
     "classPath": "src\\main\\java\\de\\markusbordihn\\tokencoins",
+    "dataPath": "src\\main\\resources\\data\\token_coins",
     "description": "This is the description for a new Forge mod",
+    "namespace": "de.markusbordihn.tokencoins",
     "templatePath": "node_modules\\minecraft-forge-utils\\third_party\\minecraft-forge-template-1.17.1",
     "templatesPath": "node_modules\\minecraft-forge-utils\\third_party\\minecraft-forge-template-1.17.1\\templates",
-    "namespace": "de.markusbordihn.tokencoins",
-    "vendorName": "markusbordihn",
-    "dataPath": "src\\main\\resources\\data\\token_coins"
+    "vendorName": "markusbordihn"
   },
   "gameType": "forge",
   "id": "token_coins",
@@ -36,8 +36,8 @@
     "ModId": "token_coins",
     "ModName": "Bo's Token Coins",
     "packageNamespace": "de.markusbordihn.tokencoins",
-    "classPath": "src\\main\\java\\de\\markusbordihn\\tokencoins",
-    "assetsPath": "src\\main\\resources\\assets\\token_coins"
+    "assetsPath": "src\\main\\resources\\assets\\token_coins",
+    "classPath": "src\\main\\java\\de\\markusbordihn\\tokencoins"
   },
   "type": "unknown",
   "version": "0.0.0"
