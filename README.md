@@ -1,3 +1,6 @@
+[![Token Coins Downloads](http://cf.way2muchnoise.eu/full_token-coins_downloads.svg)](https://www.curseforge.com/minecraft/mc-mods/token-coins)
+[![Token Coins MC Versions](http://cf.way2muchnoise.eu/versions/Minecraft_token-coins_all.svg)](https://www.curseforge.com/minecraft/mc-mods/token-coins)
+
 # Bo's Token Coins
 
 ![Token Coins][logo]

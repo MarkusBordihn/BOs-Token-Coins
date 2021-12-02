@@ -9,6 +9,7 @@
     "sonarsource.sonarlint-vscode",
     "streetsidesoftware.code-spell-checker",
     "vscjava.vscode-gradle",
-    "vscjava.vscode-java-pack"
+    "vscjava.vscode-java-pack",
+    "redhat.java"
   ]
 }
