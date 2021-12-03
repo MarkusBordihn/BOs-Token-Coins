@@ -25,6 +25,14 @@ Requires:
 
 🚀 Visit https://markusbordihn.github.io/BOs-Token-Coins/ for a detailed overview.
 
+## Version Status Overview 🛠️
+
+| Version        | Status                |
+| -------------- | --------------------- |
+| Fabric Version | ❌ Not planned        |
+| Forge 1.17.1   | ⚠️ Maintenance only   |
+| Forge 1.18     | ✔️ Active development |
+
 [logo]: src/main/resources/logo.png
 [material-elements]: https://www.curseforge.com/minecraft/mc-mods/material-elements
 [coin_press]: docs/assets/coin_press.png

@@ -48,7 +48,7 @@ public class PiggyBankBlockEntity extends BlockEntity {
 
   private NonNullList<ItemStack> items = NonNullList.withSize(27, ItemStack.EMPTY);
   private int storedValue = 0;
-  private String owner;
+  private String owner = "";
 
   public PiggyBankBlockEntity(BlockPos blockPos, BlockState blockState) {
     super(ModBlocks.PIGGY_BANK_ENTITY.get(), blockPos, blockState);
