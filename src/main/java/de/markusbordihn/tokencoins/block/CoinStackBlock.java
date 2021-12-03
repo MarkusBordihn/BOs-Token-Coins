@@ -46,7 +46,8 @@ import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.minecraftforge.fmllegacy.RegistryObject;
+
+import net.minecraftforge.registries.RegistryObject;
 
 import de.markusbordihn.tokencoins.Constants;
 import de.markusbordihn.tokencoins.item.TokenCoinType;

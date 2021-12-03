@@ -29,6 +29,8 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 
+import net.minecraftforge.event.ForgeEventFactory;
+
 import de.markusbordihn.tokencoins.Constants;
 import de.markusbordihn.tokencoins.block.entity.CoinPressBlockEntity;
 
@@ -87,7 +89,6 @@ public class CoinPressResultSlot extends Slot {
     }
 
     this.removeCount = 0;
-    net.minecraftforge.fmllegacy.hooks.BasicEventHooks.firePlayerSmeltedEvent(this.player,
-        itemStack);
+    ForgeEventFactory.firePlayerSmeltedEvent(this.player, itemStack);
   }
 }

@@ -58,9 +58,11 @@ import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+
+import net.minecraftforge.event.server.ServerAboutToStartEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fmlserverevents.FMLServerAboutToStartEvent;
+import net.minecraftforge.registries.RegistryObject;
 
 import de.markusbordihn.tokencoins.Constants;
 import de.markusbordihn.tokencoins.block.entity.PiggyBankBlockEntity;
@@ -90,7 +92,7 @@ public class PiggyBankBlock extends BaseEntityBlock implements TokenCoinCompatib
   public static final IntegerProperty STATE = IntegerProperty.create("state", 0, 2);
 
   @SubscribeEvent
-  public static void onServerAboutToStartEvent(FMLServerAboutToStartEvent event) {
+  public static void onServerAboutToStartEvent(ServerAboutToStartEvent event) {
     enablePiggyBankEffects = COMMON.enablePiggyBankEffects.get();
     if (enablePiggyBankEffects) {
       log.info("🪙 \u25BA Enable Piggy Bank Effects ...");
@@ -169,7 +171,7 @@ public class PiggyBankBlock extends BaseEntityBlock implements TokenCoinCompatib
 
   private void scheduleTick(Level level, BlockPos blockPos) {
     if (!level.getBlockTicks().hasScheduledTick(blockPos, this)) {
-      level.getBlockTicks().scheduleTick(blockPos, this, 20);
+      level.scheduleTick(blockPos, this, 20);
     }
   }
 

@@ -30,10 +30,11 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fmllegacy.RegistryObject;
-import net.minecraftforge.fmlserverevents.FMLServerAboutToStartEvent;
+import net.minecraftforge.registries.RegistryObject;
+import net.minecraftforge.event.server.ServerAboutToStartEvent;
 
 import de.markusbordihn.tokencoins.item.TokenCoinType;
 
@@ -43,7 +44,7 @@ public class CookieCoinItem extends CoinItem {
   private static int coinValue = COMMON.cookieTokenCoinValue.get();
 
   @SubscribeEvent
-  public static void onServerAboutToStartEvent(FMLServerAboutToStartEvent event) {
+  public static void onServerAboutToStartEvent(ServerAboutToStartEvent event) {
     coinValue = COMMON.cookieTokenCoinValue.get();
   }
 

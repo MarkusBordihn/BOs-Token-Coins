@@ -33,9 +33,10 @@ import net.minecraft.world.item.crafting.AbstractCookingRecipe;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.Level;
+
+import net.minecraftforge.event.server.ServerAboutToStartEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
-import net.minecraftforge.fmlserverevents.FMLServerAboutToStartEvent;
 
 import de.markusbordihn.tokencoins.Constants;
 import de.markusbordihn.tokencoins.block.ModBlocks;
@@ -67,7 +68,7 @@ public class CoinPressRecipe extends AbstractCookingRecipe {
 	}
 
 	@SubscribeEvent
-	public static void handleServerAboutToStartEvent(FMLServerAboutToStartEvent event) {
+	public static void handleServerAboutToStartEvent(ServerAboutToStartEvent event) {
 		// Make sure to clear recipe cache on server start to avoid side effects.
 		recipeMap = new ConcurrentHashMap<>();
 		cachedRecipes = false;

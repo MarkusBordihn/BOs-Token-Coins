@@ -41,10 +41,11 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fmllegacy.RegistryObject;
-import net.minecraftforge.fmlserverevents.FMLServerAboutToStartEvent;
+import net.minecraftforge.registries.RegistryObject;
+import net.minecraftforge.event.server.ServerAboutToStartEvent;
 
 import de.markusbordihn.tokencoins.Constants;
 import de.markusbordihn.tokencoins.block.CoinStackBlock;
@@ -69,7 +70,7 @@ public class CoinItem extends Item {
   private int defaultCoinValue = 1;
 
   @SubscribeEvent
-  public static void onServerAboutToStartEvent(FMLServerAboutToStartEvent event) {
+  public static void onServerAboutToStartEvent(ServerAboutToStartEvent event) {
     enableTokenCoinStacks = COMMON.enableTokenCoinStacks.get();
     if (enableTokenCoinStacks) {
       log.info("🪙 \u25BA Enable Token Coin Stacks ...");

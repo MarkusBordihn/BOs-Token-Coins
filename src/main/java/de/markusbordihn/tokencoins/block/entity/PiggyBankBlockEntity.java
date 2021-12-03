@@ -48,7 +48,7 @@ public class PiggyBankBlockEntity extends BlockEntity {
 
   private NonNullList<ItemStack> items = NonNullList.withSize(27, ItemStack.EMPTY);
   private int storedValue = 0;
-  private String owner;
+  private String owner = "";
 
   public PiggyBankBlockEntity(BlockPos blockPos, BlockState blockState) {
     super(ModBlocks.PIGGY_BANK_ENTITY.get(), blockPos, blockState);
@@ -162,12 +162,11 @@ public class PiggyBankBlockEntity extends BlockEntity {
   }
 
   @Override
-  public CompoundTag save(CompoundTag compoundTag) {
-    super.save(compoundTag);
+  public void saveAdditional(CompoundTag compoundTag) {
+    super.saveAdditional(compoundTag);
     compoundTag.putInt("storedValue", this.storedValue);
     compoundTag.putString("owner", this.owner);
     ContainerHelper.saveAllItems(compoundTag, this.items);
-    return compoundTag;
   }
 
 }

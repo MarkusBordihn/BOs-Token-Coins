@@ -423,8 +423,8 @@ public class CoinPressBlockEntity extends BaseContainerBlockEntity
   }
 
   @Override
-  public CompoundTag save(CompoundTag compoundTag) {
-    super.save(compoundTag);
+  public void saveAdditional(CompoundTag compoundTag) {
+    super.saveAdditional(compoundTag);
     compoundTag.putInt("burnDuration", this.burnDuration);
     compoundTag.putInt("burnTime", this.burnTime);
     compoundTag.putInt("cookTime", this.cookingProgress);
@@ -434,7 +434,6 @@ public class CoinPressBlockEntity extends BaseContainerBlockEntity
     this.recipesUsed.forEach((resourceLocation, index) -> recipesUsedCompound
         .putInt(resourceLocation.toString(), index));
     compoundTag.put("recipesUsed", recipesUsedCompound);
-    return compoundTag;
   }
 
   @Override
