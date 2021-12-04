@@ -44,6 +44,7 @@ import de.markusbordihn.tokencoins.item.ModItems;
 public class PiggyBankLumpiBlock extends PiggyBankBlock {
 
   public static final String NAME = "piggy_bank_lumpi";
+  public static final int THANKS_TYPE = 1;
 
   public PiggyBankLumpiBlock(Properties properties) {
     super(properties);
@@ -52,6 +53,9 @@ public class PiggyBankLumpiBlock extends PiggyBankBlock {
   @Override
   public VoxelShape getShape(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos,
       CollisionContext collisionContext) {
+    if (blockState.getValue(PiggyBankBlock.TYPE) == 1) {
+      return PiggyBankBlock.SHAPE_8_15_14_AABB;
+    }
     return PiggyBankBlock.SHAPE_8_10_12_AABB;
   }
 
@@ -69,8 +73,20 @@ public class PiggyBankLumpiBlock extends PiggyBankBlock {
         || handItemStack.is(Items.BONE)) {
       playSound(player, SoundEvents.WOLF_PANT);
       addParticle(level, ParticleTypes.HAPPY_VILLAGER, blockPos);
+    } else if (handItemStack.is(ModItems.COOKIE_TOKEN_COIN_WITH_LEKOOPA.get())) {
+      playSound(player, SoundEvents.WOLF_PANT);
+      addParticleOnTop(level, ParticleTypes.HEART, blockPos, 3);
     }
     return InteractionResult.PASS;
+  }
+
+  @Override
+  public InteractionResult consumeCookieTokenCoin(Level level, BlockPos blockPos,
+      BlockState blockState, BlockEntity blockEntity, ItemStack itemStack, UseOnContext context) {
+    addParticleOnTop(level, ParticleTypes.HAPPY_VILLAGER, blockPos);
+    BlockState newBlockState = setType(level, blockPos, blockState, THANKS_TYPE);
+    return super.consumeCookieTokenCoin(level, blockPos, newBlockState, blockEntity, itemStack,
+        context);
   }
 
   @Override

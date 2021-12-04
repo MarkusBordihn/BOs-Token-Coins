@@ -62,15 +62,16 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.event.server.ServerAboutToStartEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.registries.RegistryObject;
 
 import de.markusbordihn.tokencoins.Constants;
 import de.markusbordihn.tokencoins.block.entity.PiggyBankBlockEntity;
 import de.markusbordihn.tokencoins.config.CommonConfig;
 import de.markusbordihn.tokencoins.item.coin.CoinItem;
+import de.markusbordihn.tokencoins.item.coin.CookieCoinItem;
 
 @Mod.EventBusSubscriber
-public class PiggyBankBlock extends BaseEntityBlock implements TokenCoinCompatible {
+public class PiggyBankBlock extends BaseEntityBlock
+    implements TokenCoinCompatible, CookieTokenCoinCompatible {
 
   public static final Logger log = LogManager.getLogger(Constants.LOG_NAME);
 
@@ -85,11 +86,13 @@ public class PiggyBankBlock extends BaseEntityBlock implements TokenCoinCompatib
   protected static final VoxelShape SHAPE_10_12_12_90DEG_AABB = Block.box(1, 0, 3, 15, 10, 13);
   protected static final VoxelShape SHAPE_10_12_12_AABB = Block.box(3, 0, 1, 13, 10, 15);
   protected static final VoxelShape SHAPE_8_10_12_AABB = Block.box(4, 0, 0, 12, 10, 16);
+  protected static final VoxelShape SHAPE_8_15_14_AABB = Block.box(4, 0, 0, 12, 15, 14);
   protected static final VoxelShape SHAPE_AABB = Block.box(4, 0, 4, 12, 8, 12);
 
   // Block States
   public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
   public static final IntegerProperty STATE = IntegerProperty.create("state", 0, 2);
+  public static final IntegerProperty TYPE = IntegerProperty.create("type", 0, 2);
 
   @SubscribeEvent
   public static void onServerAboutToStartEvent(ServerAboutToStartEvent event) {
@@ -103,8 +106,8 @@ public class PiggyBankBlock extends BaseEntityBlock implements TokenCoinCompatib
 
   public PiggyBankBlock(Properties properties) {
     super(properties);
-    this.registerDefaultState(
-        this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(STATE, 0));
+    this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH)
+        .setValue(STATE, 0).setValue(TYPE, 0));
   }
 
   public void addParticle(Level level, ParticleOptions particle, double x, double y, double z) {
@@ -160,6 +163,35 @@ public class PiggyBankBlock extends BaseEntityBlock implements TokenCoinCompatib
     level.addFreshEntity(snowball);
   }
 
+  public BlockState setState(Level level, BlockPos blockPos, BlockState blockState, int state) {
+    BlockState newBlockState = blockState.setValue(PiggyBankBlock.STATE, state);
+    if (blockState.getValue(PiggyBankBlock.STATE) != state) {
+      level.setBlock(blockPos, newBlockState, 3);
+    }
+    return newBlockState;
+  }
+
+  public BlockState setType(Level level, BlockPos blockPos, BlockState blockState, int type) {
+    BlockState newBlockState =
+        blockState.setValue(PiggyBankBlock.STATE, 0).setValue(PiggyBankBlock.TYPE, type);
+    if (blockState.getValue(PiggyBankBlock.STATE) != 0
+        || blockState.getValue(PiggyBankBlock.TYPE) != type) {
+      level.setBlock(blockPos, newBlockState, 3);
+    }
+    return newBlockState;
+  }
+
+  public BlockState setStateAndType(Level level, BlockPos blockPos, BlockState blockState,
+      int state, int type) {
+    BlockState newBlockState =
+        blockState.setValue(PiggyBankBlock.STATE, state).setValue(PiggyBankBlock.TYPE, type);
+    if (blockState.getValue(PiggyBankBlock.STATE) != state
+        || blockState.getValue(PiggyBankBlock.TYPE) != type) {
+      level.setBlock(blockPos, newBlockState, 3);
+    }
+    return newBlockState;
+  }
+
   /**
    * Allows to add individual and additional effects for consumed token coins. Return of true will
    * avoid the default sound.
@@ -171,7 +203,7 @@ public class PiggyBankBlock extends BaseEntityBlock implements TokenCoinCompatib
 
   private void scheduleTick(Level level, BlockPos blockPos) {
     if (!level.getBlockTicks().hasScheduledTick(blockPos, this)) {
-      level.scheduleTick(blockPos, this, 20);
+      level.scheduleTick(blockPos, this, 25);
     }
   }
 
@@ -195,7 +227,7 @@ public class PiggyBankBlock extends BaseEntityBlock implements TokenCoinCompatib
 
   @Override
   protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> blockState) {
-    blockState.add(FACING, STATE);
+    blockState.add(FACING, STATE, TYPE);
   }
 
   @Override
@@ -248,6 +280,8 @@ public class PiggyBankBlock extends BaseEntityBlock implements TokenCoinCompatib
       BlockEntity blockEntity, ItemStack itemStack, UseOnContext context) {
     CoinItem coinItem = (CoinItem) itemStack.getItem();
     int storedTokenCoins = 0;
+
+    // Get Piggy Bank Entity and update level reference.
     PiggyBankBlockEntity blockEntityInstance = (PiggyBankBlockEntity) blockEntity;
     blockEntityInstance.updateLevel(level);
 
@@ -264,7 +298,7 @@ public class PiggyBankBlock extends BaseEntityBlock implements TokenCoinCompatib
     if (storedTokenCoins > 0) {
       // Update block state for animation.
       if (blockState.getValue(PiggyBankBlock.STATE) != 1) {
-        level.setBlock(blockPos, blockState.setValue(STATE, 1), 3);
+        level.setBlock(blockPos, blockState.setValue(PiggyBankBlock.STATE, 1), 3);
       }
 
       // Play a confirmation sound and effects
@@ -273,7 +307,7 @@ public class PiggyBankBlock extends BaseEntityBlock implements TokenCoinCompatib
             1.0F);
       }
 
-      // Shrink item stack with the stored amount and inform block entity about the change
+      // Shrink item stack with the stored amount and inform block entity about the change.
       itemStack.shrink(storedTokenCoins);
       blockEntityInstance.increaseStoredValue(coinItem.getValue() * storedTokenCoins);
       blockEntityInstance.setChanged();
@@ -283,9 +317,30 @@ public class PiggyBankBlock extends BaseEntityBlock implements TokenCoinCompatib
   }
 
   @Override
+  public InteractionResult consumeCookieTokenCoin(Level level, BlockPos blockPos,
+      BlockState blockState, BlockEntity blockEntity, ItemStack itemStack, UseOnContext context) {
+    // Get Piggy Bank Entity and update level reference.
+    PiggyBankBlockEntity blockEntityInstance = (PiggyBankBlockEntity) blockEntity;
+    blockEntityInstance.updateLevel(level);
+
+    // Schedule Tick for Animation reset.
+    scheduleTick(level, blockPos);
+
+    // Update block state for animation.
+    if (blockState.getValue(PiggyBankBlock.STATE) != 1) {
+      level.setBlock(blockPos, blockState.setValue(PiggyBankBlock.STATE, 1), 3);
+    }
+
+    // Shrink item stack and inform block entity about the change.
+    itemStack.shrink(1);
+    blockEntityInstance.setChanged();
+
+    return InteractionResult.CONSUME;
+  }
+
+  @Override
   public InteractionResult use(BlockState blockState, Level level, BlockPos blockPos, Player player,
       InteractionHand hand, BlockHitResult hitResult) {
-
     // Check if there are any use effect and early return if result is not pass.
     if (enablePiggyBankEffects) {
       InteractionResult interactionResultEffect =
@@ -367,10 +422,11 @@ public class PiggyBankBlock extends BaseEntityBlock implements TokenCoinCompatib
   @Override
   public void animateTick(BlockState blockState, Level level, BlockPos blockPos, Random random) {
     // Increase animation state value for simple two steps animation (client-only).
-    if (blockState.getValue(STATE) == 1) {
-      level.setBlock(blockPos, blockState.setValue(STATE, 2), 3);
-    } else if (blockState.getValue(STATE) == 2) {
-      level.setBlock(blockPos, blockState.setValue(STATE, 0), 3);
+    // Reset type with the last step.
+    if (blockState.getValue(PiggyBankBlock.STATE) == 1) {
+      level.setBlock(blockPos, blockState.setValue(PiggyBankBlock.STATE, 2), 3);
+    } else if (blockState.getValue(PiggyBankBlock.STATE) == 2) {
+      level.setBlock(blockPos, blockState.setValue(PiggyBankBlock.STATE, 0), 3);
     }
   }
 }

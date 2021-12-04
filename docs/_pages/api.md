@@ -38,11 +38,46 @@ public class YourBlock extends Block implements EntityBlock, TokenCoinCompatible
 ```
 
 The **consumeTokenCoin** will be only called if **canConsumeTokenCoin** returns true, which is the
-default without any overwrite.
+default without any overwrite for all token coins.
 
 With these passed parameters you can easily handle all kind of integrations.
 The **itemStack** parameter will return the currently used token coin item stack which could be used
 to get the value, material, motive of the coin or just to shrink or expand the item stack.
+
+## 🪙 The CookieTokenCoinCompatible Interface
+
+The cookie token coin items are using a separate interface called **CookieTokenCoinCompatible** to
+see if they could be used with such block.
+If you click with a cookie coin on such a compatible block, token coin will automatically call the
+**canConsumeCookieTokenCoin** and **consumeCookieTokenCoin** function of the target block.
+
+Example:
+
+```java
+import de.markusbordihn.tokencoins.block.CookieTokenCoinCompatible;
+
+public class YourBlock extends Block implements EntityBlock, CookieTokenCoinCompatible {
+
+  @Override
+  public boolean canConsumeCookieTokenCoin(Level level, BlockPos blockPos, BlockState blockState,
+      BlockEntity blockEntity, Player player, ItemStack itemStack) {
+    ...
+  }
+
+  @Override
+  public InteractionResult consumeCookieTokenCoin(Level level, BlockPos blockPos, BlockState blockState,
+      BlockEntity blockEntity, ItemStack itemStack, UseOnContext context) {
+    ...
+  }
+}
+```
+
+The **consumeCookieTokenCoin** will be only called if **canConsumeCookieTokenCoin** returns true,
+which is the default without any overwrite for all cookie token coins.
+
+With these passed parameters you can easily handle all kind of integrations.
+The **itemStack** parameter will return the currently used token coin item stack which could be used
+to get the value, material, motive of the cookie coin or just to shrink or expand the item stack.
 
 ## 🗄️ Mod Dependency
 

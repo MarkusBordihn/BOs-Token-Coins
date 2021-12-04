@@ -147,8 +147,12 @@ public class PiggyBankBlockEntity extends BlockEntity {
   }
 
   public void recheckAnimationState(Level level, BlockState blockState, BlockPos blockPos) {
+    // Reset state animation and type.
     if (blockState.getValue(PiggyBankBlock.STATE) != 0) {
-      level.setBlock(blockPos, blockState.setValue(PiggyBankBlock.STATE, 0), 3);
+      BlockState newBlockState =
+          blockState.setValue(PiggyBankBlock.STATE, 0).setValue(PiggyBankBlock.TYPE, 0);
+      level.setBlock(blockPos, newBlockState, 3);
+      this.setChanged();
     }
   }
 

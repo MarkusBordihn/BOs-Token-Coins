@@ -49,6 +49,7 @@ import net.minecraftforge.event.server.ServerAboutToStartEvent;
 
 import de.markusbordihn.tokencoins.Constants;
 import de.markusbordihn.tokencoins.block.CoinStackBlock;
+import de.markusbordihn.tokencoins.block.CookieTokenCoinCompatible;
 import de.markusbordihn.tokencoins.block.TokenCoinCompatible;
 import de.markusbordihn.tokencoins.config.CommonConfig;
 import de.markusbordihn.tokencoins.item.TokenCoinType;
@@ -149,8 +150,10 @@ public class CoinItem extends Item {
     BlockPos blockPos = context.getClickedPos();
     BlockState blockState = level.getBlockState(blockPos);
     Block block = blockState.getBlock();
+    boolean isCookieTokenCoinCompatible = block instanceof CookieTokenCoinCompatible;
 
-    // Only interact with the Block if it is Token Coin compatible.
+    // Interact with the Block directly, if it is Token Coin compatible.
+    // Check additional if the Block is Cookie Token Coin compatible for additional effects.
     if (block instanceof TokenCoinCompatible tokenCoinCompatibleBlock) {
       ItemStack itemStack = context.getItemInHand();
       BlockEntity blockEntity = level.getBlockEntity(blockPos);
@@ -162,13 +165,33 @@ public class CoinItem extends Item {
           return tokenCoinCompatibleBlock.consumeTokenCoin(level, blockPos, blockState, blockEntity,
               itemStack, context);
         }
+        if (!isCookieTokenCoinCompatible) {
+          return InteractionResult.FAIL;
+        }
+      }
+      if (!isCookieTokenCoinCompatible) {
+        return InteractionResult.sidedSuccess(level.isClientSide);
+      }
+    }
+
+    // Interact with the Block directly, if it is Cookie Token Coin compatible.
+    if (block instanceof CookieTokenCoinCompatible cookieTokenCoinCompatibleBlock) {
+      ItemStack itemStack = context.getItemInHand();
+      BlockEntity blockEntity = level.getBlockEntity(blockPos);
+      Player player = context.getPlayer();
+      // Make sure that the block can consume the token, we only accept server-side confirmations.
+      if (!level.isClientSide) {
+        if (cookieTokenCoinCompatibleBlock.canConsumeCookieTokenCoin(level, blockPos, blockState,
+            blockEntity, player, itemStack)) {
+          return cookieTokenCoinCompatibleBlock.consumeCookieTokenCoin(level, blockPos, blockState,
+              blockEntity, itemStack, context);
+        }
         return InteractionResult.FAIL;
       }
       return InteractionResult.sidedSuccess(level.isClientSide);
     }
 
-    // Check if we can place a coin stack block and clicked an empty block and maybe could place a
-    // coin stack
+    // Check if we can place a coin stack block on an empty block.
     if (enableTokenCoinStacks && canPlaceCoinStackBlock()) {
       BlockPos blockPosAbove = blockPos.above();
       BlockState blockStateBlockAbove = level.getBlockState(blockPosAbove);
