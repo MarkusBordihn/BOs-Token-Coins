@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": ["token_coins:coin_press"]
+  },
+  "criteria": {
+    "has_iron_block": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["minecraft:iron_block"]
+          }
+        ]
+      }
+    },
+    "has_piston": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["minecraft:piston"]
+          }
+        ]
+      }
+    },
+    "has_iron_coin_stamp": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["token_coins:iron_coin_stamp"]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "token_coins:coin_press"
+      }
+    }
+  },
+  "requirements": [
+    ["has_iron_block", "has_piston", "has_iron_coin_stamp", "has_the_recipe"]
+  ]
+}

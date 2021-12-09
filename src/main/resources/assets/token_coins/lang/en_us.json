@@ -1,4 +1,13 @@
 {
+  "advancements.token_coins.crafting.root.title": "Token Coins",
+  "advancements.token_coins.crafting.root.description": "Lets make some token coins.",
+  "advancements.token_coins.crafting.craft_coin_stamp.title": "Craft a iron coin stamp",
+  "advancements.token_coins.crafting.craft_coin_stamp.description": "For the coin press we need a iron coin stamp.",
+  "advancements.token_coins.crafting.craft_coin_press.title": "Let's make some token coins.",
+  "advancements.token_coins.crafting.craft_coin_press.description": "Use the coin stamp to create a coin press.",
+  "advancements.token_coins.crafting.craft_coin.title": "Give me the token coins ...",
+  "advancements.token_coins.crafting.craft_coin.description": "Use some nuggets in the coin press to create nice token coins.",
+
   "text.token_coins.coin_press": "Coin Press",
   "text.token_coins.coin_value": "Value: %1$s",
   "text.token_coins.piggy_bank_full": "Seems the \"%1$s\" is full!",

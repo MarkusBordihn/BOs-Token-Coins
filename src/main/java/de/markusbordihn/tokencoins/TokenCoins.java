@@ -22,19 +22,15 @@ package de.markusbordihn.tokencoins;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import net.minecraft.core.Registry;
 import net.minecraft.world.inventory.MenuType;
-import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 import de.markusbordihn.tokencoins.block.ModBlocks;
 import de.markusbordihn.tokencoins.item.ModItems;
 import de.markusbordihn.tokencoins.menu.CoinPressMenu;
-import de.markusbordihn.tokencoins.recipe.CoinPressRecipe;
 import de.markusbordihn.tokencoins.recipe.ModRecipes;
 
 @Mod(Constants.MOD_ID)
@@ -44,7 +40,6 @@ public class TokenCoins {
 
   public TokenCoins() {
     final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-    modEventBus.addListener(this::setupCommon);
     modEventBus.addListener(ClientSetup::new);
     modEventBus.addGenericListener(MenuType.class, this::registerContainers);
 
@@ -67,13 +62,4 @@ public class TokenCoins {
         .registerAll(new MenuType<>(CoinPressMenu::new).setRegistryName(Constants.COIN_PRESS));
   }
 
-  private void setupCommon(final FMLCommonSetupEvent event) {
-    log.info("{} Recipe Type ...", Constants.LOG_REGISTER_PREFIX);
-    Registry.register(Registry.RECIPE_TYPE, Constants.COIN_PRESS_RECIPE_ID,
-        new RecipeType<CoinPressRecipe>() {
-          public String toString() {
-            return Constants.COIN_PRESS;
-          }
-        });
-  }
 }

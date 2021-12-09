@@ -36,6 +36,7 @@ public class SteelCoinItem extends CoinItem {
   @SubscribeEvent
   public static void onServerAboutToStartEvent(ServerAboutToStartEvent event) {
     coinValue = COMMON.steelTokenCoinValue.get();
+    log.info("🪙 Steel Token Coins has a value of {}", coinValue);
   }
 
   public SteelCoinItem() {

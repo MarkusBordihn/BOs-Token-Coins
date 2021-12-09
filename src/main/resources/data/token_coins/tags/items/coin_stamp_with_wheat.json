@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "token_coins:copper_coin_stamp_with_wheat",
+    "token_coins:gold_coin_stamp_with_wheat",
+    "token_coins:iron_coin_stamp_with_wheat",
+    "token_coins:steel_coin_stamp_with_wheat",
+    "token_coins:netherite_coin_stamp_with_wheat"
+  ]
+}

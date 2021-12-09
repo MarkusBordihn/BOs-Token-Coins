@@ -36,6 +36,7 @@ public class GoldCoinItem extends CoinItem {
   @SubscribeEvent
   public static void onServerAboutToStartEvent(ServerAboutToStartEvent event) {
     coinValue = COMMON.goldTokenCoinValue.get();
+    log.info("🪙 Gold Token Coins has a value of {}", coinValue);
   }
 
   public GoldCoinItem() {

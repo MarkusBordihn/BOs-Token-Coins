@@ -36,6 +36,7 @@ public class CopperCoinItem extends CoinItem {
   @SubscribeEvent
   public static void onServerAboutToStartEvent(ServerAboutToStartEvent event) {
     coinValue = COMMON.copperTokenCoinValue.get();
+    log.info("🪙 Copper Token Coins has a value of {}", coinValue);
   }
 
   public CopperCoinItem() {

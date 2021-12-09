@@ -1,0 +1,25 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": ["token_coins:gold_coin_stamp_from_gold_rod_half_size_and_gold_nugget"]
+  },
+  "criteria": {
+    "has_gold_rod": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["material_elements:gold_rod_half_size"]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "token_coins:gold_coin_stamp_from_gold_rod_half_size_and_gold_nugget"
+      }
+    }
+  },
+  "requirements": [["has_gold_rod", "has_the_recipe"]]
+}

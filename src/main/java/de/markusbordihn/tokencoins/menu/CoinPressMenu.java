@@ -34,7 +34,9 @@ import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
+
 import net.minecraftforge.registries.ObjectHolder;
+
 import de.markusbordihn.tokencoins.Constants;
 import de.markusbordihn.tokencoins.item.coinstamp.CoinStampItem;
 

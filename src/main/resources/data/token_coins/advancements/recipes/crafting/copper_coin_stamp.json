@@ -1,0 +1,25 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": ["token_coins:copper_coin_stamp_from_copper_rod_half_size_and_copper_nugget"]
+  },
+  "criteria": {
+    "has_copper_rod": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["material_elements:copper_rod_half_size"]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "token_coins:copper_coin_stamp_from_copper_rod_half_size_and_copper_nugget"
+      }
+    }
+  },
+  "requirements": [["has_copper_rod", "has_the_recipe"]]
+}

@@ -5,36 +5,12 @@
   },
   "stamp_top": [
     {
-      "item": "token_coins:copper_coin_stamp_with_dragon"
-    },
-    {
-      "item": "token_coins:gold_coin_stamp_with_dragon"
-    },
-    {
-      "item": "token_coins:iron_coin_stamp_with_dragon"
-    },
-    {
-      "item": "token_coins:steel_coin_stamp_with_dragon"
-    },
-    {
-      "item": "token_coins:netherite_coin_stamp_with_dragon"
+      "tag": "token_coins:coin_stamp_with_dragon"
     }
   ],
   "stamp_bottom": [
     {
-      "item": "token_coins:copper_coin_stamp_with_dragon"
-    },
-    {
-      "item": "token_coins:gold_coin_stamp_with_dragon"
-    },
-    {
-      "item": "token_coins:iron_coin_stamp_with_dragon"
-    },
-    {
-      "item": "token_coins:steel_coin_stamp_with_dragon"
-    },
-    {
-      "item": "token_coins:netherite_coin_stamp_with_dragon"
+      "tag": "token_coins:coin_stamp_with_dragon"
     }
   ],
   "result": "token_coins:cookie_token_coin_with_dragon",

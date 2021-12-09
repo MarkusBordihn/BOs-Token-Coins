@@ -36,6 +36,7 @@ public class IronCoinItem extends CoinItem {
   @SubscribeEvent
   public static void onServerAboutToStartEvent(ServerAboutToStartEvent event) {
     coinValue = COMMON.ironTokenCoinValue.get();
+    log.info("🪙 Iron Token Coins has a value of {}", coinValue);
   }
 
   public IronCoinItem() {

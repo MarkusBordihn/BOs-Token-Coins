@@ -2,11 +2,11 @@
 	"credit": "Made with Blockbench by Markus Bordihn",
 	"texture_size": [64, 32],
 	"textures": {
+		"particle": "token_coins:block/piggy_bank/lumpi_texture",
 		"motive": "token_coins:block/piggy_bank/lumpi_texture",
 		"coin_slot": "token_coins:block/piggy_bank/piggy_bank_slot",
 		"coin_up": "token_coins:item/coins/copper_token_coin",
-		"coin_down": "token_coins:item/coins/gold_token_coin",
-		"particle": "token_coins:block/piggy_bank/lumpi_texture"
+		"coin_down": "token_coins:item/coins/gold_token_coin"
 	},
 	"elements": [
 		{
@@ -248,12 +248,6 @@
 			"origin": [8, 8, 8],
 			"color": 0,
 			"children": [14]
-		},
-		{
-			"name": "VoxelShapes",
-			"origin": [8, 8, 8],
-			"color": 0,
-			"children": []
 		}
 	]
 }

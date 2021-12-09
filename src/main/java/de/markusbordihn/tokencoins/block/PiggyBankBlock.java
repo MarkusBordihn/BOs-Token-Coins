@@ -67,7 +67,6 @@ import de.markusbordihn.tokencoins.Constants;
 import de.markusbordihn.tokencoins.block.entity.PiggyBankBlockEntity;
 import de.markusbordihn.tokencoins.config.CommonConfig;
 import de.markusbordihn.tokencoins.item.coin.CoinItem;
-import de.markusbordihn.tokencoins.item.coin.CookieCoinItem;
 
 @Mod.EventBusSubscriber
 public class PiggyBankBlock extends BaseEntityBlock

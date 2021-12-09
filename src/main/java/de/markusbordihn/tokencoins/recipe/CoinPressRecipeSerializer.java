@@ -19,6 +19,9 @@
 
 package de.markusbordihn.tokencoins.recipe;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
@@ -31,15 +34,20 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.ShapedRecipe;
+
 import net.minecraftforge.registries.ForgeRegistryEntry;
+
+import de.markusbordihn.tokencoins.Constants;
 
 public class CoinPressRecipeSerializer extends ForgeRegistryEntry<RecipeSerializer<?>>
     implements RecipeSerializer<CoinPressRecipe> {
 
+  public static final Logger log = LogManager.getLogger(Constants.LOG_NAME);
+
   public static final String COOKING_TIME = "cookingtime";
   public static final String COUNT = "count";
   public static final String EXPERIENCE = "experience";
-  public static final String GROUP = "result";
+  public static final String GROUP = "default";
   public static final String INGREDIENT = "ingredient";
   public static final String RESULT = "result";
   public static final String STAMP_BOTTOM = "stamp_bottom";
@@ -50,7 +58,14 @@ public class CoinPressRecipeSerializer extends ForgeRegistryEntry<RecipeSerializ
     for (int i = 0; i < jsonArray.size(); ++i) {
       Ingredient ingredient = Ingredient.fromJson(jsonArray.get(i));
       if (!ingredient.isEmpty()) {
-        nonnulllist.add(ingredient);
+        // Resolve items if we have multiple, like from a "tag" entry.
+        if (ingredient.getItems().length > 1) {
+          for (ItemStack itemStack : ingredient.getItems()) {
+            nonnulllist.add(Ingredient.of(itemStack));
+          }
+        } else {
+          nonnulllist.add(ingredient);
+        }
       }
     }
     return nonnulllist;
@@ -126,21 +141,21 @@ public class CoinPressRecipeSerializer extends ForgeRegistryEntry<RecipeSerializ
     ResourceLocation id = buffer.readResourceLocation();
     String group = buffer.readUtf();
 
-    // Handle Material ingredient
+    // Handle Material ingredient (expect only 1)
     Ingredient ingredient = Ingredient.of(buffer.readItem());
 
-    // Handle Stamp Top ingredient
+    // Handle Stamp Top ingredient (expect 1 or many)
     int stampTopSize = buffer.readVarInt();
     NonNullList<Ingredient> stampTop = NonNullList.withSize(stampTopSize, Ingredient.EMPTY);
     for (int i = 0; i < stampTop.size(); ++i) {
-      stampTop.set(i, Ingredient.of(buffer.readItem()));
+      stampTop.set(i, Ingredient.fromNetwork(buffer));
     }
 
-    // Handle Stamp Bottom ingredient
+    // Handle Stamp Bottom ingredient (expect 1 or many)
     int stampBottomSize = buffer.readVarInt();
     NonNullList<Ingredient> stampBottom = NonNullList.withSize(stampBottomSize, Ingredient.EMPTY);
     for (int i = 0; i < stampBottom.size(); ++i) {
-      stampBottom.set(i, Ingredient.of(buffer.readItem()));
+      stampBottom.set(i, Ingredient.fromNetwork(buffer));
     }
 
     // Handle Results
@@ -157,19 +172,19 @@ public class CoinPressRecipeSerializer extends ForgeRegistryEntry<RecipeSerializ
     buffer.writeResourceLocation(recipe.getId());
     buffer.writeUtf(recipe.getGroup());
 
-    // Handle Material ingredient
+    // Handle Material ingredient items (expect only 1)
     buffer.writeItem(recipe.getIngredient().getItems()[0]);
 
-    // Handle Stamp Top ingredient
+    // Handle Stamp Top ingredient items (expect 1 or many)
     buffer.writeVarInt(recipe.getStampTop().size());
     for (Ingredient ingredient : recipe.getStampTop()) {
-      buffer.writeItem(ingredient.getItems()[0]);
+      ingredient.toNetwork(buffer);
     }
 
-    // Handle Stamp Bottom ingredient
+    // Handle Stamp Bottom ingredient items (expect 1 or many)
     buffer.writeVarInt(recipe.getStampBottom().size());
     for (Ingredient ingredient : recipe.getStampBottom()) {
-      buffer.writeItem(ingredient.getItems()[0]);
+      ingredient.toNetwork(buffer);
     }
 
     // Handle Results

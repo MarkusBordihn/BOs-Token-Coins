@@ -46,6 +46,7 @@ public class CookieCoinItem extends CoinItem {
   @SubscribeEvent
   public static void onServerAboutToStartEvent(ServerAboutToStartEvent event) {
     coinValue = COMMON.cookieTokenCoinValue.get();
+    log.info("🪙 Cookie Token Coins has a value of {}", coinValue);
   }
 
   public CookieCoinItem() {

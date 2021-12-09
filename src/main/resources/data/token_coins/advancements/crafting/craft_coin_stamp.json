@@ -1,0 +1,31 @@
+{
+  "parent": "token_coins:crafting/root",
+  "display": {
+    "icon": {
+      "item": "token_coins:iron_coin_stamp"
+    },
+    "title": {
+      "translate": "advancements.token_coins.crafting.craft_coin_stamp.title"
+    },
+    "description": {
+      "translate": "advancements.token_coins.crafting.craft_coin_stamp.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "coin_stamp": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "token_coins:coin_stamp"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [["coin_stamp"]]
+}

@@ -5,36 +5,12 @@
   },
   "stamp_top": [
     {
-      "item": "token_coins:copper_coin_stamp_with_poppy"
-    },
-    {
-      "item": "token_coins:gold_coin_stamp_with_poppy"
-    },
-    {
-      "item": "token_coins:iron_coin_stamp_with_poppy"
-    },
-    {
-      "item": "token_coins:steel_coin_stamp_with_poppy"
-    },
-    {
-      "item": "token_coins:netherite_coin_stamp_with_poppy"
+      "tag": "token_coins:coin_stamp_with_poppy"
     }
   ],
   "stamp_bottom": [
     {
-      "item": "token_coins:copper_coin_stamp_with_poppy"
-    },
-    {
-      "item": "token_coins:gold_coin_stamp_with_poppy"
-    },
-    {
-      "item": "token_coins:iron_coin_stamp_with_poppy"
-    },
-    {
-      "item": "token_coins:steel_coin_stamp_with_poppy"
-    },
-    {
-      "item": "token_coins:netherite_coin_stamp_with_poppy"
+      "tag": "token_coins:coin_stamp_with_poppy"
     }
   ],
   "result": "token_coins:netherite_token_coin_with_poppy",
