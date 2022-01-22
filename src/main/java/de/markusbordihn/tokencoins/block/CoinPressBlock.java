@@ -90,9 +90,8 @@ public class CoinPressBlock extends BaseEntityBlock {
   }
 
   protected void openContainer(Level level, BlockPos blockPos, Player player) {
-    BlockEntity blockEntity = level.getBlockEntity(blockPos);
-    if (blockEntity instanceof CoinPressBlockEntity furnace) {
-      player.openMenu(furnace);
+    if (level.getBlockEntity(blockPos) instanceof CoinPressBlockEntity coinPress) {
+      player.openMenu(coinPress);
     }
   }
 
@@ -135,11 +134,11 @@ public class CoinPressBlock extends BaseEntityBlock {
 
   @Override
   @SuppressWarnings("deprecation")
-  public void onRemove(BlockState blockState, Level level, BlockPos blockPos, BlockState blockState2,
-      boolean flag) {
+  public void onRemove(BlockState blockState, Level level, BlockPos blockPos,
+      BlockState blockState2, boolean flag) {
     if (!blockState.is(blockState2.getBlock())) {
-      BlockEntity blockentity = level.getBlockEntity(blockPos);
-      if (blockentity instanceof CoinPressBlockEntity coinPressBlockEntity) {
+      BlockEntity blockEntity = level.getBlockEntity(blockPos);
+      if (blockEntity instanceof CoinPressBlockEntity coinPressBlockEntity) {
         if (level instanceof ServerLevel) {
           Containers.dropContents(level, blockPos, coinPressBlockEntity);
         }

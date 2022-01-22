@@ -26,6 +26,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.RegistryObject;
 
+import de.markusbordihn.tokencoins.Constants;
 import de.markusbordihn.tokencoins.item.TokenCoinType;
 
 @Mod.EventBusSubscriber
@@ -54,6 +55,11 @@ public class SteelCoinItem extends CoinItem {
   @Override
   public int getValue() {
     return coinValue;
+  }
+
+  @Override
+  public String getCoinDescription() {
+    return Constants.TEXT_PREFIX + "steel_coin_description";
   }
 
 }

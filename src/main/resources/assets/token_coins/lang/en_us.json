@@ -10,6 +10,17 @@
 
   "text.token_coins.coin_press": "Coin Press",
   "text.token_coins.coin_value": "Value: %1$s",
+  "text.token_coins.coin_description": "Value: %1$s",
+
+  "text.token_coins.cookie_coin_description": "Cookie token coins are crafted by the best chef and taste delicious, like normal cookies but with an value.",
+  "text.token_coins.copper_coin_description": "Copper token coins are soft, malleable, ductile and is used widely in the coinage.",
+  "text.token_coins.gold_coin_description": "Gold token coins are soft, malleable, ductile and considered as one of the higher atomic number elements.",
+  "text.token_coins.iron_coin_description": "Iron token coins are crafted by the metal from the earth's outer and inner core and crust.",
+  "text.token_coins.netherite_coin_description": "Netherite token coin are crafted by Piglin's in the Nether, they are more powerful and durable than diamonds.",
+  "text.token_coins.steel_coin_description": "Steel token coins are crafted by alchemists and have a improved strength and fracture resistance compared to iron.",
+
+  "text.token_coins.coin_stamp_description": "The coin stamp is used inside a coin press to form a nugget into a coin with/without a motive.",
+
   "text.token_coins.piggy_bank_full": "Seems the \"%1$s\" is full!",
   "text.token_coins.piggy_bank_check_balance": "You take your piggy bank and shake it to check how many you already saved.",
   "text.token_coins.piggy_bank_check_balance_empty": "The piggy bank seems to be empty.",

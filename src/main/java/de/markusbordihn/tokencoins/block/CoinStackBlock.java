@@ -77,13 +77,13 @@ public class CoinStackBlock extends FallingBlock implements TokenCoinCompatible 
         .strength(3.0F, 6.0F).noOcclusion());
     this.registerDefaultState(
         this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(AMOUNT, 1));
-    registryItem = item;
+    this.registryItem = item;
   }
 
   public void setCoinItem(CoinItem coin) {
-    coinItem = coin;
-    coinMaterial = coin.getMaterial();
-    coinMotive = coin.getMotive();
+    this.coinItem = coin;
+    this.coinMaterial = coin.getMaterial();
+    this.coinMotive = coin.getMotive();
   }
 
   public boolean ensureCoinItem() {

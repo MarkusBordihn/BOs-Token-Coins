@@ -128,6 +128,10 @@ public class CoinItem extends Item {
     return coinStackBlock.get();
   }
 
+  public String getCoinDescription() {
+    return null;
+  }
+
   public boolean canPlaceCoinStackBlock() {
     return this.coinStackBlock != null;
   }
@@ -223,6 +227,13 @@ public class CoinItem extends Item {
   @Override
   public void appendHoverText(ItemStack itemStack, @Nullable Level level,
       List<Component> tooltipList, TooltipFlag tooltipFlag) {
+
+    // Show token coin description, if available.
+    if (!getCoinDescription().isBlank()) {
+      tooltipList.add(new TranslatableComponent(getCoinDescription()));
+    }
+
+    // Show token coin value
     tooltipList.add(new TranslatableComponent(Constants.TEXT_PREFIX + "coin_value", getValue())
         .withStyle(ChatFormatting.YELLOW));
   }

@@ -26,6 +26,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.RegistryObject;
 import net.minecraftforge.event.server.ServerAboutToStartEvent;
 
+import de.markusbordihn.tokencoins.Constants;
 import de.markusbordihn.tokencoins.item.TokenCoinType;
 
 @Mod.EventBusSubscriber
@@ -54,6 +55,11 @@ public class GoldCoinItem extends CoinItem {
   @Override
   public int getValue() {
     return coinValue;
+  }
+
+  @Override
+  public String getCoinDescription() {
+    return Constants.TEXT_PREFIX + "gold_coin_description";
   }
 
 }

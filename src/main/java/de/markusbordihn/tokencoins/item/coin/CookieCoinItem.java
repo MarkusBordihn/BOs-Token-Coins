@@ -19,16 +19,9 @@
 
 package de.markusbordihn.tokencoins.item.coin;
 
-import java.util.List;
-import javax.annotation.Nullable;
-
-import net.minecraft.network.chat.Component;
 import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -37,6 +30,7 @@ import net.minecraftforge.registries.RegistryObject;
 import net.minecraftforge.event.server.ServerAboutToStartEvent;
 
 import de.markusbordihn.tokencoins.item.TokenCoinType;
+import de.markusbordihn.tokencoins.Constants;
 
 @Mod.EventBusSubscriber
 public class CookieCoinItem extends CoinItem {
@@ -70,9 +64,8 @@ public class CookieCoinItem extends CoinItem {
   }
 
   @Override
-  public void appendHoverText(ItemStack itemStack, @Nullable Level level,
-      List<Component> tooltipList, TooltipFlag tooltipFlag) {
-    // No hover text needed.
+  public String getCoinDescription() {
+    return Constants.TEXT_PREFIX + "cookie_coin_description";
   }
 
 }

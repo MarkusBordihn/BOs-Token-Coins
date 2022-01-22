@@ -49,14 +49,14 @@ public class CoinPressScreen extends AbstractContainerScreen<CoinPressMenu> {
 	}
 
 	@Override
-	public void render(PoseStack poseStack, int p_97859_, int p_97860_, float p_97861_) {
+	public void render(PoseStack poseStack, int x, int y, float partialTicks) {
 		this.renderBackground(poseStack);
-		super.render(poseStack, p_97859_, p_97860_, p_97861_);
-		this.renderTooltip(poseStack, p_97859_, p_97860_);
+		super.render(poseStack, x, y, partialTicks);
+		this.renderTooltip(poseStack, x, y);
 	}
 
 	@Override
-	protected void renderBg(PoseStack poseStack, float p_97854_, int p_97855_, int p_97856_) {
+	protected void renderBg(PoseStack poseStack, float partialTicks, int mouseX, int mouseY) {
 		RenderSystem.setShader(GameRenderer::getPositionTexShader);
 		RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
 		RenderSystem.setShaderTexture(0, TEXTURE);

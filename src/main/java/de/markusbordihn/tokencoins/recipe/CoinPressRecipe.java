@@ -32,7 +32,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.AbstractCookingRecipe;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
-import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 
 import net.minecraftforge.event.server.ServerAboutToStartEvent;
@@ -146,7 +145,7 @@ public class CoinPressRecipe extends AbstractCookingRecipe {
     return ingredientItem.getItem().getRegistryName().toString() + "::"
         + stampTopItem.getItem().getRegistryName().toString() + "::"
         + stampBottomItem.getItem().getRegistryName().toString();
-  };
+  }
 
   public static Collection<CoinPressRecipe> getAllRecipes(Level level) {
     return level.getRecipeManager().getAllRecipesFor(Constants.COIN_PRESS_RECIPE_TYPE);

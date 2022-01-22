@@ -19,9 +19,17 @@
 
 package de.markusbordihn.tokencoins.item.coinstamp;
 
+import java.util.List;
+import javax.annotation.Nullable;
+
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.level.Level;
 
+import de.markusbordihn.tokencoins.Constants;
 import de.markusbordihn.tokencoins.item.TokenCoinType;
 import de.markusbordihn.tokencoins.tabs.TokenCoinsTab;
 
@@ -83,6 +91,12 @@ public class CoinStampItem extends Item {
       return coinStamp.getStampMaterial() == coinStampMaterial.getStampMaterial();
     }
     return false;
+  }
+
+  @Override
+  public void appendHoverText(ItemStack itemStack, @Nullable Level level,
+      List<Component> tooltipList, TooltipFlag tooltipFlag) {
+    tooltipList.add(new TranslatableComponent(Constants.TEXT_PREFIX + "coin_stamp_description"));
   }
 
 }
