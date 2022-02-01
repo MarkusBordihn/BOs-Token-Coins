@@ -23,8 +23,6 @@ Requires:
 
 - [Bo's Material and Elements][material-elements]
 
-🚀 Visit https://markusbordihn.github.io/BOs-Token-Coins/ for a detailed overview.
-
 ## Version Status Overview 🛠️
 
 | Version        | Status                |
