@@ -38,7 +38,6 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 
@@ -200,7 +199,7 @@ public class CoinItem extends Item {
       BlockPos blockPosAbove = blockPos.above();
       BlockState blockStateBlockAbove = level.getBlockState(blockPosAbove);
       BlockState blockStateBlockBelow = level.getBlockState(blockPos.below());
-      if (blockStateBlockAbove.is(Blocks.AIR)
+      if (blockStateBlockAbove.isAir()
           && !(blockStateBlockBelow.getBlock() instanceof CoinStackBlock)) {
         // Make sure we are on server and that there is a known coin stack block.
         if (!level.isClientSide && coinStackBlock != null) {
