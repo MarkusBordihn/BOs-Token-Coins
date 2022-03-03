@@ -21,7 +21,7 @@ package de.markusbordihn.tokencoins.tags;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
-import net.minecraft.tags.Tag;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 
 import de.markusbordihn.tokencoins.Constants;
@@ -31,22 +31,22 @@ public class ModItemTags {
   protected ModItemTags() {}
 
   // Token Coin Tags
-  public static final Tag.Named<Item> tokenCoinBlank =
-      ItemTags.bind(new ResourceLocation(Constants.MOD_ID, "token_coin_blank").toString());
-  public static final Tag.Named<Item> tokenCoinWithCreeper =
-      ItemTags.bind(new ResourceLocation(Constants.MOD_ID, "token_coin_with_creeper").toString());
-  public static final Tag.Named<Item> tokenCoinWithDragon =
-      ItemTags.bind(new ResourceLocation(Constants.MOD_ID, "token_coin_with_dragon").toString());
-  public static final Tag.Named<Item> tokenCoinWithLeKoopa =
-      ItemTags.bind(new ResourceLocation(Constants.MOD_ID, "token_coin_with_lekoopa").toString());
-  public static final Tag.Named<Item> tokenCoinWithPoppy =
-      ItemTags.bind(new ResourceLocation(Constants.MOD_ID, "token_coin_with_poppy").toString());
-  public static final Tag.Named<Item> tokenCoinWithSkeleton =
-      ItemTags.bind(new ResourceLocation(Constants.MOD_ID, "token_coin_with_skeleton").toString());
-  public static final Tag.Named<Item> tokenCoinWithWheat =
-      ItemTags.bind(new ResourceLocation(Constants.MOD_ID, "token_coin_with_wheat").toString());
-  public static final Tag.Named<Item> tokenCoinWithWither =
-      ItemTags.bind(new ResourceLocation(Constants.MOD_ID, "token_coin_with_wither").toString());
-  public static final Tag.Named<Item> tokenCoinWithZombie =
-      ItemTags.bind(new ResourceLocation(Constants.MOD_ID, "token_coin_with_zombie").toString());
+  public static final TagKey<Item> tokenCoinBlank =
+      ItemTags.create(new ResourceLocation(Constants.MOD_ID, "token_coin_blank"));
+  public static final TagKey<Item> tokenCoinWithCreeper =
+      ItemTags.create(new ResourceLocation(Constants.MOD_ID, "token_coin_with_creeper"));
+  public static final TagKey<Item> tokenCoinWithDragon =
+      ItemTags.create(new ResourceLocation(Constants.MOD_ID, "token_coin_with_dragon"));
+  public static final TagKey<Item> tokenCoinWithLeKoopa =
+      ItemTags.create(new ResourceLocation(Constants.MOD_ID, "token_coin_with_lekoopa"));
+  public static final TagKey<Item> tokenCoinWithPoppy =
+      ItemTags.create(new ResourceLocation(Constants.MOD_ID, "token_coin_with_poppy"));
+  public static final TagKey<Item> tokenCoinWithSkeleton =
+      ItemTags.create(new ResourceLocation(Constants.MOD_ID, "token_coin_with_skeleton"));
+  public static final TagKey<Item> tokenCoinWithWheat =
+      ItemTags.create(new ResourceLocation(Constants.MOD_ID, "token_coin_with_wheat"));
+  public static final TagKey<Item> tokenCoinWithWither =
+      ItemTags.create(new ResourceLocation(Constants.MOD_ID, "token_coin_with_wither"));
+  public static final TagKey<Item> tokenCoinWithZombie =
+      ItemTags.create(new ResourceLocation(Constants.MOD_ID, "token_coin_with_zombie"));
 }
